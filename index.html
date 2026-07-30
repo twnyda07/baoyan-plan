@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寶嚴禪寺 2026 總體規劃｜台東都蘭・山海之間的華嚴聖殿</title>
+<meta name="description" content="寶嚴山寶嚴禪寺 2026 總體規劃書導覽——台東東河、背倚都蘭山脈面向太平洋，地下一層地上五層的建築樓層規劃、八大殿堂空間、六藝學院與計畫期程。">
+<style>
+:root{
+  --by-blue-deep:#081D3F;
+  --by-blue:#0F2E63;
+  --by-blue-mid:#1A4187;
+  --by-blue-light:#2E5CB8;
+  --by-sky:#8FB4E8;
+  --by-gold:#D4AF6A;
+  --by-gold-bright:#F0CE8C;
+  --by-ivory:#F4EFE4;
+  --by-white:#FDFCF8;
+  /* 四大分區——沿用規劃書原圖配色 */
+  --z-sacred:#E9A97B;
+  --z-college:#8FBEDF;
+  --z-welcome:#A5C99C;
+  --z-visitor:#DFD08A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  background:var(--by-blue-deep);
+  color:var(--by-ivory);
+  line-height:1.85;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+.bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(46,92,184,.30), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 110%, rgba(212,175,106,.10), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 8% 55%, rgba(26,65,135,.22), transparent 65%);
+}
+main{position:relative;z-index:1}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+/* ===== 導覽列 ===== */
+nav{position:sticky;top:0;z-index:50;background:rgba(8,29,63,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(212,175,106,.22)}
+nav .wrap{display:flex;align-items:center;gap:6px;height:56px;overflow-x:auto;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav .brand{font-weight:700;color:var(--by-gold);white-space:nowrap;margin-right:14px;letter-spacing:.06em}
+nav a{color:var(--by-ivory);text-decoration:none;font-size:.92rem;white-space:nowrap;
+  padding:6px 11px;border-radius:999px;opacity:.82;transition:.25s}
+nav a:hover{background:rgba(212,175,106,.16);opacity:1;color:var(--by-gold-bright)}
+nav a.key{border:1px solid rgba(212,175,106,.5);opacity:1}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;padding:70px 20px 80px;overflow:hidden}
+.hero-img{position:absolute;inset:0;z-index:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.62;filter:saturate(.92)}
+.hero-img::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(8,29,63,.72) 0%,rgba(8,29,63,.42) 42%,rgba(8,29,63,.94) 100%)}
+.hero-in{position:relative;z-index:1;max-width:800px}
+.hero .eyebrow{color:var(--by-gold);letter-spacing:.42em;font-size:.82rem;margin-bottom:22px}
+.hero h1{font-size:clamp(2.3rem,6.4vw,4.1rem);line-height:1.28;letter-spacing:.05em;
+  color:var(--by-white);text-shadow:0 2px 30px rgba(0,0,0,.5)}
+.hero h1 small{display:block;font-size:clamp(.9rem,2.2vw,1.15rem);letter-spacing:.3em;
+  color:var(--by-sky);margin-top:16px;font-weight:400}
+.hero .lead{margin-top:26px;font-size:clamp(1rem,2.4vw,1.2rem);color:var(--by-ivory);opacity:.94}
+.hero .rule{width:64px;height:1px;background:var(--by-gold);margin:30px auto}
+.hero .stamp{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:6px}
+.hero .stamp span{border:1px solid rgba(212,175,106,.45);border-radius:999px;
+  padding:6px 16px;font-size:.86rem;color:var(--by-gold-bright);background:rgba(8,29,63,.4)}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:1;
+  color:var(--by-sky);font-size:.78rem;letter-spacing:.2em;opacity:.7;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+/* ===== 區段 ===== */
+section{padding:86px 0}
+section.alt{background:rgba(15,46,99,.34);border-top:1px solid rgba(212,175,106,.14);
+  border-bottom:1px solid rgba(212,175,106,.14)}
+.shead{text-align:center;margin-bottom:52px}
+.shead .kicker{color:var(--by-gold);letter-spacing:.3em;font-size:.78rem;margin-bottom:14px}
+.shead h2{font-size:clamp(1.6rem,4.2vw,2.5rem);letter-spacing:.06em;color:var(--by-white)}
+.shead p{margin-top:16px;color:var(--by-sky);max-width:660px;margin-left:auto;margin-right:auto;font-size:1.02rem}
+
+/* ===== 卡片 ===== */
+.grid{display:grid;gap:22px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.card{background:rgba(15,46,99,.42);border:1px solid rgba(143,180,232,.2);border-radius:14px;
+  padding:26px 24px;transition:.3s}
+.card:hover{border-color:rgba(212,175,106,.45);transform:translateY(-3px);background:rgba(15,46,99,.58)}
+.card h3{color:var(--by-gold-bright);font-size:1.12rem;margin-bottom:12px;letter-spacing:.04em}
+.card p{font-size:.97rem;opacity:.92}
+.card .num{font-size:1.9rem;color:var(--by-gold);letter-spacing:.02em;display:block;margin-bottom:4px}
+
+/* ===== 事實表 ===== */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;
+  background:rgba(143,180,232,.18);border:1px solid rgba(143,180,232,.18);border-radius:14px;overflow:hidden}
+.facts div{background:var(--by-blue-deep);padding:22px 20px}
+.facts dt{color:var(--by-sky);font-size:.82rem;letter-spacing:.14em;margin-bottom:8px}
+.facts dd{font-size:1.04rem;color:var(--by-white)}
+
+/* ===== 樓層探索器 ===== */
+.floorbox{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:34px;align-items:start}
+@media(max-width:860px){.floorbox{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column;gap:10px}
+.fl{width:100%;text-align:left;cursor:pointer;border:1px solid rgba(143,180,232,.26);
+  background:rgba(15,46,99,.4);color:var(--by-ivory);border-radius:12px;padding:14px 18px;
+  font-family:inherit;font-size:1rem;display:flex;align-items:center;gap:14px;transition:.25s}
+.fl:hover{border-color:rgba(212,175,106,.5);background:rgba(15,46,99,.65)}
+.fl.on{border-color:var(--by-gold);background:linear-gradient(90deg,rgba(212,175,106,.2),rgba(15,46,99,.5));
+  box-shadow:0 0 0 1px rgba(212,175,106,.35)}
+.fl .lv{font-size:1.35rem;color:var(--by-gold-bright);min-width:52px;letter-spacing:.02em}
+.fl .nm{font-size:.94rem;opacity:.9;line-height:1.5}
+.fl .bar{display:flex;gap:3px;margin-left:auto}
+.fl .bar i{width:11px;height:26px;border-radius:3px;display:block}
+.detail{background:rgba(15,46,99,.42);border:1px solid rgba(143,180,232,.22);border-radius:16px;padding:30px 28px;min-height:340px}
+.detail .dh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.detail .dh b{font-size:2.2rem;color:var(--by-gold-bright);letter-spacing:.02em}
+.detail .dh span{color:var(--by-sky);font-size:.95rem}
+.detail .note{color:var(--by-sky);font-size:.92rem;margin-bottom:22px;padding-bottom:18px;
+  border-bottom:1px solid rgba(143,180,232,.18)}
+.zone{margin-bottom:22px}
+.zone .zt{display:flex;align-items:center;gap:9px;font-size:1rem;margin-bottom:10px;color:var(--by-white)}
+.zone .zt i{width:13px;height:13px;border-radius:3px;flex:none}
+.zone ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.zone li{background:rgba(8,29,63,.7);border:1px solid rgba(143,180,232,.24);border-radius:8px;
+  padding:7px 13px;font-size:.94rem}
+.zone .tag{display:inline-block;margin-top:9px;font-size:.88rem;color:var(--by-gold-bright);
+  background:rgba(212,175,106,.13);border:1px dashed rgba(212,175,106,.4);border-radius:8px;padding:6px 12px}
+.legend{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:34px}
+.legend span{display:flex;align-items:center;gap:8px;font-size:.92rem;color:var(--by-ivory)}
+.legend i{width:15px;height:15px;border-radius:4px;display:block}
+
+/* ===== 圖片區塊 ===== */
+.figure{margin-top:44px;border:1px solid rgba(143,180,232,.22);border-radius:16px;overflow:hidden;background:#fff}
+.figure img{width:100%}
+.figcap{background:rgba(15,46,99,.6);color:var(--by-sky);font-size:.88rem;padding:12px 18px;text-align:center}
+
+/* ===== 殿堂 ===== */
+.hall{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;
+  border:1px solid rgba(143,180,232,.2);border-radius:16px;overflow:hidden;margin-bottom:26px;
+  background:rgba(15,46,99,.35)}
+.hall:nth-child(even) .himg{order:2}
+@media(max-width:800px){.hall{grid-template-columns:1fr}.hall:nth-child(even) .himg{order:0}}
+.himg{position:relative;min-height:240px;background:#0b2249}
+.himg img{width:100%;height:100%;object-fit:cover;min-height:240px}
+.htxt{padding:32px 30px}
+.htxt .n{color:var(--by-gold);letter-spacing:.24em;font-size:.76rem;margin-bottom:10px}
+.htxt h3{font-size:1.4rem;color:var(--by-white);margin-bottom:6px;letter-spacing:.04em}
+.htxt .sub{color:var(--by-sky);font-size:.92rem;margin-bottom:14px}
+.htxt p{font-size:.97rem;opacity:.93}
+.htxt .meta{margin-top:16px;font-size:.9rem;color:var(--by-gold-bright)}
+
+/* ===== 時間軸 ===== */
+.tl{position:relative;padding-left:34px;max-width:760px;margin:0 auto}
+.tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(180deg,var(--by-gold),rgba(212,175,106,.15))}
+.tl .it{position:relative;padding-bottom:30px}
+.tl .it::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;
+  background:var(--by-blue-deep);border:2px solid var(--by-gold)}
+.tl .it.big::before{background:var(--by-gold);box-shadow:0 0 0 5px rgba(212,175,106,.22)}
+.tl .w{color:var(--by-gold-bright);font-size:1rem;letter-spacing:.06em}
+.tl .t{font-size:.98rem;opacity:.92;margin-top:3px}
+
+/* ===== 六藝 ===== */
+.six{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
+.six .s{background:rgba(15,46,99,.42);border:1px solid rgba(143,180,232,.22);border-radius:14px;
+  padding:24px 20px;text-align:center;transition:.3s}
+.six .s:hover{border-color:var(--by-gold);transform:translateY(-3px)}
+.six .s b{display:block;font-size:2.1rem;color:var(--by-gold);margin-bottom:6px}
+.six .s h4{font-size:1.05rem;color:var(--by-white);margin-bottom:8px}
+.six .s p{font-size:.88rem;color:var(--by-sky);line-height:1.6}
+
+/* ===== 護持 ===== */
+.tier{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:8px}
+.tier div{background:rgba(15,46,99,.45);border:1px solid rgba(143,180,232,.22);border-radius:12px;
+  padding:16px;text-align:center}
+.tier b{display:block;color:var(--by-gold-bright);font-size:1.15rem}
+.tier span{font-size:.88rem;color:var(--by-sky)}
+
+/* ===== 頁尾 ===== */
+footer{background:rgba(8,29,63,.96);border-top:1px solid rgba(212,175,106,.24);padding:56px 0 40px;
+  text-align:center;font-size:.92rem}
+footer .contact{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin:20px 0 26px}
+footer .contact a,footer .contact span{color:var(--by-ivory);text-decoration:none;opacity:.88}
+footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.84rem;opacity:.8;
+  border-top:1px solid rgba(143,180,232,.16);padding-top:22px;line-height:1.8}
+/* 動畫僅在 JS 可用時啟用；JS 失效時內容一律可見 */
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">寶嚴山寶嚴禪寺</span>
+    <a href="#about">認識寶嚴</a>
+    <a href="#site">基地環境</a>
+    <a href="#floors" class="key">建築樓層規劃</a>
+    <a href="#halls">殿堂空間</a>
+    <a href="#six">六藝學院</a>
+    <a href="#time">計畫期程</a>
+    <a href="#support">護持</a>
+    <a href="full.html">規劃書全文</a>
+    <a href="pages.html">原書逐頁</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-img"><img src="img/crop/hero.jpg" alt="寶嚴禪寺建築模擬示意圖"></div>
+  <div class="hero-in">
+    <div class="eyebrow">BAOYAN CHAN MONASTERY</div>
+    <h1>山海之間<br>一座華嚴聖殿
+      <small>台東・都蘭山下　2026 總體規劃</small>
+    </h1>
+    <div class="rule"></div>
+    <p class="lead">背倚海岸山脈，面向太平洋。<br>一座實踐百丈家風的禪宗叢林道場，一座兼具現代感與古樸氛韻的藝術聖殿。</p>
+    <div class="stamp">
+      <span>基地 9,700.59 m²</span>
+      <span>地下 1 層・地上 5 層</span>
+      <span>動土大典 2026.12.26</span>
+    </div>
+  </div>
+  <div class="scroll-hint">向下捲動</div>
+</header>
+
+<!-- 認識寶嚴 -->
+<section id="about">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="kicker">ABOUT</div>
+      <h2>三分鐘認識寶嚴禪寺</h2>
+      <p>「寶」，佛寶、法寶、僧寶；「嚴」，以般若為體、華嚴為相、楞嚴為用，圓成依報嚴、正報嚴與眷屬嚴。</p>
+    </div>
+    <div class="grid g3">
+      <div class="card reveal">
+        <h3>它是什麼？</h3>
+        <p>一座正在台東興建的禪宗叢林道場。設計理念依據《華嚴經》、《楞嚴經》與《金剛經》，融合「自然」、「文化」、「藝術」、「教育」的多元修行樣態，是僧團安僧立命之所，也是社會大眾全家宜往宜居的生態社區。</p>
+      </div>
+      <div class="card reveal">
+        <h3>它在哪裡？</h3>
+        <p>台東縣東河鄉，蘊藏藍寶石的都蘭山腳下平原。基地「離山1公里，離海1公里」，背倚千尺高山海岸山脈，面向太平洋無遮障之蜿蜒海岸線。距台東市區 26 公里，鄰台11線花東海岸公路。</p>
+      </div>
+      <div class="card reveal">
+        <h3>誰在做？</h3>
+        <p>總住持傳塵大和尚、宗務長見輝法師領眾發起。建築總規劃為<b>竹間聯合建築師事務所</b>——主持人建築家簡學義，第24屆國家文藝獎得主，代表作有鶯歌陶瓷博物館、國立台灣歷史博物館、台大人文館。營造由威毅營造承擔。</p>
+      </div>
+      <div class="card reveal">
+        <h3>為什麼要蓋？</h3>
+        <p>從 2011 年圓道禪院成立推廣經典課程開始，全球持誦《華嚴經》迄今不間斷、供養近 35 萬套，弘法行跡遍及北美、歐洲、澳洲與東南亞。寶嚴禪寺是這份願行落地生根的家——「讓遊子歸鄉、讓心安住」。</p>
+      </div>
+      <div class="card reveal">
+        <h3>不只是一座寺</h3>
+        <p>規劃書定位它為推動 ESG 的<b>國際學習資源中心</b>：申請美國 LEED 綠建築認證、導入能源 AI 管理平台與無風 PDV 節能空調；以六藝學院邀請全球專家駐村，打造 0 到 100 歲全齡適性的覺性教育。</p>
+      </div>
+      <div class="card reveal">
+        <h3>什麼時候？</h3>
+        <p>2021–2024 陸續購置土地，2024 委任建築設計，2026 年 4 月 28 日通過興辦事業計畫，<b>2026 年 12 月 26 日舉行動土大典</b>。工程分兩階段：先建神聖殿堂，再引進國際學習資源中心與人才進駐。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 基地 -->
+<section id="site" class="alt">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="kicker">THE SITE</div>
+      <h2>基地與自然環境</h2>
+      <p>台東純淨無染的天與地。這片土地的風、水、山、海，能使禪修者的見聞覺知當下滌慮、歇息。</p>
+    </div>
+
+    <dl class="facts reveal">
+      <div><dt>位置</dt><dd>台東縣東河鄉南佳里段</dd></div>
+      <div><dt>地號</dt><dd>761、762、787-1、787-5　共 4 筆</dd></div>
+      <div><dt>第一期基地面積</dt><dd>9,700.59 m²</dd></div>
+      <div><dt>使用分區</dt><dd>風景區・特定目的事業用地（宗教使用）</dd></div>
+      <div><dt>地貌</dt><dd>離山 1 公里，離海 1 公里</dd></div>
+      <div><dt>對外交通</dt><dd>南側入口臨東41線，鄰台11線</dd></div>
+    </dl>
+
+    <div class="figure reveal">
+      <img src="img/crop/site.jpg" alt="寶嚴禪寺基地空拍圖">
+      <div class="figcap">寶嚴禪寺基地空拍圖　／　規劃書 p.21-22</div>
+    </div>
+
+    <div class="shead reveal" style="margin-top:70px;margin-bottom:30px">
+      <h2 style="font-size:1.4rem">園區五大地塊</h2>
+    </div>
+    <div class="grid g3">
+      <div class="card reveal"><span class="num">1</span><h3>寶嚴禪寺新建工程</h3><p>主體建築所在，即第一期 9,700.59 m² 基地。</p></div>
+      <div class="card reveal"><span class="num">2</span><h3>香草花園及停車場</h3><p>規劃書載明地塊位置與名稱。</p></div>
+      <div class="card reveal"><span class="num">3</span><h3>藝術教育中心</h3><p>規劃書載明地塊位置與名稱。</p></div>
+      <div class="card reveal"><span class="num">4</span><h3>普莊嚴園（百果園）</h3><p>上百棵果樹，提供來訪者採果樂；取名自《華嚴經》善財童子參訪普莊嚴國之典故。</p></div>
+      <div class="card reveal"><span class="num">5</span><h3>閉關中心</h3><p>規劃書載明地塊位置與名稱。</p></div>
+      <div class="card reveal" style="border-style:dashed"><span class="num">＋</span><h3>未來造鎮</h3><p>為因應未來開發生態聚落及造鎮計畫需求，擬再購入週邊土地予以開發利用。</p></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:34px">
+      <div class="figure reveal" style="margin-top:0">
+        <img src="img/crop/dulan.jpg" alt="都蘭山脈">
+        <div class="figcap">都蘭山脈　攝影／威毅營造建築團隊主持人 陸永富</div>
+      </div>
+      <div class="figure reveal" style="margin-top:0">
+        <img src="img/crop/coast.jpg" alt="台灣台東海岸線">
+        <div class="figcap">台灣台東海岸線</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ★ 樓層規劃 ★ -->
+<section id="floors">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="kicker">FLOOR BY FLOOR</div>
+      <h2>建築樓層規劃</h2>
+      <p>主體建築為<b>地下一層、地上五層</b>，全棟依機能劃分為四大系統。愈往高處愈趨向神聖——最頂層 5F 是毗盧遮那藏殿、大雄寶殿與大眾禪堂；愈往低處愈貼近大眾——1F 與 B1F 迎接每一位來訪的客人。點選樓層看該層配置。</p>
+    </div>
+
+    <div class="legend reveal">
+      <span><i style="background:var(--z-sacred)"></i>神聖空間</span>
+      <span><i style="background:var(--z-college)"></i>渡眾空間－佛學院</span>
+      <span><i style="background:var(--z-welcome)"></i>接引空間－行政大樓／副屬空間</span>
+      <span><i style="background:var(--z-visitor)"></i>遊客中心－星海樓</span>
+    </div>
+
+    <div class="floorbox reveal">
+      <div class="stack" id="stack"></div>
+      <div class="detail" id="detail"></div>
+    </div>
+
+    <div class="figure reveal">
+      <img src="img/crop/zones.jpg" alt="寶嚴禪寺量體分區說明圖">
+      <div class="figcap">量體分區說明・規劃書原圖（B1F–5F 分層軸測）　／　規劃書 p.25-26</div>
+    </div>
+
+    <div class="figure reveal">
+      <img src="img/crop/floorplan.jpg" alt="寶嚴禪寺建築平面配置圖">
+      <div class="figcap">建築平面配置圖（樓地板標高 FL +56.5）　／　規劃書 p.39　※ 原圖未印樓層代號，本站研判為 1F</div>
+    </div>
+
+    <div class="card reveal" style="margin-top:26px;border-color:rgba(212,175,106,.45)">
+      <h3>這張平面圖是哪一層？——研判為 1F（地面層／入口層）</h3>
+      <p>規劃書原圖上沒有印樓層代號，只標了樓地板標高 <b>FL +56.5</b>。四項證據都指向 1F：</p>
+      <ul style="margin:14px 0 0;padding-left:1.2em;font-size:.97rem;opacity:.94">
+        <li style="margin-bottom:8px"><b>標高</b>——室內 +56.5 只比南側入口道路 (+55.5) 高約 1 公尺，而基地入口正設於南側臨東41線。地下層或二層以上不會是這個高差。</li>
+        <li style="margin-bottom:8px"><b>機能</b>——大廳、知客室、寄物、義診＋醫護、哺乳室，全是到訪者一進門就會用到的空間。</li>
+        <li style="margin-bottom:8px"><b>房間組成</b>——與量體分區圖 1F 所列「接引空間－行政大樓：辦公室／接待室、演講廳」「遊客中心－星海樓：藝廊／圖書室」「副屬空間：多功能教室」逐項對得上。</li>
+        <li><b>量體形狀</b>——平面呈西側行政帶＋中央大廳／演講廳＋東側多功能教室三翼配置，與 1F 軸測圖的量體輪廓一致。</li>
+      </ul>
+      <p style="margin-top:14px;font-size:.92rem;color:var(--by-sky)">惟量體分區圖 1F 另列有「遊客中心」與「餐廳」，本平面未見，推測星海樓部分未納入此張圖面，或兩圖屬不同版本。此判讀為本站依圖面證據所作，非規劃書原文標示。</p>
+    </div>
+
+    <div class="grid g3" style="margin-top:26px">
+      <div class="card reveal"><h3>這張平面圖上有什麼</h3><p>西側行政帶：智能管理中心、寺務處、法務院辦公室、文化院辦公室、貴賓接待室×2、知客室、茶水間。中央：大廳、演講廳、梯廳（電梯二部＋樓梯）、義診＋醫護、寄物、庫房。</p></div>
+      <div class="card reveal"><h3>北側與東側</h3><p>北側：禪茶坊、禪茶室、活動平台、陽台、露台、哺乳室。東側：多功能教室、戶外平台、圖書藝廊。皆標高 +56.5。</p></div>
+      <div class="card reveal"><h3>數字說明</h3><p>柱軸間距多為 900，中央跨距 2750；建築樓地板標高 +56.5，基地界線周邊標高 +51.3 至 +59。原圖未標註尺寸單位。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 殿堂 -->
+<section id="halls" class="alt">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="kicker">SPACES</div>
+      <h2>殿堂空間設計</h2>
+      <p>八個空間，八種與佛法相遇的方式——從仰望星空的大殿，到讓孩子邊玩邊聽故事的樂園，到一桌禪門公案的宴席。</p>
+    </div>
+
+    <div class="hall reveal">
+      <div class="himg"><img src="img/crop/puguang.jpg" alt="普光明殿"></div>
+      <div class="htxt">
+        <div class="n">第一節</div>
+        <h3>普光明殿（大雄寶殿）</h3>
+        <div class="sub">夜睹明星的金剛智慧</div>
+        <p>華嚴經第二會、文殊菩薩為會主之法堂，是道場的主殿，發菩提心行菩薩道的起點。殿內還原三千年前悉達多太子夜睹明星之星空，牆面隱藏全天 88 個星宿，代表八十八個三千大千世界，為八十八尊佛的化土。</p>
+        <div class="meta">供奉聖像：毗盧遮那佛、八十八佛</div>
+      </div>
+    </div>
+
+    <div class="hall reveal">
+      <div class="himg"><img src="img/crop/pilu.jpg" alt="毗盧遮那藏殿"></div>
+      <div class="htxt">
+        <div class="n">第二節</div>
+        <h3>毗盧遮那藏殿</h3>
+        <div class="sub">因陀羅網菩提心法堂・常年讀誦三藏經典</div>
+        <p>《華嚴經》述其「玻璃為地，琉璃為柱，金剛為壁……百千金鈴出妙音聲」。善財童子在五十三參的最後，於普賢菩薩引導下進入毘盧遮那莊嚴藏大寶樓閣。殿堂中央呈現世界中心須彌山，山頂兜率內院中彌勒菩薩演說妙法。此殿常年恭誦三藏十二部經典。</p>
+        <div class="meta">供奉：思惟彌勒及萬佛</div>
+      </div>
+    </div>
+
+    <div class="hall reveal">
+      <div class="himg"><img src="img/crop/chan.jpg" alt="禪空間"></div>
+      <div class="htxt">
+        <div class="n">第三節</div>
+        <h3>禪・空間</h3>
+        <div class="sub">空中禪堂／禪藝實相人文空間／楞嚴閉關禪堂</div>
+        <p>日，在最高殿堂毗盧遮那藏殿體驗重重無盡的華藏世界；夜，在空中禪堂於靜謐暗空中觀星——此時星空即是三千年前悉達多太子獨坐菩提樹下時所仰觀的同一片星空。禪藝空間提供茶點咖啡、寫經、閱讀、觀海；楞嚴閉關禪堂則依《楞嚴經》設計，讓修行者長年閉關「反聞聞自性」。</p>
+      </div>
+    </div>
+
+    <div class="hall reveal">
+      <div class="himg"><img src="img/crop/bell.jpg" alt="鐘鼓樓與八十華嚴經鐘"></div>
+      <div class="htxt">
+        <div class="n">第四節</div>
+        <h3>鐘鼓樓／八十華嚴經鐘</h3>
+        <div class="sub">鐘聲傳三千界內，佛法揚萬億國中</div>
+        <p>普光明殿左側為鐘鼓樓，周圍環繞<b>八十座</b>恭刻著八十卷華嚴的經鐘。每座鐘的華嚴經文皆為發心者以書法供養，合力完成一部《大方廣佛華嚴經》永久供奉，暮鼓晨鐘，永傳後世。經鐘沿一條由外向內右旋的螺旋步道排列，最內圈中心為一座亭閣。</p>
+      </div>
+    </div>
+
+    <div class="hall reveal">
+      <div class="himg"><img src="img/crop/child.jpg" alt="五十三參展演體驗互動空間"></div>
+      <div class="htxt">
+        <div class="n">第五節</div>
+        <h3>五十三參展演體驗互動空間</h3>
+        <div class="sub">以華嚴經五十三參為本的善財童子行腳</div>
+        <p>運用遊戲化賦能（Gamification）的設計概念，以 XR／AR 擴增實境重新演繹善財童子五十三參的旅程。館內設有圖書中心、餐飲街、兒童遊戲故事館，依五十三參設計遊歷動線；還有繽紛的華嚴冰淇淋、因陀羅網巧克力、吉祥雲棉花糖、香水海思樂冰，讓孩子在品嚐與遊玩中自然接觸佛法。</p>
+        <div class="meta">聽故事、說故事、畫故事——百萬童童建寶嚴</div>
+      </div>
+    </div>
+
+    <div class="hall reveal">
+      <div class="himg"><img src="img/crop/dining.jpg" alt="禪宗公案體驗餐廳"></div>
+      <div class="htxt">
+        <div class="n">第六節</div>
+        <h3>人間有香</h3>
+        <div class="sub">米其林級的禪宗公案體驗餐廳</div>
+        <p>禪宗公案常以日常生活、飲食、行住坐臥來點破心性。訪客在此享受禪門公案宴席：趙州茶、雲門餅、德山棒喝湯、南泉斬貓鍋、六祖舂米飯、香嚴擊竹、石頭路滑、洞山三斤麻、庭前柏樹子……色身飽足、法身禪悅。</p>
+      </div>
+    </div>
+
+    <div class="hall reveal">
+      <div class="himg"><img src="img/crop/luohan.jpg" alt="五百羅漢園區"></div>
+      <div class="htxt">
+        <div class="n">第七節</div>
+        <h3>五百羅漢園區</h3>
+        <div class="sub">與羅漢同行</div>
+        <p>園區內林木蒼翠，羅漢造像形神各異、栩栩如生，以敘事場景還原羅漢修行的生活：佛陀初轉法輪度五比丘、《金剛經》中須菩提問法、《楞嚴經》中阿難與摩登伽女的因緣……漫步其間，遊人得以身歷其境。</p>
+      </div>
+    </div>
+
+    <div class="hall reveal">
+      <div class="himg"><img src="img/crop/garden.jpg" alt="普莊嚴園"></div>
+      <div class="htxt">
+        <div class="n">第八節</div>
+        <h3>普莊嚴園</h3>
+        <div class="sub">百果及香草園區</div>
+        <p>善財童子五十三參中，善財至海潮處普莊嚴國，參詣休捨優婆夷，聽其解說「離憂安隱幢解脫法門」。《華嚴經》記其「一切寶樹行列莊嚴……一切音樂樹，風動成音，其音美妙，過於天樂」。此園有上百棵果樹，提供來訪者採果樂。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 六藝 -->
+<section id="six">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="kicker">SIX ARTS</div>
+      <h2>寶嚴六藝教育學院</h2>
+      <p>以般若為體、華嚴為相、六藝為用。依六根六塵延伸發展，分化出色、聲、香、味、觸、法六大學習型組織，邀請全球專家駐村，讓 0 歲到 100 歲的人都能在此學習。</p>
+    </div>
+    <div class="six">
+      <div class="s reveal"><b>色</b><h4>藝術學院・眼根</h4><p>慈行童女的莊嚴宮殿以琉璃光折射為主題，領悟「色即是空」。駐村：繪畫、雕刻、設計、建築、書法、表演。</p></div>
+      <div class="s reveal"><b>聲</b><h4>音樂學院・耳根</h4><p>善知眾藝童子的音聲法門，在梵音繚繞中感受「聞性」的不生不滅。駐村：音樂、打擊、聲樂、音療。</p></div>
+      <div class="s reveal"><b>香</b><h4>芳香學院・鼻根</h4><p>透過鬻香長者的香，以嗅覺體驗「香光莊嚴」。駐村：芳療、精油、植栽、芬多精。</p></div>
+      <div class="s reveal"><b>味</b><h4>餐飲學院・舌根</h4><p>具足優婆夷的小缽提供素食饗宴，一啜一飲中品味「法味」。駐村：茶道、餐廳、飲品、藥草、糕餅。</p></div>
+      <div class="s reveal"><b>觸</b><h4>健康學院・身根</h4><p>自在主童子以沙土遊戲為入門，在質地變化中覺察「能觸所觸」。駐村：武術、瑜珈、經絡、舞蹈。</p></div>
+      <div class="s reveal"><b>法</b><h4>思辨學院・意根</h4><p>雲端佛學課程所在，現代科技與古老智慧交融之處。駐村：佛學、法學、棋藝、設計、哲學、科學。</p></div>
+    </div>
+
+    <div class="grid g3" style="margin-top:44px">
+      <div class="card reveal"><h3>環境 Environment</h3><p>與 ESG 輔導顧問團隊合作申請美國 LEED 綠建築認證；導入能源 AI 管理平台有效節省空調用電；採用無風 PDV 節能空調系統，邁向淨零碳排。</p></div>
+      <div class="card reveal"><h3>社會 Social</h3><p>以教育結合專家駐村打造國際學習中心，與在地農家、商家合作，運用當地食材與交通資源，以道場運作能量深耕台東，與社區同體共榮。</p></div>
+      <div class="card reveal"><h3>治理 Governance</h3><p>學習、修行、園區管理與數位資產統一納入數位營運平台，支持可追蹤、可問責的經營決策；以佛陀「六和敬」作為營運團隊的指導方針。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 期程 -->
+<section id="time" class="alt">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="kicker">TIMELINE</div>
+      <h2>計畫推動期程</h2>
+    </div>
+    <div class="tl">
+      <div class="it reveal"><div class="w">2021 – 2024</div><div class="t">陸續購置土地：台東縣東河鄉南佳里段地號 761、762、787-1、787-5，共計開發面積 9,700.59 m²</div></div>
+      <div class="it reveal"><div class="w">2023 – 2024</div><div class="t">申請土地變更、地層鑽探取樣確認</div></div>
+      <div class="it reveal"><div class="w">2024</div><div class="t">委任建築設計</div></div>
+      <div class="it reveal"><div class="w">2025.03 – 09</div><div class="t">建築結構討論會議、台東縣府溝通會議</div></div>
+      <div class="it reveal"><div class="w">2025.09</div><div class="t">申請「興辦事業計劃書」變更</div></div>
+      <div class="it reveal big"><div class="w">2026.04.28</div><div class="t">通過興辦事業計畫</div></div>
+      <div class="it reveal big"><div class="w">2026.12.26</div><div class="t"><b>寶嚴山寶嚴禪寺動土大典</b>——萬眾一心，千鏟立基</div></div>
+      <div class="it reveal"><div class="w">第一階段</div><div class="t">建設神聖殿堂：普光明殿（大雄寶殿）、楞嚴禪堂、毗盧遮那藏殿、國際佛學研修院、空中禪堂（遊客中心）、僧眾閉關房等主體結構，並完善周邊景觀與系統</div></div>
+      <div class="it reveal"><div class="w">第二階段</div><div class="t">國際學習資源中心與人才進駐：整合六藝課程與藝術文化、休閒度假等多元內容，打造 ALL IN ONE 自給自足的永續社區，邁向全球聯盟</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 護持 -->
+<section id="support">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="kicker">SUPPORT</div>
+      <h2>千秋志業　萬世功德</h2>
+      <p>道場的建設，不僅僅是磚瓦的堆砌，更是功德的累積與無量福報的種植。每一份發心，化為道場的磚瓦與明燈。</p>
+    </div>
+
+    <div class="card reveal" style="margin-bottom:26px">
+      <h3>護法建寺委員</h3>
+      <div class="tier">
+        <div><b>1 億</b><span>圓建委員</span></div>
+        <div><b>5000 萬</b><span>上建委員</span></div>
+        <div><b>1000 萬</b><span>建設委員</span></div>
+        <div><b>500 萬</b><span>開山委員</span></div>
+        <div><b>100 萬</b><span>發起委員</span></div>
+        <div><b>50 萬</b><span>籌建委員</span></div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <h3>建寺福田　—　點滴發心漸成功德大海，可分期累計</h3>
+      <div class="tier">
+        <div><b>100 萬／尊</b><span>認供 88 佛</span></div>
+        <div><b>50 萬／尊</b><span>五百羅漢</span></div>
+        <div><b>20 萬／座</b><span>華嚴經鐘</span></div>
+        <div><b>20 萬／間</b><span>僧眾寮房</span></div>
+        <div><b>1 萬／尊</b><span>萬佛</span></div>
+        <div><b>5 萬／席</b><span>袈裟地</span></div>
+        <div><b>500 元／單位</b><span>建材</span></div>
+        <div><b>100 元／字</b><span>一字百金</span></div>
+        <div><b>100 元／月</b><span>隨喜會員</span></div>
+        <div><b>1000 元／月</b><span>隨喜委員</span></div>
+        <div><b>1000 元／月</b><span>經典教育推廣委員</span></div>
+        <div><b>1000 元／月</b><span>兒童教育推廣委員</span></div>
+      </div>
+      <p style="margin-top:18px;font-size:.92rem;color:var(--by-sky)">另有「六藝寶席（大師駐村）」、「居士福居」、「頭目腦髓」等項目。功德款項將用於寶嚴禪寺的建設與運營，依規定呈報主管機關審查，確保善款依規善用。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="color:var(--by-gold);letter-spacing:.3em;font-size:.8rem;margin-bottom:14px">BAOYAN CHAN MONASTERY</div>
+    <div style="font-size:1.25rem;color:var(--by-white);letter-spacing:.1em">寶嚴山　寶嚴禪寺</div>
+    <div class="contact">
+      <span>台北寶嚴善首講堂　02-2577 2978</span>
+      <span>新北寶嚴善覺講堂　02-2964 6617</span>
+      <span>台中 EPIC 禪藝實相人文空間　04-2328 9566</span>
+      <span>高雄圓道禪院　07-522 4676</span>
+    </div>
+    <div class="contact" style="margin-top:-8px">
+      <span>台東知本樂山國際禪修中心・寶嚴ESG創生園區</span>
+      <span>新加坡寶嚴善慧地</span>
+      <span>夏威夷檀華寺 +1 (808) 533-6758</span>
+    </div>
+    <div class="contact">
+      <span>Instagram／Threads：baoyan111</span>
+      <span>YouTube：見輝法師閱藏居</span>
+      <span>Facebook：寶嚴山寶嚴禪寺</span>
+    </div>
+    <p class="src">
+      本頁內容整理自《2026 寶嚴禪寺總體規劃書》（0707 版，共 32 個跨頁）逐頁轉錄，文字與數據均以規劃書所載為準，未作增補推論。<a href="full.html" style="color:var(--by-gold-bright)">規劃書全文</a>與<a href="pages.html" style="color:var(--by-gold-bright)">原書逐頁圖</a>亦全部公開。<br>
+      規劃書中除第一期基地面積 9,700.59 m² 外，未載明樓地板面積、坪數、樓高或造價；渲染圖與平面圖皆為模擬示意，實際以主管機關核准之圖說為準。<br>
+      基地正式段名為「南佳里段」（規劃書其中一頁印為「南嘉里段」）。建築平面配置圖（標高 FL +56.5）原圖未印樓層代號，本站依標高、機能與量體形狀研判為 1F。
+    </p>
+  </div>
+</footer>
+
+<script>
+const FLOORS = [
+  { lv:'5F', title:'神聖空間之巔', note:'愈往高處愈趨向神聖。全層皆為神聖空間，是整座道場修行的核心。',
+    zones:[ {k:'sacred', name:'神聖空間', items:['毗盧遮那藏殿','大雄寶殿','大眾禪堂'], tags:['常年讀誦三藏經典','常年禪修靜坐']} ] },
+  { lv:'4F', title:'佛學院與禪藝空間', note:'學習與休憩並置——一側是佛學院，一側是可以觀海的人文空間。',
+    zones:[
+      {k:'college', name:'渡眾空間－佛學院', items:['辦公室','圖書室','教室'], tags:[]},
+      {k:'sacred', name:'神聖空間', items:['禪藝空間'], tags:['提供茶點咖啡、寫經、閱讀、觀海的人文空間']} ] },
+  { lv:'3F', title:'閉關法師的樓層', note:'行政大樓與閉關空間分居兩側。規劃書原圖於「接引空間－行政大樓」標題下未列出空間名稱。',
+    zones:[
+      {k:'welcome', name:'接引空間－行政大樓', items:[], tags:['原圖未列出空間名稱']},
+      {k:'sacred', name:'神聖空間', items:['閉關法師套房','閉關法師禪堂／齋堂'], tags:[]} ] },
+  { lv:'2F', title:'行政、閉關與星海樓餐廳', note:'三個系統在此交會：行政、閉關、以及面向大眾的餐廳。',
+    zones:[
+      {k:'welcome', name:'接引空間－行政大樓', items:['行政區套房','演講廳'], tags:[]},
+      {k:'sacred', name:'神聖空間', items:['閉關法師套房'], tags:[]},
+      {k:'visitor', name:'遊客中心－星海樓', items:['餐廳','廚房'], tags:['米其林級禪宗公案餐廳']} ] },
+  { lv:'1F', title:'迎接每一位來訪的人', note:'進入道場的第一層——遊客中心、藝廊、餐廳、圖書室與多功能教室都在這裡。',
+    zones:[
+      {k:'welcome', name:'接引空間－行政大樓', items:['辦公室／接待室','演講廳'], tags:[]},
+      {k:'visitor', name:'遊客中心－星海樓', items:['遊客中心','藝廊／餐廳／圖書室'], tags:[]},
+      {k:'welcome', name:'接引空間－副屬空間', items:['多功能教室'], tags:['旁另標註「親子遊戲空間」']} ] },
+  { lv:'B1F', title:'支撐整座道場的基座', note:'停車、機能設備與大型集會空間。',
+    zones:[
+      {k:'welcome', name:'接引空間－副屬空間', items:['停車場','儲藏室','機房'], tags:[]},
+      {k:'welcome', name:'接引空間－副屬空間', items:['多功能教室','展覽廳','齋堂'], tags:[]} ] },
+];
+const COLOR = {sacred:'var(--z-sacred)', college:'var(--z-college)', welcome:'var(--z-welcome)', visitor:'var(--z-visitor)'};
+
+const stack = document.getElementById('stack');
+const detail = document.getElementById('detail');
+
+FLOORS.forEach((f, i) => {
+  const b = document.createElement('button');
+  b.className = 'fl' + (i === 0 ? ' on' : '');
+  b.type = 'button';
+  const bars = [...new Set(f.zones.map(z => z.k))].map(k => `<i style="background:${COLOR[k]}"></i>`).join('');
+  b.innerHTML = `<span class="lv">${f.lv}</span><span class="nm">${f.title}</span><span class="bar">${bars}</span>`;
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.fl').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    render(f);
+  });
+  stack.appendChild(b);
+});
+
+function render(f){
+  const zones = f.zones.map(z => `
+    <div class="zone">
+      <div class="zt"><i style="background:${COLOR[z.k]}"></i>${z.name}</div>
+      ${z.items.length ? `<ul>${z.items.map(t => `<li>${t}</li>`).join('')}</ul>` : ''}
+      ${z.tags.map(t => `<div class="tag">${t}</div>`).join('')}
+    </div>`).join('');
+  detail.innerHTML = `
+    <div class="dh"><b>${f.lv}</b><span>${f.title}</span></div>
+    <div class="note">${f.note}</div>
+    ${zones}`;
+}
+render(FLOORS[0]);
+
+document.documentElement.classList.add('js');
+const reveals = [...document.querySelectorAll('.reveal')];
+function sweep(){
+  const h = window.innerHeight || document.documentElement.clientHeight || 800;
+  reveals.forEach(el => {
+    if (el.classList.contains('in')) return;
+    const r = el.getBoundingClientRect();
+    if (r.top < h * 0.94 && r.bottom > 0) el.classList.add('in');
+  });
+}
+if ('IntersectionObserver' in window){
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0, rootMargin:'0px 0px -6% 0px'});
+  reveals.forEach(el => io.observe(el));
+}
+addEventListener('scroll', sweep, {passive:true});
+addEventListener('resize', sweep);
+addEventListener('load', sweep);
+sweep();
+</script>
+</body>
+</html>
