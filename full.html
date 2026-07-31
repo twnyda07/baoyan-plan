@@ -12,6 +12,9 @@ html{scroll-behavior:smooth}
 body{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;background:var(--by-blue-deep);color:var(--by-ivory);line-height:1.95;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 nav{position:sticky;top:0;z-index:50;background:rgba(8,29,63,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,106,.22)}
+nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointer-events:none;
+  background:linear-gradient(90deg,rgba(8,29,63,0),rgba(8,29,63,.95))}
+@media(min-width:1100px){nav::after{display:none}}
 nav .in{max-width:1180px;margin:0 auto;padding:0 22px;display:flex;align-items:center;gap:6px;height:56px;overflow-x:auto;scrollbar-width:none}
 nav .in::-webkit-scrollbar{display:none}
 nav .brand{font-weight:700;color:var(--by-gold);white-space:nowrap;margin-right:14px;letter-spacing:.06em;text-decoration:none}
@@ -22,14 +25,14 @@ nav a:hover{background:rgba(212,175,106,.16);color:var(--by-gold-bright);opacity
 .head h1{font-size:clamp(1.7rem,4.4vw,2.6rem);color:var(--by-white);letter-spacing:.06em}
 .head p{margin-top:14px;color:var(--by-sky);font-size:.98rem}
 .layout{max-width:1180px;margin:0 auto;padding:20px 22px 90px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:40px;align-items:start}
-@media(max-width:900px){.layout{grid-template-columns:1fr;gap:20px}.toc{position:static !important;max-height:230px}}
+.toc,article{min-width:0}
 .toc{position:sticky;top:74px;max-height:calc(100vh - 100px);overflow-y:auto;border:1px solid rgba(143,180,232,.2);border-radius:14px;padding:18px 14px;background:rgba(15,46,99,.36)}
+.toc>summary{display:none}
 .toc b{display:block;color:var(--by-gold);font-size:.82rem;letter-spacing:.2em;margin-bottom:10px}
 .toc a{display:block;color:var(--by-ivory);text-decoration:none;font-size:.9rem;padding:4px 8px;border-radius:7px;opacity:.85;line-height:1.5}
 .toc a:hover{background:rgba(212,175,106,.14);color:var(--by-gold-bright);opacity:1}
 .toc a.l2{padding-left:20px;font-size:.86rem;opacity:.72}
 article{background:rgba(15,46,99,.3);border:1px solid rgba(143,180,232,.18);border-radius:18px;padding:44px 46px}
-@media(max-width:720px){article{padding:28px 20px}}
 article h1{font-size:1.9rem;color:var(--by-gold-bright);margin:46px 0 18px;padding-bottom:12px;border-bottom:1px solid rgba(212,175,106,.35);letter-spacing:.05em}
 article h1:first-child{margin-top:0}
 article h2{font-size:1.4rem;color:var(--by-white);margin:38px 0 14px;letter-spacing:.04em}
@@ -47,6 +50,36 @@ th,td{border-bottom:1px solid rgba(143,180,232,.16);padding:10px 14px;text-align
 th{background:rgba(15,46,99,.7);color:var(--by-gold-bright);white-space:nowrap}
 code{background:rgba(8,29,63,.7);padding:2px 6px;border-radius:5px;font-size:.9em}
 footer{border-top:1px solid rgba(212,175,106,.24);padding:40px 22px;text-align:center;color:var(--by-sky);font-size:.86rem;line-height:1.9}
+
+/* ===== 平板／手機 ===== */
+@media(max-width:900px){
+  .layout{grid-template-columns:minmax(0,1fr);gap:18px;padding:14px 18px 70px}
+  .head{padding:40px 18px 18px}
+  /* 目次在小螢幕收合成可展開清單，不佔版面 */
+  .toc{position:static;max-height:none;overflow:visible;padding:0;background:rgba(15,46,99,.42)}
+  .toc>summary{display:block;list-style:none;cursor:pointer;padding:14px 18px;
+    color:var(--by-gold);font-size:.92rem;letter-spacing:.16em}
+  .toc>summary::-webkit-details-marker{display:none}
+  .toc>summary::after{content:"＋";float:right;color:var(--by-sky)}
+  .toc[open]>summary::after{content:"－"}
+  .toc b{display:none}
+  .toc .list{max-height:46vh;overflow:auto;padding:0 12px 14px}
+  .toc a{padding:8px 8px}
+}
+@media(max-width:820px){
+  html{font-size:17px}
+  body{line-height:1.92}
+  article{padding:26px 20px;border-radius:14px}
+  article h1{font-size:1.55rem;margin:34px 0 14px}
+  article h2{font-size:1.24rem;margin:28px 0 12px}
+  article h3{font-size:1.06rem;margin:22px 0 8px}
+  article hr{margin:28px 0}
+  blockquote.quote{padding:12px 16px}
+  table{font-size:.92rem;min-width:360px}
+  th,td{padding:9px 12px}
+  footer{padding:32px 18px;text-align:left}
+  .head h1{letter-spacing:.04em}
+}
 </style>
 </head>
 <body>
@@ -56,6 +89,7 @@ footer{border-top:1px solid rgba(212,175,106,.24);padding:40px 22px;text-align:c
 <a href="index.html#floors">建築樓層規劃</a>
 <a href="full.html">規劃書全文</a>
 <a href="pages.html">原書逐頁</a>
+<a href="index.html#support">護持</a>
 </div></nav>
 <div class="head">
   <div class="k">FULL TEXT</div>
@@ -63,7 +97,7 @@ footer{border-top:1px solid rgba(212,175,106,.24);padding:40px 22px;text-align:c
   <p>依原書 32 個跨頁逐頁轉錄　·　每章末標示出處頁碼</p>
 </div>
 <div class="layout">
-  <aside class="toc"><b>目 次</b><a class="l1" href="#h1">2026 寶嚴禪寺總體規劃書</a>
+  <details class="toc"><summary>目　次</summary><b>目 次</b><div class="list"><a class="l1" href="#h1">2026 寶嚴禪寺總體規劃書</a>
 <a class="l2" href="#h2">回家 — 致三界中的浪子</a>
 <a class="l2" href="#h3">目　錄</a>
 <a class="l2" href="#h9">千佛萬願始於足 譜寫寶嚴興建史（初心）</a>
@@ -103,7 +137,7 @@ footer{border-top:1px solid rgba(212,175,106,.24);padding:40px 22px;text-align:c
 <a class="l2" href="#h90">福田項目</a>
 <a class="l2" href="#h93">千手護持，千眼照見——寶嚴山 寶嚴禪寺動土大典</a>
 <a class="l2" href="#h94">雲端學院</a>
-<a class="l2" href="#h99">匯款帳號／各地分院聯絡處</a></aside>
+<a class="l2" href="#h99">匯款帳號／各地分院聯絡處</a></div></details>
   <article><h1 id="h1">2026 寶嚴禪寺總體規劃書</h1>
 <p><strong>BAOYAN CHAN MONASTERY 2026 總體規劃書</strong></p>
 <p>寶嚴山寶嚴禪寺　Baoyan Chan Monastery</p>
@@ -554,5 +588,11 @@ footer{border-top:1px solid rgba(212,175,106,.24);padding:40px 22px;text-align:c
 基地正式段名為「南佳里段」。建築平面配置圖（FL +56.5）原圖未印樓層代號，本站研判為 1F。<br>
 寶嚴山　寶嚴禪寺
 </footer>
+<script>
+/* 大螢幕預設展開目次，小螢幕收合 */
+const toc = document.querySelector('.toc');
+function syncToc(){ toc.open = window.innerWidth > 900; }
+syncToc(); addEventListener('resize', syncToc);
+</script>
 </body>
 </html>
