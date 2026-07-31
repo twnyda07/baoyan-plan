@@ -103,26 +103,63 @@ section.alt{background:rgba(15,46,99,.34);border-top:1px solid rgba(212,175,106,
 .facts dd{font-size:1.04rem;color:var(--by-white)}
 
 /* ===== 樓層探索器 ===== */
-.floorbox{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:34px;align-items:start}
-@media(max-width:860px){.floorbox{grid-template-columns:1fr}}
-.stack{display:flex;flex-direction:column;gap:10px}
+.floorbox{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:32px;align-items:start}
+@media(max-width:960px){.floorbox{grid-template-columns:1fr}}
+.fpanel{display:flex;flex-direction:column;gap:16px}
+
+/* 圖面定位：閃爍亮點 */
+.zonefig{border:1px solid rgba(143,180,232,.22);border-radius:16px;overflow:hidden;background:#fff}
+.zonewrap{position:relative;display:block;line-height:0}
+.zonewrap img{width:100%}
+.zonewrap .spot{position:absolute;border:0;background:transparent;padding:0;cursor:pointer;
+  border-radius:8px;transition:background .25s}
+.zonewrap .spot:hover{background:rgba(212,175,106,.16);box-shadow:0 0 0 2px rgba(212,175,106,.55)}
+.zonewrap .spot:focus-visible{outline:2px solid var(--by-gold);outline-offset:2px}
+.hot{position:absolute;border-radius:10px;pointer-events:none;opacity:0;
+  transition:left .5s cubic-bezier(.5,0,.2,1),top .5s cubic-bezier(.5,0,.2,1),width .5s,height .5s,opacity .3s;
+  animation:hotglow 1.5s ease-in-out infinite}
+.hot.on{opacity:1}
+@keyframes hotglow{
+  0%,100%{box-shadow:0 0 0 2px rgba(212,175,106,.9), 0 0 16px 3px rgba(212,175,106,.35), inset 0 0 22px rgba(240,206,140,.16)}
+  50%{box-shadow:0 0 0 3px rgba(240,206,140,1), 0 0 40px 12px rgba(212,175,106,.7), inset 0 0 30px rgba(240,206,140,.34)}
+}
+.blip{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
+  background:var(--by-gold-bright);box-shadow:0 0 12px 4px rgba(240,206,140,.9);animation:blipbeat 1.5s ease-in-out infinite}
+.blip::before,.blip::after{content:"";position:absolute;inset:-3px;border-radius:50%;
+  border:2px solid rgba(240,206,140,.9);animation:blipwave 1.9s cubic-bezier(.2,.6,.3,1) infinite}
+.blip::after{animation-delay:.95s}
+@keyframes blipbeat{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:.75}}
+@keyframes blipwave{0%{transform:scale(.6);opacity:.95}70%{transform:scale(3.4);opacity:0}100%{opacity:0}}
+.hotlabel{position:absolute;pointer-events:none;opacity:0;
+  transform:translateY(calc(-50% + 3px));
+  transition:left .5s cubic-bezier(.5,0,.2,1),top .5s cubic-bezier(.5,0,.2,1),opacity .35s,transform .35s;
+  background:rgba(8,29,63,.95);color:var(--by-gold-bright);border:1px solid rgba(212,175,106,.8);
+  border-radius:999px;padding:3px 12px;font-size:.98rem;font-weight:700;white-space:nowrap;letter-spacing:.03em;
+  line-height:1.5;box-shadow:0 4px 18px rgba(0,0,0,.4),0 0 16px rgba(212,175,106,.35)}
+.hotlabel.on{opacity:1;transform:translateY(-50%)}
+@media(max-width:520px){.hotlabel{font-size:.76rem;padding:2px 8px}.blip{width:11px;height:11px;margin:-5.5px 0 0 -5.5px}}
+@media (prefers-reduced-motion:reduce){
+  .hot{animation:none;box-shadow:0 0 0 3px var(--by-gold),0 0 24px 6px rgba(212,175,106,.5)}
+  .blip{animation:none}.blip::before,.blip::after{animation:none;opacity:0}
+}
+.stack{display:flex;flex-direction:column;gap:8px}
 .fl{width:100%;text-align:left;cursor:pointer;border:1px solid rgba(143,180,232,.26);
-  background:rgba(15,46,99,.4);color:var(--by-ivory);border-radius:12px;padding:14px 18px;
-  font-family:inherit;font-size:1rem;display:flex;align-items:center;gap:14px;transition:.25s}
+  background:rgba(15,46,99,.4);color:var(--by-ivory);border-radius:12px;padding:10px 16px;
+  font-family:inherit;font-size:1rem;display:flex;align-items:center;gap:12px;transition:.25s}
 .fl:hover{border-color:rgba(212,175,106,.5);background:rgba(15,46,99,.65)}
 .fl.on{border-color:var(--by-gold);background:linear-gradient(90deg,rgba(212,175,106,.2),rgba(15,46,99,.5));
   box-shadow:0 0 0 1px rgba(212,175,106,.35)}
-.fl .lv{font-size:1.35rem;color:var(--by-gold-bright);min-width:52px;letter-spacing:.02em}
+.fl .lv{font-size:1.22rem;color:var(--by-gold-bright);min-width:48px;letter-spacing:.02em}
 .fl .nm{font-size:.94rem;opacity:.9;line-height:1.5}
 .fl .bar{display:flex;gap:3px;margin-left:auto}
-.fl .bar i{width:11px;height:26px;border-radius:3px;display:block}
-.detail{background:rgba(15,46,99,.42);border:1px solid rgba(143,180,232,.22);border-radius:16px;padding:30px 28px;min-height:340px}
+.fl .bar i{width:10px;height:22px;border-radius:3px;display:block}
+.detail{background:rgba(15,46,99,.42);border:1px solid rgba(143,180,232,.22);border-radius:16px;padding:24px 26px}
 .detail .dh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
-.detail .dh b{font-size:2.2rem;color:var(--by-gold-bright);letter-spacing:.02em}
+.detail .dh b{font-size:1.95rem;color:var(--by-gold-bright);letter-spacing:.02em}
 .detail .dh span{color:var(--by-sky);font-size:.95rem}
-.detail .note{color:var(--by-sky);font-size:.92rem;margin-bottom:22px;padding-bottom:18px;
+.detail .note{color:var(--by-sky);font-size:.92rem;margin-bottom:18px;padding-bottom:14px;
   border-bottom:1px solid rgba(143,180,232,.18)}
-.zone{margin-bottom:22px}
+.zone{margin-bottom:18px}
 .zone .zt{display:flex;align-items:center;gap:9px;font-size:1rem;margin-bottom:10px;color:var(--by-white)}
 .zone .zt i{width:13px;height:13px;border-radius:3px;flex:none}
 .zone ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
@@ -324,7 +361,7 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.84
     <div class="shead reveal">
       <div class="kicker">FLOOR BY FLOOR</div>
       <h2>建築樓層規劃</h2>
-      <p>主體建築為<b>地下一層、地上五層</b>，全棟依機能劃分為四大系統。愈往高處愈趨向神聖——最頂層 5F 是毗盧遮那藏殿、大雄寶殿與大眾禪堂；愈往低處愈貼近大眾——1F 與 B1F 迎接每一位來訪的客人。點選樓層看該層配置。</p>
+      <p>主體建築為<b>地下一層、地上五層</b>，全棟依機能劃分為四大系統。愈往高處愈趨向神聖——最頂層 5F 是毗盧遮那藏殿、大雄寶殿與大眾禪堂；愈往低處愈貼近大眾——1F 與 B1F 迎接每一位來訪的客人。點選樓層——或直接點圖上的量體——圖面對應位置會亮起。</p>
     </div>
 
     <div class="legend reveal">
@@ -335,13 +372,18 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.84
     </div>
 
     <div class="floorbox reveal">
-      <div class="stack" id="stack"></div>
-      <div class="detail" id="detail"></div>
-    </div>
-
-    <div class="figure reveal">
-      <img src="img/crop/zones.jpg" alt="寶嚴禪寺量體分區說明圖">
-      <div class="figcap">量體分區說明・規劃書原圖（B1F–5F 分層軸測）　／　規劃書 p.25-26</div>
+      <div class="zonefig">
+        <div class="zonewrap" id="zonewrap">
+          <img src="img/crop/zones.jpg" alt="寶嚴禪寺量體分區說明圖（B1F–5F 分層軸測）">
+          <div class="hot" id="hot" aria-hidden="true"><span class="blip"></span></div>
+          <div class="hotlabel" id="hotlabel" aria-hidden="true"></div>
+        </div>
+        <div class="figcap">量體分區說明・規劃書原圖　／　規劃書 p.25-26　·　點圖上任一層可切換，或<a href="img/crop/zones.jpg" target="_blank" rel="noopener">看原尺寸大圖</a></div>
+      </div>
+      <div class="fpanel">
+        <div class="stack" id="stack"></div>
+        <div class="detail" id="detail"></div>
+      </div>
     </div>
 
     <div class="figure reveal">
@@ -582,28 +624,35 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.84
 </footer>
 
 <script>
+/* box = 該層量體在量體分區圖上的位置（原圖百分比座標，實測自 zones.jpg） */
 const FLOORS = [
   { lv:'5F', title:'神聖空間之巔', note:'愈往高處愈趨向神聖。全層皆為神聖空間，是整座道場修行的核心。',
+    box:{x:33.9, y:8.1, w:13.4, h:8.2},
     zones:[ {k:'sacred', name:'神聖空間', items:['毗盧遮那藏殿','大雄寶殿','大眾禪堂'], tags:['常年讀誦三藏經典','常年禪修靜坐']} ] },
   { lv:'4F', title:'佛學院與禪藝空間', note:'學習與休憩並置——一側是佛學院，一側是可以觀海的人文空間。',
+    box:{x:31.7, y:21.2, w:14.6, h:8.6},
     zones:[
       {k:'college', name:'渡眾空間－佛學院', items:['辦公室','圖書室','教室'], tags:[]},
       {k:'sacred', name:'神聖空間', items:['禪藝空間'], tags:['提供茶點咖啡、寫經、閱讀、觀海的人文空間']} ] },
   { lv:'3F', title:'閉關法師的樓層', note:'行政大樓與閉關空間分居兩側。規劃書原圖於「接引空間－行政大樓」標題下未列出空間名稱。',
+    box:{x:31.6, y:35.3, w:14.7, h:8.6},
     zones:[
       {k:'welcome', name:'接引空間－行政大樓', items:[], tags:['原圖未列出空間名稱']},
       {k:'sacred', name:'神聖空間', items:['閉關法師套房','閉關法師禪堂／齋堂'], tags:[]} ] },
   { lv:'2F', title:'行政、閉關與星海樓餐廳', note:'三個系統在此交會：行政、閉關、以及面向大眾的餐廳。',
+    box:{x:31.0, y:49.5, w:15.7, h:8.6},
     zones:[
       {k:'welcome', name:'接引空間－行政大樓', items:['行政區套房','演講廳'], tags:[]},
       {k:'sacred', name:'神聖空間', items:['閉關法師套房'], tags:[]},
       {k:'visitor', name:'遊客中心－星海樓', items:['餐廳','廚房'], tags:['米其林級禪宗公案餐廳']} ] },
   { lv:'1F', title:'迎接每一位來訪的人', note:'進入道場的第一層——遊客中心、藝廊、餐廳、圖書室與多功能教室都在這裡。',
+    box:{x:30.9, y:63.4, w:17.0, h:10.1},
     zones:[
       {k:'welcome', name:'接引空間－行政大樓', items:['辦公室／接待室','演講廳'], tags:[]},
       {k:'visitor', name:'遊客中心－星海樓', items:['遊客中心','藝廊／餐廳／圖書室'], tags:[]},
       {k:'welcome', name:'接引空間－副屬空間', items:['多功能教室'], tags:['旁另標註「親子遊戲空間」']} ] },
   { lv:'B1F', title:'支撐整座道場的基座', note:'停車、機能設備與大型集會空間。',
+    box:{x:34.8, y:77.0, w:13.3, h:10.1},
     zones:[
       {k:'welcome', name:'接引空間－副屬空間', items:['停車場','儲藏室','機房'], tags:[]},
       {k:'welcome', name:'接引空間－副屬空間', items:['多功能教室','展覽廳','齋堂'], tags:[]} ] },
@@ -612,6 +661,10 @@ const COLOR = {sacred:'var(--z-sacred)', college:'var(--z-college)', welcome:'va
 
 const stack = document.getElementById('stack');
 const detail = document.getElementById('detail');
+const zonewrap = document.getElementById('zonewrap');
+const hot = document.getElementById('hot');
+const hotlabel = document.getElementById('hotlabel');
+const btns = [];
 
 FLOORS.forEach((f, i) => {
   const b = document.createElement('button');
@@ -619,13 +672,45 @@ FLOORS.forEach((f, i) => {
   b.type = 'button';
   const bars = [...new Set(f.zones.map(z => z.k))].map(k => `<i style="background:${COLOR[k]}"></i>`).join('');
   b.innerHTML = `<span class="lv">${f.lv}</span><span class="nm">${f.title}</span><span class="bar">${bars}</span>`;
-  b.addEventListener('click', () => {
-    document.querySelectorAll('.fl').forEach(x => x.classList.remove('on'));
-    b.classList.add('on');
-    render(f);
-  });
+  b.addEventListener('click', () => select(i));
   stack.appendChild(b);
+  btns.push(b);
+
+  // 圖面上的可點區域，與左側按鈕連動
+  const s = document.createElement('button');
+  s.className = 'spot';
+  s.type = 'button';
+  s.setAttribute('aria-label', `${f.lv}　${f.title}`);
+  s.title = `${f.lv}　${f.title}`;
+  s.style.left = f.box.x + '%';
+  s.style.top = f.box.y + '%';
+  s.style.width = f.box.w + '%';
+  s.style.height = f.box.h + '%';
+  s.addEventListener('click', () => select(i));
+  zonewrap.appendChild(s);
 });
+
+/* 把亮點移到該層量體上 */
+function mark(f){
+  const pad = 1.4, padY = 1.8;
+  hot.style.left   = (f.box.x - pad) + '%';
+  hot.style.top    = (f.box.y - padY) + '%';
+  hot.style.width  = (f.box.w + pad * 2) + '%';
+  hot.style.height = (f.box.h + padY * 2) + '%';
+  hot.classList.add('on');
+  hotlabel.textContent = f.lv;               // 只放樓層代號，避免蓋住原圖文字
+  hotlabel.style.left = (f.box.x + f.box.w + pad + 1.6) + '%';
+  hotlabel.style.top  = (f.box.y + f.box.h / 2) + '%';
+  hotlabel.classList.add('on');
+}
+
+function select(i){
+  const f = FLOORS[i];
+  btns.forEach(x => x.classList.remove('on'));
+  btns[i].classList.add('on');
+  render(f);
+  mark(f);
+}
 
 function render(f){
   const zones = f.zones.map(z => `
@@ -640,6 +725,7 @@ function render(f){
     ${zones}`;
 }
 render(FLOORS[0]);
+mark(FLOORS[0]);
 
 document.documentElement.classList.add('js');
 const reveals = [...document.querySelectorAll('.reveal')];
