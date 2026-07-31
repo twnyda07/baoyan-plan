@@ -19,7 +19,7 @@ body{background:#3a4658;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif
 
 /* ===== 頁首 ===== */
 .top{position:relative;color:#fff;padding:0;flex:none}
-.top .photo{position:relative;height:31mm;overflow:hidden;background:var(--deep)}
+.top .photo{position:relative;height:29mm;overflow:hidden;background:var(--deep)}
 .top .photo img{width:100%;height:100%;object-fit:cover;object-position:center 62%}
 .top .photo::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(8,29,63,.86) 0%,rgba(8,29,63,.42) 55%,rgba(8,29,63,.9) 100%)}
@@ -36,16 +36,16 @@ body{background:#3a4658;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif
 .ribbon span{font-size:6.6pt;opacity:.8;letter-spacing:.1em}
 
 /* ===== 內文 ===== */
-.body{padding:4.5mm 11mm 3mm;flex:1;display:flex;flex-direction:column;gap:3.1mm}
+.body{padding:4.2mm 11mm 2.8mm;flex:1;display:flex;flex-direction:column;gap:2.9mm}
 h2.sec{font-size:10.5pt;color:var(--blue);letter-spacing:.1em;display:flex;align-items:center;gap:2.5mm;margin-bottom:2.2mm}
 h2.sec::before{content:"";width:4px;height:14px;background:var(--gold);display:block;border-radius:2px}
 h2.sec small{font-size:6.8pt;color:var(--gold);letter-spacing:.22em;font-weight:400}
 p,li{font-size:8pt;line-height:1.6}
 
 .intro{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
-.intro .box{background:var(--ivory);border:1px solid #e3dbc6;border-radius:2.5mm;padding:2mm 3mm}
+.intro .box{background:var(--ivory);border:1px solid #e3dbc6;border-radius:2.5mm;padding:1.7mm 2.8mm}
 .intro .box h3{font-size:8.6pt;color:var(--blue);margin-bottom:1mm;letter-spacing:.04em}
-.intro .box p{font-size:7.1pt;line-height:1.54}
+.intro .box p{font-size:7pt;line-height:1.5}
 
 /* ===== 樓層 ===== */
 .floors{border:1px solid #dfd7c2;border-radius:3mm;overflow:hidden}
@@ -54,7 +54,7 @@ p,li{font-size:8pt;line-height:1.6}
 .fl .lv{background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;
   font-size:9.6pt;letter-spacing:.02em}
 .fl:nth-child(1) .lv{background:var(--deep)}
-.fl .rooms{padding:1.1mm 2.6mm;display:flex;flex-wrap:wrap;gap:1.2mm;align-items:center}
+.fl .rooms{padding:.9mm 2.4mm;display:flex;flex-wrap:wrap;gap:1mm;align-items:center}
 .fl .rooms .g{display:inline-flex;align-items:center;gap:1mm;font-size:7pt;
   border-radius:1.6mm;padding:.45mm 1.9mm;border:1px solid rgba(0,0,0,.08)}
 .fl .rooms .g i{width:7px;height:7px;border-radius:2px;flex:none}
@@ -64,14 +64,14 @@ p,li{font-size:8pt;line-height:1.6}
 
 /* ===== 空間 ===== */
 .spaces{display:grid;grid-template-columns:repeat(4,1fr);gap:2.2mm}
-.sp{background:var(--ivory);border:1px solid #e3dbc6;border-radius:2mm;padding:1.5mm 1.4mm;text-align:center}
-.sp b{display:block;font-size:7.8pt;color:var(--blue);margin-bottom:.8mm;letter-spacing:.02em}
-.sp span{font-size:6.1pt;color:#5a6472;line-height:1.38;display:block}
+.sp{background:var(--ivory);border:1px solid #e3dbc6;border-radius:2mm;padding:1.2mm 1.2mm;text-align:center}
+.sp b{display:block;font-size:7.6pt;color:var(--blue);margin-bottom:.6mm;letter-spacing:.02em}
+.sp span{font-size:6pt;color:#5a6472;line-height:1.34;display:block}
 
 /* ===== 底部 ===== */
 .bottom{display:grid;grid-template-columns:1.15fr .85fr;gap:4.5mm;align-items:start}
 .tl{font-size:7.4pt}
-.tl .r{display:flex;gap:2.5mm;padding:.6mm 0;border-bottom:1px dotted #ddd5c0}
+.tl .r{display:flex;gap:2.5mm;padding:.5mm 0;border-bottom:1px dotted #ddd5c0}
 .tl .r:last-child{border-bottom:0}
 .tl .r b{color:var(--gold);min-width:26mm;flex:none;letter-spacing:.02em}
 .tl .r.hi b,.tl .r.hi span{color:var(--blue);font-weight:700}
@@ -81,17 +81,17 @@ p,li{font-size:8pt;line-height:1.6}
 .support .dline{font-size:6.8pt;line-height:1.5;color:var(--ivory)}
 .support .dline b{color:var(--gold-l);font-size:7.6pt;letter-spacing:.02em}
 .support .dline span{opacity:.7}
-.support .dqr{width:13mm;height:13mm;background:#fff;padding:.8mm;border-radius:1mm;flex:none}
-.support .rows{display:grid;grid-template-columns:1fr 1fr;gap:.5mm 2.5mm;font-size:6.6pt}
+.support .dqr{width:11.5mm;height:11.5mm;background:#fff;padding:.8mm;border-radius:1mm;flex:none}
+.support .rows{display:grid;grid-template-columns:1fr 1fr;gap:.45mm 2.5mm;font-size:6.4pt}
 .support .rows div{display:flex;justify-content:space-between;gap:2mm;
   border-bottom:1px dotted rgba(244,239,228,.22);padding-bottom:.8mm}
-.support .rows b{color:#fff;font-weight:400}
+.support .rows b{color:#fff;font-weight:400;white-space:nowrap}
 .support .rows span{color:var(--gold-l);white-space:nowrap}
 .support .bank{margin-top:2mm;padding:1.8mm 2.4mm;border:1px solid rgba(212,175,106,.45);
   border-radius:1.6mm;background:rgba(212,175,106,.09);font-size:6.6pt;line-height:1.55}
 .support .bank b{display:block;color:var(--gold-l);font-size:7.2pt;letter-spacing:.1em;margin-bottom:.6mm}
 .support .bank em{font-style:normal;color:var(--gold-l);font-size:8.4pt;letter-spacing:.06em}
-.support p{font-size:6.4pt;opacity:.72;margin-top:1.6mm;line-height:1.55}
+.support p{font-size:6.2pt;opacity:.72;margin-top:1.2mm;line-height:1.5}
 
 .bankband{background:var(--ivory);border-top:1px solid #e0d7c0;border-bottom:1px solid #e0d7c0;
   padding:1.9mm 11mm;display:flex;flex-wrap:wrap;align-items:baseline;gap:1.5mm 4mm;
@@ -99,12 +99,15 @@ p,li{font-size:8pt;line-height:1.6}
 .bankband .bt{color:var(--gold);font-size:7.6pt;letter-spacing:.14em;font-weight:700}
 .bankband em{font-style:normal;font-size:9pt;letter-spacing:.08em;color:var(--blue);font-weight:700}
 .bankband .bn{opacity:.6;font-size:6.4pt}
+.bankband .callout{flex-basis:100%;margin-top:1mm;padding:1.2mm 2.2mm;border-radius:1.4mm;
+  background:rgba(184,146,63,.14);border:1px solid rgba(184,146,63,.5);font-size:7pt;color:var(--blue)}
+.bankband .callout b{color:#8a6a1e}
 footer{background:var(--deep);color:var(--ivory);padding:2.6mm 11mm;font-size:6.7pt;
   display:flex;justify-content:space-between;gap:4mm;flex-wrap:wrap;align-items:center;flex:none}
 footer .l b{color:var(--gold-l);font-size:8.2pt;letter-spacing:.1em;display:block;margin-bottom:1mm}
 footer .r{text-align:right;line-height:1.7;opacity:.88}
 
-.note{font-size:6pt;color:#8a8474;text-align:center;padding:1.4mm 11mm 1.6mm}
+.note{font-size:5.9pt;color:#8a8474;text-align:center;padding:1.1mm 11mm 1.3mm;line-height:1.4}
 
 @media print{
   body{background:#fff;padding:0}
@@ -150,13 +153,14 @@ footer .r{text-align:right;line-height:1.7;opacity:.88}
   .support .dline{font-size:10pt}
   .support .dline b{font-size:11.5pt}
   .support .dqr{width:22mm;height:22mm}
-  .support .rows{font-size:10pt;gap:1.5mm 4mm}
+  .support .rows{grid-template-columns:1fr 1fr;font-size:10pt;gap:1.5mm 4mm}
   .support .rows div{padding-bottom:1.2mm}
   .support p{font-size:9.5pt;margin-top:3mm}
   .bankband{padding:4mm 6mm;font-size:10pt;gap:2mm 4mm}
   .bankband .bt{font-size:11pt}
   .bankband em{font-size:13pt}
   .bankband .bn{font-size:9.5pt}
+  .bankband .callout{font-size:10pt;padding:3mm;margin-top:2mm;line-height:1.65}
   footer{padding:5mm 6mm;font-size:9.5pt;gap:3mm}
   footer .l b{font-size:12pt}
   footer .r{text-align:left}
@@ -318,12 +322,13 @@ footer .r{text-align:right;line-height:1.7;opacity:.88}
     <span>戶名：臺東縣卑南鄉寶嚴山寶嚴禪寺文化協會</span>
     <span>一般護持帳號 <em>830100009968</em></span>
     <span class="bn">多數法會、共修與常態護持適用</span>
+    <span class="callout">匯款後請<b>務必來電告知</b>，以便開立捐款收據　│　0921-059-656（專線1）・0900-731-919（專線2）・0937-619-595（中英文）</span>
   </div>
 
   <footer>
     <div class="l">
       <b>寶嚴山　寶嚴禪寺</b>
-      台東縣東河鄉　│　線上刷卡 donatebaoyan.org　│　捐款諮詢 0921-059-656・0900-731-919・0937-619-595
+      台東縣東河鄉　│　線上刷卡 donatebaoyan.org
     </div>
     <div class="r">
       IG／Threads：baoyan111　│　YouTube：見輝法師閱藏居<br>

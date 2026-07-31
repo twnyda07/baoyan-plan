@@ -252,6 +252,27 @@ section.alt{background:rgba(15,46,99,.34);border-top:1px solid rgba(212,175,106,
 .copy:hover{background:rgba(212,175,106,.16)}
 .copy.ok{background:var(--by-gold);color:#08213f;border-color:var(--by-gold)}
 .bnote{margin-top:14px;font-size:.9rem;color:var(--by-sky)}
+
+/* 匯款後務必來電 */
+.mustcall{margin-top:18px;border:1px solid rgba(212,175,106,.6);border-radius:14px;
+  background:linear-gradient(135deg,rgba(212,175,106,.16),rgba(8,29,63,.5));padding:20px 22px}
+.mchead{display:flex;gap:14px;align-items:flex-start}
+.mchead .bell{flex:none;width:30px;height:30px;border-radius:50%;background:var(--by-gold);
+  color:#08213f;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem;
+  box-shadow:0 0 0 0 rgba(212,175,106,.6);animation:mcpulse 2.2s ease-out infinite}
+@keyframes mcpulse{0%{box-shadow:0 0 0 0 rgba(212,175,106,.55)}70%{box-shadow:0 0 0 12px rgba(212,175,106,0)}100%{box-shadow:0 0 0 0 rgba(212,175,106,0)}}
+@media (prefers-reduced-motion:reduce){.mchead .bell{animation:none}}
+.mchead b{display:block;color:var(--by-gold-bright);font-size:1.1rem;letter-spacing:.05em;margin-bottom:6px}
+.mchead span span,.mchead>div>span{display:block;font-size:.94rem;color:var(--by-ivory);opacity:.95}
+.mchead>div>span b{display:inline;font-size:inherit;color:var(--by-gold-bright);letter-spacing:0}
+.lines{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:10px;margin-top:16px}
+.lines a{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;
+  background:rgba(8,29,63,.66);border:1px solid rgba(212,175,106,.45);border-radius:12px;
+  padding:12px 10px;transition:.25s}
+.lines a:hover{background:rgba(212,175,106,.18);border-color:var(--by-gold);transform:translateY(-2px)}
+.lines .no{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:1.12rem;color:var(--by-gold-bright);
+  letter-spacing:.04em}
+.lines em{font-style:normal;font-size:.82rem;color:var(--by-sky);letter-spacing:.1em}
 .tier{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:8px}
 .tier div{background:rgba(15,46,99,.45);border:1px solid rgba(143,180,232,.22);border-radius:12px;
   padding:16px;text-align:center}
@@ -682,7 +703,22 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
         <div><dt>戶名</dt><dd>臺東縣卑南鄉寶嚴山寶嚴禪寺文化協會</dd></div>
         <div><dt>帳號</dt><dd class="acct"><span id="acctno">830100009968</span><button type="button" class="copy" id="copyacct">複製帳號</button></dd></div>
       </dl>
-      <p class="bnote">適用於多數法會、共修與常態護持。匯款後可透過捐款諮詢專線告知，以利開立收據。</p>
+      <p class="bnote">適用於多數法會、共修與常態護持。</p>
+
+      <div class="mustcall">
+        <div class="mchead">
+          <span class="bell">！</span>
+          <div>
+            <b>匯款後，請務必來電告知</b>
+            <span>匯款單上無法辨識您的身分與發心項目，來電後才能為您<b>開立捐款收據</b>並正確登錄。</span>
+          </div>
+        </div>
+        <div class="lines">
+          <a href="tel:+886921059656"><span class="no">0921-059-656</span><em>專線 1</em></a>
+          <a href="tel:+886900731919"><span class="no">0900-731-919</span><em>專線 2</em></a>
+          <a href="tel:+886937619595"><span class="no">0937-619-595</span><em>中英文專線</em></a>
+        </div>
+      </div>
     </div>
 
     <div class="card reveal" style="margin-bottom:26px">
