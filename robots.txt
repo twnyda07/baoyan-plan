@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://twnyda07.github.io/baoyan-plan/sitemap.xml
