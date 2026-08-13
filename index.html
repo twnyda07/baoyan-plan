@@ -78,6 +78,28 @@ nav a.key{border:1px solid rgba(212,175,106,.5);opacity:1}
   color:var(--by-sky);font-size:.78rem;letter-spacing:.2em;opacity:.7;animation:bob 2.4s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
 
+/* ===== 動土大典 ===== */
+.ground{padding:44px 0 0}
+.gbox{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;
+  border:1px solid rgba(212,175,106,.42);border-radius:20px;padding:30px 36px;
+  background:linear-gradient(120deg,rgba(212,175,106,.13),rgba(15,46,99,.5) 62%)}
+.gtop{text-align:center;padding-right:34px;border-right:1px solid rgba(212,175,106,.3)}
+.gkick{color:var(--by-gold);letter-spacing:.2em;font-size:.8rem;margin-bottom:10px}
+.gdate{font-size:clamp(1.9rem,4.6vw,2.9rem);color:var(--by-gold-bright);letter-spacing:.06em;line-height:1.1}
+.gdate i{font-style:normal;opacity:.5;margin:0 .06em}
+.gcount{margin-top:10px;font-size:.92rem;color:var(--by-sky);letter-spacing:.08em}
+.gmid h2{font-size:clamp(1.3rem,3.2vw,1.9rem);color:var(--by-white);letter-spacing:.12em}
+.gmid p{margin-top:12px;color:var(--by-ivory);font-size:1rem;line-height:1.9;letter-spacing:.06em}
+.gbtn{display:inline-block;margin-top:18px;padding:11px 26px;border-radius:999px;
+  background:var(--by-gold);color:#0B2038;text-decoration:none;font-size:.96rem;letter-spacing:.08em;
+  transition:.25s}
+.gbtn:hover{background:var(--by-gold-bright);transform:translateY(-2px)}
+@media(max-width:820px){
+  .ground{padding:26px 0 0}
+  .gbox{grid-template-columns:1fr;gap:20px;padding:24px 20px;text-align:center}
+  .gtop{padding:0 0 18px;border-right:0;border-bottom:1px solid rgba(212,175,106,.3)}
+}
+
 /* ===== 區段 ===== */
 section{padding:86px 0}
 section.alt{background:rgba(15,46,99,.34);border-top:1px solid rgba(212,175,106,.14);
@@ -175,6 +197,13 @@ section.alt{background:rgba(15,46,99,.34);border-top:1px solid rgba(212,175,106,
 .legend{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:34px}
 .legend span{display:flex;align-items:center;gap:8px;font-size:.92rem;color:var(--by-ivory)}
 .legend i{width:15px;height:15px;border-radius:4px;display:block}
+
+/* 殿堂快速跳讀 */
+.jump{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
+.jump a{border:1px solid rgba(212,175,106,.4);border-radius:999px;padding:6px 15px;
+  font-size:.88rem;color:var(--by-gold-bright);text-decoration:none;transition:.2s}
+.jump a:hover{background:rgba(212,175,106,.18);opacity:1}
+.hall[id]{scroll-margin-top:74px}
 
 /* ===== 圖片區塊 ===== */
 .figure{margin-top:44px;border:1px solid rgba(143,180,232,.22);border-radius:16px;overflow:hidden;background:#fff}
@@ -378,6 +407,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 <nav>
   <div class="wrap">
     <span class="brand">寶嚴山寶嚴禪寺</span>
+    <a href="#ground" class="key">動土大典</a>
     <a href="#about">認識寶嚴</a>
     <a href="#site">基地環境</a>
     <a href="#floors" class="key">建築樓層規劃</a>
@@ -385,8 +415,8 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     <a href="#six">六藝學院</a>
     <a href="#time">計畫期程</a>
     <a href="#support">護持</a>
-    <a href="full.html">規劃書全文</a>
     <a href="pages.html">原書逐頁</a>
+    <a href="flyer.html">一頁簡介</a>
   </div>
 </nav>
 
@@ -411,6 +441,24 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
   </div>
   <div class="scroll-hint">向下捲動</div>
 </header>
+
+<!-- 動土大典 -->
+<section id="ground" class="ground">
+  <div class="wrap">
+    <div class="gbox reveal">
+      <div class="gtop">
+        <div class="gkick">寶嚴山　寶嚴禪寺　動土大典</div>
+        <div class="gdate">2026<i>.</i>12<i>.</i>26</div>
+        <div class="gcount" id="gcount" aria-live="polite"></div>
+      </div>
+      <div class="gmid">
+        <h2>萬眾一心　千鏟立基</h2>
+        <p>千手護持　千眼照見<br>山海之間，為一顆心預留位置</p>
+        <a class="gbtn" href="#support">敬邀您一同參與　→</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- 認識寶嚴 -->
 <section id="about">
@@ -546,9 +594,10 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     <div class="shead reveal">
       <div class="kicker">SPACES</div>
       <h2>殿堂空間設計</h2>
+      <div class="jump"><a href="#h1">普光明殿</a><a href="#h2">毗盧遮那藏殿</a><a href="#h3">禪・空間</a><a href="#h4">八十華嚴經鐘</a><a href="#h5">五十三參展演空間</a><a href="#h6">人間有香</a><a href="#h7">五百羅漢園區</a><a href="#h8">普莊嚴園</a></div>
     </div>
 
-    <div class="hall reveal">
+    <div class="hall reveal" id="h1">
       <div class="himg"><img src="img/crop/puguang.jpg" alt="普光明殿"></div>
       <div class="htxt">
         <div class="n">第一節</div>
@@ -559,7 +608,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       </div>
     </div>
 
-    <div class="hall reveal">
+    <div class="hall reveal" id="h2">
       <div class="himg"><img src="img/crop/pilu.jpg" alt="毗盧遮那藏殿"></div>
       <div class="htxt">
         <div class="n">第二節</div>
@@ -570,7 +619,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       </div>
     </div>
 
-    <div class="hall reveal">
+    <div class="hall reveal" id="h3">
       <div class="himg"><img src="img/crop/chan.jpg" alt="禪空間"></div>
       <div class="htxt">
         <div class="n">第三節</div>
@@ -580,7 +629,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       </div>
     </div>
 
-    <div class="hall reveal">
+    <div class="hall reveal" id="h4">
       <div class="himg"><img src="img/crop/bell.jpg" alt="鐘鼓樓與八十華嚴經鐘"></div>
       <div class="htxt">
         <div class="n">第四節</div>
@@ -590,7 +639,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       </div>
     </div>
 
-    <div class="hall reveal">
+    <div class="hall reveal" id="h5">
       <div class="himg"><img src="img/crop/child.jpg" alt="五十三參展演體驗互動空間"></div>
       <div class="htxt">
         <div class="n">第五節</div>
@@ -601,7 +650,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       </div>
     </div>
 
-    <div class="hall reveal">
+    <div class="hall reveal" id="h6">
       <div class="himg"><img src="img/crop/dining.jpg" alt="禪宗公案體驗餐廳"></div>
       <div class="htxt">
         <div class="n">第六節</div>
@@ -611,7 +660,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       </div>
     </div>
 
-    <div class="hall reveal">
+    <div class="hall reveal" id="h7">
       <div class="himg"><img src="img/crop/luohan.jpg" alt="五百羅漢園區"></div>
       <div class="htxt">
         <div class="n">第七節</div>
@@ -621,7 +670,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       </div>
     </div>
 
-    <div class="hall reveal">
+    <div class="hall reveal" id="h8">
       <div class="himg"><img src="img/crop/garden.jpg" alt="普莊嚴園"></div>
       <div class="htxt">
         <div class="n">第八節</div>
@@ -789,7 +838,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       <span>Facebook：寶嚴山寶嚴禪寺</span>
     </div>
     <p class="src">
-      本頁內容出自《2026 寶嚴禪寺總體規劃書》，並公開<a href="full.html" style="color:var(--by-gold-bright)">規劃書全文</a>與<a href="pages.html" style="color:var(--by-gold-bright)">原書逐頁圖</a>。<br>
+      本頁內容出自《2026 寶嚴禪寺總體規劃書》，並公開<a href="pages.html" style="color:var(--by-gold-bright)">原書逐頁圖</a>；另有可列印轉發的<a href="flyer.html" style="color:var(--by-gold-bright)">一頁式簡介</a>。<br>
       渲染圖與平面圖皆為模擬示意，實際以主管機關核准之圖說為準。
     </p>
   </div>
@@ -915,6 +964,17 @@ if (copyBtn) copyBtn.addEventListener('click', async () => {
   copyBtn.classList.add('ok');
   setTimeout(() => { copyBtn.textContent = '複製帳號'; copyBtn.classList.remove('ok'); }, 2200);
 });
+
+/* 動土大典倒數 */
+(function(){
+  const el = document.getElementById('gcount');
+  if (!el) return;
+  const target = new Date(2026, 11, 26);
+  const today = new Date();
+  const d0 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const days = Math.round((target - d0) / 86400000);
+  el.textContent = days > 0 ? `距動土大典 ${days} 天` : (days === 0 ? '今日動土' : '');
+})();
 
 document.documentElement.classList.add('js');
 const reveals = [...document.querySelectorAll('.reveal')];
