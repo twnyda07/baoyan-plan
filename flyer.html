@@ -13,91 +13,97 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#3a4658;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;
   color:var(--deep);padding:24px 12px;-webkit-font-smoothing:antialiased}
+.tools{width:210mm;max-width:100%;margin:0 auto 12px;display:flex;gap:8px;flex-wrap:wrap}
+.tbtn{appearance:none;border:1px solid rgba(212,175,106,.55);background:rgba(8,29,63,.55);
+  color:#F0DFB8;font-family:inherit;font-size:13px;letter-spacing:.08em;padding:7px 15px;
+  border-radius:999px;cursor:pointer;text-decoration:none;line-height:1.6;transition:.2s}
+.tbtn:hover{background:rgba(212,175,106,.24);color:#fff}
+@media print{.tools{display:none}}
 .page{width:210mm;min-height:297mm;margin:0 auto;background:var(--paper);
   box-shadow:0 10px 50px rgba(0,0,0,.4);position:relative;overflow:hidden;
   display:flex;flex-direction:column}
 
 /* ===== 頁首 ===== */
-.top{position:relative;color:#fff;padding:0;flex:none}
-.top .photo{position:relative;height:29mm;overflow:hidden;background:var(--deep)}
-.top .photo img{width:100%;height:100%;object-fit:cover;object-position:center 62%}
+.top{position:relative;color:#fff;padding:0;flex:none;background:var(--deep)}
+.top .photo{position:relative;min-height:28mm;overflow:hidden;background:var(--deep)}
+.top .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%}
 .top .photo::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(8,29,63,.86) 0%,rgba(8,29,63,.42) 55%,rgba(8,29,63,.9) 100%)}
-.top .on{position:absolute;inset:0;z-index:2;padding:6mm 11mm;display:flex;flex-direction:column;justify-content:center}
+  background:linear-gradient(180deg,rgba(8,29,63,.93) 0%,rgba(8,29,63,.66) 58%,rgba(8,29,63,.93) 100%)}
+.top .on{position:relative;z-index:2;padding:4.2mm 11mm 4.4mm}
 .top .eye{letter-spacing:.34em;font-size:7pt;color:var(--gold-l);margin-bottom:2mm}
-.top h1{font-size:21pt;line-height:1.24;letter-spacing:.05em;font-weight:700}
+.top h1{font-size:19.5pt;line-height:1.26;letter-spacing:.05em;font-weight:700}
 .top h1 em{font-style:normal;color:var(--gold-l)}
-.top .sub{margin-top:2.5mm;font-size:8.6pt;letter-spacing:.06em;opacity:.94}
-.top .verse{margin-top:2.6mm;font-size:11pt;letter-spacing:.22em;color:var(--gold-l)}
+.top .sub{margin-top:2.2mm;font-size:8.4pt;letter-spacing:.06em;opacity:.94}
+.top .verse{margin-top:2.2mm;font-size:10pt;letter-spacing:.2em;color:var(--gold-l)}
 .top .verse em{font-style:normal;color:#fff}
 .ribbon{background:var(--deep);color:var(--ivory);display:flex;flex-wrap:wrap;
   justify-content:center;gap:0;border-top:1px solid rgba(212,175,106,.4)}
-.ribbon div{flex:1;min-width:38mm;text-align:center;padding:2.4mm 2mm;border-right:1px solid rgba(212,175,106,.25)}
+.ribbon div{flex:1;min-width:38mm;text-align:center;padding:1.9mm 2mm;border-right:1px solid rgba(212,175,106,.25)}
 .ribbon div:last-child{border-right:0}
 .ribbon b{display:block;color:var(--gold-l);font-size:10.5pt;letter-spacing:.02em}
 .ribbon span{font-size:6.6pt;opacity:.8;letter-spacing:.1em}
 
 /* ===== 內文 ===== */
-.body{padding:4.2mm 11mm 2.8mm;flex:1;display:flex;flex-direction:column;gap:2.9mm}
-h2.sec{font-size:10.5pt;color:var(--blue);letter-spacing:.1em;display:flex;align-items:center;gap:2.5mm;margin-bottom:2.2mm}
+.body{padding:3mm 11mm 2mm;flex:1;display:flex;flex-direction:column;gap:1.7mm}
+h2.sec{font-size:10.2pt;color:var(--blue);letter-spacing:.1em;display:flex;align-items:center;gap:2.5mm;margin-bottom:1.2mm}
 h2.sec::before{content:"";width:4px;height:14px;background:var(--gold);display:block;border-radius:2px}
 h2.sec small{font-size:6.8pt;color:var(--gold);letter-spacing:.22em;font-weight:400}
 p,li{font-size:8pt;line-height:1.6}
 
-.intro{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
-.intro .box{background:var(--ivory);border:1px solid #e3dbc6;border-radius:2.5mm;padding:1.7mm 2.8mm}
-.intro .box h3{font-size:8.6pt;color:var(--blue);margin-bottom:1mm;letter-spacing:.04em}
-.intro .box p{font-size:7pt;line-height:1.5}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:2.4mm}
+.intro .box{background:var(--ivory);border:1px solid #e3dbc6;border-radius:2.5mm;padding:1mm 2.4mm}
+.intro .box h3{font-size:8.2pt;color:var(--blue);margin-bottom:.6mm;letter-spacing:.04em}
+.intro .box p{font-size:6.6pt;line-height:1.36}
 
 /* ===== 樓層 ===== */
 .floors{border:1px solid #dfd7c2;border-radius:3mm;overflow:hidden}
 .fl{display:grid;grid-template-columns:13mm 1fr;border-bottom:1px solid #e8e1cf;align-items:stretch}
 .fl:last-child{border-bottom:0}
 .fl .lv{background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;
-  font-size:9.6pt;letter-spacing:.02em}
+  font-size:9pt;letter-spacing:.02em}
 .fl:nth-child(1) .lv{background:var(--deep)}
-.fl .rooms{padding:.9mm 2.4mm;display:flex;flex-wrap:wrap;gap:1mm;align-items:center}
-.fl .rooms .g{display:inline-flex;align-items:center;gap:1mm;font-size:7pt;
-  border-radius:1.6mm;padding:.45mm 1.9mm;border:1px solid rgba(0,0,0,.08)}
+.fl .rooms{padding:.7mm 2.4mm;display:flex;flex-wrap:wrap;gap:1mm;align-items:center}
+.fl .rooms .g{display:inline-flex;align-items:center;gap:1mm;font-size:6.6pt;
+  border-radius:1.6mm;padding:.3mm 1.7mm;border:1px solid rgba(0,0,0,.08)}
 .fl .rooms .g i{width:7px;height:7px;border-radius:2px;flex:none}
-.legend{display:flex;flex-wrap:wrap;gap:3.5mm;margin-top:1.8mm;font-size:6.8pt;color:#4a5568}
+.legend{display:flex;flex-wrap:wrap;gap:3.5mm;margin-top:1.3mm;font-size:6.8pt;color:#4a5568}
 .legend span{display:flex;align-items:center;gap:1.5mm}
 .legend i{width:9px;height:9px;border-radius:2px;display:block}
 
 /* ===== 空間 ===== */
 .spaces{display:grid;grid-template-columns:repeat(4,1fr);gap:2.2mm}
-.sp{background:var(--ivory);border:1px solid #e3dbc6;border-radius:2mm;padding:1.2mm 1.2mm;text-align:center}
-.sp b{display:block;font-size:7.6pt;color:var(--blue);margin-bottom:.6mm;letter-spacing:.02em}
-.sp span{font-size:6pt;color:#5a6472;line-height:1.34;display:block}
+.sp{background:var(--ivory);border:1px solid #e3dbc6;border-radius:2mm;padding:.8mm 1mm;text-align:center}
+.sp b{display:block;font-size:7.4pt;color:var(--blue);margin-bottom:.4mm;letter-spacing:.02em}
+.sp span{font-size:5.7pt;color:#5a6472;line-height:1.28;display:block}
 
 /* ===== 底部 ===== */
-.bottom{display:grid;grid-template-columns:1.15fr .85fr;gap:4.5mm;align-items:start}
+.bottom{display:grid;grid-template-columns:.92fr 1.08fr;gap:3.4mm 4.5mm;align-items:start}
 .tl{font-size:7.4pt}
-.tl .r{display:flex;gap:2.5mm;padding:.5mm 0;border-bottom:1px dotted #ddd5c0}
+.tl .r{display:flex;gap:2.5mm;padding:.32mm 0;border-bottom:1px dotted #ddd5c0}
 .tl .r:last-child{border-bottom:0}
 .tl .r b{color:var(--gold);min-width:26mm;flex:none;letter-spacing:.02em}
 .tl .r.hi b,.tl .r.hi span{color:var(--blue);font-weight:700}
-.signup{border:.35mm solid var(--gold);border-radius:2.5mm;padding:2.8mm 3.4mm;margin-bottom:2.4mm;
+.signup{grid-column:1 / -1;border:.35mm solid var(--gold);border-radius:2.5mm;padding:2.2mm 3.4mm;margin:0;
   display:flex;gap:3mm;align-items:center;justify-content:space-between;background:#FBF4E6}
 .signup h3{font-size:9pt;color:#7A5A16;letter-spacing:.06em;margin-bottom:1mm}
 .signup .sgd{font-size:7.2pt;color:#3C3323;letter-spacing:.02em}
 .signup .sgd b{font-size:8.6pt;color:#7A5A16;letter-spacing:.04em}
-.signup .sgm{font-size:6.4pt;color:#6B5C3E;margin-top:.8mm;line-height:1.5}
+.signup .sgm{font-size:6.3pt;color:#6B5C3E;margin-top:.7mm;line-height:1.42}
 .signup .sgu{font-size:6.8pt;color:#7A5A16;margin-top:.9mm;letter-spacing:.02em}
 .signup .sgq{width:13mm;height:13mm;flex:none;background:#fff;padding:.6mm;border-radius:1mm}
-.support{background:var(--deep);color:var(--ivory);border-radius:2.5mm;padding:3.4mm 4mm}
+.support{background:var(--deep);color:var(--ivory);border-radius:2.5mm;padding:2.7mm 4mm}
 .support h3{color:var(--gold-l);font-size:9pt;margin-bottom:1.2mm;letter-spacing:.08em}
 .support .shd{display:flex;gap:3mm;align-items:flex-start;justify-content:space-between;margin-bottom:2mm}
 .support .dline{font-size:6.8pt;line-height:1.5;color:var(--ivory)}
 .support .dline b{color:var(--gold-l);font-size:7.6pt;letter-spacing:.02em}
 .support .dline span{opacity:.7}
 .support .dqr{width:11.5mm;height:11.5mm;background:#fff;padding:.8mm;border-radius:1mm;flex:none}
-.support .rows{display:grid;grid-template-columns:1fr 1fr;gap:.45mm 2.5mm;font-size:6.4pt}
+.support .rows{display:grid;grid-template-columns:1fr 1fr;gap:.3mm 2.5mm;font-size:6.4pt}
 .support .rows div{display:flex;justify-content:space-between;gap:2mm;
-  border-bottom:1px dotted rgba(244,239,228,.22);padding-bottom:.8mm}
+  border-bottom:1px dotted rgba(244,239,228,.22);padding-bottom:.55mm}
 .support .rows b{color:#fff;font-weight:400;white-space:nowrap}
 .support .rows span{color:var(--gold-l);white-space:nowrap}
-.support .bank{margin-top:2mm;padding:1.8mm 2.4mm;border:1px solid rgba(212,175,106,.45);
+.support .bank{margin-top:1.5mm;padding:1.4mm 2.4mm;border:1px solid rgba(212,175,106,.45);
   border-radius:1.6mm;background:rgba(212,175,106,.09);font-size:6.6pt;line-height:1.55}
 .support .bank b{display:block;color:var(--gold-l);font-size:7.2pt;letter-spacing:.1em;margin-bottom:.6mm}
 .support .bank em{font-style:normal;color:var(--gold-l);font-size:8.4pt;letter-spacing:.06em}
@@ -117,7 +123,7 @@ footer{background:var(--deep);color:var(--ivory);padding:2.6mm 11mm;font-size:6.
 footer .l b{color:var(--gold-l);font-size:8.2pt;letter-spacing:.1em;display:block;margin-bottom:1mm}
 footer .r{text-align:right;line-height:1.7;opacity:.88}
 
-.note{font-size:5.9pt;color:#8a8474;text-align:center;padding:1.1mm 11mm 1.3mm;line-height:1.4}
+.note{font-size:5.9pt;color:#8a8474;text-align:center;padding:.8mm 11mm 1mm;line-height:1.35}
 
 @media print{
   body{background:#fff;padding:0}
@@ -125,13 +131,13 @@ footer .r{text-align:right;line-height:1.7;opacity:.88}
   @page{size:A4;margin:0}
 }
 /* ===== 手機／平板閱讀（列印時不受影響） ===== */
-@media(max-width:900px){
+@media screen and (max-width:900px){
   body{padding:0}
   .page{width:100%;min-height:0;box-shadow:none}
   .intro,.bottom{grid-template-columns:1fr;gap:4mm}
   .spaces{grid-template-columns:repeat(2,1fr);gap:3mm}
-  .top .photo{height:56vw;min-height:196px;max-height:260px}
-  .top .on{padding:5mm 6mm}
+  .top .photo{min-height:46vw}
+  .top .on{padding:6mm 6mm}
   .top h1{font-size:19pt;line-height:1.3}
   .top .eye{font-size:8pt;letter-spacing:.24em}
   .top .sub{font-size:9.5pt}
@@ -181,7 +187,7 @@ footer .r{text-align:right;line-height:1.7;opacity:.88}
   footer .r{text-align:left}
   .note{font-size:8.5pt;padding:3mm 6mm 4mm;line-height:1.6}
 }
-@media(max-width:560px){
+@media screen and (max-width:560px){
   .spaces{grid-template-columns:1fr}
   .ribbon div{min-width:50%}
   .ribbon b{font-size:12pt}
@@ -193,11 +199,17 @@ footer .r{text-align:right;line-height:1.7;opacity:.88}
 </style>
 </head>
 <body>
+<div class="tools">
+  <a class="tbtn" href="index.html">← 回規劃導覽</a>
+  <button class="tbtn" type="button" onclick="if(history.length>1){history.back()}else{location.href='index.html'}">回上一頁</button>
+  <button class="tbtn" type="button" onclick="window.print()">列印／存成 PDF</button>
+</div>
+
 <div class="page">
 
   <div class="top">
     <div class="photo">
-      <img src="site/img/crop/hero.jpg" alt="寶嚴禪寺建築模擬示意圖">
+      <img src="img/crop/hero.jpg" alt="寶嚴禪寺建築模擬示意圖">
       <div class="on">
         <div class="eye">BAOYAN CHAN MONASTERY　2026 總體規劃</div>
         <h1>致　三界中的浪子</h1>
@@ -293,6 +305,15 @@ footer .r{text-align:right;line-height:1.7;opacity:.88}
     </section>
 
     <div class="bottom">
+      <section class="signup">
+        <div class="sgl">
+          <h3>一鏟同心・世代安住　動土大典開放報名</h3>
+          <div class="sgd"><b>2026.12.26（六）</b> 動土大典　·　活動 12/25（五）–27（日）三天兩夜　·　台東都蘭</div>
+          <div class="sgm">12/25 自台北、台中、高雄搭專車出發，入住飯店、歡迎晚宴　·　12/26 動土大典、園遊會、三仙台　·　12/27 山線遊覽、鐵路便當、池上返程（行程暫定）<br>可於報名表單登記專開列車需求及上車地點　·　歡迎攜伴參加、全家同行</div>
+          <div class="sgu">報名　forms.gle/ApUXtkwgKXruTDZh7</div>
+        </div>
+        <img class="sgq" src="img/qr-signup.png" alt="動土大典報名 QR Code">
+      </section>
       <section>
         <h2 class="sec">計畫推動期程<small>TIMELINE</small></h2>
         <div class="tl">
@@ -306,15 +327,6 @@ footer .r{text-align:right;line-height:1.7;opacity:.88}
         </div>
       </section>
 
-      <section class="signup">
-        <div class="sgl">
-          <h3>一鏟同心・世代安住　動土大典開放報名</h3>
-          <div class="sgd"><b>2026.12.26（六）</b> 動土大典　·　活動 12/25（五）–27（日）三天兩夜　·　台東都蘭</div>
-          <div class="sgm">12/25 自台北、台中、高雄搭專車出發，入住飯店、歡迎晚宴　·　12/26 動土大典、園遊會、三仙台　·　12/27 山線遊覽、鐵路便當、池上返程（行程暫定）<br>可於報名表單登記專開列車需求及上車地點　·　歡迎攜伴參加、全家同行</div>
-          <div class="sgu">報名　forms.gle/ApUXtkwgKXruTDZh7</div>
-        </div>
-        <img class="sgq" src="site/img/qr-signup.png" alt="動土大典報名 QR Code">
-      </section>
 
       <section class="support">
         <div class="shd">
@@ -322,7 +334,7 @@ footer .r{text-align:right;line-height:1.7;opacity:.88}
             <h3>參與建設，共築福田</h3>
             <div class="dline">線上刷卡護持　<b>donatebaoyan.org</b><br><span>華南銀行安全刷卡通道</span></div>
           </div>
-          <img class="dqr" src="site/img/qr-donate.png" alt="線上捐款 QR Code">
+          <img class="dqr" src="img/qr-donate.png" alt="線上捐款 QR Code">
         </div>
         <div class="rows">
           <div><b>認供 88 佛</b><span>100 萬／尊</span></div>
