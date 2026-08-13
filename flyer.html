@@ -200,8 +200,8 @@ footer .r{text-align:right;line-height:1.7;opacity:.88}
 </head>
 <body>
 <div class="tools">
-  <a class="tbtn" href="index.html">← 回規劃導覽</a>
-  <button class="tbtn" type="button" onclick="if(history.length>1){history.back()}else{location.href='index.html'}">回上一頁</button>
+  <button class="tbtn" id="btnback" type="button" hidden onclick="history.back()">← 回上一頁</button>
+  <a class="tbtn" href="index.html">看完整規劃導覽</a>
   <button class="tbtn" type="button" onclick="window.print()">列印／存成 PDF</button>
 </div>
 
@@ -376,5 +376,9 @@ footer .r{text-align:right;line-height:1.7;opacity:.88}
 
   <div class="note">本頁資料整理自《2026 寶嚴禪寺總體規劃書》。渲染圖與樓層配置皆為規劃示意，實際以主管機關核准之圖說為準。</div>
 </div>
+<script>
+/* 只有「真的從別頁點過來」才顯示回上一頁，避免與規劃導覽重複 */
+if (document.referrer && history.length > 1) document.getElementById('btnback').hidden = false;
+</script>
 </body>
 </html>
