@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寶嚴禪寺 一頁簡介｜台東都蘭・山海之間的華嚴聖殿</title>
+<style>
+:root{
+  --deep:#081D3F; --blue:#0F2E63; --mid:#1A4187; --sky:#2E5CB8;
+  --gold:#B8923F; --gold-l:#D4AF6A; --ivory:#F7F3E9; --paper:#FFFDF7;
+  --z1:#E9A97B; --z2:#8FBEDF; --z3:#A5C99C; --z4:#DFD08A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#3a4658;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  color:var(--deep);padding:24px 12px;-webkit-font-smoothing:antialiased}
+.page{width:210mm;min-height:297mm;margin:0 auto;background:var(--paper);
+  box-shadow:0 10px 50px rgba(0,0,0,.4);position:relative;overflow:hidden;
+  display:flex;flex-direction:column}
+
+/* ===== 頁首 ===== */
+.top{position:relative;color:#fff;padding:0;flex:none}
+.top .photo{position:relative;height:29mm;overflow:hidden;background:var(--deep)}
+.top .photo img{width:100%;height:100%;object-fit:cover;object-position:center 62%}
+.top .photo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(8,29,63,.86) 0%,rgba(8,29,63,.42) 55%,rgba(8,29,63,.9) 100%)}
+.top .on{position:absolute;inset:0;z-index:2;padding:6mm 11mm;display:flex;flex-direction:column;justify-content:center}
+.top .eye{letter-spacing:.34em;font-size:7pt;color:var(--gold-l);margin-bottom:2mm}
+.top h1{font-size:21pt;line-height:1.24;letter-spacing:.05em;font-weight:700}
+.top h1 em{font-style:normal;color:var(--gold-l)}
+.top .sub{margin-top:2.5mm;font-size:8.6pt;letter-spacing:.06em;opacity:.94}
+.ribbon{background:var(--deep);color:var(--ivory);display:flex;flex-wrap:wrap;
+  justify-content:center;gap:0;border-top:1px solid rgba(212,175,106,.4)}
+.ribbon div{flex:1;min-width:38mm;text-align:center;padding:2.4mm 2mm;border-right:1px solid rgba(212,175,106,.25)}
+.ribbon div:last-child{border-right:0}
+.ribbon b{display:block;color:var(--gold-l);font-size:10.5pt;letter-spacing:.02em}
+.ribbon span{font-size:6.6pt;opacity:.8;letter-spacing:.1em}
+
+/* ===== 內文 ===== */
+.body{padding:4.2mm 11mm 2.8mm;flex:1;display:flex;flex-direction:column;gap:2.9mm}
+h2.sec{font-size:10.5pt;color:var(--blue);letter-spacing:.1em;display:flex;align-items:center;gap:2.5mm;margin-bottom:2.2mm}
+h2.sec::before{content:"";width:4px;height:14px;background:var(--gold);display:block;border-radius:2px}
+h2.sec small{font-size:6.8pt;color:var(--gold);letter-spacing:.22em;font-weight:400}
+p,li{font-size:8pt;line-height:1.6}
+
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.intro .box{background:var(--ivory);border:1px solid #e3dbc6;border-radius:2.5mm;padding:1.7mm 2.8mm}
+.intro .box h3{font-size:8.6pt;color:var(--blue);margin-bottom:1mm;letter-spacing:.04em}
+.intro .box p{font-size:7pt;line-height:1.5}
+
+/* ===== 樓層 ===== */
+.floors{border:1px solid #dfd7c2;border-radius:3mm;overflow:hidden}
+.fl{display:grid;grid-template-columns:13mm 1fr;border-bottom:1px solid #e8e1cf;align-items:stretch}
+.fl:last-child{border-bottom:0}
+.fl .lv{background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:9.6pt;letter-spacing:.02em}
+.fl:nth-child(1) .lv{background:var(--deep)}
+.fl .rooms{padding:.9mm 2.4mm;display:flex;flex-wrap:wrap;gap:1mm;align-items:center}
+.fl .rooms .g{display:inline-flex;align-items:center;gap:1mm;font-size:7pt;
+  border-radius:1.6mm;padding:.45mm 1.9mm;border:1px solid rgba(0,0,0,.08)}
+.fl .rooms .g i{width:7px;height:7px;border-radius:2px;flex:none}
+.legend{display:flex;flex-wrap:wrap;gap:3.5mm;margin-top:1.8mm;font-size:6.8pt;color:#4a5568}
+.legend span{display:flex;align-items:center;gap:1.5mm}
+.legend i{width:9px;height:9px;border-radius:2px;display:block}
+
+/* ===== 空間 ===== */
+.spaces{display:grid;grid-template-columns:repeat(4,1fr);gap:2.2mm}
+.sp{background:var(--ivory);border:1px solid #e3dbc6;border-radius:2mm;padding:1.2mm 1.2mm;text-align:center}
+.sp b{display:block;font-size:7.6pt;color:var(--blue);margin-bottom:.6mm;letter-spacing:.02em}
+.sp span{font-size:6pt;color:#5a6472;line-height:1.34;display:block}
+
+/* ===== 底部 ===== */
+.bottom{display:grid;grid-template-columns:1.15fr .85fr;gap:4.5mm;align-items:start}
+.tl{font-size:7.4pt}
+.tl .r{display:flex;gap:2.5mm;padding:.5mm 0;border-bottom:1px dotted #ddd5c0}
+.tl .r:last-child{border-bottom:0}
+.tl .r b{color:var(--gold);min-width:26mm;flex:none;letter-spacing:.02em}
+.tl .r.hi b,.tl .r.hi span{color:var(--blue);font-weight:700}
+.support{background:var(--deep);color:var(--ivory);border-radius:2.5mm;padding:3.4mm 4mm}
+.support h3{color:var(--gold-l);font-size:9pt;margin-bottom:1.2mm;letter-spacing:.08em}
+.support .shd{display:flex;gap:3mm;align-items:flex-start;justify-content:space-between;margin-bottom:2mm}
+.support .dline{font-size:6.8pt;line-height:1.5;color:var(--ivory)}
+.support .dline b{color:var(--gold-l);font-size:7.6pt;letter-spacing:.02em}
+.support .dline span{opacity:.7}
+.support .dqr{width:11.5mm;height:11.5mm;background:#fff;padding:.8mm;border-radius:1mm;flex:none}
+.support .rows{display:grid;grid-template-columns:1fr 1fr;gap:.45mm 2.5mm;font-size:6.4pt}
+.support .rows div{display:flex;justify-content:space-between;gap:2mm;
+  border-bottom:1px dotted rgba(244,239,228,.22);padding-bottom:.8mm}
+.support .rows b{color:#fff;font-weight:400;white-space:nowrap}
+.support .rows span{color:var(--gold-l);white-space:nowrap}
+.support .bank{margin-top:2mm;padding:1.8mm 2.4mm;border:1px solid rgba(212,175,106,.45);
+  border-radius:1.6mm;background:rgba(212,175,106,.09);font-size:6.6pt;line-height:1.55}
+.support .bank b{display:block;color:var(--gold-l);font-size:7.2pt;letter-spacing:.1em;margin-bottom:.6mm}
+.support .bank em{font-style:normal;color:var(--gold-l);font-size:8.4pt;letter-spacing:.06em}
+.support p{font-size:6.2pt;opacity:.72;margin-top:1.2mm;line-height:1.5}
+
+.bankband{background:var(--ivory);border-top:1px solid #e0d7c0;border-bottom:1px solid #e0d7c0;
+  padding:1.9mm 11mm;display:flex;flex-wrap:wrap;align-items:baseline;gap:1.5mm 4mm;
+  font-size:7pt;color:var(--blue);flex:none}
+.bankband .bt{color:var(--gold);font-size:7.6pt;letter-spacing:.14em;font-weight:700}
+.bankband em{font-style:normal;font-size:9pt;letter-spacing:.08em;color:var(--blue);font-weight:700}
+.bankband .bn{opacity:.6;font-size:6.4pt}
+.bankband .callout{flex-basis:100%;margin-top:1mm;padding:1.2mm 2.2mm;border-radius:1.4mm;
+  background:rgba(184,146,63,.14);border:1px solid rgba(184,146,63,.5);font-size:7pt;color:var(--blue)}
+.bankband .callout b{color:#8a6a1e}
+footer{background:var(--deep);color:var(--ivory);padding:2.6mm 11mm;font-size:6.7pt;
+  display:flex;justify-content:space-between;gap:4mm;flex-wrap:wrap;align-items:center;flex:none}
+footer .l b{color:var(--gold-l);font-size:8.2pt;letter-spacing:.1em;display:block;margin-bottom:1mm}
+footer .r{text-align:right;line-height:1.7;opacity:.88}
+
+.note{font-size:5.9pt;color:#8a8474;text-align:center;padding:1.1mm 11mm 1.3mm;line-height:1.4}
+
+@media print{
+  body{background:#fff;padding:0}
+  .page{box-shadow:none;width:auto;min-height:auto}
+  @page{size:A4;margin:0}
+}
+/* ===== 手機／平板閱讀（列印時不受影響） ===== */
+@media(max-width:900px){
+  body{padding:0}
+  .page{width:100%;min-height:0;box-shadow:none}
+  .intro,.bottom{grid-template-columns:1fr;gap:4mm}
+  .spaces{grid-template-columns:repeat(2,1fr);gap:3mm}
+  .top .photo{height:56vw;min-height:196px;max-height:260px}
+  .top .on{padding:5mm 6mm}
+  .top h1{font-size:19pt;line-height:1.3}
+  .top .eye{font-size:8pt;letter-spacing:.24em}
+  .top .sub{font-size:9.5pt}
+  .ribbon div{min-width:50%;padding:3mm 2mm;border-bottom:1px solid rgba(212,175,106,.22)}
+  .ribbon b{font-size:13pt}
+  .ribbon span{font-size:8.5pt}
+  .body{padding:6mm 6mm 5mm;gap:6mm}
+  h2.sec{font-size:14pt;margin-bottom:3mm}
+  h2.sec small{font-size:8.5pt}
+  p,li{font-size:11pt;line-height:1.75}
+  .intro .box{padding:4mm 4.5mm;border-radius:3mm}
+  .intro .box h3{font-size:12pt;margin-bottom:1.5mm}
+  .intro .box p{font-size:10.5pt;line-height:1.75}
+  .fl{grid-template-columns:16mm 1fr}
+  .fl .lv{font-size:12pt}
+  .fl .rooms{padding:2.5mm 3mm;gap:2mm}
+  .fl .rooms .g{font-size:10pt;padding:1.2mm 2.6mm;border-radius:2mm}
+  .fl .rooms .g i{width:9px;height:9px}
+  .legend{font-size:9.5pt;gap:3mm 5mm;margin-top:3mm}
+  .legend i{width:11px;height:11px}
+  .sp{padding:3mm 2.5mm}
+  .sp b{font-size:11pt;margin-bottom:1.2mm}
+  .sp span{font-size:9.5pt;line-height:1.6}
+  .tl{font-size:10.5pt}
+  .tl .r{padding:1.6mm 0;gap:3mm}
+  .tl .r b{min-width:30mm}
+  .support{padding:5mm}
+  .support h3{font-size:13pt;margin-bottom:2mm}
+  .support .dline{font-size:10pt}
+  .support .dline b{font-size:11.5pt}
+  .support .dqr{width:22mm;height:22mm}
+  .support .rows{grid-template-columns:1fr 1fr;font-size:10pt;gap:1.5mm 4mm}
+  .support .rows div{padding-bottom:1.2mm}
+  .support p{font-size:9.5pt;margin-top:3mm}
+  .bankband{padding:4mm 6mm;font-size:10pt;gap:2mm 4mm}
+  .bankband .bt{font-size:11pt}
+  .bankband em{font-size:13pt}
+  .bankband .bn{font-size:9.5pt}
+  .bankband .callout{font-size:10pt;padding:3mm;margin-top:2mm;line-height:1.65}
+  footer{padding:5mm 6mm;font-size:9.5pt;gap:3mm}
+  footer .l b{font-size:12pt}
+  footer .r{text-align:left}
+  .note{font-size:8.5pt;padding:3mm 6mm 4mm;line-height:1.6}
+}
+@media(max-width:560px){
+  .spaces{grid-template-columns:1fr}
+  .ribbon div{min-width:50%}
+  .ribbon b{font-size:12pt}
+  .ribbon span{font-size:8pt}
+  .top h1{font-size:17pt}
+  .fl{grid-template-columns:1fr}
+  .fl .lv{padding:1.5mm;font-size:11pt;justify-content:flex-start;padding-left:3mm}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <div class="photo">
+      <img src="img/crop/hero.jpg" alt="寶嚴禪寺建築模擬示意圖">
+      <div class="on">
+        <div class="eye">BAOYAN CHAN MONASTERY　2026 總體規劃</div>
+        <h1>山海之間，<br>一座<em>華嚴聖殿</em>正在興建</h1>
+        <div class="sub">寶嚴山　寶嚴禪寺　—　台東・都蘭山下，背倚海岸山脈，面向太平洋</div>
+      </div>
+    </div>
+    <div class="ribbon">
+      <div><b>台東東河</b><span>離山1km・離海1km</span></div>
+      <div><b>9,700.59 m²</b><span>第一期基地面積</span></div>
+      <div><b>B1F ─ 5F</b><span>地下一層・地上五層</span></div>
+      <div><b>2026.12.26</b><span>動土大典</span></div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <section>
+      <h2 class="sec">這是什麼？<small>WHAT IT IS</small></h2>
+      <div class="intro">
+        <div class="box">
+          <h3>一座禪宗叢林道場</h3>
+          <p>設計理念依據《華嚴經》、《楞嚴經》與《金剛經》，融合自然、文化、藝術、教育的多元修行樣態。一座實踐百丈家風的禪宗叢林道場，也是兼具現代感與古樸氛韻的藝術聖殿。</p>
+        </div>
+        <div class="box">
+          <h3>一個 0–100 歲的學習聚落</h3>
+          <p>更定位為推動 ESG 的國際學習資源中心：申請美國 LEED 綠建築認證、導入能源 AI 管理平台與節能空調；以「六藝學院」邀請全球專家駐村，讓各年齡的人都能在此教、研、修、學。</p>
+        </div>
+        <div class="box">
+          <h3>誰在打造</h3>
+          <p>總住持傳塵大和尚、宗務長見輝法師領眾發起。建築總規劃為<b>竹間聯合建築師事務所</b>，主持人建築家<b>簡學義</b>——第24屆國家文藝獎得主，代表作鶯歌陶瓷博物館、國立台灣歷史博物館、台大人文館；營造由威毅營造承擔。</p>
+        </div>
+        <div class="box">
+          <h3>從哪裡來</h3>
+          <p>2011 年圓道禪院成立推廣經典課程；發起「百億華嚴登玄門，百萬菩薩入藏海」全球持誦《華嚴經》願行，迄今供養近 35 萬套、遍滿五大洲。2021 年因緣成熟，於台東落腳。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec">建築樓層規劃<small>FLOOR PLAN</small></h2>
+      <div class="floors">
+        <div class="fl"><div class="lv">5F</div><div class="rooms">
+          <span class="g" style="background:#FBF0E6"><i style="background:var(--z1)"></i>毗盧遮那藏殿</span>
+          <span class="g" style="background:#FBF0E6"><i style="background:var(--z1)"></i>大雄寶殿</span>
+          <span class="g" style="background:#FBF0E6"><i style="background:var(--z1)"></i>大眾禪堂</span>
+          <span style="font-size:7.6pt;color:#8a7a5c">常年讀誦三藏・禪修靜坐</span>
+        </div></div>
+        <div class="fl"><div class="lv">4F</div><div class="rooms">
+          <span class="g" style="background:#EDF4FA"><i style="background:var(--z2)"></i>佛學院・圖書室・教室</span>
+          <span class="g" style="background:#FBF0E6"><i style="background:var(--z1)"></i>禪藝空間（寫經・閱讀・觀海）</span>
+        </div></div>
+        <div class="fl"><div class="lv">3F</div><div class="rooms">
+          <span class="g" style="background:#EFF6EC"><i style="background:var(--z3)"></i>行政大樓</span>
+          <span class="g" style="background:#FBF0E6"><i style="background:var(--z1)"></i>閉關法師套房</span>
+          <span class="g" style="background:#FBF0E6"><i style="background:var(--z1)"></i>閉關法師禪堂／齋堂</span>
+        </div></div>
+        <div class="fl"><div class="lv">2F</div><div class="rooms">
+          <span class="g" style="background:#EFF6EC"><i style="background:var(--z3)"></i>行政區套房・演講廳</span>
+          <span class="g" style="background:#FBF0E6"><i style="background:var(--z1)"></i>閉關法師套房</span>
+          <span class="g" style="background:#FAF6E2"><i style="background:var(--z4)"></i>星海樓餐廳（禪宗公案餐廳）</span>
+        </div></div>
+        <div class="fl"><div class="lv">1F</div><div class="rooms">
+          <span class="g" style="background:#EFF6EC"><i style="background:var(--z3)"></i>辦公室／接待室・演講廳</span>
+          <span class="g" style="background:#FAF6E2"><i style="background:var(--z4)"></i>遊客中心・藝廊／餐廳／圖書</span>
+          <span class="g" style="background:#EFF6EC"><i style="background:var(--z3)"></i>多功能教室・親子遊戲空間</span>
+        </div></div>
+        <div class="fl"><div class="lv">B1F</div><div class="rooms">
+          <span class="g" style="background:#EFF6EC"><i style="background:var(--z3)"></i>停車場・儲藏室・機房</span>
+          <span class="g" style="background:#EFF6EC"><i style="background:var(--z3)"></i>多功能教室・展覽廳・齋堂</span>
+        </div></div>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--z1)"></i>神聖空間</span>
+        <span><i style="background:var(--z2)"></i>渡眾空間－佛學院</span>
+        <span><i style="background:var(--z3)"></i>接引空間－行政大樓／副屬空間</span>
+        <span><i style="background:var(--z4)"></i>遊客中心－星海樓</span>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec">園區裡有什麼<small>SPACES</small></h2>
+      <div class="spaces">
+        <div class="sp"><b>普光明殿</b><span>大雄寶殿。還原太子夜睹明星之星空，牆面隱藏全天 88 星宿</span></div>
+        <div class="sp"><b>毗盧遮那藏殿</b><span>因陀羅網菩提心法堂，中央呈現須彌山，常年誦三藏</span></div>
+        <div class="sp"><b>禪・空間</b><span>空中禪堂暗空觀星、禪藝人文空間、楞嚴閉關禪堂</span></div>
+        <div class="sp"><b>八十華嚴經鐘</b><span>八十座經鐘恭刻八十卷華嚴，經文由發心者書法供養</span></div>
+        <div class="sp"><b>五十三參樂園</b><span>XR／AR 互動演繹善財童子五十三參，含兒童故事館</span></div>
+        <div class="sp"><b>人間有香</b><span>禪宗公案宴席：趙州茶、雲門餅、德山棒喝湯</span></div>
+        <div class="sp"><b>五百羅漢園區</b><span>以敘事場景還原羅漢修行生活，與羅漢同行</span></div>
+        <div class="sp"><b>普莊嚴園</b><span>百果及香草園區，上百棵果樹供來訪者採果</span></div>
+      </div>
+    </section>
+
+    <div class="bottom">
+      <section>
+        <h2 class="sec">進行到哪裡了<small>TIMELINE</small></h2>
+        <div class="tl">
+          <div class="r"><b>2021–2024</b><span>陸續購置土地共 4 筆地號、申請土地變更、地層鑽探</span></div>
+          <div class="r"><b>2024</b><span>委任建築設計</span></div>
+          <div class="r"><b>2025</b><span>建築結構與縣府溝通會議、申請「興辦事業計劃書」變更</span></div>
+          <div class="r hi"><b>2026.04.28</b><span>通過興辦事業計畫</span></div>
+          <div class="r hi"><b>2026.12.26</b><span>動土大典　萬眾一心・千鏟立基</span></div>
+          <div class="r"><b>第一階段</b><span>建設神聖殿堂、國際佛學研修院、僧眾閉關房</span></div>
+          <div class="r"><b>第二階段</b><span>國際學習資源中心與六藝學習組織、人才進駐</span></div>
+        </div>
+      </section>
+
+      <section class="support">
+        <div class="shd">
+          <div>
+            <h3>參與建設，共築福田</h3>
+            <div class="dline">線上刷卡護持　<b>donatebaoyan.org</b><br><span>華南銀行安全刷卡通道</span></div>
+          </div>
+          <img class="dqr" src="img/qr-donate.png" alt="線上捐款 QR Code">
+        </div>
+        <div class="rows">
+          <div><b>認供 88 佛</b><span>100 萬／尊</span></div>
+          <div><b>五百羅漢</b><span>50 萬／尊</span></div>
+          <div><b>華嚴經鐘</b><span>20 萬／座</span></div>
+          <div><b>僧眾寮房</b><span>20 萬／間</span></div>
+          <div><b>萬佛</b><span>1 萬／尊</span></div>
+          <div><b>袈裟地</b><span>5 萬／席</span></div>
+          <div><b>一字百金</b><span>100 元／字</span></div>
+          <div><b>建材</b><span>500 元／單位</span></div>
+          <div><b>隨喜會員</b><span>100 元／月</span></div>
+          <div><b>隨喜委員</b><span>1000 元／月</span></div>
+        </div>
+        <p>另有護法建寺委員（50 萬至 1 億共六級）、六藝寶席、居士福居等，點滴發心可分期累計。功德款項依規定呈報主管機關審查。</p>
+      </section>
+    </div>
+
+  </div>
+
+  <div class="bankband">
+    <span class="bt">匯款護持</span>
+    <span>華南銀行臺東分行（代碼 008）</span>
+    <span>戶名：臺東縣卑南鄉寶嚴山寶嚴禪寺文化協會</span>
+    <span>一般護持帳號 <em>830100009968</em></span>
+    <span class="bn">多數法會、共修與常態護持適用</span>
+    <span class="callout">匯款後請<b>務必來電告知</b>，以便開立捐款收據　│　0921-059-656（專線1）・0900-731-919（專線2）・0937-619-595（中英文）</span>
+  </div>
+
+  <footer>
+    <div class="l">
+      <b>寶嚴山　寶嚴禪寺</b>
+      台東縣東河鄉　│　線上刷卡 donatebaoyan.org
+    </div>
+    <div class="r">
+      IG／Threads：baoyan111　│　YouTube：見輝法師閱藏居<br>
+      Facebook：寶嚴山寶嚴禪寺　│　高雄圓道禪院 07-522 4676
+    </div>
+  </footer>
+
+  <div class="note">本頁資料整理自《2026 寶嚴禪寺總體規劃書》。渲染圖與樓層配置皆為規劃示意，實際以主管機關核准之圖說為準。</div>
+</div>
+</body>
+</html>
