@@ -79,25 +79,39 @@ nav a.key{border:1px solid rgba(212,175,106,.5);opacity:1}
 @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
 
 /* ===== 動土大典 ===== */
-.ground{padding:44px 0 0}
-.gbox{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;
-  border:1px solid rgba(212,175,106,.42);border-radius:20px;padding:30px 36px;
-  background:linear-gradient(120deg,rgba(212,175,106,.13),rgba(15,46,99,.5) 62%)}
-.gtop{text-align:center;padding-right:34px;border-right:1px solid rgba(212,175,106,.3)}
-.gkick{color:var(--by-gold);letter-spacing:.2em;font-size:.8rem;margin-bottom:10px}
-.gdate{font-size:clamp(1.9rem,4.6vw,2.9rem);color:var(--by-gold-bright);letter-spacing:.06em;line-height:1.1}
-.gdate i{font-style:normal;opacity:.5;margin:0 .06em}
-.gcount{margin-top:10px;font-size:.92rem;color:var(--by-sky);letter-spacing:.08em}
-.gmid h2{font-size:clamp(1.3rem,3.2vw,1.9rem);color:var(--by-white);letter-spacing:.12em}
-.gmid p{margin-top:12px;color:var(--by-ivory);font-size:1rem;line-height:1.9;letter-spacing:.06em}
-.gbtn{display:inline-block;margin-top:18px;padding:11px 26px;border-radius:999px;
-  background:var(--by-gold);color:#0B2038;text-decoration:none;font-size:.96rem;letter-spacing:.08em;
-  transition:.25s}
+.ground{padding:56px 0 10px}
+.gbox{display:grid;grid-template-columns:340px minmax(0,1fr);gap:38px;
+  border:1px solid rgba(212,175,106,.42);border-radius:20px;padding:34px 38px;
+  background:linear-gradient(125deg,rgba(212,175,106,.14),rgba(15,46,99,.5) 60%)}
+.gside{padding-right:34px;border-right:1px solid rgba(212,175,106,.28)}
+.gkick{color:var(--by-gold);letter-spacing:.24em;font-size:.8rem;margin-bottom:8px}
+.gdate{font-size:clamp(2rem,4.6vw,2.7rem);color:var(--by-gold-bright);letter-spacing:.05em;line-height:1.1}
+.gdate i{font-style:normal;opacity:.45;margin:0 .05em}
+.gcount{margin-top:8px;font-size:.92rem;color:var(--by-sky);letter-spacing:.08em}
+.ginfo{margin-top:22px;display:grid;gap:11px}
+.ginfo div{display:grid;grid-template-columns:5.4em 1fr;gap:10px;align-items:baseline}
+.ginfo dt{color:var(--by-gold);font-size:.86rem;letter-spacing:.1em;white-space:nowrap}
+.ginfo dd{font-size:.95rem;color:var(--by-ivory);line-height:1.7}
+.gcta{margin-top:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.gbtn{display:inline-block;padding:12px 26px;border-radius:999px;
+  background:var(--by-gold);color:#0B2038;text-decoration:none;font-size:.98rem;letter-spacing:.08em;transition:.25s}
 .gbtn:hover{background:var(--by-gold-bright);transform:translateY(-2px)}
-@media(max-width:820px){
-  .ground{padding:26px 0 0}
-  .gbox{grid-template-columns:1fr;gap:20px;padding:24px 20px;text-align:center}
-  .gtop{padding:0 0 18px;border-right:0;border-bottom:1px solid rgba(212,175,106,.3)}
+.gqr{text-align:center}
+.gqr img{width:78px;border-radius:8px;background:#fff;padding:5px}
+.gqr span{display:block;margin-top:5px;font-size:.74rem;color:var(--by-sky);letter-spacing:.1em}
+.gtext p{margin-bottom:14px;font-size:1rem;line-height:2.05;color:var(--by-ivory)}
+.gtext b{color:var(--by-gold-bright);font-weight:400}
+.gtext blockquote{margin:20px 0;padding:16px 22px;border-left:3px solid var(--by-gold);
+  background:rgba(212,175,106,.09);border-radius:0 12px 12px 0;
+  font-size:1.12rem;letter-spacing:.1em;color:var(--by-white)}
+.gtext blockquote span{display:block;margin-top:8px;font-size:.92rem;letter-spacing:.04em;color:var(--by-sky)}
+.gline{margin-top:20px;padding-top:16px;border-top:1px solid rgba(212,175,106,.24);
+  color:var(--by-gold);letter-spacing:.16em;font-size:.94rem}
+@media(max-width:900px){
+  .ground{padding:30px 0 0}
+  .gbox{grid-template-columns:1fr;gap:24px;padding:26px 22px}
+  .gside{padding:0 0 22px;border-right:0;border-bottom:1px solid rgba(212,175,106,.28)}
+  .gtext p{font-size:1rem}
 }
 
 /* ===== 區段 ===== */
@@ -313,6 +327,10 @@ section.alt{background:rgba(15,46,99,.34);border-top:1px solid rgba(212,175,106,
 .tier b{display:block;color:var(--by-gold-bright);font-size:1.15rem}
 .tier span{font-size:.9rem;color:var(--by-sky)}
 
+.closing{margin-top:30px;text-align:center;font-size:1.02rem;line-height:2.1;
+  color:var(--by-ivory);letter-spacing:.05em}
+@media(max-width:820px){.closing{text-align:left;font-size:1rem}}
+
 /* ===== 頁尾 ===== */
 footer{background:rgba(8,29,63,.96);border-top:1px solid rgba(212,175,106,.24);padding:56px 0 40px;
   text-align:center;font-size:.92rem}
@@ -407,7 +425,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 <nav>
   <div class="wrap">
     <span class="brand">寶嚴山寶嚴禪寺</span>
-    <a href="#ground" class="key">動土大典</a>
+    <a href="#ground" class="key">動土大典報名</a>
     <a href="#about">認識寶嚴</a>
     <a href="#site">基地環境</a>
     <a href="#floors" class="key">建築樓層規劃</a>
@@ -415,7 +433,6 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     <a href="#six">六藝學院</a>
     <a href="#time">計畫期程</a>
     <a href="#support">護持</a>
-    <a href="pages.html">原書逐頁</a>
     <a href="flyer.html">一頁簡介</a>
   </div>
 </nav>
@@ -445,16 +462,40 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 <!-- 動土大典 -->
 <section id="ground" class="ground">
   <div class="wrap">
+    <div class="shead reveal">
+      <div class="kicker">GROUNDBREAKING</div>
+      <h2>一鏟同心・世代安住</h2>
+      <p>寶嚴山寶嚴禪寺動土大典　開放報名參加</p>
+    </div>
+
     <div class="gbox reveal">
-      <div class="gtop">
-        <div class="gkick">寶嚴山　寶嚴禪寺　動土大典</div>
+      <div class="gside">
+        <div class="gkick">動土大典</div>
         <div class="gdate">2026<i>.</i>12<i>.</i>26</div>
         <div class="gcount" id="gcount" aria-live="polite"></div>
+        <dl class="ginfo">
+          <div><dt>活動日期</dt><dd>2026 年 12 月 25 日～27 日</dd></div>
+          <div><dt>活動地點</dt><dd>台東都蘭</dd></div>
+          <div><dt>行程規劃</dt><dd>三天兩夜</dd></div>
+          <div><dt>交通安排</dt><dd>可於報名表單登記專開列車需求及上車地點</dd></div>
+          <div><dt>參加方式</dt><dd>歡迎攜伴參加、全家同行</dd></div>
+        </dl>
+        <div class="gcta">
+          <a class="gbtn" href="https://forms.gle/ApUXtkwgKXruTDZh7" target="_blank" rel="noopener">動土大典報名　→</a>
+          <div class="gqr">
+            <img src="img/qr-signup.png" alt="動土大典報名表單 QR Code">
+            <span>掃碼報名</span>
+          </div>
+        </div>
       </div>
-      <div class="gmid">
-        <h2>萬眾一心　千鏟立基</h2>
-        <p>千手護持　千眼照見<br>山海之間，為一顆心預留位置</p>
-        <a class="gbtn" href="#support">敬邀您一同參與　→</a>
+
+      <div class="gtext">
+        <p>臨濟祖師曾在寺門前親手種下一棵松樹。弟子問他，為何要種這棵樹？祖師回答：<b>「一與山門作境致，二與後人作標榜。」</b></p>
+        <p>我們想建造的，是一處從 0 歲到 100 歲，每一個生命階段都能走進來的地方。孩子可以在這裡種下善良；青年可以在迷惘中找到方向；成年人可以放下疲憊，重新整理生命；年長者可以安住身心，坦然面對無常。</p>
+        <blockquote>十年樹木，百年樹人，千年道場。<span>道場的價值，也因此超越一個人的生命。</span></blockquote>
+        <p>歷經多年籌備與眾人願心匯聚，寶嚴山寶嚴禪寺將於 2026 年 12 月 26 日，在台東都蘭舉行動土大典。當第一鏟土落下，我們奠定的是一座千年道場的初心與未來。</p>
+        <p>本次特別規劃三天兩夜行程，誠摯邀請認同這份願景的您，帶著家人與親友一同來到都蘭，在山海之間，親眼見證這個願望落地生根。</p>
+        <div class="gline">萬眾一心　千鏟立基　·　千手護持　千眼照見</div>
       </div>
     </div>
   </div>
@@ -807,6 +848,8 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       </div>
       <p style="margin-top:18px;font-size:.92rem;color:var(--by-sky)">另有「六藝寶席（大師駐村）」、「居士福居」、「頭目腦髓」等項目。功德款項將用於寶嚴禪寺的建設與運營，依規定呈報主管機關審查，確保善款依規善用。</p>
     </div>
+
+    <p class="closing reveal">護持道場，是將這份善意放進一條更長遠的時間軸裡；我們今日留下的，是一個在百年以後，仍能讓人安心走進來的地方。<br>邀請您與我們一起，為自己、為下一代，也為尚未遇見的後人，種下這棵可以生長千年的樹。</p>
   </div>
 </section>
 
@@ -838,7 +881,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       <span>Facebook：寶嚴山寶嚴禪寺</span>
     </div>
     <p class="src">
-      本頁內容出自《2026 寶嚴禪寺總體規劃書》，並公開<a href="pages.html" style="color:var(--by-gold-bright)">原書逐頁圖</a>；另有可列印轉發的<a href="flyer.html" style="color:var(--by-gold-bright)">一頁式簡介</a>。<br>
+      本頁內容出自《2026 寶嚴禪寺總體規劃書》。可列印轉發的<a href="flyer.html" style="color:var(--by-gold-bright)">一頁式簡介</a>　·　核對原件請看<a href="pages.html" style="color:var(--by-gold-bright)">原書逐頁圖</a>（32 個跨頁）。<br>
       渲染圖與平面圖皆為模擬示意，實際以主管機關核准之圖說為準。
     </p>
   </div>
