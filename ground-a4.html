@@ -32,64 +32,67 @@ body{background:#3a4658;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif
 .top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
 .top::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(8,29,63,.9) 0%,rgba(8,29,63,.66) 55%,rgba(8,29,63,.94) 100%)}
-.top .on{position:relative;z-index:2;padding:8mm 14mm 7mm;text-align:center}
-.top .eye{letter-spacing:.4em;font-size:7.6pt;color:var(--gold-l)}
-.top h1{margin-top:3mm;font-size:27pt;line-height:1.2;letter-spacing:.12em;font-weight:700}
-.top .sub{margin-top:3mm;font-size:10pt;letter-spacing:.14em;color:var(--gold-l)}
-.top .date{margin-top:4mm;display:inline-flex;align-items:baseline;gap:2.5mm;
+.top .on{position:relative;z-index:2;padding:5.6mm 14mm 5.2mm;text-align:center}
+.top .eye{letter-spacing:.4em;font-size:9pt;color:var(--gold-l)}
+.top h1{margin-top:2.4mm;font-size:29pt;line-height:1.2;letter-spacing:.12em;font-weight:700}
+.top .sub{margin-top:2.6mm;font-size:11.5pt;letter-spacing:.14em;color:var(--gold-l)}
+.top .date{margin-top:3mm;display:inline-flex;align-items:baseline;gap:2.5mm;
   border-top:.4mm solid rgba(212,175,106,.6);border-bottom:.4mm solid rgba(212,175,106,.6);padding:2mm 6mm}
-.top .date b{font-size:21pt;letter-spacing:.04em}
-.top .date span{font-size:9.6pt;letter-spacing:.1em}
+.top .date b{font-size:23pt;letter-spacing:.04em}
+.top .date span{font-size:11.5pt;letter-spacing:.1em}
 
 /* 內文 */
-.body{padding:6mm 14mm 4mm;flex:1;display:flex;flex-direction:column;gap:4.4mm}
+.body{padding:4.2mm 14mm 2.4mm;flex:1;display:flex;flex-direction:column;gap:2.9mm}
 .verse{text-align:center}
-.verse p{font-size:8.8pt;line-height:1.8;color:#4a463c}
-.verse .big{margin-top:2.4mm;font-size:13pt;letter-spacing:.2em;color:var(--blue)}
-.verse .big small{display:block;margin-top:1.6mm;font-size:8.4pt;letter-spacing:.06em;color:#6b6656}
+.verse p{font-size:10.5pt;line-height:1.72;color:#4a463c}
+.verse .big{margin-top:1.8mm;font-size:15.5pt;letter-spacing:.2em;color:var(--blue)}
+.verse .big small{display:block;margin-top:1.8mm;font-size:10pt;letter-spacing:.06em;color:#6b6656}
 
-.facts{display:grid;grid-template-columns:repeat(4,1fr);border:.35mm solid #e0d8c2;border-radius:2.5mm;overflow:hidden}
-.facts div{padding:2.8mm 2mm;text-align:center;border-right:.3mm solid #eae2cd;background:#FCF8EC}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);background:#FCF7E9;border-bottom:.4mm solid #e6dcc0}
+.facts div{padding:2.6mm 2mm;text-align:center;border-right:.3mm solid #eee5cd}
 .facts div:last-child{border-right:0}
-.facts b{display:block;color:var(--blue);font-size:10.5pt;letter-spacing:.02em}
-.facts span{font-size:7pt;color:#7a7360;letter-spacing:.1em}
+.facts b{display:block;color:var(--blue);font-size:13pt;letter-spacing:.02em}
+.facts span{font-size:8.6pt;color:#7a7360;letter-spacing:.1em}
 
-h2.sec{font-size:10.5pt;color:var(--blue);letter-spacing:.12em;display:flex;align-items:center;gap:2.5mm;margin-bottom:2mm}
-h2.sec::before{content:"";width:4px;height:14px;background:var(--gold);border-radius:2px}
+h2.sec{font-size:12.5pt;color:var(--blue);letter-spacing:.12em;display:flex;align-items:center;gap:2.5mm;margin-bottom:1.5mm}
+h2.sec::before{content:"";width:5px;height:17px;background:var(--gold);border-radius:2px}
 
-.trip .r{display:grid;grid-template-columns:16mm 1fr;gap:2.5mm;padding:1.5mm 0;
+.trip .r{display:grid;grid-template-columns:20mm 1fr;gap:3mm;padding:1.4mm 0;
   border-bottom:.25mm dotted #ddd5c0;align-items:baseline}
 .trip .r:last-child{border-bottom:0}
-.trip .r b{color:var(--gold);font-size:8.6pt;font-weight:400;white-space:nowrap}
-.trip .r span{font-size:8.4pt;line-height:1.65}
-.trip .note{margin-top:1.6mm;font-size:7.4pt;color:#8a8474}
+.trip .r b{color:var(--gold);font-size:11pt;font-weight:400;white-space:nowrap}
+.trip .r span{font-size:11pt;line-height:1.7}
+.trip .note{margin-top:1.4mm;font-size:9.4pt;color:#7d7768}
 
-.stay{background:#FBF4E6;border:.35mm solid var(--gold);border-radius:2.5mm;padding:3mm 3.5mm}
-.stay h3{font-size:9pt;color:#7A5A16;letter-spacing:.08em;margin-bottom:1.4mm}
-.stay p{font-size:8pt;line-height:1.7;color:#4a4436;margin-bottom:1mm}
+.stay{background:#FBF4E6;border:.4mm solid var(--gold);border-radius:2.5mm;padding:3mm 3.6mm}
+.stay h3{font-size:11pt;color:#7A5A16;letter-spacing:.08em;margin-bottom:1.4mm}
+.stay p{font-size:10.5pt;line-height:1.62;color:#4a4436;margin-bottom:1mm}
 .stay p:last-child{margin-bottom:0}
 
 /* 報名區 */
 .signup{display:grid;grid-template-columns:1fr auto;gap:5mm;align-items:center;
-  background:var(--deep);color:var(--ivory);border-radius:2.5mm;padding:4mm 5mm}
-.signup h3{color:var(--gold-l);font-size:12pt;letter-spacing:.1em;margin-bottom:1.6mm}
-.signup p{font-size:8.2pt;line-height:1.7}
-.signup .url{margin-top:1.8mm;font-size:8.6pt;color:var(--gold-l);letter-spacing:.02em}
+  background:var(--deep);color:var(--ivory);border-radius:2.5mm;padding:3.6mm 4.6mm}
+.signup h3{color:var(--gold-l);font-size:14.5pt;letter-spacing:.1em;margin-bottom:1.4mm}
+.signup p{font-size:10.8pt;line-height:1.75}
+.signup .url{margin-top:1.8mm;font-size:11.5pt;color:var(--gold-l);letter-spacing:.02em}
 .qrs{display:flex;gap:4mm;text-align:center}
-.qrs figure img{width:26mm;height:26mm;background:#fff;padding:1mm;border-radius:1.4mm;display:block}
-.qrs figcaption{margin-top:1.2mm;font-size:7pt;letter-spacing:.1em;color:var(--gold-l)}
+.qrs figure img{width:30mm;height:30mm;background:#fff;padding:1mm;border-radius:1.4mm;display:block}
+.qrs figcaption{margin-top:1.6mm;font-size:9pt;letter-spacing:.1em;color:var(--gold-l)}
 
 /* 護持 */
 .support{border:.35mm solid #e0d8c2;border-radius:2.5mm;padding:3mm 3.5mm;background:#FCF8EC}
-.support .row{display:flex;flex-wrap:wrap;gap:2mm 5mm;align-items:baseline;font-size:8pt}
+.support .row{display:flex;flex-wrap:wrap;gap:2mm 5mm;align-items:baseline;font-size:10pt}
 .support b{color:var(--blue);font-weight:400}
 .support em{font-style:normal;color:#7A5A16;letter-spacing:.04em}
-.support .call{margin-top:1.8mm;font-size:7.6pt;color:#6b6656}
+.support .call{margin-top:2.2mm;font-size:9.4pt;color:#6b6656}
 
-footer{background:var(--deep);color:var(--ivory);padding:3.6mm 14mm;font-size:7.4pt;
-  display:flex;flex-wrap:wrap;gap:1.4mm 5mm;justify-content:center;text-align:center;letter-spacing:.04em}
-footer b{color:var(--gold-l);font-weight:400}
-.note{font-size:6.4pt;color:#8a8474;text-align:center;padding:1.6mm 14mm 2mm;line-height:1.5}
+footer{background:#FCF7E9;border-top:.4mm solid #e6dcc0;padding:2.6mm 14mm;font-size:9.4pt;
+  line-height:1.72;color:#4a4638}
+footer .l{display:flex;flex-wrap:wrap;gap:1.4mm 5mm;justify-content:center;text-align:center}
+footer b{color:var(--blue);font-weight:400}
+footer em{font-style:normal;color:#7A5A16}
+footer .br{margin-top:2mm;padding-top:2mm;border-top:.25mm dotted #ded6c1;font-size:9.6pt;color:#5c5748}
+.note{font-size:7.2pt;color:#8a8474;text-align:center;padding:1.2mm 14mm 1.6mm;line-height:1.45}
 
 @media print{
   body{background:#fff;padding:0}
@@ -127,20 +130,19 @@ footer b{color:var(--gold-l);font-weight:400}
     </div>
   </div>
 
+  <div class="facts">
+    <div><b>12/25–12/27</b><span>活動日期</span></div>
+    <div><b>12/26（六）</b><span>動土大典</span></div>
+    <div><b>台東都蘭</b><span>活動地點</span></div>
+    <div><b>三天兩夜</b><span>行程天數</span></div>
+  </div>
+
   <div class="body">
 
     <div class="verse">
-      <p>臨濟祖師曾在寺門前親手種下一棵松樹。弟子問他，為何要種這棵樹？<br>
-         祖師回答：「一與山門作境致，二與後人作標榜。」</p>
-      <div class="big">十年樹木，百年樹人，千年道場
-        <small>道場的價值，也因此超越一個人的生命</small></div>
-    </div>
-
-    <div class="facts">
-      <div><b>12/25–12/27</b><span>活動日期</span></div>
-      <div><b>12/26（六）</b><span>動土大典</span></div>
-      <div><b>台東都蘭</b><span>活動地點</span></div>
-      <div><b>三天兩夜</b><span>行程天數</span></div>
+      <p>臨濟祖師在寺門前親手種下一棵松樹，弟子問他為何要種，<br>
+         祖師答：「一與山門作境致，二與後人作標榜。」</p>
+      <div class="big">十年樹木，百年樹人，千年道場</div>
     </div>
 
     <section class="trip">
@@ -161,8 +163,7 @@ footer b{color:var(--gold-l);font-weight:400}
     <div class="signup">
       <div>
         <h3>敬邀您一同參與</h3>
-        <p>本次特別規劃三天兩夜行程，誠摯邀請認同這份願景的您，帶著家人與親友一同來到都蘭，在山海之間，親眼見證這個願望落地生根。<br>
-           可於報名表單登記專開列車需求及上車地點　·　歡迎攜伴參加、全家同行<br>
+        <p>可於報名表單登記專開列車需求及上車地點，歡迎攜伴參加、全家同行。<br>
            <b style="color:#D4AF6A;font-weight:400">報名後請洽各分院</b>（電話見頁尾）</p>
         <div class="url">報名　forms.gle/ApUXtkwgKXruTDZh7　│　規劃網站　building.baoyan.org.tw</div>
       </div>
@@ -172,23 +173,18 @@ footer b{color:var(--gold-l);font-weight:400}
       </div>
     </div>
 
-    <div class="support">
-      <h2 class="sec" style="margin-bottom:1.6mm">護持寶嚴禪寺建設</h2>
-      <div class="row">
-        <span><b>線上刷卡</b>　<em>donatebaoyan.org</em></span>
-        <span><b>匯款</b>　華南銀行臺東分行（008）　戶名：臺東縣卑南鄉寶嚴山寶嚴禪寺文化協會　<em>830100009968</em></span>
-      </div>
-      <div class="call">匯款後請務必來電告知，以便開立捐款收據　│　0921-059-656（專線1）・0900-731-919（專線2）・0937-619-595（中英文）</div>
-    </div>
-
   </div>
 
   <footer>
-    <span><b>寶嚴山　寶嚴禪寺</b></span>
-    <span>台北善首講堂 02-2577 2978</span>
-    <span>新北善覺講堂 02-2964 6617</span>
-    <span>台中 EPIC 04-2328 9566</span>
-    <span>高雄圓道禪院 07-522 4676</span>
+    <div class="l"><span><b>護持建設</b>　線上刷卡 <em>donatebaoyan.org</em></span>
+      <span>匯款　華南銀行臺東分行（008）　<em>830100009968</em>　戶名：臺東縣卑南鄉寶嚴山寶嚴禪寺文化協會</span></div>
+    <div class="l" style="margin-top:1.2mm">
+      <span>匯款後請務必來電告知以便開立收據　│　0921-059-656・0900-731-919・0937-619-595（中英文）</span></div>
+    <div class="l br"><span><b>寶嚴山　寶嚴禪寺</b></span>
+      <span>台北善首講堂 02-2577 2978</span>
+      <span>新北善覺講堂 02-2964 6617</span>
+      <span>台中 EPIC 04-2328 9566</span>
+      <span>高雄圓道禪院 07-522 4676</span></div>
   </footer>
   <p class="note">本頁資訊依動土大典報名表單與《2026 寶嚴禪寺總體規劃書》所載。渲染圖為模擬示意，實際以主管機關核准之圖說為準。</p>
 
