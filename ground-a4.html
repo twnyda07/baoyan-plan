@@ -42,7 +42,7 @@ body{background:#3a4658;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif
 .top .date span{font-size:11.5pt;letter-spacing:.1em}
 
 /* 內文 */
-.body{padding:3.8mm 14mm 2mm;flex:1;display:flex;flex-direction:column;gap:2.5mm}
+.body{padding:3.4mm 14mm 1.8mm;flex:1;display:flex;flex-direction:column;gap:2.2mm}
 .verse{text-align:center}
 .verse p{font-size:10.2pt;line-height:1.66;color:#4a463c}
 .verse .big{margin-top:1.8mm;font-size:15.5pt;letter-spacing:.2em;color:var(--blue)}
@@ -74,7 +74,11 @@ h2.sec::before{content:"";width:5px;height:17px;background:var(--gold);border-ra
   background:var(--deep);color:var(--ivory);border-radius:2.5mm;padding:3.6mm 4.6mm}
 .signup h3{color:var(--gold-l);font-size:14.5pt;letter-spacing:.1em;margin-bottom:1.4mm}
 .signup p{font-size:10.4pt;line-height:1.6}
-.signup .url{margin-top:1.8mm;font-size:11.5pt;color:var(--gold-l);letter-spacing:.02em}
+.signup .bank{margin-top:2mm;padding:2mm 2.6mm;border:.35mm solid rgba(212,175,106,.55);
+  border-radius:1.8mm;background:rgba(212,175,106,.1);font-size:10.4pt;line-height:1.7}
+.signup .bank b{color:var(--gold-l);font-weight:400;letter-spacing:.08em}
+.signup .bank em{font-style:normal;color:#fff;font-size:12.5pt;letter-spacing:.06em}
+.signup .bank span{display:block;margin-top:1.2mm;font-size:9.2pt;color:#cddaf0}
 .qrs{display:flex;gap:4mm;text-align:center}
 .qrs figure img{width:30mm;height:30mm;background:#fff;padding:1mm;border-radius:1.4mm;display:block}
 .qrs figcaption{margin-top:1.6mm;font-size:9pt;letter-spacing:.1em;color:var(--gold-l)}
@@ -86,13 +90,13 @@ h2.sec::before{content:"";width:5px;height:17px;background:var(--gold);border-ra
 .support em{font-style:normal;color:#7A5A16;letter-spacing:.04em}
 .support .call{margin-top:2.2mm;font-size:9.4pt;color:#6b6656}
 
-footer{background:#FCF7E9;border-top:.4mm solid #e6dcc0;padding:2.3mm 14mm;font-size:9.2pt;
+footer{break-inside:avoid;background:#FCF7E9;border-top:.4mm solid #e6dcc0;padding:2.3mm 14mm;font-size:9.2pt;
   line-height:1.72;color:#4a4638}
 footer .l{display:flex;flex-wrap:wrap;gap:1.4mm 5mm;justify-content:center;text-align:center}
 footer b{color:var(--blue);font-weight:400}
 footer em{font-style:normal;color:#7A5A16}
 footer .br{margin-top:2mm;padding-top:2mm;border-top:.25mm dotted #ded6c1;font-size:9.6pt;color:#5c5748}
-.note{font-size:7.2pt;color:#8a8474;text-align:center;padding:1.2mm 14mm 1.6mm;line-height:1.45}
+.note{break-inside:avoid;font-size:7.2pt;color:#8a8474;text-align:center;padding:1.2mm 14mm 1.6mm;line-height:1.45}
 
 @media print{
   body{background:#fff;padding:0}
@@ -165,7 +169,11 @@ footer .br{margin-top:2mm;padding-top:2mm;border-top:.25mm dotted #ded6c1;font-s
         <h3>敬邀您一同參與</h3>
         <p>可於報名表單登記專開列車需求及上車地點，歡迎攜伴參加、全家同行。<br>
            <b style="color:#D4AF6A;font-weight:400">報名後，請務必與分院法師聯絡，請法師將您加入聯絡群組</b>（分院電話見頁尾）</p>
-        <div class="url">報名　forms.gle/ApUXtkwgKXruTDZh7　│　規劃網站　building.baoyan.org.tw</div>
+        <div class="bank">
+          <b>匯款護持</b>　華南銀行臺東分行（銀行代碼 008）<br>
+          帳號 <em>830100009968</em>　戶名：臺東縣卑南鄉寶嚴山寶嚴禪寺文化協會<br>
+          <span>匯款後請務必來電告知，以便開立捐款收據　│　0921-059-656・0900-731-919・0937-619-595（中英文）</span>
+        </div>
       </div>
       <div class="qrs">
         <figure><img src="img/qr-signup-poster.png" alt="動土大典報名 QR Code"><figcaption>動土大典報名</figcaption></figure>
@@ -176,15 +184,8 @@ footer .br{margin-top:2mm;padding-top:2mm;border-top:.25mm dotted #ded6c1;font-s
   </div>
 
   <footer>
-    <div class="l"><span><b>護持建設</b>　線上刷卡 <em>donatebaoyan.org</em></span>
-      <span>匯款　華南銀行臺東分行（008）　<em>830100009968</em>　戶名：臺東縣卑南鄉寶嚴山寶嚴禪寺文化協會</span></div>
-    <div class="l" style="margin-top:1.2mm">
-      <span>匯款後請務必來電告知以便開立收據　│　0921-059-656・0900-731-919・0937-619-595（中英文）</span></div>
-    <div class="l br"><span><b>寶嚴山　寶嚴禪寺</b></span>
-      <span>台北善首講堂 02-2577 2978</span>
-      <span>新北善覺講堂 02-2964 6617</span>
-      <span>台中 EPIC 04-2328 9566</span>
-      <span>高雄圓道禪院 07-522 4676</span></div>
+    <div class="l"><span><b>護持建設</b>　線上刷卡 <em>donatebaoyan.org</em>（或掃右上網站 QR）</span></div>
+    <div class="l br"><span><b>寶嚴山　寶嚴禪寺</b>　台北 02-2577 2978　新北 02-2964 6617　台中 EPIC 04-2328 9566　高雄圓道禪院 07-522 4676</span></div>
   </footer>
   <p class="note">本頁資訊依動土大典報名表單與《2026 寶嚴禪寺總體規劃書》所載。渲染圖為模擬示意，實際以主管機關核准之圖說為準。</p>
 
