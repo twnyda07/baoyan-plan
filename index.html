@@ -29,10 +29,10 @@
   --by-blue:#0F2E63;
   --by-blue-mid:#1A4187;
   --by-blue-light:#2E5CB8;
-  --by-sky:#A3BFE9;          /* 次要文字：提亮，小字才讀得清 */
+  --by-sky:#B6CDF0;          /* 次要文字：提亮，小字才讀得清 */
   --by-gold:#D4AF6A;
   --by-gold-bright:#F0CE8C;
-  --by-ivory:#E6E1D4;        /* 內文：由 #F4EFE4 調降，減少暗底眩光 */
+  --by-ivory:#EDE8DC;        /* 內文：由 #F4EFE4 調降，減少暗底眩光 */
   --by-white:#EFECE3;        /* 標題：由 #FDFCF8 調降，避免純白光暈 */
   /* 四大分區——沿用規劃書原圖配色 */
   --z-sacred:#E9A97B;
@@ -52,6 +52,9 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block}
+/* 深底上的連結一律金色可讀；更具體的規則（nav、按鈕）仍會覆蓋 */
+a{color:var(--by-gold-bright);text-decoration-color:rgba(240,206,140,.5)}
+a:hover{color:#fff}
 .bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
     radial-gradient(ellipse 80% 50% at 50% -10%, rgba(46,92,184,.20), transparent 62%),
@@ -151,7 +154,11 @@ nav a.key{border:1px solid rgba(212,175,106,.5);opacity:1}
 .gfaq summary::after{content:"＋";position:absolute;right:2px;top:10px;color:var(--by-gold)}
 .gfaq details[open] summary::after{content:"－"}
 .gfaq summary:hover{color:var(--by-gold-bright)}
-.gfaq p{padding:0 0 14px;font-size:.94rem;line-height:1.9;color:var(--by-ivory)}
+.gfaq p{padding:0 0 14px;font-size:.96rem;line-height:1.95;color:var(--by-white)}
+.gfaq p a{color:var(--by-gold-bright);text-decoration:underline;text-underline-offset:3px;
+  white-space:nowrap;padding:1px 2px}
+.gfaq p a:hover{color:#fff;background:rgba(212,175,106,.2);border-radius:4px}
+.gfaq p b{color:var(--by-gold-bright);font-weight:400}
 @media(max-width:900px){
   .gfoot{grid-template-columns:1fr;gap:24px}
   .trow{grid-template-columns:4.8em 1fr;gap:8px}
