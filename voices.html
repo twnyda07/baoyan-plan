@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寶嚴名人誌｜寶嚴山寶嚴禪寺</title>
+<meta name="description" content="寶嚴名人誌：各界人士講述寶嚴禪寺興建的因緣與願景，依序連續播放。">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="img/favicon-512.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="canonical" href="https://building.baoyan.org.tw/voices.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="寶嚴山寶嚴禪寺">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="寶嚴名人誌｜寶嚴山寶嚴禪寺">
+<meta property="og:description" content="寶嚴名人誌：各界人士講述寶嚴禪寺興建的因緣與願景，依序連續播放。">
+<meta property="og:url" content="https://building.baoyan.org.tw/voices.html">
+<meta property="og:image" content="https://building.baoyan.org.tw/img/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="寶嚴名人誌｜寶嚴山寶嚴禪寺">
+<meta name="twitter:description" content="寶嚴名人誌：各界人士講述寶嚴禪寺興建的因緣與願景，依序連續播放。">
+<meta name="twitter:image" content="https://building.baoyan.org.tw/img/share.jpg">
+<style>
+:root{
+  --by-blue-deep:#081D3F;
+  --by-blue:#0F2E63;
+  --by-blue-mid:#1A4187;
+  --by-blue-light:#2E5CB8;
+  --by-sky:#B6CDF0;
+  --by-gold:#D4AF6A;
+  --by-gold-bright:#F0CE8C;
+  --by-ivory:#EDE8DC;
+  --by-white:#EFECE3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  background:var(--by-blue-deep);
+  color:var(--by-ivory);
+  line-height:1.92;
+  letter-spacing:.012em;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--by-gold-bright);text-decoration-color:rgba(240,206,140,.5)}
+a:hover{color:#fff}
+.bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(46,92,184,.20), transparent 62%),
+    radial-gradient(ellipse 60% 40% at 85% 110%, rgba(212,175,106,.07), transparent 62%),
+    radial-gradient(ellipse 50% 35% at 8% 55%, rgba(26,65,135,.15), transparent 66%);
+}
+main{position:relative;z-index:1}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+/* ===== 導覽列 ===== */
+nav{position:sticky;top:0;z-index:50;background:rgba(8,29,63,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(212,175,106,.22)}
+nav .wrap{display:flex;align-items:center;gap:6px;height:56px;overflow-x:auto;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav .brand{font-weight:700;color:var(--by-gold);white-space:nowrap;margin-right:14px;letter-spacing:.06em}
+nav .brand a{color:inherit;text-decoration:none}
+nav a{color:var(--by-ivory);text-decoration:none;font-size:.92rem;white-space:nowrap;
+  padding:6px 11px;border-radius:999px;opacity:.82;transition:.25s}
+nav a:hover{background:rgba(212,175,106,.16);opacity:1;color:var(--by-gold-bright)}
+nav a.key{border:1px solid rgba(212,175,106,.5);opacity:1}
+nav a[aria-current="page"]{background:rgba(212,175,106,.18);opacity:1;color:var(--by-gold-bright)}
+
+/* ===== 頁首 ===== */
+.phead{padding:60px 0 34px;text-align:center}
+.phead .kicker{color:var(--by-gold);letter-spacing:.3em;font-size:.82rem;margin-bottom:14px}
+.phead h1{font-size:clamp(1.6rem,4.2vw,2.4rem);letter-spacing:.06em;color:var(--by-white);line-height:1.5}
+.phead p{max-width:640px;margin:16px auto 0;color:var(--by-sky);font-size:.98rem}
+
+/* ===== 播放器版面 ===== */
+.player-grid{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(0,1fr);gap:26px;
+  align-items:start;padding-bottom:20px}
+.stage{position:sticky;top:70px}
+.frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;
+  border:1px solid rgba(212,175,106,.3)}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.nowinfo{margin-top:14px}
+.nowinfo .lbl{color:var(--by-gold);letter-spacing:.22em;font-size:.72rem}
+.nowinfo h2{font-size:1.06rem;color:var(--by-white);line-height:1.7;margin-top:6px;letter-spacing:.03em}
+.nowinfo .meta{color:var(--by-sky);font-size:.86rem;margin-top:6px}
+.nowinfo .meta a{color:var(--by-gold-bright);text-decoration:underline;text-underline-offset:3px}
+.ytfall{font-size:.78rem;opacity:.8;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ytfall code{color:var(--by-ivory);background:rgba(255,255,255,.06);
+  padding:2px 7px;border-radius:5px;font-size:.78rem;word-break:break-all}
+.lnkbtn{background:transparent;border:1px solid rgba(212,175,106,.45);color:var(--by-gold-bright);
+  border-radius:6px;padding:2px 9px;font-size:.75rem;cursor:pointer;font-family:inherit}
+.lnkbtn:hover{border-color:var(--by-gold-bright)}
+.stagebar{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{background:transparent;color:var(--by-ivory);border:1px solid rgba(212,175,106,.45);
+  border-radius:999px;padding:7px 16px;font-size:.86rem;cursor:pointer;transition:.25s;
+  font-family:inherit;letter-spacing:.04em}
+.btn:hover{background:rgba(212,175,106,.16);color:var(--by-gold-bright)}
+.btn[aria-pressed="true"]{background:rgba(212,175,106,.2);color:var(--by-gold-bright);
+  border-color:rgba(212,175,106,.75)}
+
+/* ===== 清單 ===== */
+.listbox{border:1px solid rgba(212,175,106,.22);border-radius:12px;background:rgba(15,46,99,.3);
+  overflow:hidden;display:flex;flex-direction:column;max-height:min(74vh,720px)}
+.listhead{padding:14px 16px;border-bottom:1px solid rgba(212,175,106,.2);
+  display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.listhead .t{color:var(--by-gold);letter-spacing:.14em;font-size:.86rem}
+.listhead .c{color:var(--by-sky);font-size:.8rem}
+.vlist{overflow-y:auto;padding:6px}
+.vitem{display:flex;gap:12px;width:100%;text-align:left;background:transparent;border:0;
+  color:var(--by-ivory);font-family:inherit;cursor:pointer;padding:11px 10px;border-radius:9px;
+  line-height:1.62;transition:.2s;align-items:flex-start}
+.vitem:hover{background:rgba(212,175,106,.13)}
+.vitem .n{color:var(--by-gold);font-size:.82rem;min-width:1.7em;padding-top:2px;
+  font-variant-numeric:tabular-nums}
+.vitem .tt{flex:1;font-size:.93rem;color:var(--by-ivory)}
+.vitem .d{color:var(--by-sky);font-size:.78rem;font-variant-numeric:tabular-nums;padding-top:2px;
+  white-space:nowrap}
+.vitem[aria-current="true"]{background:rgba(212,175,106,.2)}
+.vitem[aria-current="true"] .tt{color:var(--by-gold-bright)}
+.vitem .badge{display:inline-block;font-size:.7rem;color:var(--by-blue-deep);
+  background:var(--by-gold);border-radius:4px;padding:0 6px;margin-left:8px;letter-spacing:.06em;
+  vertical-align:2px}
+
+/* ===== 頁尾 ===== */
+footer{background:rgba(8,29,63,.96);border-top:1px solid rgba(212,175,106,.24);padding:56px 0 40px;
+  text-align:center;font-size:.92rem;margin-top:40px;position:relative;z-index:1}
+footer .contact{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin:20px 0 26px}
+footer .contact a,footer .contact span{color:var(--by-ivory);text-decoration:none}
+footer .flinks{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:22px 0 6px}
+footer .flinks a{color:var(--by-gold-bright);text-decoration:underline;text-underline-offset:3px}
+footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88rem;
+  border-top:1px solid rgba(143,180,232,.16);padding-top:22px;line-height:1.8}
+
+@media (max-width:900px){
+  .player-grid{grid-template-columns:1fr;gap:18px}
+  .stage{position:static}
+  .listbox{max-height:none}
+  .vlist{max-height:60vh}
+  .phead{padding:38px 0 24px}
+}
+</style>
+<style>
+.searchbox{padding:10px 12px;border-bottom:1px solid rgba(212,175,106,.2)}
+.searchbox input{width:100%;background:rgba(8,29,63,.6);border:1px solid rgba(212,175,106,.35);
+  color:var(--by-ivory);border-radius:8px;padding:8px 12px;font-family:inherit;font-size:.9rem}
+.searchbox input::placeholder{color:rgba(182,205,240,.55)}
+.searchbox input:focus{outline:none;border-color:var(--by-gold-bright)}
+.notice{max-width:680px;margin:12px auto 60px;text-align:center;
+  border:1px solid rgba(212,175,106,.3);border-radius:12px;background:rgba(15,46,99,.3);
+  padding:38px 26px;color:var(--by-sky);line-height:2}
+.notice .big{color:var(--by-gold-bright);font-size:1.08rem;letter-spacing:.06em;display:block;margin-bottom:8px}
+.empty{color:var(--by-sky);text-align:center;padding:26px 12px;font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="wrap">
+    <span class="brand"><a href="index.html">寶嚴山寶嚴禪寺</a></span>
+    <a href="index.html#ground" class="key">動土大典報名</a>
+    <a href="index.html#about">認識寶嚴</a>
+    <a href="index.html#site">基地環境</a>
+    <a href="index.html#floors">建築樓層規劃</a>
+    <a href="index.html#six">六藝學院</a>
+    <a href="index.html#support">護持</a>
+    <a href="videos.html">開山紀實影片</a>
+    <a href="voices.html" class="key" aria-current="page">寶嚴名人誌</a>
+    <a href="flyer.html">一頁簡介</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="phead">
+      <div class="kicker">BAOYAN CHAN MONASTERY</div>
+      <h1>寶嚴名人誌</h1>
+      <p>各界人士講述寶嚴禪寺興建的因緣與願景。本專輯持續增錄，依序連續播放。</p>
+    </div>
+
+    <div id="notice" class="notice" hidden>
+      <span class="big">影片陸續上架中</span>
+      本專輯正在整理製作，完成後將於本頁陸續發布，敬請期待。
+    </div>
+
+    <div class="player-grid" id="grid" hidden>
+      <div class="stage">
+        <div class="frame">
+          <iframe id="player" src="" title="寶嚴名人誌影片播放器"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+        <div class="nowinfo">
+          <div class="lbl">正在播放</div>
+          <h2 id="nowTitle">—</h2>
+          <div class="meta">
+            第 <span id="nowIdx">1</span> 部／共 <span id="totCnt">—</span> 部　·　<span id="nowDur">—</span>　·
+            <a id="ytLink" href="#" target="_blank" rel="noopener">在 YouTube 開啟</a>
+          </div>
+          <div class="meta ytfall">
+            影片網址　<code id="ytUrl" style="user-select:all">—</code>
+            <button class="lnkbtn" id="ytCopy" type="button">複製</button>
+          </div>
+        </div>
+        <div class="stagebar">
+          <button class="btn" id="prevBtn" type="button">← 上一部</button>
+          <button class="btn" id="nextBtn" type="button">下一部 →</button>
+          <button class="btn" id="autoBtn" type="button" aria-pressed="true">連續播放：開</button>
+          <a class="btn" style="text-decoration:none;display:inline-block"
+             href="https://www.youtube.com/playlist?list=PLCU-VA4xGiFg"
+             target="_blank" rel="noopener">前往 YouTube 播放清單</a>
+        </div>
+      </div>
+
+      <div class="listbox">
+        <div class="listhead">
+          <span class="t">影片清單</span>
+          <span class="c">共 <span id="cnt">—</span> 部　總長 <span id="tot">—</span></span>
+        </div>
+        <div class="searchbox">
+          <input id="q" type="search" placeholder="搜尋影片標題" aria-label="搜尋影片標題">
+        </div>
+        <div class="vlist" id="vlist"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="color:var(--by-gold);letter-spacing:.3em;font-size:.8rem;margin-bottom:14px">BAOYAN CHAN MONASTERY</div>
+    <div style="font-size:1.25rem;color:var(--by-white);letter-spacing:.1em">寶嚴山　寶嚴禪寺</div>
+    <div class="flinks">
+      <a href="index.html">回首頁</a>
+      <a href="index.html#ground">動土大典報名</a>
+      <a href="videos.html">開山紀實影片</a>
+      <a href="pages.html">總體規劃書全文</a>
+      <a href="flyer.html">一頁簡介</a>
+    </div>
+    <div class="contact">
+      <span>台北寶嚴善首講堂　02-2577 2978</span>
+      <span>新北寶嚴善覺講堂　02-2964 6617</span>
+      <span>台中 EPIC 禪藝實相人文空間　04-2328 9566</span>
+      <span>高雄圓道禪院　07-522 4676</span>
+    </div>
+    <div class="contact" style="gap:10px 22px">
+      <a href="https://donatebaoyan.org/" target="_blank" rel="noopener" style="color:var(--by-gold-bright)">線上刷卡護持 donatebaoyan.org</a>
+      <span>匯款：華南銀行臺東分行(008)　830100009968</span>
+    </div>
+    <p class="src">影片來源：YouTube 播放清單「寶嚴禪寺開山紀實」（寶嚴國際佛學研修院頻道）。影片標題均為原頻道所載。</p>
+  </div>
+</footer>
+<script>
+const PLAYLIST_ID = "PLCU-VA4xGiFg";
+const LS_KEY  = "baoyan_voices_last_" + PLAYLIST_ID;
+const LS_AUTO = "baoyan_voices_auto";
+
+const $ = (s) => document.querySelector(s);
+let VIDEOS = [];
+let current = 0;
+let autoplayNext = localStorage.getItem(LS_AUTO) !== "0";
+
+function fmt(s){
+  s = Math.max(0, Math.round(s || 0));
+  const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), x = s%60;
+  return h ? `${h}:${String(m).padStart(2,"0")}:${String(x).padStart(2,"0")}`
+           : `${m}:${String(x).padStart(2,"0")}`;
+}
+
+/* 清單（1000 部以上也要能找，所以有搜尋） */
+function renderList(filter){
+  const listEl = $("#vlist");
+  listEl.textContent = "";
+  const kw = (filter || "").trim().toLowerCase();
+  let shown = 0;
+  VIDEOS.forEach((v, i) => {
+    if (kw && !v.title.toLowerCase().includes(kw)) return;
+    shown++;
+    const b = document.createElement("button");
+    b.className = "vitem";
+    b.type = "button";
+    b.dataset.i = i;
+    b.innerHTML = `<span class="n">${i+1}</span><span class="tt"></span><span class="d">${fmt(v.dur)}</span>`;
+    b.querySelector(".tt").textContent = v.title;
+    if (i === current) b.setAttribute("aria-current", "true");
+    b.addEventListener("click", () => play(i, true));
+    listEl.appendChild(b);
+  });
+  if (!shown) {
+    const d = document.createElement("div");
+    d.className = "empty";
+    d.textContent = "沒有符合的影片。";
+    listEl.appendChild(d);
+  }
+}
+
+function play(i, userInitiated){
+  current = ((i % VIDEOS.length) + VIDEOS.length) % VIDEOS.length;
+  const v = VIDEOS[current];
+  const p = new URLSearchParams({
+    list: PLAYLIST_ID, index: String(current + 1),
+    rel: "0", enablejsapi: "1", origin: location.origin
+  });
+  if (userInitiated) p.set("autoplay", "1");
+  $("#player").src = `https://www.youtube-nocookie.com/embed/${v.id}?${p.toString()}`;
+
+  $("#nowTitle").textContent = v.title;
+  $("#nowIdx").textContent = current + 1;
+  $("#nowDur").textContent = fmt(v.dur);
+  const watchUrl = `https://www.youtube.com/watch?v=${v.id}`;
+  $("#ytLink").href = watchUrl;
+  $("#ytUrl").textContent = watchUrl;
+
+  document.querySelectorAll(".vitem").forEach((el) => {
+    if (Number(el.dataset.i) === current) el.setAttribute("aria-current","true");
+    else el.removeAttribute("aria-current");
+  });
+  try { localStorage.setItem(LS_KEY, v.id); } catch(e){}
+  if (userInitiated) {
+    const el = document.querySelector('.vitem[aria-current="true"]');
+    if (el) el.scrollIntoView({block:"nearest", behavior:"smooth"});
+  }
+}
+
+$("#ytCopy").addEventListener("click", () => {
+  const t = $("#ytUrl").textContent;
+  const done = () => { $("#ytCopy").textContent = "已複製"; setTimeout(()=>{$("#ytCopy").textContent="複製";}, 1600); };
+  if (navigator.clipboard) { navigator.clipboard.writeText(t).then(done).catch(()=>{}); }
+  else { const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+         ta.select(); try{document.execCommand("copy"); done();}catch(e){} ta.remove(); }
+});
+
+/* 向 iframe 註冊監聽（不握手就永遠收不到 onStateChange，「連續播放」會失效） */
+$("#player").addEventListener("load", () => {
+  try {
+    $("#player").contentWindow.postMessage(
+      JSON.stringify({event:"listening", id:"baoyanVoices", channel:"widget"}),
+      "https://www.youtube-nocookie.com");
+  } catch(e){}
+});
+window.addEventListener("message", (e) => {
+  if (!/^https:\/\/(www\.)?youtube(-nocookie)?\.com$/.test(e.origin)) return;
+  let d = e.data;
+  if (typeof d === "string") { try { d = JSON.parse(d); } catch(err){ return; } }
+  if (!d || d.event !== "onStateChange") return;
+  if (d.info === 0 && autoplayNext) play(current + 1, true);
+});
+
+const autoBtn = $("#autoBtn");
+function paintAuto(){
+  autoBtn.setAttribute("aria-pressed", autoplayNext ? "true" : "false");
+  autoBtn.textContent = "連續播放：" + (autoplayNext ? "開" : "關");
+}
+autoBtn.addEventListener("click", () => {
+  autoplayNext = !autoplayNext;
+  try { localStorage.setItem(LS_AUTO, autoplayNext ? "1" : "0"); } catch(e){}
+  paintAuto();
+});
+$("#prevBtn").addEventListener("click", () => play(current - 1, true));
+$("#nextBtn").addEventListener("click", () => play(current + 1, true));
+$("#q").addEventListener("input", (e) => renderList(e.target.value));
+
+/* 清單由 voices.json 提供（更新名人誌.sh 產生）。空的就顯示公告，不顯示空播放器。 */
+fetch("voices.json", {cache:"no-cache"})
+  .then(r => r.ok ? r.json() : {videos:[]})
+  .catch(() => ({videos:[]}))
+  .then(d => {
+    VIDEOS = (d && d.videos) || [];
+    if (!VIDEOS.length) { $("#notice").hidden = false; return; }
+    $("#grid").hidden = false;
+    $("#cnt").textContent = VIDEOS.length;
+    $("#totCnt").textContent = VIDEOS.length;
+    $("#tot").textContent = fmt(VIDEOS.reduce((a,v)=>a+(v.dur||0),0));
+
+    let startIdx = 0;
+    try {
+      const k = VIDEOS.findIndex(v => v.id === localStorage.getItem(LS_KEY));
+      if (k >= 0) startIdx = k;
+    } catch(e){}
+    const qv = new URLSearchParams(location.search).get("v") || location.hash.replace("#","");
+    if (qv) { const k = VIDEOS.findIndex(v => v.id === qv); if (k >= 0) startIdx = k; }
+
+    renderList("");
+    paintAuto();
+    play(startIdx, false);
+  });
+</script>
+</body>
+</html>
