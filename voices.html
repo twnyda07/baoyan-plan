@@ -182,7 +182,7 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
       <p>各界人士講述寶嚴禪寺興建的因緣與願景。本專輯持續增錄，依序連續播放。</p>
     </div>
 
-    <div id="notice" class="notice" hidden>
+    <div id="notice" class="notice">
       <span class="big">影片陸續上架中</span>
       本專輯正在整理製作，完成後將於本頁陸續發布，敬請期待。
     </div>
@@ -371,7 +371,8 @@ fetch("voices.json", {cache:"no-cache"})
   .catch(() => ({videos:[]}))
   .then(d => {
     VIDEOS = (d && d.videos) || [];
-    if (!VIDEOS.length) { $("#notice").hidden = false; return; }
+    if (!VIDEOS.length) return;          /* 公告預設就顯示：JS 或 fetch 失敗時也不會是一片空白 */
+    $("#notice").hidden = true;
     $("#grid").hidden = false;
     $("#cnt").textContent = VIDEOS.length;
     $("#totCnt").textContent = VIDEOS.length;
