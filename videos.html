@@ -88,6 +88,12 @@ nav a[aria-current="page"]{background:rgba(212,175,106,.18);opacity:1;color:var(
 .nowinfo h2{font-size:1.06rem;color:var(--by-white);line-height:1.7;margin-top:6px;letter-spacing:.03em}
 .nowinfo .meta{color:var(--by-sky);font-size:.86rem;margin-top:6px}
 .nowinfo .meta a{color:var(--by-gold-bright);text-decoration:underline;text-underline-offset:3px}
+.ytfall{font-size:.78rem;opacity:.8;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ytfall code{color:var(--by-ivory);background:rgba(255,255,255,.06);
+  padding:2px 7px;border-radius:5px;font-size:.78rem;word-break:break-all}
+.lnkbtn{background:transparent;border:1px solid rgba(212,175,106,.45);color:var(--by-gold-bright);
+  border-radius:6px;padding:2px 9px;font-size:.75rem;cursor:pointer;font-family:inherit}
+.lnkbtn:hover{border-color:var(--by-gold-bright)}
 .stagebar{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
 .btn{background:transparent;color:var(--by-ivory);border:1px solid rgba(212,175,106,.45);
   border-radius:999px;padding:7px 16px;font-size:.86rem;cursor:pointer;transition:.25s;
@@ -178,6 +184,10 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
           <div class="meta">
             第 <span id="nowIdx">1</span> / 19 支　·　<span id="nowDur">—</span>　·
             <a id="ytLink" href="#" target="_blank" rel="noopener">在 YouTube 開啟</a>
+          </div>
+          <div class="meta ytfall">
+            開不了的話用這個網址：<code id="ytUrl" style="user-select:all">—</code>
+            <button class="lnkbtn" id="ytCopy" type="button">複製</button>
           </div>
         </div>
         <div class="stagebar">
@@ -302,7 +312,9 @@ function play(i, userInitiated){
   $("#nowDur").textContent = fmt(v.dur);
   /* 用 youtube.com 完整網址，不用 youtu.be 短網址：
      短網址常被 App 內建瀏覽器、公司／學校網路與過濾器單獨擋掉 */
-  $("#ytLink").href = `https://www.youtube.com/watch?v=${v.id}`;
+  const watchUrl = `https://www.youtube.com/watch?v=${v.id}`;
+  $("#ytLink").href = watchUrl;
+  $("#ytUrl").textContent = watchUrl;
 
   listEl.querySelectorAll(".vitem").forEach((el, k) => {
     if (k === current) { el.setAttribute("aria-current","true"); }
@@ -345,6 +357,15 @@ autoBtn.addEventListener("click", () => {
   paintAuto();
 });
 paintAuto();
+
+/* 複製網址 */
+$("#ytCopy").addEventListener("click", () => {
+  const t = $("#ytUrl").textContent;
+  const done = () => { $("#ytCopy").textContent = "已複製"; setTimeout(()=>{$("#ytCopy").textContent="複製";}, 1600); };
+  if (navigator.clipboard) { navigator.clipboard.writeText(t).then(done).catch(()=>{}); }
+  else { const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+         ta.select(); try{document.execCommand("copy"); done();}catch(e){} ta.remove(); }
+});
 
 /* 向 iframe 註冊監聽（YouTube widget API 要先握手，否則永遠收不到 onStateChange，
    「連續播放」會失效）。每次換片 iframe 重新載入都要再送一次。 */
