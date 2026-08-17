@@ -300,7 +300,9 @@ function play(i, userInitiated){
   $("#nowTitle").textContent = v.title;
   $("#nowIdx").textContent = current + 1;
   $("#nowDur").textContent = fmt(v.dur);
-  $("#ytLink").href = `https://youtu.be/${v.id}`;
+  /* 用 youtube.com 完整網址，不用 youtu.be 短網址：
+     短網址常被 App 內建瀏覽器、公司／學校網路與過濾器單獨擋掉 */
+  $("#ytLink").href = `https://www.youtube.com/watch?v=${v.id}`;
 
   listEl.querySelectorAll(".vitem").forEach((el, k) => {
     if (k === current) { el.setAttribute("aria-current","true"); }
@@ -343,6 +345,16 @@ autoBtn.addEventListener("click", () => {
   paintAuto();
 });
 paintAuto();
+
+/* 向 iframe 註冊監聽（YouTube widget API 要先握手，否則永遠收不到 onStateChange，
+   「連續播放」會失效）。每次換片 iframe 重新載入都要再送一次。 */
+$("#player").addEventListener("load", () => {
+  try {
+    $("#player").contentWindow.postMessage(
+      JSON.stringify({event:"listening", id:"baoyanPlayer", channel:"widget"}),
+      "https://www.youtube-nocookie.com");
+  } catch(e){}
+});
 
 /* 監聽 YouTube 播放器狀態：播完自動接下一支 */
 window.addEventListener("message", (e) => {
