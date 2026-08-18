@@ -34,7 +34,12 @@
   --by-white:#EFECE3;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+/* 跳至主要內容（平時移出畫面，focus 時才顯示；置頂導覽列有 z-index:50，這裡用 200） */
+.skiplink{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skiplink:focus{position:fixed;left:16px;top:12px;width:auto;height:auto;overflow:visible;
+  clip-path:none;z-index:200;background:var(--by-gold);color:#0B2038;padding:10px 18px;
+  border-radius:999px;font-size:.95rem;letter-spacing:.06em;text-decoration:none}
 body{
   font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;
   background:var(--by-blue-deep);
@@ -61,6 +66,9 @@ nav{position:sticky;top:0;z-index:50;background:rgba(8,29,63,.86);backdrop-filte
 nav .wrap{display:flex;align-items:center;gap:6px;height:56px;overflow-x:auto;
   scrollbar-width:none;max-width:1120px}
 nav .wrap::-webkit-scrollbar{display:none}
+nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointer-events:none;
+  background:linear-gradient(90deg,rgba(8,29,63,0),rgba(8,29,63,.95))}
+@media(min-width:1180px){nav::after{display:none}}
 nav .brand{font-weight:700;color:var(--by-gold);white-space:nowrap;margin-right:14px;letter-spacing:.06em}
 nav .brand a{color:inherit;text-decoration:none}
 nav a{color:var(--by-ivory);text-decoration:none;font-size:.92rem;white-space:nowrap;
@@ -89,7 +97,7 @@ details .ans{padding:0 0 18px}
 details .ans p{font-size:.99rem;line-height:2;color:var(--by-ivory);margin-bottom:10px}
 .cite{font-size:.86rem;color:var(--by-sky);border-left:2px solid rgba(212,175,106,.5);
   padding:2px 0 2px 12px;margin-top:12px}
-.cite a{color:var(--by-gold-bright);text-decoration:underline;text-underline-offset:3px}
+.cite a{color:var(--by-gold-bright);text-decoration:underline;text-underline-offset:3px;padding:2px 6px}
 .cite + .cite{margin-top:8px}
 
 .note{margin:44px 0 10px;padding:20px 22px;border:1px solid rgba(212,175,106,.24);
@@ -109,6 +117,7 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
 </style>
 </head>
 <body>
+<a class="skiplink" href="#main">跳至主要內容</a>
 <div class="bg-glow"></div>
 
 <nav>
@@ -126,10 +135,10 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
   </div>
 </nav>
 
-<main>
+<main id="main">
   <div class="wrap">
     <div class="phead">
-      <div class="kicker">BAOYAN CHAN MONASTERY</div>
+      <div class="kicker" lang="en">BAOYAN CHAN MONASTERY</div>
       <h1>建設寶嚴禪寺 Q&amp;A</h1>
       <p>以下每一則答覆，均出自傳塵大和尚與見輝法師的開示影片，
          並附影片出處與時間點，可直接聽取該段開示。</p>
@@ -620,7 +629,7 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
 
 <footer>
   <div class="wrap">
-    <div style="color:var(--by-gold);letter-spacing:.3em;font-size:.8rem;margin-bottom:14px">BAOYAN CHAN MONASTERY</div>
+    <div lang="en" style="color:var(--by-gold);letter-spacing:.3em;font-size:.8rem;margin-bottom:14px">BAOYAN CHAN MONASTERY</div>
     <div style="font-size:1.25rem;color:var(--by-white);letter-spacing:.1em">寶嚴山　寶嚴禪寺</div>
     <div class="flinks">
       <a href="index.html">回首頁</a>
@@ -645,5 +654,30 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
       建築與規劃內容以《2026 寶嚴禪寺總體規劃書》為準。</p>
   </div>
 </footer>
+<script>
+/* 第 23 項　時間點連結的可及名稱。
+   連結文字只有「00:16」這類數字，實測有二十個相同文字指向不同影片
+   （「00:00」指向九支、「00:05」指向八支），螢幕閱讀器的連結清單無法分辨。
+   影片名只存在於出處框，這裡在載入時由出處框讀出，自動組出標籤——
+   維持單一資料來源，日後改標題不會走樣，也不動任何可見文案。 */
+(function () {
+  const nameOf = {};
+  document.querySelectorAll(".cite").forEach(c => {
+    const m = c.textContent.match(/《([^》]+)》/);
+    if (!m) return;
+    c.querySelectorAll('a[href*="/watch"]').forEach(a => {
+      const id = new URL(a.href).searchParams.get("v");
+      if (id) nameOf[id] = m[1];
+    });
+  });
+  document.querySelectorAll('a[href*="/watch"]').forEach(a => {
+    const t = (a.textContent || "").trim();
+    if (!/^\d{1,3}:\d{2}$/.test(t)) return;          // 只處理時間點連結
+    const id = new URL(a.href).searchParams.get("v");
+    if (!id || !nameOf[id]) return;
+    a.setAttribute("aria-label", "跳到《" + nameOf[id] + "》" + t);
+  });
+})();
+</script>
 </body>
 </html>

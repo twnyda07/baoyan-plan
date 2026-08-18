@@ -26,9 +26,14 @@
 <style>
 :root{--by-blue-deep:#081D3F;--by-blue:#0F2E63;--by-sky:#A3BFE9;--by-gold:#D4AF6A;--by-gold-bright:#F0CE8C;--by-ivory:#E6E1D4;--by-white:#EFECE3}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+/* 跳至主要內容（平時移出畫面，focus 時才顯示）*/
+.skiplink{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skiplink:focus{position:fixed;left:16px;top:12px;width:auto;height:auto;overflow:visible;
+  clip-path:none;z-index:200;background:var(--by-gold);color:#0B2038;padding:10px 18px;
+  border-radius:999px;font-size:.95rem;letter-spacing:.06em;text-decoration:none}
 body{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;background:var(--by-blue-deep);color:var(--by-ivory);line-height:1.95;letter-spacing:.012em;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 nav{position:sticky;top:0;z-index:50;background:rgba(8,29,63,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,106,.22)}
 nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointer-events:none;
   background:linear-gradient(90deg,rgba(8,29,63,0),rgba(8,29,63,.95))}
@@ -67,7 +72,14 @@ table{border-collapse:collapse;width:100%;min-width:420px;font-size:.96rem}
 th,td{border-bottom:1px solid rgba(143,180,232,.16);padding:10px 14px;text-align:left;vertical-align:top}
 th{background:rgba(15,46,99,.7);color:var(--by-gold-bright);white-space:nowrap}
 code{background:rgba(8,29,63,.7);padding:2px 6px;border-radius:5px;font-size:.9em}
-footer{border-top:1px solid rgba(212,175,106,.24);padding:40px 22px;text-align:center;color:var(--by-sky);font-size:.9rem;line-height:1.9}
+footer{border-top:1px solid rgba(212,175,106,.24);padding:52px 22px 40px;text-align:center;color:var(--by-sky);font-size:.92rem;line-height:1.9}
+footer .wrap{max-width:1180px;margin:0 auto}
+footer .contact{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin:20px 0 26px}
+footer .contact a,footer .contact span{color:var(--by-ivory);text-decoration:none}
+footer .flinks{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:22px 0 6px}
+footer .flinks a{color:var(--by-gold-bright);text-decoration:underline;text-underline-offset:3px}
+footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88rem;
+  border-top:1px solid rgba(143,180,232,.16);padding-top:22px;line-height:1.8}
 
 /* ===== 平板／手機 ===== */
 @media(max-width:900px){
@@ -95,7 +107,7 @@ footer{border-top:1px solid rgba(212,175,106,.24);padding:40px 22px;text-align:c
   blockquote.quote{padding:12px 16px}
   table{font-size:.92rem;min-width:360px}
   th,td{padding:9px 12px}
-  footer{padding:32px 18px;text-align:left}
+  footer{padding:36px 18px 30px}
   .head h1{letter-spacing:.04em}
 }
 
@@ -114,87 +126,116 @@ footer{border-top:1px solid rgba(212,175,106,.24);padding:40px 22px;text-align:c
 </style>
 </head>
 <body>
+<a class="skiplink" href="#main">跳至主要內容</a>
 <nav><div class="in">
 <a class="brand" href="index.html">寶嚴山寶嚴禪寺</a>
-<a href="index.html">規劃導覽</a>
+<a href="index.html#ground">動土大典報名</a>
+<a href="index.html#about">認識寶嚴</a>
+<a href="index.html#site">基地環境</a>
 <a href="index.html#floors">建築樓層規劃</a>
-<a href="flyer.html">一頁簡介</a>
+<a href="index.html#six">六藝學院</a>
 <a href="index.html#support">護持</a>
+<a href="qa.html">建寺 Q&amp;A</a>
+<a href="videos.html">寶嚴理念</a>
+<a href="flyer.html">一頁簡介</a>
 </div></nav>
+<main id="main">
 <div class="head">
-  <div class="k">ORIGINAL PAGES</div>
+  <div class="k" aria-hidden="true">ORIGINAL PAGES</div>
   <h1>原書逐頁　32 個跨頁</h1>
   <p>《2026 寶嚴禪寺總體規劃書》原書圖檔</p>
 </div>
-<p class="tip">點任一頁可開啟原尺寸大圖，手機上可再放大細看。</p>
+<p class="tip">本頁為原書影像檔。規劃書之文字版內容，請參閱<a href="index.html">首頁規劃導覽</a>。點任一頁可開啟原尺寸大圖。</p>
 <div class="gal"><figure class="pg">
-<a href="img/p01.jpg" target="_blank" rel="noopener"><img src="img/p01.jpg" alt="規劃書第 1 跨頁" loading="lazy"></a>
-<figcaption>第 1 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p02.jpg" target="_blank" rel="noopener"><img src="img/p02.jpg" alt="規劃書第 2 跨頁" loading="lazy"></a>
-<figcaption>第 2 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p03.jpg" target="_blank" rel="noopener"><img src="img/p03.jpg" alt="規劃書第 3 跨頁" loading="lazy"></a>
-<figcaption>第 3 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p04.jpg" target="_blank" rel="noopener"><img src="img/p04.jpg" alt="規劃書第 4 跨頁" loading="lazy"></a>
-<figcaption>第 4 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p05.jpg" target="_blank" rel="noopener"><img src="img/p05.jpg" alt="規劃書第 5 跨頁" loading="lazy"></a>
-<figcaption>第 5 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p06.jpg" target="_blank" rel="noopener"><img src="img/p06.jpg" alt="規劃書第 6 跨頁" loading="lazy"></a>
-<figcaption>第 6 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p07.jpg" target="_blank" rel="noopener"><img src="img/p07.jpg" alt="規劃書第 7 跨頁" loading="lazy"></a>
-<figcaption>第 7 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p08.jpg" target="_blank" rel="noopener"><img src="img/p08.jpg" alt="規劃書第 8 跨頁" loading="lazy"></a>
-<figcaption>第 8 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p09.jpg" target="_blank" rel="noopener"><img src="img/p09.jpg" alt="規劃書第 9 跨頁" loading="lazy"></a>
-<figcaption>第 9 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p10.jpg" target="_blank" rel="noopener"><img src="img/p10.jpg" alt="規劃書第 10 跨頁" loading="lazy"></a>
-<figcaption>第 10 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p11.jpg" target="_blank" rel="noopener"><img src="img/p11.jpg" alt="規劃書第 11 跨頁" loading="lazy"></a>
-<figcaption>第 11 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p12.jpg" target="_blank" rel="noopener"><img src="img/p12.jpg" alt="規劃書第 12 跨頁" loading="lazy"></a>
-<figcaption>第 12 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p13.jpg" target="_blank" rel="noopener"><img src="img/p13.jpg" alt="規劃書第 13 跨頁" loading="lazy"></a>
-<figcaption>第 13 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p14.jpg" target="_blank" rel="noopener"><img src="img/p14.jpg" alt="規劃書第 14 跨頁" loading="lazy"></a>
-<figcaption>第 14 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p15.jpg" target="_blank" rel="noopener"><img src="img/p15.jpg" alt="規劃書第 15 跨頁" loading="lazy"></a>
-<figcaption>第 15 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p16.jpg" target="_blank" rel="noopener"><img src="img/p16.jpg" alt="規劃書第 16 跨頁" loading="lazy"></a>
-<figcaption>第 16 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p17.jpg" target="_blank" rel="noopener"><img src="img/p17.jpg" alt="規劃書第 17 跨頁" loading="lazy"></a>
-<figcaption>第 17 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p18.jpg" target="_blank" rel="noopener"><img src="img/p18.jpg" alt="規劃書第 18 跨頁" loading="lazy"></a>
-<figcaption>第 18 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p19.jpg" target="_blank" rel="noopener"><img src="img/p19.jpg" alt="規劃書第 19 跨頁" loading="lazy"></a>
-<figcaption>第 19 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p20.jpg" target="_blank" rel="noopener"><img src="img/p20.jpg" alt="規劃書第 20 跨頁" loading="lazy"></a>
-<figcaption>第 20 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p21.jpg" target="_blank" rel="noopener"><img src="img/p21.jpg" alt="規劃書第 21 跨頁" loading="lazy"></a>
-<figcaption>第 21 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p22.jpg" target="_blank" rel="noopener"><img src="img/p22.jpg" alt="規劃書第 22 跨頁" loading="lazy"></a>
-<figcaption>第 22 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p23.jpg" target="_blank" rel="noopener"><img src="img/p23.jpg" alt="規劃書第 23 跨頁" loading="lazy"></a>
-<figcaption>第 23 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p24.jpg" target="_blank" rel="noopener"><img src="img/p24.jpg" alt="規劃書第 24 跨頁" loading="lazy"></a>
-<figcaption>第 24 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p25.jpg" target="_blank" rel="noopener"><img src="img/p25.jpg" alt="規劃書第 25 跨頁" loading="lazy"></a>
-<figcaption>第 25 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p26.jpg" target="_blank" rel="noopener"><img src="img/p26.jpg" alt="規劃書第 26 跨頁" loading="lazy"></a>
-<figcaption>第 26 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p27.jpg" target="_blank" rel="noopener"><img src="img/p27.jpg" alt="規劃書第 27 跨頁" loading="lazy"></a>
-<figcaption>第 27 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p28.jpg" target="_blank" rel="noopener"><img src="img/p28.jpg" alt="規劃書第 28 跨頁" loading="lazy"></a>
-<figcaption>第 28 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p29.jpg" target="_blank" rel="noopener"><img src="img/p29.jpg" alt="規劃書第 29 跨頁" loading="lazy"></a>
-<figcaption>第 29 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p30.jpg" target="_blank" rel="noopener"><img src="img/p30.jpg" alt="規劃書第 30 跨頁" loading="lazy"></a>
-<figcaption>第 30 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p31.jpg" target="_blank" rel="noopener"><img src="img/p31.jpg" alt="規劃書第 31 跨頁" loading="lazy"></a>
-<figcaption>第 31 跨頁</figcaption></figure><figure class="pg">
-<a href="img/p32.jpg" target="_blank" rel="noopener"><img src="img/p32.jpg" alt="規劃書第 32 跨頁" loading="lazy"></a>
-<figcaption>第 32 跨頁　·　本跨頁為《總體規劃書》0707 版原書印製內容；最新護持管道請見<a href="index.html#support">首頁護持專區</a>。</figcaption></figure></div>
+<a href="img/p01.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p01.webp"><img src="img/thumb/p01.jpg" alt="規劃書第 1 跨頁　·　封面跨頁" width="420" height="394" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 1 跨頁　·　封面跨頁</figcaption></figure><figure class="pg">
+<a href="img/p02.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p02.webp"><img src="img/thumb/p02.jpg" alt="規劃書第 2 跨頁　·　回家 — 致三界中的浪子" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 2 跨頁　·　回家 — 致三界中的浪子</figcaption></figure><figure class="pg">
+<a href="img/p03.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p03.webp"><img src="img/thumb/p03.jpg" alt="規劃書第 3 跨頁　·　目錄" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 3 跨頁　·　目錄</figcaption></figure><figure class="pg">
+<a href="img/p04.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p04.webp"><img src="img/thumb/p04.jpg" alt="規劃書第 4 跨頁　·　原書 p.1–2　·　千佛萬願始於足　譜寫寶嚴興建史" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 4 跨頁　·　原書 p.1–2　·　千佛萬願始於足　譜寫寶嚴興建史</figcaption></figure><figure class="pg">
+<a href="img/p05.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p05.webp"><img src="img/thumb/p05.jpg" alt="規劃書第 5 跨頁　·　原書 p.3–4　·　第一章　核心團隊與願景／第一節　寶嚴僧團暨營建團隊簡介" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 5 跨頁　·　原書 p.3–4　·　第一章　核心團隊與願景／第一節　寶嚴僧團暨營建團隊簡介</figcaption></figure><figure class="pg">
+<a href="img/p06.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p06.webp"><img src="img/thumb/p06.jpg" alt="規劃書第 6 跨頁　·　原書 p.5–6　·　寶嚴僧團" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 6 跨頁　·　原書 p.5–6　·　寶嚴僧團</figcaption></figure><figure class="pg">
+<a href="img/p07.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p07.webp"><img src="img/thumb/p07.jpg" alt="規劃書第 7 跨頁　·　原書 p.7–8　·　寶嚴禪寺 0-100歲全齡全人經典教育" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 7 跨頁　·　原書 p.7–8　·　寶嚴禪寺 0-100歲全齡全人經典教育</figcaption></figure><figure class="pg">
+<a href="img/p08.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p08.webp"><img src="img/thumb/p08.jpg" alt="規劃書第 8 跨頁　·　原書 p.9–10　·　建築團隊／獲獎" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 8 跨頁　·　原書 p.9–10　·　建築團隊／獲獎</figcaption></figure><figure class="pg">
+<a href="img/p09.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p09.webp"><img src="img/thumb/p09.jpg" alt="規劃書第 9 跨頁　·　原書 p.11–12　·　建築是文化世界的模型" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 9 跨頁　·　原書 p.11–12　·　建築是文化世界的模型</figcaption></figure><figure class="pg">
+<a href="img/p10.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p10.webp"><img src="img/thumb/p10.jpg" alt="規劃書第 10 跨頁　·　原書 p.13–14　·　營造團隊　威毅建築團隊" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 10 跨頁　·　原書 p.13–14　·　營造團隊　威毅建築團隊</figcaption></figure><figure class="pg">
+<a href="img/p11.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p11.webp"><img src="img/thumb/p11.jpg" alt="規劃書第 11 跨頁　·　原書 p.15–16　·　台東寶嚴禪寺題辭／都蘭山脈基地" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 11 跨頁　·　原書 p.15–16　·　台東寶嚴禪寺題辭／都蘭山脈基地</figcaption></figure><figure class="pg">
+<a href="img/p12.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p12.webp"><img src="img/thumb/p12.jpg" alt="規劃書第 12 跨頁　·　原書 p.17–18　·　建築顧問" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 12 跨頁　·　原書 p.17–18　·　建築顧問</figcaption></figure><figure class="pg">
+<a href="img/p13.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p13.webp"><img src="img/thumb/p13.jpg" alt="規劃書第 13 跨頁　·　原書 p.19–20　·　第二節　寶嚴禪寺歷史脈絡與定位／第二章　寶嚴禪寺園區建築規畫與設計" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 13 跨頁　·　原書 p.19–20　·　第二節　寶嚴禪寺歷史脈絡與定位／第二章　寶嚴禪寺園區建築規畫與設計</figcaption></figure><figure class="pg">
+<a href="img/p14.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p14.webp"><img src="img/thumb/p14.jpg" alt="規劃書第 14 跨頁　·　原書 p.21–22　·　園區基地介紹" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 14 跨頁　·　原書 p.21–22　·　園區基地介紹</figcaption></figure><figure class="pg">
+<a href="img/p15.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p15.webp"><img src="img/thumb/p15.jpg" alt="規劃書第 15 跨頁　·　原書 p.23–24　·　空中土地" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 15 跨頁　·　原書 p.23–24　·　空中土地</figcaption></figure><figure class="pg">
+<a href="img/p16.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p16.webp"><img src="img/thumb/p16.jpg" alt="規劃書第 16 跨頁　·　原書 p.25–26　·　量體分區說明" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 16 跨頁　·　原書 p.25–26　·　量體分區說明</figcaption></figure><figure class="pg">
+<a href="img/p17.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p17.webp"><img src="img/thumb/p17.jpg" alt="規劃書第 17 跨頁　·　原書 p.27–28　·　殿堂空間設計　第一節　普光明殿" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 17 跨頁　·　原書 p.27–28　·　殿堂空間設計　第一節　普光明殿</figcaption></figure><figure class="pg">
+<a href="img/p18.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p18.webp"><img src="img/thumb/p18.jpg" alt="規劃書第 18 跨頁　·　原書 p.29–30　·　第二節　毗盧遮那藏殿" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 18 跨頁　·　原書 p.29–30　·　第二節　毗盧遮那藏殿</figcaption></figure><figure class="pg">
+<a href="img/p19.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p19.webp"><img src="img/thumb/p19.jpg" alt="規劃書第 19 跨頁　·　原書 p.31–32　·　第三節　禪‧空間" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 19 跨頁　·　原書 p.31–32　·　第三節　禪‧空間</figcaption></figure><figure class="pg">
+<a href="img/p20.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p20.webp"><img src="img/thumb/p20.jpg" alt="規劃書第 20 跨頁　·　原書 p.33–34　·　第四節　鐘鼓樓與八十華嚴經鐘" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 20 跨頁　·　原書 p.33–34　·　第四節　鐘鼓樓與八十華嚴經鐘</figcaption></figure><figure class="pg">
+<a href="img/p21.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p21.webp"><img src="img/thumb/p21.jpg" alt="規劃書第 21 跨頁　·　原書 p.35–36　·　第五節　五十三參展演體驗互動空間" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 21 跨頁　·　原書 p.35–36　·　第五節　五十三參展演體驗互動空間</figcaption></figure><figure class="pg">
+<a href="img/p22.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p22.webp"><img src="img/thumb/p22.jpg" alt="規劃書第 22 跨頁　·　原書 p.37–38　·　第六節　人間有香　禪宗公案體驗餐廳" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 22 跨頁　·　原書 p.37–38　·　第六節　人間有香　禪宗公案體驗餐廳</figcaption></figure><figure class="pg">
+<a href="img/p23.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p23.webp"><img src="img/thumb/p23.jpg" alt="規劃書第 23 跨頁　·　原書 p.39–40　·　第七節　五百羅漢園區" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 23 跨頁　·　原書 p.39–40　·　第七節　五百羅漢園區</figcaption></figure><figure class="pg">
+<a href="img/p24.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p24.webp"><img src="img/thumb/p24.jpg" alt="規劃書第 24 跨頁　·　原書 p.41–42　·　第八節　普莊嚴園" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 24 跨頁　·　原書 p.41–42　·　第八節　普莊嚴園</figcaption></figure><figure class="pg">
+<a href="img/p25.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p25.webp"><img src="img/thumb/p25.jpg" alt="規劃書第 25 跨頁　·　原書 p.43–44　·　第三章　寶嚴禪寺ESG國際學習資源中心的願景藍圖／第一節　寶嚴六藝教育學院的集思與創發" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 25 跨頁　·　原書 p.43–44　·　第三章　寶嚴禪寺ESG國際學習資源中心的願景藍圖／第一節　寶嚴六藝教育學院的集思與創發</figcaption></figure><figure class="pg">
+<a href="img/p26.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p26.webp"><img src="img/thumb/p26.jpg" alt="規劃書第 26 跨頁　·　原書 p.45–46　·　寶嚴六藝學院" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 26 跨頁　·　原書 p.45–46　·　寶嚴六藝學院</figcaption></figure><figure class="pg">
+<a href="img/p27.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p27.webp"><img src="img/thumb/p27.jpg" alt="規劃書第 27 跨頁　·　原書 p.47–48　·　第二節　從土地到藝術造鎮／ALL IN ONE 的永續精神" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 27 跨頁　·　原書 p.47–48　·　第二節　從土地到藝術造鎮／ALL IN ONE 的永續精神</figcaption></figure><figure class="pg">
+<a href="img/p28.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p28.webp"><img src="img/thumb/p28.jpg" alt="規劃書第 28 跨頁　·　原書 p.49–50　·　第三節　結合跨國學習資源　打造國際學習中心" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 28 跨頁　·　原書 p.49–50　·　第三節　結合跨國學習資源　打造國際學習中心</figcaption></figure><figure class="pg">
+<a href="img/p29.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p29.webp"><img src="img/thumb/p29.jpg" alt="規劃書第 29 跨頁　·　原書 p.51–52　·　第四章　計畫推動期程" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 29 跨頁　·　原書 p.51–52　·　第四章　計畫推動期程</figcaption></figure><figure class="pg">
+<a href="img/p30.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p30.webp"><img src="img/thumb/p30.jpg" alt="規劃書第 30 跨頁　·　原書 p.53–54　·　第五章　千秋志業　萬世功德" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 30 跨頁　·　原書 p.53–54　·　第五章　千秋志業　萬世功德</figcaption></figure><figure class="pg">
+<a href="img/p31.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p31.webp"><img src="img/thumb/p31.jpg" alt="規劃書第 31 跨頁　·　原書 p.55–56　·　動土大典邀請／雲端學院課程表" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 31 跨頁　·　原書 p.55–56　·　動土大典邀請／雲端學院課程表</figcaption></figure><figure class="pg">
+<a href="img/p32.jpg" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="img/thumb/p32.webp"><img src="img/thumb/p32.jpg" alt="規劃書第 32 跨頁　·　原書 p.57–58　·　匯款帳號／各地分院聯絡處" width="420" height="393" loading="lazy" decoding="async"></picture></a>
+<figcaption>第 32 跨頁　·　原書 p.57–58　·　匯款帳號／各地分院聯絡處　·　本跨頁為《總體規劃書》0707 版原書印製內容；最新護持管道請見<a href="index.html#support">首頁護持專區</a>。</figcaption></figure></div>
+</main>
 <footer>
-《2026 寶嚴禪寺總體規劃書》　·　渲染圖與平面圖皆為模擬示意，實際以主管機關核准之圖說為準。<br>
-寶嚴山　寶嚴禪寺
+  <div class="wrap">
+    <div lang="en" style="color:var(--by-gold);letter-spacing:.3em;font-size:.8rem;margin-bottom:14px">BAOYAN CHAN MONASTERY</div>
+    <div style="font-size:1.25rem;color:var(--by-white);letter-spacing:.1em">寶嚴山　寶嚴禪寺</div>
+    <div class="flinks">
+      <a href="index.html">回首頁</a>
+      <a href="index.html#ground">動土大典報名</a>
+      <a href="qa.html">建寺 Q&amp;A</a>
+      <a href="videos.html">寶嚴理念</a>
+      <a href="voices.html">寶嚴名人誌</a>
+      <a href="flyer.html">一頁簡介</a>
+    </div>
+    <div class="contact">
+      <span>台北寶嚴善首講堂　<a href="tel:+886225772978">02-2577 2978</a></span>
+      <span>新北寶嚴善覺講堂　<a href="tel:+886229646617">02-2964 6617</a></span>
+      <span>台中 EPIC 禪藝實相人文空間　<a href="tel:+886423289566">04-2328 9566</a></span>
+      <span>高雄圓道禪院　<a href="tel:+88675224676">07-522 4676</a></span>
+    </div>
+    <div class="contact" style="gap:10px 22px">
+      <a href="https://donatebaoyan.org/" target="_blank" rel="noopener" style="color:var(--by-gold-bright)">線上刷卡護持 donatebaoyan.org</a>
+      <span>匯款：華南銀行臺東分行(008)　830100009968</span>
+    </div>
+    <p class="src">《2026 寶嚴禪寺總體規劃書》　·　渲染圖與平面圖皆為模擬示意，實際以主管機關核准之圖說為準。</p>
+  </div>
 </footer>
 </body>
 </html>

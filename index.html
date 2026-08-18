@@ -41,7 +41,12 @@
   --z-visitor:#DFD08A;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+/* 跳至主要內容（平時移出畫面，focus 時才顯示；置頂導覽列有 z-index:50，這裡用 200） */
+.skiplink{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skiplink:focus{position:fixed;left:16px;top:12px;width:auto;height:auto;overflow:visible;
+  clip-path:none;z-index:200;background:var(--by-gold);color:#0B2038;padding:10px 18px;
+  border-radius:999px;font-size:.95rem;letter-spacing:.06em;text-decoration:none}
 body{
   font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;
   background:var(--by-blue-deep);
@@ -51,7 +56,7 @@ body{
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 /* 深底上的連結一律金色可讀；更具體的規則（nav、按鈕）仍會覆蓋 */
 a{color:var(--by-gold-bright);text-decoration-color:rgba(240,206,140,.5)}
 a:hover{color:#fff}
@@ -401,6 +406,8 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
 .gquery a{color:var(--by-gold-bright);text-decoration:none;
   border-bottom:1px solid rgba(240,206,140,.45);padding-bottom:2px;transition:.25s}
 .gquery a:hover{color:#fff;border-bottom-color:rgba(240,206,140,.8)}
+/* 視覺隱藏但螢幕閱讀器可讀 */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 /* ===== 平板／手機閱讀優化 ===== */
 nav{position:sticky}
 nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointer-events:none;
@@ -513,6 +520,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 </script>
 </head>
 <body>
+<a class="skiplink" href="#main">跳至主要內容</a>
 <div class="bg-glow"></div>
 
 <nav>
@@ -532,13 +540,13 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
   </div>
 </nav>
 
-<main>
+<main id="main">
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-img"><img src="img/crop/hero.jpg" alt="寶嚴禪寺建築模擬示意圖"></div>
+  <div class="hero-img"><img src="img/crop/hero.jpg" alt="寶嚴禪寺建築模擬示意圖" fetchpriority="high"></div>
   <div class="hero-in">
-    <div class="eyebrow">BAOYAN CHAN MONASTERY</div>
+    <div class="eyebrow" lang="en">BAOYAN CHAN MONASTERY</div>
     <h1>致　三界中的浪子
       <small>台東・都蘭山下　2026 總體規劃</small>
     </h1>
@@ -558,7 +566,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 <section id="ground" class="ground">
   <div class="wrap">
     <div class="shead reveal">
-      <div class="kicker">GROUNDBREAKING</div>
+      <div class="kicker" aria-hidden="true">GROUNDBREAKING</div>
       <h2>萬眾一心　千鏟立基</h2>
       <p>寶嚴山寶嚴禪寺動土大典　開放報名參加</p>
     </div>
@@ -651,7 +659,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 <section id="about">
   <div class="wrap">
     <div class="shead reveal">
-      <div class="kicker">ABOUT</div>
+      <div class="kicker" aria-hidden="true">ABOUT</div>
       <h2>寶嚴禪寺</h2>
       <p>「寶」，佛寶、法寶、僧寶；「嚴」，以般若為體、華嚴為相、楞嚴為用，圓成依報嚴、正報嚴與眷屬嚴。</p>
     </div>
@@ -688,7 +696,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 <section id="site" class="alt">
   <div class="wrap">
     <div class="shead reveal">
-      <div class="kicker">THE SITE</div>
+      <div class="kicker" aria-hidden="true">THE SITE</div>
       <h2>基地與自然環境</h2>
       <p>台東純淨無染的天與地。這片土地的風、水、山、海，能使禪修者的見聞覺知當下滌慮、歇息。</p>
     </div>
@@ -703,7 +711,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     </dl>
 
     <div class="figure reveal">
-      <img src="img/crop/site.jpg" alt="寶嚴禪寺基地空拍圖">
+      <img src="img/crop/site.jpg" alt="寶嚴禪寺基地空拍圖" width="1107" height="731" loading="lazy" decoding="async">
       <div class="figcap">寶嚴禪寺基地空拍圖　／　規劃書 p.21-22</div>
     </div>
 
@@ -720,11 +728,11 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 
     <div class="grid g2" style="margin-top:34px">
       <div class="figure reveal" style="margin-top:0">
-        <img src="img/crop/dulan.jpg" alt="都蘭山脈">
+        <img src="img/crop/dulan.jpg" alt="都蘭山脈" width="1400" height="583" loading="lazy" decoding="async">
         <div class="figcap">都蘭山脈　攝影／威毅營造建築團隊主持人 陸永富</div>
       </div>
       <div class="figure reveal" style="margin-top:0">
-        <img src="img/crop/coast.jpg" alt="台灣台東海岸線">
+        <img src="img/crop/coast.jpg" alt="台灣台東海岸線" width="1115" height="715" loading="lazy" decoding="async">
         <div class="figcap">台灣台東海岸線</div>
       </div>
     </div>
@@ -735,7 +743,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 <section id="floors">
   <div class="wrap">
     <div class="shead reveal">
-      <div class="kicker">FLOOR BY FLOOR</div>
+      <div class="kicker" aria-hidden="true">FLOOR BY FLOOR</div>
       <h2>建築樓層規劃</h2>
       <p>主體建築為<b>地下一層、地上五層</b>。依規劃書量體分區說明，分為神聖空間、渡眾空間－佛學院、接引空間－行政大樓／副屬空間、遊客中心－星海樓。點選樓層——或直接點圖上的量體——圖面對應位置會亮起。</p>
     </div>
@@ -750,7 +758,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     <div class="floorbox reveal">
       <div class="zonefig">
         <div class="zonewrap" id="zonewrap">
-          <img src="img/crop/zones.jpg" alt="寶嚴禪寺量體分區說明圖（B1F–5F 分層軸測）">
+          <img src="img/crop/zones.jpg" alt="寶嚴禪寺量體分區說明圖（B1F–5F 分層軸測）" width="1500" height="1102" loading="lazy" decoding="async">
           <div class="hot" id="hot" aria-hidden="true"><span class="blip"></span></div>
           <div class="hotlabel" id="hotlabel" aria-hidden="true"></div>
         </div>
@@ -763,7 +771,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     </div>
 
     <div class="figure reveal">
-      <img src="img/crop/floorplan.jpg" alt="寶嚴禪寺建築平面配置圖">
+      <img src="img/crop/floorplan.jpg" alt="寶嚴禪寺建築平面配置圖" width="1600" height="1173" loading="lazy" decoding="async">
       <div class="figcap">建築平面配置圖（樓地板標高 FL +56.5）　／　規劃書 p.39</div>
     </div>
 
@@ -779,13 +787,13 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 <section id="halls" class="alt">
   <div class="wrap">
     <div class="shead reveal">
-      <div class="kicker">SPACES</div>
+      <div class="kicker" aria-hidden="true">SPACES</div>
       <h2>殿堂空間設計</h2>
       <div class="jump"><a href="#h1">普光明殿</a><a href="#h2">毗盧遮那藏殿</a><a href="#h3">禪・空間</a><a href="#h4">八十華嚴經鐘</a><a href="#h5">五十三參展演空間</a><a href="#h6">人間有香</a><a href="#h7">五百羅漢園區</a><a href="#h8">普莊嚴園</a></div>
     </div>
 
     <div class="hall reveal" id="h1">
-      <div class="himg"><img src="img/crop/puguang.jpg" alt="普光明殿"></div>
+      <div class="himg"><img src="img/crop/puguang.jpg" alt="普光明殿" loading="lazy" decoding="async" width="1400" height="722"></div>
       <div class="htxt">
         <div class="n">第一節</div>
         <h3>普光明殿（大雄寶殿）</h3>
@@ -796,7 +804,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     </div>
 
     <div class="hall reveal" id="h2">
-      <div class="himg"><img src="img/crop/pilu.jpg" alt="毗盧遮那藏殿"></div>
+      <div class="himg"><img src="img/crop/pilu.jpg" alt="毗盧遮那藏殿" loading="lazy" decoding="async" width="1400" height="1308"></div>
       <div class="htxt">
         <div class="n">第二節</div>
         <h3>毗盧遮那藏殿</h3>
@@ -807,7 +815,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     </div>
 
     <div class="hall reveal" id="h3">
-      <div class="himg"><img src="img/crop/chan.jpg" alt="禪空間"></div>
+      <div class="himg"><img src="img/crop/chan.jpg" alt="禪空間" loading="lazy" decoding="async" width="1137" height="957"></div>
       <div class="htxt">
         <div class="n">第三節</div>
         <h3>禪・空間</h3>
@@ -817,7 +825,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     </div>
 
     <div class="hall reveal" id="h4">
-      <div class="himg"><img src="img/crop/bell.jpg" alt="鐘鼓樓與八十華嚴經鐘"></div>
+      <div class="himg"><img src="img/crop/bell.jpg" alt="鐘鼓樓與八十華嚴經鐘" loading="lazy" decoding="async" width="1400" height="775"></div>
       <div class="htxt">
         <div class="n">第四節</div>
         <h3>鐘鼓樓／八十華嚴經鐘</h3>
@@ -827,7 +835,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     </div>
 
     <div class="hall reveal" id="h5">
-      <div class="himg"><img src="img/crop/child.jpg" alt="五十三參展演體驗互動空間"></div>
+      <div class="himg"><img src="img/crop/child.jpg" alt="五十三參展演體驗互動空間" loading="lazy" decoding="async" width="1064" height="599"></div>
       <div class="htxt">
         <div class="n">第五節</div>
         <h3>五十三參展演體驗互動空間</h3>
@@ -838,7 +846,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     </div>
 
     <div class="hall reveal" id="h6">
-      <div class="himg"><img src="img/crop/dining.jpg" alt="禪宗公案體驗餐廳"></div>
+      <div class="himg"><img src="img/crop/dining.jpg" alt="禪宗公案體驗餐廳" loading="lazy" decoding="async" width="1400" height="1368"></div>
       <div class="htxt">
         <div class="n">第六節</div>
         <h3>人間有香</h3>
@@ -848,7 +856,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     </div>
 
     <div class="hall reveal" id="h7">
-      <div class="himg"><img src="img/crop/luohan.jpg" alt="五百羅漢園區"></div>
+      <div class="himg"><img src="img/crop/luohan.jpg" alt="五百羅漢園區" loading="lazy" decoding="async" width="1220" height="794"></div>
       <div class="htxt">
         <div class="n">第七節</div>
         <h3>五百羅漢園區</h3>
@@ -858,7 +866,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     </div>
 
     <div class="hall reveal" id="h8">
-      <div class="himg"><img src="img/crop/garden.jpg" alt="普莊嚴園"></div>
+      <div class="himg"><img src="img/crop/garden.jpg" alt="普莊嚴園" loading="lazy" decoding="async" width="1068" height="1329"></div>
       <div class="htxt">
         <div class="n">第八節</div>
         <h3>普莊嚴園</h3>
@@ -873,7 +881,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 <section id="six">
   <div class="wrap">
     <div class="shead reveal">
-      <div class="kicker">SIX ARTS</div>
+      <div class="kicker" aria-hidden="true">SIX ARTS</div>
       <h2>寶嚴六藝教育學院</h2>
       <p>以般若為體、華嚴為相、六藝為用。依六根六塵延伸發展，分化出色、聲、香、味、觸、法六大學習型組織，邀請全球專家駐村，讓 0 歲到 100 歲的人都能在此學習。</p>
     </div>
@@ -898,7 +906,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 <section id="time" class="alt">
   <div class="wrap">
     <div class="shead reveal">
-      <div class="kicker">TIMELINE</div>
+      <div class="kicker" aria-hidden="true">TIMELINE</div>
       <h2>計畫推動期程</h2>
     </div>
     <div class="tl">
@@ -919,7 +927,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 <section id="support">
   <div class="wrap">
     <div class="shead reveal">
-      <div class="kicker">SUPPORT</div>
+      <div class="kicker" aria-hidden="true">SUPPORT</div>
       <h2>千秋志業　萬世功德</h2>
       <p>道場的建設，不僅僅是磚瓦的堆砌，更是功德的累積與無量福報的種植。每一份發心，化為道場的磚瓦與明燈。</p>
     </div>
@@ -1003,7 +1011,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
 
 <footer>
   <div class="wrap">
-    <div style="color:var(--by-gold);letter-spacing:.3em;font-size:.8rem;margin-bottom:14px">BAOYAN CHAN MONASTERY</div>
+    <div lang="en" style="color:var(--by-gold);letter-spacing:.3em;font-size:.8rem;margin-bottom:14px">BAOYAN CHAN MONASTERY</div>
     <div style="font-size:1.25rem;color:var(--by-white);letter-spacing:.1em">寶嚴山　寶嚴禪寺</div>
     <div class="contact">
       <span>台北寶嚴善首講堂　<a href="tel:+886225772978">02-2577 2978</a></span>
@@ -1075,11 +1083,20 @@ const zonewrap = document.getElementById('zonewrap');
 const hot = document.getElementById('hot');
 const hotlabel = document.getElementById('hotlabel');
 const btns = [];
+const spots = [];
+/* 第 25 項：切換樓層時的一句話通報（視覺隱藏）。
+   整塊說明區不掛 aria-live——一按就要念樓層代號、標題、三個分區、
+   七個項目與標籤，是大型區塊掛通報的典型反例。 */
+const floorSay = document.createElement('div');
+floorSay.className = 'vh';
+floorSay.setAttribute('role', 'status');
+zonewrap.parentNode.appendChild(floorSay);
 
 FLOORS.forEach((f, i) => {
   const b = document.createElement('button');
   b.className = 'fl' + (i === 0 ? ' on' : '');
   b.type = 'button';
+  b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
   const bars = [...new Set(f.zones.map(z => z.k))].map(k => `<i style="background:${COLOR[k]}"></i>`).join('');
   b.innerHTML = `<span class="lv">${f.lv}</span><span class="nm">${f.title}</span><span class="bar">${bars}</span>`;
   b.addEventListener('click', () => select(i));
@@ -1090,6 +1107,7 @@ FLOORS.forEach((f, i) => {
   const s = document.createElement('button');
   s.className = 'spot';
   s.type = 'button';
+  s.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
   s.setAttribute('aria-label', `${f.lv}　${f.title}`);
   s.title = `${f.lv}　${f.title}`;
   s.style.left = f.box.x + '%';
@@ -1098,6 +1116,7 @@ FLOORS.forEach((f, i) => {
   s.style.height = f.box.h + '%';
   s.addEventListener('click', () => select(i));
   zonewrap.appendChild(s);
+  spots.push(s);
 });
 
 /* 把亮點移到該層量體上 */
@@ -1116,10 +1135,14 @@ function mark(f){
 
 function select(i){
   const f = FLOORS[i];
-  btns.forEach(x => x.classList.remove('on'));
+  btns.forEach(x => { x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
+  spots.forEach(x => x.setAttribute('aria-pressed','false'));
   btns[i].classList.add('on');
+  btns[i].setAttribute('aria-pressed','true');
+  if (spots[i]) spots[i].setAttribute('aria-pressed','true');
   render(f);
   mark(f);
+  floorSay.textContent = `已顯示 ${f.lv}　${f.title}`;
 }
 
 function render(f){
