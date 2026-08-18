@@ -390,11 +390,11 @@ footer .contact{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px
 footer .contact a,footer .contact span{color:var(--by-ivory);text-decoration:none}
 footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88rem;
   border-top:1px solid rgba(143,180,232,.16);padding-top:22px;line-height:1.8}
-footer .staffentry{max-width:760px;margin:18px auto 0;text-align:center;font-size:.8rem;letter-spacing:.06em}
-footer .staffentry a{color:rgba(182,205,240,.62);text-decoration:none;
-  border-bottom:1px solid rgba(182,205,240,.24);padding-bottom:2px;transition:.25s}
-footer .staffentry a:hover{color:var(--by-gold-bright);border-bottom-color:rgba(240,206,140,.6)}
-footer .staffentry .dot{color:rgba(182,205,240,.35);margin:0 12px}
+.gquery{grid-column:1 / -1;margin-top:10px;font-size:.86rem;letter-spacing:.05em;
+  color:var(--by-sky);line-height:1.7}
+.gquery a{color:var(--by-gold-bright);text-decoration:none;
+  border-bottom:1px solid rgba(240,206,140,.45);padding-bottom:2px;transition:.25s}
+.gquery a:hover{color:#fff;border-bottom-color:rgba(240,206,140,.8)}
 /* ===== 平板／手機閱讀優化 ===== */
 nav{position:sticky}
 nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointer-events:none;
@@ -575,6 +575,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
           <span class="ghint">請點上方按鈕，進入線上報名表單填寫。</span>
         </div>
         <p class="gremind">報名後，請務必與分院法師聯絡，請法師將您加入聯絡群組。</p>
+        <p class="gquery"><a href="https://script.google.com/macros/s/AKfycbyxgmpID1zRAxC5YiJyc_zaFWIww5lDov0ph07CT6HqBvTNAPiY1gLklPnX3BSjE8ag/exec" target="_blank" rel="noopener nofollow">動土大典　分組查詢</a>　名單姓名以中間字遮蔽顯示。</p>
       </div>
 
       <div class="gtext">
@@ -607,7 +608,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
         <details><summary>可以只參加 12 月 26 日動土大典當天嗎？</summary>
           <p>可以。報名表單的交通題選「自行前往」、住宿題選「自行安排」即可。</p></details>
         <details><summary>可以帶家人一起參加嗎？</summary>
-          <p>歡迎攜伴參加、全家同行。報名表單可填寫家人同行人數（1～4 位；5 位含以上請與所屬分院聯絡），同行者需填姓名、與功德主的稱謂關係、電話、證件與性別，以便辦理保險與安排住宿、車位。</p></details>
+          <p>歡迎攜伴參加、全家同行。報名表單可填寫家人同行人數（1～4 位；5 位含以上請與所屬分院聯絡），同行者需填姓名、與功德主的稱謂關係、電話、證件類別與號碼、出生年月日及性別，以便辦理保險與安排住宿、車位。</p></details>
         <details><summary>住宿與火車票如何提供？</summary>
           <p>凡於動土大典前圓滿功德金達新臺幣五萬元（含）以上之功德主，由主辦單位提供兩晚住宿及本人往返火車票；隨行直系親屬可與功德主同房住宿，其住宿及往返火車票亦由主辦單位提供。</p></details>
         <details><summary>專車從哪裡出發？可以自行前往嗎？</summary>
@@ -617,7 +618,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
         <details><summary>沒有達到功德金門檻，也可以參加嗎？費用怎麼算？</summary>
           <p>可以。未圓滿袈裟地功德項目及以上者，請自付住宿及交通費用；報名表單的住宿題選「自行安排」、交通題可選「自行前往」或登記搭乘專開列車。</p></details>
         <details><summary>報名後還要做什麼？有問題找誰？</summary>
-          <p><b>報名後，請務必與分院法師聯絡，請法師將您加入聯絡群組</b>，後續行程與集合等通知都會在群組中發布。各分院電話：台北善首講堂 <a href="tel:+886225772978">02-2577 2978</a>、新北善覺講堂 <a href="tel:+886229646617">02-2964 6617</a>、台中 EPIC 禪藝實相人文空間 <a href="tel:+886423289566">04-2328 9566</a>、高雄圓道禪院 <a href="tel:+886975224676">07-522 4676</a>。</p></details>
+          <p><b>報名後，請務必與分院法師聯絡，請法師將您加入聯絡群組</b>，後續行程與集合等通知都會在群組中發布。各分院電話：台北善首講堂 <a href="tel:+886225772978">02-2577 2978</a>、新北善覺講堂 <a href="tel:+886229646617">02-2964 6617</a>、台中 EPIC 禪藝實相人文空間 <a href="tel:+886423289566">04-2328 9566</a>、高雄圓道禪院 <a href="tel:+88675224676">07-522 4676</a>。</p></details>
         <details><summary>行程會有變動嗎？</summary>
           <p>以上行程為暫定安排，將視實際情況彈性調整；如有異動，將另行通知。</p></details>
       </div>
@@ -1005,13 +1006,8 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       <span>Facebook：寶嚴山寶嚴禪寺</span>
     </div>
     <p class="src">
-      本頁內容出自《2026 寶嚴禪寺總體規劃書》。可列印轉發的<a href="flyer.html" style="color:var(--by-gold-bright)">一頁式簡介</a>　·　核對原件請看<a href="pages.html" style="color:var(--by-gold-bright)">原書逐頁圖</a>（32 個跨頁）　·　理念與興建歷程影片請見<a href="videos.html" style="color:var(--by-gold-bright)">寶嚴理念</a>（17 部）。<br>
+      本頁內容出自《2026 寶嚴禪寺總體規劃書》。可列印轉發的<a href="flyer.html" style="color:var(--by-gold-bright)">一頁式簡介</a>　·　核對原件請看<a href="pages.html" style="color:var(--by-gold-bright)">原書逐頁圖</a>（32 個跨頁）　·　理念與興建歷程影片請見<a href="videos.html" style="color:var(--by-gold-bright)">寶嚴理念</a>。<br>
       渲染圖與平面圖皆為模擬示意，實際以主管機關核准之圖說為準。
-    </p>
-    <p class="staffentry">
-      <a href="https://script.google.com/macros/s/AKfycbyxgmpID1zRAxC5YiJyc_zaFWIww5lDov0ph07CT6HqBvTNAPiY1gLklPnX3BSjE8ag/exec" target="_blank" rel="noopener">查詢我的分組</a>
-      <span class="dot">·</span>
-      <a href="https://script.google.com/macros/s/AKfycbyxgmpID1zRAxC5YiJyc_zaFWIww5lDov0ph07CT6HqBvTNAPiY1gLklPnX3BSjE8ag/exec?p=admin" target="_blank" rel="noopener">工作人員登入</a>
     </p>
   </div>
 </footer>
