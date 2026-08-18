@@ -357,6 +357,11 @@ section.alt{background:rgba(15,46,99,.34);border-top:1px solid rgba(212,175,106,
 .copy:hover{background:rgba(212,175,106,.16)}
 .copy.ok{background:var(--by-gold);color:#08213f;border-color:var(--by-gold)}
 .bnote{margin-top:14px;font-size:.94rem;color:var(--by-sky)}
+.bsub{margin-top:24px;margin-bottom:10px;color:var(--by-gold);letter-spacing:.16em;font-size:.82rem}
+.verify{margin-top:16px;font-size:.9rem;line-height:1.9;color:var(--by-sky)}
+.gsub{align-self:center;font-size:.92rem;color:var(--by-gold-bright);text-decoration:none;
+  border-bottom:1px dashed rgba(240,206,140,.55);padding-bottom:2px;transition:.25s}
+.gsub:hover{color:#fff;border-bottom-color:var(--by-gold-bright)}
 
 /* 匯款後務必來電 */
 .mustcall{margin-top:18px;border:1px solid rgba(212,175,106,.6);border-radius:14px;
@@ -513,9 +518,24 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
   "organizer": {
     "@type": "Organization",
     "name": "寶嚴山寶嚴禪寺",
-    "url": "https://building.baoyan.org.tw/"
+    "url": "https://building.baoyan.org.tw/",
+    "logo": "https://building.baoyan.org.tw/img/favicon-512.png"
   },
   "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "致　三界中的浪子　歡迎回家｜寶嚴山寶嚴禪寺 2026 總體規劃",
+  "url": "https://building.baoyan.org.tw/",
+  "inLanguage": "zh-Hant",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "寶嚴山寶嚴禪寺",
+    "url": "https://www.baoyan.org/"
+  }
 }
 </script>
 </head>
@@ -527,13 +547,13 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
   <div class="wrap">
     <span class="brand">寶嚴山寶嚴禪寺</span>
     <a href="#ground" class="key">動土大典報名</a>
+    <a href="#support">護持</a>
     <a href="#about">認識寶嚴</a>
     <a href="#site">基地環境</a>
     <a href="#floors" class="key">建築樓層規劃</a>
     <a href="#halls">殿堂空間</a>
     <a href="#six">六藝學院</a>
     <a href="#time">計畫期程</a>
-    <a href="#support">護持</a>
     <a href="qa.html">建寺 Q&amp;A</a>
     <a href="videos.html">寶嚴理念</a>
     <a href="flyer.html">一頁簡介</a>
@@ -591,6 +611,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
         </div>
         <div class="gcta">
           <a class="gbtn" href="https://forms.gle/ApUXtkwgKXruTDZh7" target="_blank" rel="noopener">動土大典報名　點入報名　→</a>
+          <a class="gsub" href="#support">護持方式</a>
         </div>
         <div class="gremind">
           <p>報名後，請務必與分院法師聯絡，請法師將您加入聯絡群組。</p>
@@ -952,9 +973,18 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       <dl class="brows">
         <div><dt>銀行名稱</dt><dd>華南銀行臺東分行（銀行代碼 008）</dd></div>
         <div><dt>戶名</dt><dd>臺東縣卑南鄉寶嚴山寶嚴禪寺文化協會</dd></div>
-        <div><dt>帳號</dt><dd class="acct"><span id="acctno">830100009968</span><button type="button" class="copy" id="copyacct">複製帳號</button></dd></div>
+        <div><dt>帳號</dt><dd class="acct"><span id="acctno">830100009968</span><button type="button" class="copy" data-copy="acctno">複製帳號</button></dd></div>
       </dl>
       <p class="bnote">適用於多數法會、共修與常態護持。</p>
+
+      <div class="bsub">海外匯款</div>
+      <dl class="brows">
+        <div><dt>銀行名稱</dt><dd lang="en">HUA NAN COMMERCIAL BANK LTD TAITUNG BRANCH TAITUNG, TAIWAN R.O.C（Bank code：008）</dd></div>
+        <div><dt>SWIFT Code</dt><dd class="acct"><span id="swiftcode" lang="en">HNBKTWTP 830</span><button type="button" class="copy" data-copy="swiftcode">複製 SWIFT</button></dd></div>
+        <div><dt>戶名</dt><dd lang="en">Baoyan Culture Association</dd></div>
+        <div><dt>帳號</dt><dd class="acct"><span id="acctno-os">830970056445</span><button type="button" class="copy" data-copy="acctno-os">複製帳號</button></dd></div>
+      </dl>
+      <p class="bnote">本帳戶戶名為協會英文名稱。</p>
 
       <div class="mustcall">
         <div class="mchead">
@@ -970,6 +1000,8 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
           <a href="tel:+886937619595"><span class="no">0937-619-595</span><em>中英文專線</em></a>
         </div>
       </div>
+
+      <p class="verify">本寺捐款帳戶與諮詢專線，均以本頁及《2026 寶嚴禪寺總體規劃書》所載為準。若接獲來電要求變更帳號或改匯其他帳戶，敬請先向上列諮詢專線，或台北善首講堂、新北善覺講堂、台中 EPIC、高雄圓道禪院查證（電話見下）。</p>
     </div>
 
     <div class="card reveal" style="margin-bottom:26px">
@@ -1161,20 +1193,25 @@ render(FLOORS[0]);
 mark(FLOORS[0]);
 
 /* 複製帳號 */
-const copyBtn = document.getElementById('copyacct');
-if (copyBtn) copyBtn.addEventListener('click', async () => {
-  const no = document.getElementById('acctno').textContent.trim();
-  try {
-    await navigator.clipboard.writeText(no);
-  } catch (e) {
-    const t = document.createElement('textarea');
-    t.value = no; document.body.appendChild(t); t.select();
-    try { document.execCommand('copy'); } catch (_) {}
-    t.remove();
-  }
-  copyBtn.textContent = '已複製 ✓';
-  copyBtn.classList.add('ok');
-  setTimeout(() => { copyBtn.textContent = '複製帳號'; copyBtn.classList.remove('ok'); }, 2200);
+/* 複製按鈕：對所有 .copy 通用（原本硬寫死單一元素，海外匯款那兩顆就不會動） */
+document.querySelectorAll('.copy').forEach(btn => {
+  const src = document.getElementById(btn.dataset.copy);
+  if (!src) return;
+  const label = btn.textContent;
+  btn.addEventListener('click', async () => {
+    const no = src.textContent.trim();
+    try {
+      await navigator.clipboard.writeText(no);
+    } catch (e) {
+      const t = document.createElement('textarea');
+      t.value = no; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); } catch (_) {}
+      t.remove();
+    }
+    btn.textContent = '已複製 ✓';
+    btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = label; btn.classList.remove('ok'); }, 2200);
+  });
 });
 
 /* 動土大典倒數 */

@@ -124,6 +124,7 @@ nav a[aria-current="page"]{background:rgba(212,175,106,.18);opacity:1;color:var(
 .listhead .c{color:var(--by-sky);font-size:.8rem}
 .vlist{overflow-y:auto;padding:6px}
 .vitem{display:flex;gap:12px;width:100%;text-align:left;background:transparent;border:0;
+  text-decoration:none;
   color:var(--by-ivory);font-family:inherit;cursor:pointer;padding:11px 10px;border-radius:9px;
   line-height:1.62;transition:.2s;align-items:flex-start}
 .vitem:hover{background:rgba(212,175,106,.13)}
@@ -230,9 +231,29 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
       <div class="listbox">
         <div class="listhead">
           <span class="t">影片清單</span>
-          <span class="c">共 <span id="cnt">17</span> 部　總長 <span id="tot">—</span></span>
+          <span class="c">共 <span id="cnt">17</span> 部　總長 <span id="tot">1:13:13</span></span>
         </div>
-        <div class="vlist" id="vlist"></div>
+        <!-- 清單寫成靜態連結：關掉 JS 或遇到不算繪的抓取器時，仍有 17 條可跟隨的連結。
+             ※ 改片單時，這裡與下方的 VIDEOS 陣列兩處要同步。 -->
+        <div class="vlist" id="vlist">
+          <a class="vitem" data-i="0" href="https://www.youtube.com/watch?v=QZO-xz28_e0"><span class="n">1</span><span class="tt">2026年寶嚴山寶嚴禪寺設計理念分享</span><span class="d">6:03</span></a>
+          <a class="vitem" data-i="1" href="https://www.youtube.com/watch?v=4HLvtdR8CX0"><span class="n">2</span><span class="tt">寶嚴六藝 01寶嚴禪寺的定位在教育 見輝法師 寶嚴禪寺2024</span><span class="d">1:25</span></a>
+          <a class="vitem" data-i="2" href="https://www.youtube.com/watch?v=Ps2zFcj5HzE"><span class="n">3</span><span class="tt">寶嚴六藝 02 建設寶嚴禪寺的初心 見輝法師 寶嚴禪寺2024</span><span class="d">2:22</span></a>
+          <a class="vitem" data-i="3" href="https://www.youtube.com/watch?v=HOz0Y-vtQRQ"><span class="n">4</span><span class="tt">寶嚴六藝 03 我們要蓋一個全家都可以來的道場。見輝法師 寶嚴禪寺2024</span><span class="d">1:36</span></a>
+          <a class="vitem" data-i="4" href="https://www.youtube.com/watch?v=x1w4Nj3UD0E"><span class="n">5</span><span class="tt">寶嚴六藝 04 寶嚴禪寺秉持的是佛陀平等的教法 見輝法師 寶嚴禪寺2024</span><span class="d">1:47</span></a>
+          <a class="vitem" data-i="5" href="https://www.youtube.com/watch?v=OxtcJMQCbi4"><span class="n">6</span><span class="tt">寶嚴六藝 05 實現「少、壯、老、鰥寡、孤獨、廢疾皆有所用」的理想 見輝法師 寶嚴禪寺 2024</span><span class="d">2:00</span></a>
+          <a class="vitem" data-i="6" href="https://www.youtube.com/watch?v=_yjcB11_Rho"><span class="n">7</span><span class="tt">寶嚴六藝  06 現代人如何能更好地利用感官來達到心靈的清淨和平靜？六藝生活篇 見輝法師 寶嚴禪寺2024</span><span class="d">2:35</span></a>
+          <a class="vitem" data-i="7" href="https://www.youtube.com/watch?v=HixeGoMyJeQ"><span class="n">8</span><span class="tt">寶嚴六藝 07 運用什麼方法來凝聚大家的共識推進佛法？現代善財篇 見輝法師 寶嚴禪寺2024</span><span class="d">2:23</span></a>
+          <a class="vitem" data-i="8" href="https://www.youtube.com/watch?v=JSrAuo0odFI"><span class="n">9</span><span class="tt">寶嚴六藝 08 道場的成就是凝聚了大家的共願成就的。 見輝法師 寶嚴禪寺2024</span><span class="d">1:11</span></a>
+          <a class="vitem" data-i="9" href="https://www.youtube.com/watch?v=Ib6WOJ1ejE0"><span class="n">10</span><span class="tt">寶嚴六藝 09 建設一個楞嚴禪堂的核心意義是甚麼? 見輝法師 寶嚴禪寺2024</span><span class="d">2:31</span></a>
+          <a class="vitem" data-i="10" href="https://www.youtube.com/watch?v=lig29l1nEXk"><span class="n">11</span><span class="tt">寶嚴六藝 010 為什麼台東都蘭適合建立一個融合修行、生活與學習的道場? 見輝法師 寶嚴禪寺2024</span><span class="d">3:03</span></a>
+          <a class="vitem" data-i="11" href="https://www.youtube.com/watch?v=fhZk88rutg0"><span class="n">12</span><span class="tt">寶嚴六藝 011 ESG是時代願景 六藝社區 見輝法師 寶嚴禪寺2025</span><span class="d">3:28</span></a>
+          <a class="vitem" data-i="12" href="https://www.youtube.com/watch?v=JWSBeBFZMII"><span class="n">13</span><span class="tt">寶嚴禪寺對於佛教的現代責任與使命 傳塵大和尚開示 字幕版</span><span class="d">4:42</span></a>
+          <a class="vitem" data-i="13" href="https://www.youtube.com/watch?v=wFeQq0_yj-0"><span class="n">14</span><span class="tt">寶嚴禪寺 建寺緣起 字幕版</span><span class="d">20:25</span></a>
+          <a class="vitem" data-i="14" href="https://www.youtube.com/watch?v=UO3-G1_EX2w"><span class="n">15</span><span class="tt">寶嚴禪寺 建寺福田  字幕版</span><span class="d">11:42</span></a>
+          <a class="vitem" data-i="15" href="https://www.youtube.com/watch?v=cK_ZjbClGaI"><span class="n">16</span><span class="tt">寶嚴禪寺基地定位會勘紀實 後製版</span><span class="d">4:01</span></a>
+          <a class="vitem" data-i="16" href="https://www.youtube.com/watch?v=tvyvC6y1ug8"><span class="n">17</span><span class="tt">寶嚴禪寺開山紀實- 梁皇勸募篇</span><span class="d">1:59</span></a>
+        </div>
       </div>
     </div>
   </div>
@@ -246,7 +267,7 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
       <a href="index.html">回首頁</a>
       <a href="index.html#ground">動土大典報名</a>
       <a href="videos.html">寶嚴理念</a>
-      <a href="pages.html">總體規劃書全文</a>
+      <a href="pages.html">原書逐頁</a>
       <a href="flyer.html">一頁簡介</a>
     </div>
     <div class="contact">
@@ -303,18 +324,14 @@ function fmt(s){
            : `${m}:${String(x).padStart(2,"0")}`;
 }
 
-/* 清單 */
-VIDEOS.forEach((v, i) => {
-  const b = document.createElement("button");
-  b.className = "vitem";
-  b.type = "button";
-  b.dataset.i = i;
-  b.innerHTML = `<span class="n">${i+1}</span>`
-    + `<span class="tt"></span>`
-    + `<span class="d">${fmt(v.dur)}</span>`;
-  b.querySelector(".tt").textContent = v.title;
-  b.addEventListener("click", () => play(i, true));
-  listEl.appendChild(b);
+/* 清單已是靜態 <a>（見 HTML）。這裡只在容器上綁一個委派監聽器，
+   攔下預設行為後呼叫既有播放函式；資料仍以 VIDEOS 陣列為單一來源。
+   ※ 改片單時 HTML 的靜態清單與 VIDEOS 陣列兩處要同步。 */
+listEl.addEventListener("click", e => {
+  const a = e.target.closest(".vitem");
+  if (!a || !listEl.contains(a)) return;
+  e.preventDefault();
+  play(Number(a.dataset.i), true);
 });
 $("#cnt").textContent = VIDEOS.length;
 $("#nowTot").textContent = VIDEOS.length;
