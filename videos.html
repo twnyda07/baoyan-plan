@@ -142,6 +142,13 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
   .vlist{max-height:60vh}
   .phead{padding:38px 0 24px}
 }
+.ytfallbox{margin-top:8px}
+.ytfallbox summary{list-style:none;cursor:pointer;font-size:.86rem;color:var(--by-sky);
+  letter-spacing:.06em;padding:4px 0;transition:.25s}
+.ytfallbox summary::-webkit-details-marker{display:none}
+.ytfallbox summary::before{content:"＋　";color:var(--by-gold)}
+.ytfallbox[open] summary::before{content:"－　"}
+.ytfallbox summary:hover{color:var(--by-gold-bright)}
 </style>
 </head>
 <body>
@@ -186,10 +193,13 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
             第 <span id="nowIdx">1</span> 部／共 17 部　·　<span id="nowDur">—</span>　·
             <a id="ytLink" href="#" target="_blank" rel="noopener">在 YouTube 開啟</a>
           </div>
-          <div class="meta ytfall">
-            影片網址　<code id="ytUrl" style="user-select:all">—</code>
-            <button class="lnkbtn" id="ytCopy" type="button">複製</button>
-          </div>
+          <details class="ytfallbox">
+            <summary>影片無法播放時</summary>
+            <div class="meta ytfall">
+              影片網址　<code id="ytUrl" style="user-select:all">—</code>
+              <button class="lnkbtn" id="ytCopy" type="button">複製</button>
+            </div>
+          </details>
         </div>
         <div class="stagebar">
           <button class="btn" id="prevBtn" type="button">← 上一部</button>
@@ -224,10 +234,10 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
       <a href="flyer.html">一頁簡介</a>
     </div>
     <div class="contact">
-      <span>台北寶嚴善首講堂　02-2577 2978</span>
-      <span>新北寶嚴善覺講堂　02-2964 6617</span>
-      <span>台中 EPIC 禪藝實相人文空間　04-2328 9566</span>
-      <span>高雄圓道禪院　07-522 4676</span>
+      <span>台北寶嚴善首講堂　<a href="tel:+886225772978">02-2577 2978</a></span>
+      <span>新北寶嚴善覺講堂　<a href="tel:+886229646617">02-2964 6617</a></span>
+      <span>台中 EPIC 禪藝實相人文空間　<a href="tel:+886423289566">04-2328 9566</a></span>
+      <span>高雄圓道禪院　<a href="tel:+88675224676">07-522 4676</a></span>
     </div>
     <div class="contact" style="gap:10px 22px">
       <a href="https://donatebaoyan.org/" target="_blank" rel="noopener" style="color:var(--by-gold-bright)">線上刷卡護持 donatebaoyan.org</a>

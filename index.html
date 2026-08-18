@@ -390,6 +390,12 @@ footer .contact{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px
 footer .contact a,footer .contact span{color:var(--by-ivory);text-decoration:none}
 footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88rem;
   border-top:1px solid rgba(143,180,232,.16);padding-top:22px;line-height:1.8}
+.gprep{grid-column:1 / -1;margin-top:20px;padding:14px 16px;border-radius:10px;
+  background:rgba(143,180,232,.09);border:1px solid rgba(143,180,232,.24)}
+.gprep b{display:block;color:var(--by-gold);letter-spacing:.12em;font-size:.88rem;margin-bottom:7px}
+.gprep p{font-size:.92rem;line-height:1.95;color:var(--by-ivory)}
+.gfaq p.more{padding:0 0 12px;font-size:.9rem;color:var(--by-sky)}
+.gstay p.gmore{margin-top:10px;font-size:.9rem;color:var(--by-sky)}
 .gquery{grid-column:1 / -1;margin-top:10px;font-size:.86rem;letter-spacing:.05em;
   color:var(--by-sky);line-height:1.7}
 .gquery a{color:var(--by-gold-bright);text-decoration:none;
@@ -569,12 +575,24 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
           <div><dt>行程天數</dt><dd>三天兩夜</dd></div>
           <div><dt>交通安排</dt><dd>可於報名表單登記專開列車需求及上車地點</dd></div>
           <div><dt>參加方式</dt><dd>歡迎攜伴參加、全家同行</dd></div>
+          <div><dt>報名期限</dt><dd>報名至活動前持續受理，敬請及早報名，以便安排保險、住宿及車位</dd></div>
         </dl>
+        <div class="gprep">
+          <b>敬請備妥</b>
+          <p>為辦理旅遊平安保險並安排住宿與車位，敬請於報名前備妥下列資料：報名者本人姓名、電話、LINE ID、證件（身分證、居留證或護照）之類別與號碼、出生年月日，以及緊急聯絡人姓名與電話；如有家人同行，另需每位同行者之姓名、與功德主之稱謂關係、電話、證件類別與號碼、出生年月日及性別。資料齊備後，敬請一次填寫完成。</p>
+        </div>
         <div class="gcta">
           <a class="gbtn" href="https://forms.gle/ApUXtkwgKXruTDZh7" target="_blank" rel="noopener">動土大典報名　點入報名　→</a>
-          <span class="ghint">請點上方按鈕，進入線上報名表單填寫。</span>
         </div>
-        <p class="gremind">報名後，請務必與分院法師聯絡，請法師將您加入聯絡群組。</p>
+        <div class="gremind">
+          <p>報名後，請務必與分院法師聯絡，請法師將您加入聯絡群組。</p>
+          <div class="lines">
+            <a href="tel:+886225772978"><span class="no">02-2577 2978</span><em>台北寶嚴善首講堂</em></a>
+            <a href="tel:+886229646617"><span class="no">02-2964 6617</span><em>新北寶嚴善覺講堂</em></a>
+            <a href="tel:+886423289566"><span class="no">04-2328 9566</span><em>台中 EPIC 禪藝實相人文空間</em></a>
+            <a href="tel:+88675224676"><span class="no">07-522 4676</span><em>高雄圓道禪院</em></a>
+          </div>
+        </div>
         <p class="gquery"><a href="https://script.google.com/macros/s/AKfycbyxgmpID1zRAxC5YiJyc_zaFWIww5lDov0ph07CT6HqBvTNAPiY1gLklPnX3BSjE8ag/exec" target="_blank" rel="noopener nofollow">動土大典　分組查詢</a>　名單姓名以中間字遮蔽顯示。</p>
       </div>
 
@@ -599,12 +617,15 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
           <h3>住宿及交通安排</h3>
           <p>凡於動土大典前圓滿功德金達新臺幣五萬元（含）以上之功德主，由主辦單位提供兩晚住宿及本人往返火車票。</p>
           <p>隨行直系親屬可與功德主同房住宿，其住宿及往返火車票亦由主辦單位提供。</p>
+          <p>未圓滿袈裟地功德項目及以上者，請自付住宿及交通費用。</p>
           <p class="gnotice">住宿由大會統一安排，恕無法指定；如遇不可預期之情況，大會保留調整或取消之權利，並將另行通知。</p>
+          <p class="gmore">護持方式請見 <a href="#support">護持</a>。</p>
         </div>
       </div>
 
       <div class="gfaq">
         <h3>常見問題</h3>
+        <p class="more">更多關於寺院理念的問題，請看 <a href="qa.html">建寺 Q&amp;A</a>。</p>
         <details><summary>可以只參加 12 月 26 日動土大典當天嗎？</summary>
           <p>可以。報名表單的交通題選「自行前往」、住宿題選「自行安排」即可。</p></details>
         <details><summary>可以帶家人一起參加嗎？</summary>
@@ -616,7 +637,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
         <details><summary>為什麼要填證件號碼？</summary>
           <p>作為保險用途，供主辦單位為參加者辦理旅遊平安保險。</p></details>
         <details><summary>沒有達到功德金門檻，也可以參加嗎？費用怎麼算？</summary>
-          <p>可以。未圓滿袈裟地功德項目及以上者，請自付住宿及交通費用；報名表單的住宿題選「自行安排」、交通題可選「自行前往」或登記搭乘專開列車。</p></details>
+          <p>可以。未圓滿袈裟地（建寺福田 5 萬／席）功德項目及以上者，請自付住宿及交通費用；累計功德金請洽所屬分院查詢（電話見下）。報名表單的住宿題選「自行安排」、交通題可選「自行前往」或登記搭乘專開列車。</p></details>
         <details><summary>報名後還要做什麼？有問題找誰？</summary>
           <p><b>報名後，請務必與分院法師聯絡，請法師將您加入聯絡群組</b>，後續行程與集合等通知都會在群組中發布。各分院電話：台北善首講堂 <a href="tel:+886225772978">02-2577 2978</a>、新北善覺講堂 <a href="tel:+886229646617">02-2964 6617</a>、台中 EPIC 禪藝實相人文空間 <a href="tel:+886423289566">04-2328 9566</a>、高雄圓道禪院 <a href="tel:+88675224676">07-522 4676</a>。</p></details>
         <details><summary>行程會有變動嗎？</summary>
@@ -780,7 +801,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
         <div class="n">第二節</div>
         <h3>毗盧遮那藏殿</h3>
         <div class="sub">因陀羅網菩提心法堂・常年讀誦三藏經典</div>
-        <p>《華嚴經》述其「玻璃為地，琉璃為柱，金剛為壁……百千金鈴出妙音聲」。善財童子在五十三參的最後，於普賢菩薩引導下進入毘盧遮那莊嚴藏大寶樓閣。殿堂中央呈現世界中心須彌山，山頂兜率內院中彌勒菩薩演說妙法。此殿常年恭誦三藏十二部經典。</p>
+        <p>《華嚴經》述其「玻璃為地，琉璃為柱，金剛為壁……百千金鈴出妙音聲」。善財童子在五十三參的最後，於普賢菩薩引導下進入「毘盧遮那莊嚴藏大寶樓閣」。殿堂中央呈現世界中心須彌山，山頂兜率內院中彌勒菩薩演說妙法。此殿常年恭誦三藏十二部經典。</p>
         <div class="meta">供奉：思惟彌勒及萬佛</div>
       </div>
     </div>
@@ -907,7 +928,7 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
       <div class="dtx">
         <div class="dk">線上刷卡護持</div>
         <h3>一磚一瓦蓋寶嚴</h3>
-        <p>寶嚴禪寺線上捐款，透過<b>華南銀行安全刷卡通道</b>完成，捐款站本身不經手信用卡資料。可選「隨喜功德」或「建寺福田」，並可填寫迴向、祈福對象；完成後會寄送捐款確認信，收據抬頭可自行填寫。</p>
+        <p>寶嚴禪寺線上捐款，透過<b>華南銀行安全刷卡通道</b>完成，捐款站本身不經手信用卡資料。可選「隨喜功德」或「建寺福田」，並可填寫迴向、祈福對象；完成後會寄送捐款確認信，收據抬頭可自行填寫。定期定額護持由合作平台 baoyan.oen.tw 提供服務。</p>
         <a class="dbtn" href="https://donatebaoyan.org/" target="_blank" rel="noopener">前往刷卡捐款　→</a>
         <div class="durl">donatebaoyan.org</div>
       </div>
@@ -985,10 +1006,10 @@ nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointe
     <div style="color:var(--by-gold);letter-spacing:.3em;font-size:.8rem;margin-bottom:14px">BAOYAN CHAN MONASTERY</div>
     <div style="font-size:1.25rem;color:var(--by-white);letter-spacing:.1em">寶嚴山　寶嚴禪寺</div>
     <div class="contact">
-      <span>台北寶嚴善首講堂　02-2577 2978</span>
-      <span>新北寶嚴善覺講堂　02-2964 6617</span>
-      <span>台中 EPIC 禪藝實相人文空間　04-2328 9566</span>
-      <span>高雄圓道禪院　07-522 4676</span>
+      <span>台北寶嚴善首講堂　<a href="tel:+886225772978">02-2577 2978</a></span>
+      <span>新北寶嚴善覺講堂　<a href="tel:+886229646617">02-2964 6617</a></span>
+      <span>台中 EPIC 禪藝實相人文空間　<a href="tel:+886423289566">04-2328 9566</a></span>
+      <span>高雄圓道禪院　<a href="tel:+88675224676">07-522 4676</a></span>
     </div>
     <div class="contact" style="margin-top:-8px">
       <span>台東知本樂山國際禪修中心・寶嚴ESG創生園區</span>
