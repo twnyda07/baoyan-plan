@@ -38,11 +38,17 @@ nav{position:sticky;top:0;z-index:50;background:rgba(8,29,63,.9);backdrop-filter
 nav::after{content:"";position:absolute;right:0;top:0;bottom:0;width:38px;pointer-events:none;
   background:linear-gradient(90deg,rgba(8,29,63,0),rgba(8,29,63,.95))}
 @media(min-width:1100px){nav::after{display:none}}
-nav .in{max-width:1180px;margin:0 auto;padding:0 22px;display:flex;align-items:center;gap:6px;height:56px;overflow-x:auto;scrollbar-width:none}
+nav .in{max-width:1180px;margin:0 auto;padding:0 22px;display:flex;align-items:center;gap:4px;height:56px;overflow-x:auto;scrollbar-width:none}
 nav .in::-webkit-scrollbar{display:none}
-nav .brand{font-weight:700;color:var(--by-gold);white-space:nowrap;margin-right:14px;letter-spacing:.06em;text-decoration:none}
-nav a{color:var(--by-ivory);text-decoration:none;font-size:.94rem;white-space:nowrap;padding:6px 11px;border-radius:999px}
+nav .brand{font-weight:700;color:var(--by-gold);white-space:nowrap;margin-right:10px;letter-spacing:.06em;text-decoration:none}
+nav a{color:var(--by-ivory);text-decoration:none;font-size:.94rem;white-space:nowrap;padding:6px 9px;border-radius:999px}
 nav a:hover{background:rgba(212,175,106,.16);color:var(--by-gold-bright);opacity:1}
+nav::after{display:none}
+nav.hasmore::after{display:block}
+/* 導覽列 2026-08-21：名人誌上架後變成 12 項，內容寬 1284px > 容器 1120px，
+   寬螢幕照樣切掉卻沒有捲軸也沒有漸層提示（原本 11 項剛好塞得下）。
+   三段一起處理：① 收緊間距 ② 寬螢幕放寬導覽容器 ③ 漸層提示改成「真的溢出才出現」。 */
+@media(min-width:1300px){nav .wrap,nav .in{max-width:1300px}}
 .head{max-width:1180px;margin:0 auto;padding:54px 22px 26px;text-align:center}
 .head .k{color:var(--by-gold);letter-spacing:.3em;font-size:.82rem;margin-bottom:12px}
 .head h1{font-size:clamp(1.7rem,4.4vw,2.6rem);color:var(--by-white);letter-spacing:.06em}
@@ -237,5 +243,21 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
     <p class="src">《2026 寶嚴禪寺總體規劃書》　·　渲染圖與平面圖皆為模擬示意，實際以主管機關核准之圖說為準。</p>
   </div>
 </footer>
+<script>
+/* 導覽列右側漸層提示：只有真的還有東西可捲時才出現。
+   原本寫死 @media(min-width:1180px) 就關掉，12 項之後在桌機變成
+   「切掉了卻沒有任何線索」。改成量實際溢出量，任何寬度都準。 */
+(function () {
+  var nav = document.querySelector('nav');
+  var box = nav && (nav.querySelector('.wrap') || nav.querySelector('.in'));
+  if (!nav || !box) return;
+  function sync() {
+    nav.classList.toggle('hasmore', box.scrollWidth - box.clientWidth > 2);
+  }
+  sync();
+  addEventListener('resize', sync);
+  box.addEventListener('scroll', sync);
+})();
+</script>
 </body>
 </html>
