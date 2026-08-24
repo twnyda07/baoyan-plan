@@ -1,22 +1,22 @@
 {
  "playlist": "PLCU-VA4xGiFg",
  "title": "寶嚴名人誌",
- "count": 9,
+ "count": 8,
  "videos": [
-  {
-   "id": "L3CwQ9SOr0A",
-   "title": "寶嚴名人誌 星煦法師",
-   "dur": 477
-  },
   {
    "id": "DXVO3ewvkAE",
    "title": "寶嚴名人誌 簡學義建築師",
    "dur": 1185
   },
   {
-   "id": "pQ0SRSb6SPc",
-   "title": "寶嚴名人誌 傳禪",
-   "dur": 180
+   "id": "-r6uoysEVMo",
+   "title": "寶嚴名人誌 陸永富",
+   "dur": 991
+  },
+  {
+   "id": "fv1oOSU3nYQ",
+   "title": "寶嚴名人誌 許黛菁",
+   "dur": 328
   },
   {
    "id": "ZlMrH0ZvtlQ",
@@ -24,9 +24,9 @@
    "dur": 668
   },
   {
-   "id": "nPmhOVXgZIs",
-   "title": "寶嚴名人誌 林玉琴",
-   "dur": 157
+   "id": "pQ0SRSb6SPc",
+   "title": "寶嚴名人誌 傳禪",
+   "dur": 180
   },
   {
    "id": "IQLamX3_E2Q",
@@ -39,14 +39,9 @@
    "dur": 858
   },
   {
-   "id": "-r6uoysEVMo",
-   "title": "寶嚴名人誌 陸永富",
-   "dur": 991
-  },
-  {
-   "id": "fv1oOSU3nYQ",
-   "title": "寶嚴名人誌 許菁黛",
-   "dur": 328
+   "id": "L3CwQ9SOr0A",
+   "title": "寶嚴名人誌 星煦法師",
+   "dur": 477
   }
  ]
 }
