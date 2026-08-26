@@ -121,7 +121,53 @@ footer .flinks{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;
 footer .flinks a{color:var(--by-gold-bright);text-decoration:underline;text-underline-offset:3px}
 footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88rem;
   border-top:1px solid rgba(143,180,232,.16);padding-top:22px;line-height:1.8}
-@media (max-width:700px){ .phead{padding:38px 0 22px} }
+
+/* ── 提問（從影片逐字稿檢索，不是 AI 生成）── */
+.askbox{max-width:760px;margin:26px auto 0}
+.askrow{display:flex;gap:10px;flex-wrap:wrap}
+.askrow input{flex:1;min-width:200px;background:rgba(8,29,63,.6);
+  border:1px solid rgba(212,175,106,.4);border-radius:12px;color:var(--by-ivory);
+  padding:13px 16px;font-family:inherit;font-size:1rem}
+.askrow input::placeholder{color:rgba(182,205,240,.6)}
+.askrow input:focus{outline:none;border-color:var(--by-gold-bright)}
+.askrow button{background:var(--by-gold);color:#0B2038;border:0;border-radius:12px;
+  padding:13px 24px;font-family:inherit;font-size:1rem;letter-spacing:.08em;cursor:pointer;transition:.25s}
+.askrow button:hover{background:var(--by-gold-bright)}
+.asknote{margin-top:10px;font-size:.84rem;color:var(--by-sky);line-height:1.8}
+.asksug{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.asksug button{background:transparent;border:1px solid rgba(143,180,232,.3);color:var(--by-sky);
+  border-radius:999px;padding:6px 14px;font-family:inherit;font-size:.86rem;cursor:pointer;transition:.25s}
+.asksug button:hover{border-color:var(--by-gold);color:var(--by-gold-bright)}
+#askout{margin-top:22px}
+#askout .hd{color:var(--by-gold);font-size:.86rem;letter-spacing:.12em;margin-bottom:12px}
+.hit{border:1px solid rgba(143,180,232,.22);border-left:3px solid var(--by-gold);
+  border-radius:12px;background:rgba(15,46,99,.34);padding:16px 18px;margin-bottom:12px}
+.hit .qt{color:var(--by-gold-bright);font-size:.95rem;margin-bottom:8px;line-height:1.7}
+.hit .tx{color:var(--by-ivory);font-size:.97rem;line-height:2}
+.hit .tx mark{background:rgba(212,175,106,.28);color:var(--by-gold-bright);padding:0 2px;border-radius:3px}
+.hit .fr{margin-top:10px;font-size:.85rem;color:var(--by-sky)}
+.hit .fr a{color:var(--by-gold-bright);text-decoration:underline;text-underline-offset:3px;padding:2px 6px}
+.nohit{color:var(--by-sky);font-size:.94rem;line-height:2;
+  border:1px solid rgba(143,180,232,.22);border-radius:12px;padding:16px 18px}
+
+/* ── 分類快速跳轉 ── */
+.qnav{position:sticky;top:56px;z-index:20;margin:30px 0 4px;padding:10px 0;
+  background:linear-gradient(180deg,rgba(8,29,63,.97),rgba(8,29,63,.86));
+  display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.qnav a{color:var(--by-sky);text-decoration:none;font-size:.86rem;letter-spacing:.04em;
+  border:1px solid rgba(143,180,232,.26);border-radius:999px;padding:6px 14px;transition:.25s}
+.qnav a:hover{border-color:var(--by-gold);color:var(--by-gold-bright)}
+
+/* ── 問答卡片化：一題一張，比原本的分隔線好讀 ── */
+.qgroup{margin:30px 0 0}
+details{border-bottom:0;border:1px solid rgba(143,180,232,.2);border-radius:12px;
+  background:rgba(15,46,99,.24);margin-bottom:10px;transition:.25s}
+details:hover{border-color:rgba(212,175,106,.4)}
+details[open]{background:rgba(15,46,99,.4);border-color:rgba(212,175,106,.4)}
+summary{padding:15px 46px 15px 18px}
+summary::after{right:18px;top:14px}
+details .ans{padding:0 18px 18px}
+@media (max-width:700px){ .phead{padding:38px 0 22px} .qnav{top:0} }
 </style>
 </head>
 <body>
@@ -152,9 +198,35 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
          並附影片出處與時間點，可直接聽取該段開示。</p>
     </div>
 
+    <div class="askbox">
+      <div class="askrow">
+        <input id="askq" type="search" placeholder="輸入您的問題，例如：為什麼蓋在台東？"
+               aria-label="輸入您的問題" autocomplete="off">
+        <button id="askbtn" type="button">查詢</button>
+      </div>
+      <p class="asknote">本功能自開示影片的逐字紀錄中檢索相符的段落，逐字呈現法師所說，
+         並附影片出處與時間點；本站不以人工智慧生成答覆。</p>
+      <div class="asksug">
+        <button type="button">為什麼要建這座寺</button>
+        <button type="button">為什麼選在台東都蘭</button>
+        <button type="button">寶嚴六藝是什麼</button>
+        <button type="button">我可以做什麼</button>
+        <button type="button">楞嚴禪堂</button>
+      </div>
+      <div id="askout" role="status" aria-live="polite"></div>
+    </div>
+
+    <nav class="qnav" aria-label="問答分類">
+      <a href="#g1">為什麼要建這座寺</a>
+      <a href="#g2">蓋在哪裡</a>
+      <a href="#g3">這座道場是給誰的、會是什麼樣子</a>
+      <a href="#g4">「寶嚴六藝」是什麼</a>
+      <a href="#g5">我可以做什麼</a>
+    </nav>
+
     <!-- ========== 為什麼要建 ========== -->
     <div class="qgroup">
-      <h2>為什麼要建這座寺</h2>
+      <h2 id="g1">為什麼要建這座寺</h2>
 
       <details>
         <summary>為什麼要建寶嚴禪寺？它的定位是什麼？</summary>
@@ -231,7 +303,7 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
 
     <!-- ========== 蓋在哪裡 ========== -->
     <div class="qgroup">
-      <h2>蓋在哪裡</h2>
+      <h2 id="g2">蓋在哪裡</h2>
 
       <details>
         <summary>為什麼選在台東都蘭？那裡有什麼特別？</summary>
@@ -297,7 +369,7 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
 
     <!-- ========== 給誰用、長什麼樣 ========== -->
     <div class="qgroup">
-      <h2>這座道場是給誰的、會是什麼樣子</h2>
+      <h2 id="g3">這座道場是給誰的、會是什麼樣子</h2>
 
       <details>
         <summary>這座道場是給出家人住的嗎？</summary>
@@ -403,7 +475,7 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
 
     <!-- ========== 六藝 ========== -->
     <div class="qgroup">
-      <h2>「寶嚴六藝」是什麼</h2>
+      <h2 id="g4">「寶嚴六藝」是什麼</h2>
 
       <details>
         <summary>「寶嚴六藝」是什麼意思？為什麼叫六藝？</summary>
@@ -471,7 +543,7 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
 
     <!-- ========== 我能做什麼 ========== -->
     <div class="qgroup">
-      <h2>我可以做什麼</h2>
+      <h2 id="g5">我可以做什麼</h2>
 
       <details>
         <summary>我可以做什麼？只能捐錢嗎？</summary>
@@ -701,6 +773,134 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
   sync();
   addEventListener('resize', sync);
   box.addEventListener('scroll', sync);
+})();
+</script>
+<script>
+/* 提問：從影片逐字稿檢索，不是 AI 生成。
+   為什麼不做生成式：官網是靜態站，沒有後端，金鑰放進網頁等於公開；
+   而且這個站的規矩是「每一段都必須有影片出處與時間點、不可自行創作」，
+   生成式回答會編造，直接違反。所以這裡回的是法師真正說過的段落。
+   索引 qa-index.json 由 建立QA索引.py 產生（品檢沒過的逐字稿不進索引）。 */
+(function () {
+  var IDX = null, LOADING = false;
+  var $ = function (s) { return document.querySelector(s); };
+  var out = $("#askout"), inp = $("#askq");
+
+  function esc(t) {
+    return String(t).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+  function mmss(sec) {
+    sec = Math.max(0, Math.floor(sec));
+    var m = Math.floor(sec / 60), x = sec % 60;
+    return m + ":" + (x < 10 ? "0" : "") + x;
+  }
+  /* 中文沒有空白可切詞，用兩字一組（bigram）比對，是最穩的做法 */
+  function grams(t) {
+    t = String(t).replace(/[\s，。、；：？！「」『』（）()【】…—·,.?!"']/g, "");
+    var g = [], i;
+    for (i = 0; i + 1 < t.length; i++) g.push(t.substr(i, 2));
+    if (t.length === 1) g.push(t);
+    return g;
+  }
+  function score(text, qg) {
+    var t = String(text), hit = 0, seen = {}, i;
+    for (i = 0; i < qg.length; i++) {
+      if (seen[qg[i]]) continue;
+      if (t.indexOf(qg[i]) >= 0) { hit++; seen[qg[i]] = 1; }
+    }
+    return qg.length ? hit / qg.length : 0;
+  }
+  function mark(text, qg) {
+    var t = esc(text), done = {}, i, g;
+    for (i = 0; i < qg.length; i++) {
+      g = qg[i];
+      if (done[g] || g.length < 2) continue;
+      done[g] = 1;
+      t = t.split(esc(g)).join("<mark>" + esc(g) + "</mark>");
+    }
+    return t.replace(/<\/mark><mark>/g, "");
+  }
+
+  function render(q) {
+    var qg = grams(q);
+    if (!qg.length) { out.innerHTML = ""; return; }
+    var hits = [], i, sc;
+
+    for (i = 0; i < IDX.qa.length; i++) {
+      sc = Math.max(score(IDX.qa[i].q, qg) * 1.6, score(IDX.qa[i].a, qg) * 1.2);
+      if (sc > 0.18) hits.push({ s: sc, kind: "qa", d: IDX.qa[i] });
+    }
+    for (i = 0; i < IDX.passages.length; i++) {
+      sc = score(IDX.passages[i].x, qg);
+      if (sc > 0.22) hits.push({ s: sc, kind: "p", d: IDX.passages[i] });
+    }
+    hits.sort(function (a, b) { return b.s - a.s; });
+
+    /* 同一支影片最多兩段，免得整頁都是同一部片 */
+    var used = {}, keep = [];
+    for (i = 0; i < hits.length && keep.length < 5; i++) {
+      var vid = hits[i].kind === "qa" ? hits[i].d.v : IDX.videos[hits[i].d.v].id;
+      used[vid] = (used[vid] || 0) + 1;
+      if (used[vid] > 2) continue;
+      keep.push(hits[i]);
+    }
+
+    if (!keep.length) {
+      out.innerHTML = '<div class="nohit">這個問題目前的開示影片中查不到相符的段落。' +
+        '您可以換個說法再查，或直接瀏覽下方的問答，' +
+        '亦可洽所屬分院請法師說明。</div>';
+      return;
+    }
+
+    var h = '<div class="hd">自開示影片中找到 ' + keep.length + ' 段相關內容</div>';
+    for (i = 0; i < keep.length; i++) {
+      var k = keep[i], d = k.d;
+      if (k.kind === "qa") {
+        h += '<div class="hit"><div class="qt">' + esc(d.q) + '</div>' +
+             '<div class="tx">' + mark(d.a, qg) + '</div>' +
+             (d.v ? '<div class="fr">本段出自開示影片　<a href="https://www.youtube.com/watch?v=' +
+                    esc(d.v) + '&t=' + d.t + 's" target="_blank" rel="noopener">' +
+                    mmss(d.t) + ' 起</a></div>' : '') + '</div>';
+      } else {
+        var v = IDX.videos[d.v];
+        h += '<div class="hit"><div class="qt">' + esc(v.t) + '</div>' +
+             '<div class="tx">' + mark(d.x, qg) + '</div>' +
+             '<div class="fr">本段出自開示影片　<a href="https://www.youtube.com/watch?v=' +
+             esc(v.id) + '&t=' + d.s + 's" target="_blank" rel="noopener">' +
+             mmss(d.s) + ' 起</a></div></div>';
+      }
+    }
+    out.innerHTML = h;
+  }
+
+  function ask() {
+    var q = (inp.value || "").trim();
+    if (!q) { out.innerHTML = ""; return; }
+    if (IDX) { render(q); return; }
+    if (LOADING) return;
+    LOADING = true;
+    out.innerHTML = '<div class="nohit">正在載入開示影片的逐字紀錄…</div>';
+    fetch("qa-index.json", { cache: "force-cache" })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (d) { IDX = d; LOADING = false; render(q); })
+      .catch(function () {
+        LOADING = false;
+        out.innerHTML = '<div class="nohit">目前無法載入逐字紀錄，' +
+          '請直接瀏覽下方問答，或稍後再試。</div>';
+      });
+  }
+
+  $("#askbtn").addEventListener("click", ask);
+  inp.addEventListener("keydown", function (e) { if (e.key === "Enter") ask(); });
+  var sug = document.querySelectorAll(".asksug button");
+  for (var i = 0; i < sug.length; i++) {
+    sug[i].addEventListener("click", function () {
+      inp.value = this.textContent.trim();
+      ask();
+    });
+  }
 })();
 </script>
 </body>
