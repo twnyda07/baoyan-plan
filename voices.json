@@ -4,9 +4,24 @@
  "count": 8,
  "videos": [
   {
-   "id": "A1SyDRBooEo",
-   "title": "寶嚴名人誌 簡學義建築師",
-   "dur": 1185
+   "id": "pQ0SRSb6SPc",
+   "title": "寶嚴名人誌 傳禪",
+   "dur": 180
+  },
+  {
+   "id": "ZlMrH0ZvtlQ",
+   "title": "寶嚴名人誌 林欣亞",
+   "dur": 668
+  },
+  {
+   "id": "IQLamX3_E2Q",
+   "title": "寶嚴名人誌 江季澄",
+   "dur": 1196
+  },
+  {
+   "id": "fY-TXBwOXEg",
+   "title": "寶嚴名人誌 林玉梅",
+   "dur": 858
   },
   {
    "id": "-r6uoysEVMo",
@@ -19,29 +34,14 @@
    "dur": 328
   },
   {
-   "id": "ZlMrH0ZvtlQ",
-   "title": "寶嚴名人誌 林欣亞",
-   "dur": 668
-  },
-  {
-   "id": "fY-TXBwOXEg",
-   "title": "寶嚴名人誌 林玉梅",
-   "dur": 858
-  },
-  {
-   "id": "IQLamX3_E2Q",
-   "title": "寶嚴名人誌 江季澄",
-   "dur": 1196
-  },
-  {
-   "id": "pQ0SRSb6SPc",
-   "title": "寶嚴名人誌 傳禪",
-   "dur": 180
-  },
-  {
    "id": "L3CwQ9SOr0A",
    "title": "寶嚴名人誌 星煦法師",
    "dur": 477
+  },
+  {
+   "id": "A1SyDRBooEo",
+   "title": "寶嚴名人誌 簡學義建築師",
+   "dur": 1185
   }
  ]
 }
