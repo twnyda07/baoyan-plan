@@ -128,6 +128,18 @@ footer .src{max-width:760px;margin:26px auto 0;color:var(--by-sky);font-size:.88
   .tip{font-size:.92rem}
 }
 .tip{max-width:1180px;margin:0 auto;padding:0 22px;color:var(--by-sky);text-align:center;font-size:.9rem;opacity:.85}
+/* 手機優先（2026-10-29 寺方：「大家都是用手機操作」）。
+   量過的實況：導覽列原本高 42–44px、字 15.64px，兩項都踩在可點目標與可讀字級的下限之下。
+   只在 820px 以下放大，桌機版面完全不動。 */
+@media(max-width:820px){
+  nav .in,nav .wrap{height:auto}
+  nav a,nav .brand{font-size:1.02rem;padding:13px 12px;min-height:48px;display:inline-flex;align-items:center}
+  .gmine p.note{font-size:.96rem}
+  /* 頁尾電話也是會按下去打的，全站共用頁尾一起放大 */
+  footer .contact a[href^="tel"],footer .contact span{min-height:48px;display:inline-flex;
+    align-items:center;font-size:1rem}
+  footer .flinks a{min-height:46px;display:inline-flex;align-items:center;font-size:1rem}
+}
 .k{color:var(--by-gold);letter-spacing:.3em;font-size:.82rem}
 .hero{max-width:1180px;margin:0 auto;padding:54px 22px 10px;display:grid;
   grid-template-columns:minmax(0,1fr) 260px;gap:40px;align-items:center}
@@ -180,6 +192,18 @@ figure.shot figcaption{color:var(--by-sky);font-size:.88rem;padding:10px 16px;
   .hero{grid-template-columns:minmax(0,1fr);gap:22px;padding:34px 18px 10px}
   .hero .cover{max-width:220px}
   .credit{padding:0 18px}
+}
+/* 手機優先（2026-10-29 寺方：「大家都是用手機操作」）。導覽列量過是 42–44px／15.64px，
+   兩項都在下限之下；只在 820px 以下放大，桌機不動。
+   ★ 這一段要留在樣板裡——直接改 site/design.html 的話，下次重建就被蓋掉了。 */
+@media(max-width:820px){
+  nav .in,nav .wrap{height:auto}
+  nav a,nav .brand{font-size:1.02rem;padding:13px 12px;min-height:48px;
+    display:inline-flex;align-items:center}
+  /* 頁尾電話也是會按下去打的，全站共用頁尾一起放大 */
+  footer .contact a[href^="tel"],footer .contact span{min-height:48px;display:inline-flex;
+    align-items:center;font-size:1rem}
+  footer .flinks a{min-height:46px;display:inline-flex;align-items:center;font-size:1rem}
 }
 @media(max-width:820px){
   .gal{padding:14px 18px;gap:16px;grid-template-columns:1fr}
