@@ -553,6 +553,21 @@ nav.hasmore::after{display:block}
     align-items:center;font-size:1rem}
   footer .flinks a{min-height:46px;display:inline-flex;align-items:center;font-size:1rem}
 }
+/* 查詢我的報名（寺方 2026-11-01：只輸入完整電話＋通知單 QR 直接開）。資料是 /ground-data/ 的加密檔，手機自己解開，不經 Apps Script。 */
+.gmq{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 6px}
+.gmq input{flex:1 1 220px;min-height:48px;font-size:17px;padding:10px 14px;border-radius:10px;border:1px solid rgba(212,175,106,.5);background:rgba(11,32,56,.55);color:var(--by-ivory)}
+.gmq input::placeholder{color:rgba(182,205,240,.6)}
+.gmq .gbtn{min-height:48px}
+.gmmsg{margin:10px 0;padding:10px 12px;border-radius:10px;font-size:.96rem;line-height:1.7;background:rgba(182,205,240,.1);color:var(--by-sky)}
+.gmmsg.ok{background:rgba(143,209,158,.12);color:#A9DDB5}.gmmsg.bad{background:rgba(241,156,156,.12);color:#F3B4B4}
+.gmcard{margin:12px 0 0;padding:14px 16px;border:1px solid rgba(212,175,106,.28);border-radius:12px;background:rgba(11,32,56,.35)}
+.gmcard .nm{font-size:1.25rem;color:var(--by-gold-bright);margin:0 0 6px}
+.gmcard .r{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed rgba(212,175,106,.22);font-size:.96rem}
+.gmcard .r:last-of-type{border-bottom:0}.gmcard .r b{color:var(--by-ivory);font-weight:600;text-align:right}
+.gmcard small{display:block;color:var(--by-sky);font-size:.86rem;margin-top:6px}
+.gmcard .n{display:flex;align-items:center;gap:10px;margin-top:10px;color:var(--by-ivory)}.gmcard .n input{width:84px;min-height:44px;font-size:17px;text-align:center;border-radius:8px;border:1px solid rgba(212,175,106,.5);background:rgba(11,32,56,.55);color:var(--by-ivory)}
+.gmcard .gbtn{margin-top:10px}.gmcard .qr{display:flex;justify-content:center;margin-top:10px}.gmcard .qr svg{width:150px;height:150px;background:#fff;padding:6px;border-radius:8px}
+@media(max-width:820px){.gmq .gbtn{flex:1 1 100%}}
 </style>
 <script type="application/ld+json">
 {
@@ -678,11 +693,16 @@ nav.hasmore::after{display:block}
           <a class="gbtn gvol" href="https://docs.google.com/forms/d/e/1FAIpQLSe1MSVDAoc2MsQ0mozloJUHv3y9zPe6jQSclZApBUMwGnfpxw/viewform" target="_blank" rel="noopener">報名志工　→</a>
         </div>
         <p class="gctanote">上列兩項均為動土大典的報名：前者為參加大典，後者為擔任大典志工。</p>
-        <div class="gmine">
+        <div class="gmine" id="gmine">
           <div class="lbl">已經報名了？查自己的安排</div>
-          <p>輸入<b>姓名</b>與<b>電話後四碼</b>，即可查詢您的小組、遊覽車與房號，以及大會的最新安排。內容會隨大會作業陸續更新，出發前請再查一次。</p>
-          <a class="gbtn gmineb" href="https://script.google.com/macros/s/AKfycbyxgmpID1zRAxC5YiJyc_zaFWIww5lDov0ph07CT6HqBvTNAPiY1gLklPnX3BSjE8ag/exec" target="_blank" rel="noopener nofollow">查詢我的安排　→</a>
-          <p class="note">為保護個資，名單上的姓名以中間字遮蔽顯示，且不會顯示電話、證件號碼與出生日期。</p>
+          <p>輸入報名時填的<b>完整電話</b>（本人或同行家人的電話都可以），即可查詢您的小組、遊覽車與房號，以及大會的最新安排；掃通知單上的 QR code 也會直接開。內容會隨大會作業陸續更新，出發前請再查一次。</p>
+          <form class="gmq" id="gmq" autocomplete="off" onsubmit="return false">
+            <input id="gmp" name="q_x" type="tel" inputmode="tel" autocomplete="off" placeholder="例如 0912-345-678" aria-label="報名時填的電話">
+            <button class="gbtn gmineb" id="gmgo" type="submit">查詢我的安排</button>
+          </form>
+          <div id="gmout" aria-live="polite"></div>
+          <div id="gmlist"></div>
+          <p class="note">為保護個資，姓名以中間字遮蔽顯示，且不會顯示電話、證件號碼與出生日期；您輸入的電話只在您的手機上用來解開資料，不會送出。</p>
         </div>
         <div class="gremind">
           <p>報名後，請務必與分院法師聯絡，請法師將您加入聯絡群組。</p>
@@ -1351,5 +1371,81 @@ sweep();
   box.addEventListener('scroll', sync);
 })();
 </script>
+<script>
+/* 查詢我的報名（寺方 2026-11-01）：只輸入完整電話，或掃個人資訊小卡的 QR（#q=代碼）直接開。
+   資料是 /ground-data/ 的加密檔：電話或代碼在這支手機上算出檔名與金鑰、自己解開；不經 Apps Script、不送出電話。
+   報到（12/25 入住、12/26 上車當天）直接送 Google 表單，後台每分鐘整批寫入；畫面先顯示已收到（樂觀）。 */
+(function(){
+var B='/ground-data/',CFG={ITER:150000,SALT:'baoyan-dongtu-2026-checkin-v2',form:'',entry:'',from:'',to:''},te=new TextEncoder(),RECS=[];
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function msg(t,c){$('gmout').innerHTML=t?'<div class="gmmsg '+(c||'')+'">'+t+'</div>':''}
+function b64u(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
+function hex(b){return Array.from(b).map(function(x){return x.toString(16).padStart(2,'0')}).join('')}
+async function derive(k){var km=await crypto.subtle.importKey('raw',te.encode(k),'PBKDF2',false,['deriveBits']);
+ var bits=new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:te.encode(CFG.SALT),iterations:CFG.ITER},km,512));
+ return {p:'d/'+hex(bits.slice(0,16)),kek:bits.slice(16,48)}}
+async function codeKey(c){var a=new Uint8Array(await crypto.subtle.digest('SHA-256',te.encode('qr-id|'+c))),b=new Uint8Array(await crypto.subtle.digest('SHA-256',te.encode('qr-key|'+c)));
+ return {p:'c/'+hex(a.slice(0,16)),kek:b}}
+async function open_(k,blob){var raw=b64u(blob),kk=await crypto.subtle.importKey('raw',k,'AES-GCM',false,['decrypt']);
+ return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:raw.slice(0,12)},kk,raw.slice(12))))}
+async function getFile(path){var last='';
+ for(var k=0;k<4;k++){try{var ac=new AbortController(),to=setTimeout(function(){ac.abort()},8000);
+   var r=await fetch(B+path+'?t='+Date.now(),{cache:'no-store',signal:ac.signal});clearTimeout(to);
+   if(r.status===404)return null;if(r.ok)return await r.json();last='伺服器回 '+r.status}catch(e){last=(e.name==='AbortError')?'等太久':'網路不通'}
+  msg('連線不順（'+last+'），第 '+(k+1)+' 次重試中…');await new Promise(function(r){setTimeout(r,800*(k+1))})}
+ throw new Error(last||'連不上')}
+var vReady=getFile('v.json').then(function(v){if(v){CFG.form=v.form||'';CFG.entry=v.entry||'';CFG.from=v.from||'';CFG.to=v.to||''}}).catch(function(){});
+function ckOpen(){var t=Date.now(),a=Date.parse(CFG.from),b=Date.parse(CFG.to);return !!(CFG.form&&CFG.entry&&a&&b&&t>=a&&t<b)}
+function stage(){var d=new Date(Date.now()+8*3600e3);return (d.getUTCMonth()===11&&d.getUTCDate()>=26)?'上車':'入住'}
+function hm(){var d=new Date();return ('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
+function pend(){try{return JSON.parse(localStorage.getItem('gm_ckq')||'{}')}catch(e){return {}}}
+function savePend(o){try{localStorage.setItem('gm_ckq',JSON.stringify(o))}catch(e){}}
+function render(){var st=stage(),q=pend(),open=ckOpen(),h='';
+ if(RECS.length>1)h+='<div class="gmmsg ok">共有 '+RECS.length+' 筆報名，全部列在下面</div>';
+ RECS.forEach(function(r,i){var rows=[['所屬分院',r.br],['同行',r.mt||'無']],card=('rm' in r);
+  if(card)rows=rows.concat([['飯店',r.ho],['房號',r.rm],['車次',r.bus],['小組',r.gp],['組長',r.ld]]);
+  var loc=q[r.k+'|'+st],fi=r.fi||{},si=r.si||{};
+  h+='<div class="gmcard">'+(RECS.length>1?'<small>第 '+(i+1)+' 筆</small>':'')+'<div class="nm">'+esc(r.n)+'</div>'+
+   rows.map(function(x){return '<div class="r"><span>'+x[0]+'</span><b>'+esc(x[1]||'—')+'</b></div>'}).join('');
+  if(!card)h+='<small>小組、車次、房號尚未公布，公布後在這裡就查得到。</small>';
+  if(fi[st])h+='<div class="gmmsg ok">✓ 櫃台已完成'+st+'報到（'+esc(fi[st])+'）</div>';
+  else if(si[st])h+='<div class="gmmsg ok">✓ 已收到您的'+st+'報到（'+esc(si[st])+'）<br>領小卡請到櫃台出示這個畫面。</div>';
+  else if(loc&&loc.sent)h+='<div class="gmmsg ok">✓ 已收到'+st+'報到（'+esc(loc.hm)+' 送出，'+esc(String(loc.n))+' 位）<br>工作人員約 1 分鐘內會看到。領小卡請到櫃台出示這個畫面。</div>';
+  else if(loc)h+='<div class="gmmsg">訊號不好，報到已暫存在這支手機，恢復連線會自動送出；也可以把畫面給工作人員看。</div>';
+  else if(open)h+='<div class="n"><span>實到人數</span><input id="gmn'+i+'" type="number" inputmode="numeric" min="1" max="30" value="'+esc(String(r.sz||1))+'"><span>位</span></div>'+
+   '<button type="button" class="gbtn gmineb gmck" data-i="'+i+'">我已到達，'+st+'報到</button>';
+  else h+='<small>自助報到在 12/25（入住）與 12/26（上車）當天開放。</small>';
+  h+='</div>'});
+ if(RECS.length)h+='<p class="note"><a href="javascript:void 0" id="gmbye">查完了，清除畫面</a></p>';
+ $('gmlist').innerHTML=h;
+ Array.prototype.forEach.call(document.querySelectorAll('.gmck'),function(b){b.onclick=function(){checkin(+b.getAttribute('data-i'))}});
+ var by=$('gmbye');if(by)by.onclick=function(){RECS=[];$('gmlist').innerHTML='';msg('')}}
+async function send(it){var body=new URLSearchParams();body.set(CFG.entry,[it.k,it.tk,it.st,it.n,it.at].join('|'));
+ var ac=new AbortController(),to=setTimeout(function(){ac.abort()},10000);
+ await fetch(CFG.form,{method:'POST',mode:'no-cors',body:body,signal:ac.signal});clearTimeout(to)}
+async function checkin(i){var r=RECS[i],st=stage(),el=$('gmn'+i),n=parseInt(el&&el.value,10);if(!(n>=1&&n<=30))n=r.sz||1;
+ var it={k:r.k,tk:r.tk,st:st,n:n,at:new Date().toISOString(),hm:hm(),sent:true},q=pend();q[r.k+'|'+st]=it;savePend(q);render();
+ try{await send(it)}catch(e){it.sent=false}q=pend();q[r.k+'|'+st]=it;savePend(q);render()}
+setInterval(async function(){var q=pend(),ch=false;for(var k in q){if(q[k].sent||!CFG.form)continue;try{await send(q[k]);q[k].sent=true;ch=true}catch(e){}}if(ch){savePend(q);if(RECS.length)render()}},5000);
+async function show(list,t0){RECS=list;msg('');await vReady;render();
+ var g=$('gmine');if(g&&g.scrollIntoView)g.scrollIntoView({behavior:'smooth',block:'start'})}
+$('gmq').onsubmit=async function(e){e.preventDefault();
+ if(typeof phoneQueryKeys_!=='function'){msg('查詢元件載入中，請再按一次');return false}
+ var keys=phoneQueryKeys_($('gmp').value);
+ if(!keys.length){msg('請輸入完整的電話號碼（手機 10 碼，或市話含區碼）','bad');return false}
+ $('gmgo').disabled=true;msg('查詢中…');
+ try{var got=null;for(var i=0;i<keys.length&&!got;i++){var d=await derive(keys[i]),f=await getFile(d.p+'.json');if(f)got=await open_(d.kek,f.c)}
+  if(!got){msg('查不到這支電話的報名資料。請確認是報名時填的電話（本人或同行家人皆可），或洽所屬分院。','bad');return false}
+  $('gmp').value='';await show(got)}catch(err){msg('目前查不到（'+esc(err.message)+'），請稍後再按一次。','bad')}
+ finally{$('gmgo').disabled=false}return false};
+(async function(){var m=/[#&]q=([A-Za-z0-9_-]{20,30})/.exec(location.hash);if(!m)return;
+ try{history.replaceState(null,'',location.pathname+location.search+'#ground')}catch(e){}   /* 代碼不留在網址列，免得截圖或轉傳帶出去 */
+ msg('讀取中…');var g=$('gmine');if(g&&g.scrollIntoView)g.scrollIntoView({block:'start'});
+ try{var k=await codeKey(m[1]),f=await getFile(k.p+'.json');if(!f){msg('這張小卡的 QR 對不到報名資料，請改輸入電話查詢。','bad');return}
+  await show(await open_(k.kek,f.c))}catch(e){msg('讀不到資料（'+esc(e.message)+'），請稍後再試，或改輸入電話查詢。','bad')}})();
+})();
+</script>
+<script src="/ground-data/phone_norm.js" defer></script>
 </body>
 </html>
