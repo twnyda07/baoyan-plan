@@ -369,6 +369,12 @@ section.alt{background:rgba(15,46,99,.34);border-top:1px solid rgba(212,175,106,
 .bsub{margin-top:24px;margin-bottom:10px;color:var(--by-gold);letter-spacing:.16em;font-size:.82rem}
 .verify{margin-top:16px;font-size:.9rem;line-height:1.9;color:var(--by-sky)}
 .gctanote{grid-column:1 / -1;margin-top:10px;font-size:.86rem;color:var(--by-sky);line-height:1.75}
+.gtutb{background:transparent;color:var(--by-gold-bright);border:1px solid var(--by-gold);font-family:inherit;cursor:pointer;min-height:48px}
+.gtutb:hover,.gtutb[aria-expanded="true"]{background:var(--by-gold);color:#0B2038}
+.gtut{grid-column:1 / -1;margin-top:16px;text-align:center}
+.gtut video{display:block;margin:0 auto;width:auto;height:auto;max-width:100%;max-height:78vh;aspect-ratio:590/1280;border-radius:14px;background:#000;border:1px solid rgba(143,180,232,.3)}
+.gtut p{margin-top:10px;font-size:.92rem;color:var(--by-sky);line-height:1.8}
+.gtut .gtutb{margin-top:8px}
 .gsupport{grid-column:1 / -1;margin-top:18px;padding-top:16px;
   border-top:1px solid rgba(143,180,232,.24)}
 .gsupport .lbl{color:var(--by-gold);letter-spacing:.16em;font-size:.82rem;margin-bottom:6px}
@@ -691,10 +697,18 @@ nav.hasmore::after{display:block}
         </div>
         <div class="gcta">
           <a class="gbtn" href="https://forms.gle/ApUXtkwgKXruTDZh7" target="_blank" rel="noopener">動土大典報名　點入報名　→</a>
+          <button type="button" class="gbtn gtutb" id="gtutbtn" aria-expanded="false" aria-controls="gtut">▶　報名影片教學</button>
           <a class="gbtn gvol" href="https://docs.google.com/forms/d/e/1FAIpQLSe1MSVDAoc2MsQ0mozloJUHv3y9zPe6jQSclZApBUMwGnfpxw/viewform" target="_blank" rel="noopener">報名志工　→</a>
           <a class="gbtn gvol" href="https://school.baoyan.org.tw/TabletNew/Login" target="_blank" rel="noopener">登記牌位暨報名三皈五戒　→</a>
         </div>
-        <p class="gctanote">「動土大典報名」為參加大典，「報名志工」為擔任大典志工；「登記牌位暨報名三皈五戒」連往寶嚴禪寺報名系統，以姓名與手機號碼登入後辦理。</p>
+        <div class="gtut" id="gtut" hidden>
+          <video id="gtutv" controls playsinline preload="none" poster="media/dongtu-signup-tutorial.jpg" width="590" height="1280">
+            <source src="media/dongtu-signup-tutorial.mp4" type="video/mp4">
+          </video>
+          <p>影片長 3 分 27 秒，以手機示範「動土大典報名」表單的填寫步驟。</p>
+          <button type="button" class="gbtn gtutb" id="gtutclose">收起影片</button>
+        </div>
+        <p class="gctanote">「報名影片教學」示範報名表的填寫方式；「動土大典報名」為參加大典，「報名志工」為擔任大典志工；「登記牌位暨報名三皈五戒」連往寶嚴禪寺報名系統，以姓名與手機號碼登入後辦理。</p>
         <div class="gmine" id="gmine">
           <div class="lbl">已經報名了？查自己的安排</div>
           <p>輸入報名時填的<b>完整電話</b>（本人或同行家人的電話都可以），即可查詢您的小組、遊覽車與房號，以及大會的最新安排；掃通知單上的 QR code 也會直接開。內容會隨大會作業陸續更新，出發前請再查一次。</p>
@@ -1449,5 +1463,18 @@ $('gmq').onsubmit=async function(e){e.preventDefault();
 })();
 </script>
 <script src="/ground-data/phone_norm.js" defer></script>
+<script>
+(function(){
+  var b=document.getElementById('gtutbtn'),box=document.getElementById('gtut'),v=document.getElementById('gtutv'),c=document.getElementById('gtutclose');
+  if(!b||!box)return;
+  function show(on){
+    box.hidden=!on;b.setAttribute('aria-expanded',on?'true':'false');
+    if(on){box.scrollIntoView({behavior:'smooth',block:'start'});}
+    else{try{v.pause();}catch(e){}b.focus();}
+  }
+  b.addEventListener('click',function(){show(box.hidden);});
+  c.addEventListener('click',function(){show(false);});
+})();
+</script>
 </body>
 </html>
