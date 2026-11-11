@@ -573,6 +573,11 @@ nav.hasmore::after{display:block}
 .gmcard .r:last-of-type{border-bottom:0}.gmcard .r b{color:var(--by-ivory);font-weight:600;text-align:right}
 .gmcard small{display:block;color:var(--by-sky);font-size:.86rem;margin-top:6px}
 .gmcard .n{display:flex;align-items:center;gap:10px;margin-top:10px;color:var(--by-ivory)}.gmcard .n input{width:84px;min-height:44px;font-size:17px;text-align:center;border-radius:8px;border:1px solid rgba(212,175,106,.5);background:rgba(11,32,56,.55);color:var(--by-ivory)}
+.gcancel{margin:18px 0 0;padding:14px 0 0;border-top:1px dashed rgba(212,175,106,.3)}
+.gcancel p{font-size:.96rem;line-height:1.75}
+.gcancelb,.gmcx{min-height:48px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(241,156,156,.6);color:#F3B4B4}
+.gmcard .gmcx{margin-top:10px;width:100%}
+@media(max-width:820px){.gcancelb{width:100%}}
 .gmcard .gbtn{margin-top:10px}.gmcard .qr{display:flex;justify-content:center;margin-top:10px}.gmcard .qr svg{width:150px;height:150px;background:#fff;padding:6px;border-radius:8px}
 @media(max-width:820px){.gmq .gbtn{flex:1 1 100%}}
 </style>
@@ -719,6 +724,11 @@ nav.hasmore::after{display:block}
           <div id="gmout" aria-live="polite"></div>
           <div id="gmlist"></div>
           <p class="note">為保護個資，姓名以中間字遮蔽顯示，且不會顯示電話、證件號碼與出生日期；您輸入的電話只在您的手機上用來解開資料，不會送出。</p>
+          <div class="gcancel" id="gcancel">
+            <div class="lbl">不能來了？取消報名</div>
+            <p>輸入<b>報名者本人姓名</b>＋<b>報名時的完整電話</b>，逐一勾選要取消的人，檢查後送出，<b>送出即生效</b>（不用等工作人員電話）。線上取消到 <b>12/10（四）晚上 11:59</b>，之後請聯絡您的分院窗口。</p>
+            <a class="gbtn gcancelb" id="gcancelb" href="https://script.google.com/macros/s/AKfycbyxgmpID1zRAxC5YiJyc_zaFWIww5lDov0ph07CT6HqBvTNAPiY1gLklPnX3BSjE8ag/exec?p=cancel" target="_blank" rel="noopener nofollow">取消報名　→</a>
+          </div>
         </div>
         <div class="gremind">
           <p>報名後，請務必與分院法師聯絡，請法師將您加入聯絡群組。</p>
@@ -1392,6 +1402,7 @@ sweep();
    資料是 /ground-data/ 的加密檔：電話或代碼在這支手機上算出檔名與金鑰、自己解開；不經 Apps Script、不送出電話。
    報到（12/25 入住、12/26 上車當天）直接送 Google 表單，後台每分鐘整批寫入；畫面先顯示已收到（樂觀）。 */
 (function(){
+var CXEND=Date.parse('2026-12-10T23:59:59+08:00');   /* 自助取消報名截止（寺方 11-11；後台同一個時間也會關） */
 var B='/ground-data/',CFG={ITER:150000,SALT:'baoyan-dongtu-2026-checkin-v2',form:'',entry:'',from:'',to:''},te=new TextEncoder(),RECS=[];
 function $(i){return document.getElementById(i)}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -1432,6 +1443,7 @@ function render(){var st=stage(),q=pend(),open=ckOpen(),h='';
   else if(open)h+='<div class="n"><span>實到人數</span><input id="gmn'+i+'" type="number" inputmode="numeric" min="1" max="30" value="'+esc(String(r.sz||1))+'"><span>位</span></div>'+
    '<button type="button" class="gbtn gmineb gmck" data-i="'+i+'">我已到達，'+st+'報到</button>';
   else h+='<small>自助報到在 12/25（入住）與 12/26（上車）當天開放。</small>';
+  if(r.cx&&/^https:\/\/script\.google\.com\//.test(r.cx)&&Date.now()<CXEND)h+='<a class="gbtn gmcx" href="'+esc(r.cx)+'" target="_blank" rel="noopener nofollow">不能來了？取消報名（可只取消部分同行者）</a>';
   h+='</div>'});
  if(RECS.length)h+='<p class="note"><a href="javascript:void 0" id="gmbye">查完了，清除畫面</a></p>';
  $('gmlist').innerHTML=h;
@@ -1462,6 +1474,7 @@ $('gmq').onsubmit=async function(e){e.preventDefault();
   await show(await open_(k.kek,f.c))}catch(e){msg('讀不到資料（'+esc(e.message)+'），請稍後再試，或改輸入電話查詢。','bad')}})();
 })();
 </script>
+<script>(function(){var c=document.getElementById('gcancel');if(!c)return;if(Date.now()>Date.parse('2026-12-10T23:59:59+08:00'))c.innerHTML='<div class="lbl">取消報名</div><p>線上取消已在 12/10（四）晚上 11:59 截止，要取消或更改請聯絡您的分院窗口（電話在下方）。</p>';})();</script>
 <script src="/ground-data/phone_norm.js" defer></script>
 <script>
 (function(){
