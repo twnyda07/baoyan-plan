@@ -232,6 +232,21 @@ a{color:inherit;text-decoration:none}
     align-items:center;font-size:1rem}
   footer .flinks a{min-height:46px;display:inline-flex;align-items:center;font-size:1rem}
 }
+/* 本站資訊（寶嚴禪寺所有開發一律附） */
+.siteinfo{margin:16px 0 0; max-width:none; text-align:left; font-size:16px; line-height:1.85; color:var(--deep);
+  background:var(--ivory); border:1px solid rgba(184,146,63,.55); border-radius:4px; padding:16px 20px; margin:3mm 11mm 4mm;}
+.siteinfo .si-h{color:var(--mid); font-weight:700; letter-spacing:.12em; margin-bottom:6px;}
+.siteinfo dl{display:grid; grid-template-columns:max-content 1fr; gap:4px 12px; margin:0;}
+.siteinfo dt{color:#5a6679; white-space:nowrap;}
+.siteinfo dd{margin:0; color:var(--deep); word-break:break-word;}
+.siteinfo a{color:var(--mid); text-decoration:underline; text-underline-offset:3px; display:inline-block; padding:6px 0; margin:-6px 0;}
+@media(max-width:420px){ .siteinfo dl{grid-template-columns:1fr; gap:0;} .siteinfo dd{margin-bottom:6px;} }
+@media print{
+  .siteinfo{margin:1.5mm 11mm 2mm; padding:1.5mm 3mm; font-size:6.5pt; line-height:1.4; border-radius:0;}
+  .siteinfo .si-h{margin-bottom:.5mm; letter-spacing:.1em}
+  .siteinfo dl{gap:0 2mm}
+  .siteinfo a{padding:0; margin:0; text-decoration:none; color:inherit}
+}
 </style>
 </head>
 <body>
@@ -411,6 +426,15 @@ a{color:inherit;text-decoration:none}
   </footer>
 
   <div class="note">本頁資料整理自《2026 寶嚴禪寺總體規劃書》。渲染圖與樓層配置皆為規劃示意，實際以主管機關核准之圖說為準。</div>
+<section class="siteinfo" aria-label="本站資訊">
+  <div class="si-h">本站資訊</div>
+  <dl>
+    <dt>名稱：</dt><dd>致　三界中的浪子　歡迎回家｜寶嚴山寶嚴禪寺 一頁簡介</dd>
+    <dt>網址：</dt><dd><a href="https://building.baoyan.org.tw/flyer.html">building.baoyan.org.tw/flyer.html</a></dd>
+    <dt>特別功能：</dt><dd>一頁看懂寶嚴山寶嚴禪寺的定位、建築樓層規劃、殿堂空間、計畫期程、動土大典報名與護持方式；可直接列印或存成 PDF，並連到完整規劃導覽。</dd>
+    <dt>創作者／版權所有：</dt><dd>© 2026 寶嚴山寶嚴禪寺　保留一切權利</dd>
+  </dl>
+</section>
 </div>
 <script>
 /* 只有「真的從別頁點過來」才顯示回上一頁，避免與規劃導覽重複 */
