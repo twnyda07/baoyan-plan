@@ -705,14 +705,15 @@ nav.hasmore::after{display:block}
           <div><dt>行程天數</dt><dd>三天兩夜</dd></div>
           <div><dt>交通安排</dt><dd>可於報名表單登記專開列車需求及上車地點</dd></div>
           <div><dt>參加方式</dt><dd>歡迎攜伴參加、全家同行</dd></div>
-          <div><dt>報名期限</dt><dd>報名至活動前持續受理，敬請及早報名，以便安排保險、住宿及車位</dd></div>
+          <div><dt>報名期限</dt><dd id="gdeadline">第一階段報名至 <b>11 月 20 日（五）晚上 11:59</b> 截止，以便定案保險、住宿及車位；第二階段將於 12/1 公告後開放，請洽各分院。</dd></div>
         </dl>
         <div class="gprep">
           <b>敬請備妥</b>
           <p>為辦理旅遊平安保險並安排住宿與車位，敬請於報名前備妥下列資料：報名者本人姓名、電話、LINE ID／Whats APP ID／微信 ID、Email 信箱（若本人沒有信箱，請填家人或聯絡人的）、證件（身分證、居留證或護照）之類別與號碼、出生年月日，以及緊急聯絡人姓名與電話；如有家人同行，另需每位同行者之姓名、與功德主之稱謂關係、電話、證件類別與號碼、出生年月日及性別。資料齊備後，敬請一次填寫完成。</p>
         </div>
         <div class="gcta">
-          <a class="gbtn" href="https://forms.gle/ApUXtkwgKXruTDZh7" target="_blank" rel="noopener">動土大典報名　點入報名　→</a>
+          <a class="gbtn" id="gsignbtn" href="https://forms.gle/ApUXtkwgKXruTDZh7" target="_blank" rel="noopener">動土大典報名　點入報名　→</a>
+          <p class="gctanote" id="gclosed" hidden><b>第一階段報名已截止</b>（11/20 晚上 11:59）。第二階段將於 12/1 公告後開放，請洽各分院。已報名的人仍可在下方「查自己的安排」查詢、取消報名。</p>
           <button type="button" class="gbtn gtutb" id="gtutbtn" aria-expanded="false" aria-controls="gtut">▶　報名影片教學</button>
           <a class="gbtn gvol" href="https://docs.google.com/forms/d/e/1FAIpQLSe1MSVDAoc2MsQ0mozloJUHv3y9zPe6jQSclZApBUMwGnfpxw/viewform" target="_blank" rel="noopener">報名志工　→</a>
           <a class="gbtn gvol" href="https://school.baoyan.org.tw/TabletNew/Login" target="_blank" rel="noopener">登記牌位暨報名三皈五戒　→</a>
@@ -1508,6 +1509,13 @@ $('gmq').onsubmit=async function(e){e.preventDefault();
   b.addEventListener('click',function(){show(box.hidden);});
   c.addEventListener('click',function(){show(false);});
 })();
+</script>
+<script>
+/* 動土報名第一階段截止（寺方 11-20 Q2 A：11/20 23:59 自動停收＋頁面說明）：過了截止時間，報名按鈕改成已截止說明 */
+(function(){var END=Date.UTC(2026,10,20,15,59,0);function chk(){if(Date.now()<END)return false;var a=document.getElementById('gsignbtn'),n=document.getElementById('gclosed'),d=document.getElementById('gdeadline');
+if(a){a.removeAttribute('href');a.setAttribute('aria-disabled','true');a.style.opacity='.55';a.style.pointerEvents='none';a.textContent='動土大典報名　第一階段已截止';}
+if(n)n.hidden=false;if(d)d.innerHTML='第一階段報名已於 <b>11 月 20 日（五）晚上 11:59</b> 截止；第二階段將於 12/1 公告後開放，請洽各分院。';return true;}
+if(!chk()){var t=setInterval(function(){if(chk())clearInterval(t);},30000);}})();
 </script>
 </body>
 </html>
