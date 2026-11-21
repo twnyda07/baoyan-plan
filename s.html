@@ -36,6 +36,21 @@ h1{font-size:1.4rem;color:var(--by-gold-bright);letter-spacing:.08em;font-weight
 .note b{color:var(--by-gold-bright);font-weight:400}
 .back{display:inline-block;margin-top:22px;color:var(--by-sky);font-size:.86rem;text-decoration:none;
   border-bottom:1px solid rgba(182,205,240,.3);padding-bottom:2px}
+/* 小組長報到（寺方本人 2026-11-20 深夜「小組長的報到放入建設官網最下方的工作人員入口裡，用姓名及電話輸入」）
+   手機優先：輸入框字 18px、高 48px；按鈕高 52px；送出時鎖住按鈕；錯誤講人話。姓名電話只放 POST 本文，不放網址、不存手機。 */
+.ldr{margin-top:18px;padding:18px 20px 20px;border-radius:14px;background:rgba(15,46,99,.55);border:1px solid rgba(212,175,106,.34)}
+.ldr h2{color:var(--by-gold-bright);font-size:1.06rem;font-weight:400;letter-spacing:.04em}
+.ldr .hint{margin-top:6px;color:var(--by-sky);font-size:.86rem}
+.ldr label{display:block;margin-top:14px;color:var(--by-ivory);font-size:.95rem}
+.ldr input{display:block;width:100%;margin-top:6px;font-size:18px;min-height:48px;padding:8px 12px;border-radius:10px;
+  border:1px solid rgba(212,175,106,.55);background:#FBF8F1;color:#1A1A1A;font-family:inherit}
+.ldr input:focus{outline:3px solid var(--by-gold-bright);outline-offset:1px}
+.ldr button{display:block;width:100%;margin-top:16px;min-height:52px;font-size:18px;border-radius:12px;border:0;cursor:pointer;
+  background:var(--by-gold);color:#081D3F;font-family:inherit;letter-spacing:.08em}
+.ldr button:disabled{opacity:.6;cursor:wait}
+.ldr .msg{display:none;margin-top:12px;padding:10px 12px;border-radius:10px;font-size:.95rem;line-height:1.6;
+  background:rgba(240,206,140,.12);border:1px solid rgba(240,206,140,.6);color:#FBE9C6}
+.ldr .msg.on{display:block}
 </style>
 </head>
 <body>
@@ -43,6 +58,18 @@ h1{font-size:1.4rem;color:var(--by-gold-bright);letter-spacing:.08em;font-weight
   <div class="kicker" lang="en">BAOYAN CHAN MONASTERY</div>
   <h1>工作人員入口</h1>
   <p class="sub">本頁僅供動土大典工作人員使用，未列於官網任何導覽與頁尾，敬請勿轉貼公開。</p>
+
+  <!-- 小組長報到：姓名＋電話（對上報名資料才進得去；後台 模組_小組長報到.gs leaderNP，doPost p=ldrnp） -->
+  <form class="ldr" id="ldrf" novalidate autocomplete="off">
+    <h2>小組長報到</h2>
+    <p class="hint">小組長、車長請輸入姓名與報名時填的電話，進去就看得到自己負責的組員，可以報到、撥電話。</p>
+    <label for="ldr_nm">姓名（報名時填的全名）</label>
+    <input id="ldr_nm" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="30" placeholder="例如：王小明">
+    <label for="ldr_ph">報名時填的電話</label>
+    <input id="ldr_ph" type="tel" inputmode="tel" autocomplete="off" maxlength="40" placeholder="例如：0912345678">
+    <button type="submit" id="ldr_go">進入小組長報到</button>
+    <div class="msg" id="ldr_msg" role="alert" aria-live="assertive"></div>
+  </form>
 
   <a class="card" href="https://script.google.com/macros/s/AKfycbyxgmpID1zRAxC5YiJyc_zaFWIww5lDov0ph07CT6HqBvTNAPiY1gLklPnX3BSjE8ag/exec?p=admin" target="_blank" rel="noopener nofollow">
     <b>分派主控台　工作人員後台</b>
@@ -66,5 +93,38 @@ h1{font-size:1.4rem;color:var(--by-gold-bright);letter-spacing:.08em;font-weight
 
   <a class="back" href="index.html">回官網首頁</a>
 </div>
+<script>
+(function(){
+  var EXEC = 'https://script.google.com/macros/s/AKfycbyxgmpID1zRAxC5YiJyc_zaFWIww5lDov0ph07CT6HqBvTNAPiY1gLklPnX3BSjE8ag/exec';
+  var f = document.getElementById('ldrf'), nm = document.getElementById('ldr_nm'), ph = document.getElementById('ldr_ph'),
+      go = document.getElementById('ldr_go'), box = document.getElementById('ldr_msg'), busy = false;
+  if (!f || !window.fetch) return;
+  /* 共用裝置：不讓瀏覽器記住姓名電話（每次載入換欄位名稱） */
+  nm.name = 'n' + Math.floor(Math.random() * 1e6); ph.name = 'p' + Math.floor(Math.random() * 1e6);
+  function say(t){ box.textContent = t; box.className = 'msg' + (t ? ' on' : ''); }
+  function dev(){ var d = ''; try { d = localStorage.getItem('ldr_dev') || ''; if (!d){ d = '手機' + String(Math.floor(Math.random() * 9000) + 1000); localStorage.setItem('ldr_dev', d); } } catch (e){} return d; }
+  function done(){ busy = false; go.disabled = false; go.textContent = '進入小組長報到'; }
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    if (busy) return;                                     // 防連按（伺服器也有節流與錯誤次數上限）
+    var n = String(nm.value || '').trim(), p = String(ph.value || '').trim();
+    if (!n){ say('請輸入您的姓名（報名時填的全名）。'); nm.focus(); return; }
+    if (p.replace(/[^0-9]/g, '').length < 8){ say('請輸入報名時填的完整電話（手機請打 10 碼）。'); ph.focus(); return; }
+    busy = true; go.disabled = true; go.textContent = '核對中，請稍候…'; say('');
+    var ac = window.AbortController ? new AbortController() : null, to = setTimeout(function(){ if (ac) ac.abort(); }, 25000);
+    fetch(EXEC, {method:'POST', body:new URLSearchParams({p:'ldrnp', nm:n, ph:p, dev:dev()}), signal:ac ? ac.signal : undefined})
+      .then(function(r){ return r.json(); })
+      .then(function(r){
+        clearTimeout(to);
+        if (r && r.ok && /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec\?p=ldr&s=[A-Za-z0-9]{32}$/.test(String(r.url || ''))){
+          go.textContent = '核對成功，進入中…'; nm.value = ''; ph.value = '';
+          location.href = 'ldr.html#s=' + String(r.url).split('&s=')[1]; return;   // 整合 1121：進建寺網站靜態負責人頁（秒開；ldr.html 從 # 讀 s，# 後面不送伺服器）
+        }
+        done(); say((r && r.msg) || '查不到這位小組長，請確認姓名與報名時填的電話。');
+      })
+      .catch(function(){ clearTimeout(to); done(); say('連不上系統，請確認手機有網路後再按一次。'); });
+  });
+})();
+</script>
 </body>
 </html>
