@@ -1,4 +1,4 @@
-<!doctype html><!-- 主控台/產生負責人靜態頁.mjs 產生，不要手改；來源 LDR_APP_HTML_ 指紋 5499ff64f44576f4 --><html lang="zh-Hant"><head><title>動土大典　我負責的</title><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+<!doctype html><!-- 主控台/產生負責人靜態頁.mjs 產生，不要手改；來源 LDR_APP_HTML_ 指紋 a891316aad64e0e6 --><html lang="zh-Hant"><head><title>動土大典　我負責的</title><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
 :root{--bg:#F4F0E6;--card:#FFFDF8;--ink:#26221C;--mut:#5B5448;--line:#DDD5C4;--acc:#1F3A5F;--ok:#2B6A3D;--okbg:#E7F1E8;--warn:#8A4B00;--wbg:#FBF0DC;--bad:#9E2A2A;--bbg:#F8E6E3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"PingFang TC","Noto Sans TC",sans-serif;font-size:17px;line-height:1.5}
 #app{max-width:720px;margin:0 auto;padding:12px 16px 120px}
@@ -6,6 +6,7 @@ h1{font-size:21px;margin:6px 0 2px;font-weight:700}h2{font-size:19px;margin:18px
 .mut{color:var(--mut);font-size:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}
 button,.btn{font-size:17px;min-height:48px;min-width:48px;padding:8px 14px;border-radius:10px;border:1px solid var(--acc);background:var(--card);color:var(--acc);font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:4px}
 button.pri,.btn.pri{background:var(--acc);color:#fff}button:disabled{opacity:.5}
+button.arm,button.pri.arm{background:var(--warn);border-color:var(--warn);color:#fff}
 input[type=text],input[type=tel],input[type=search]{font-size:18px;min-height:48px;width:100%;padding:8px 12px;border:1px solid #A89F8C;border-radius:10px;background:#fff;color:var(--ink)}
 .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.grow{flex:1 1 auto}
 .sticky{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 6px;border-bottom:1px solid var(--line)}
@@ -146,7 +147,21 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  function sumTxt(G,m,sid,pre,none){var S=sumOf(G,m,sid,pre,none),t;if(!S.on.length)t="還沒勾選任何人";else t="這次報到："+pnm(S.on[0])+(S.on.length>1?"＋"+(S.on.length-1)+" 位":"");
  if(S.miss.length)t+="　未到："+S.miss.length+" 位（"+S.miss.map(pnm).join("、")+"）";return t}
  function btnTxt(G,m,sid,pre,none){return stShort(sid)+"（"+sumOf(G,m,sid,pre,none).on.length+" 位）"}
- function sumUpd(k,pre){var G=gOf(GK),m=G&&memOf(G,k);if(!m)return;var sid=stgOf(G),e=$(pre+"_sum_"+k),b=$(pre+"_btn_"+k);if(e)e.textContent=sumTxt(G,m,sid,pre);if(b){b.textContent=btnTxt(G,m,sid,pre);b.disabled=!sumOf(G,m,sid,pre).on.length}}
+ function sumUpd(k,pre){var G=gOf(GK),m=G&&memOf(G,k);if(!m)return;var sid=stgOf(G),e=$(pre+"_sum_"+k),b=$(pre+"_btn_"+k);if(e)e.textContent=sumTxt(G,m,sid,pre);if(b){disarm(b);b.textContent=btnTxt(G,m,sid,pre);b.disabled=!sumOf(G,m,sid,pre).on.length}}
+ /* ★ 寺方本人 11-21 Q4f「避免誤按」：名單裡的報到大按鈕要按兩下——第一下變成「再按一次確認」（4 秒內），第二下才送出。
+    理由：跟名單一起捲動最容易誤碰；不跳出對話框（掃 QR 打開的那一張已經是刻意的一步，維持一下）、不延後送出（樂觀更新照舊 ≤3 秒）。 */
+ function armed(b,G,m){if(b.getAttribute("data-arm")==="1"){disarm(b);return true}
+  b.setAttribute("data-arm","1");b.className=(b.className+" arm").replace(/^ +/,"");b.textContent="再按一次確認："+btnTxt(G,m,stgOf(G),"pl");
+  var t=setTimeout(function(){if(b.getAttribute("data-arm")==="1"){disarm(b);b.textContent=btnTxt(G,m,stgOf(G),"pl")}},4000);b.setAttribute("data-armt",String(t));return false}
+ function disarm(b){if(!b||b.getAttribute("data-arm")!=="1")return;try{clearTimeout(Number(b.getAttribute("data-armt")))}catch(e){}b.removeAttribute("data-arm");b.className=String(b.className).split(" arm").join("")}
+ /* ★ 寺方本人 11-21 Q4d（一支手機輪流用）：換人／登出——先確認；還有沒送出的動作先不讓登出；登出＝伺服器作廢代碼＋清掉這一頁的代碼與網址 # 後面 */
+ function askOut(){var d=document.createElement("div");d.className="sheet";d.setAttribute("role","dialog");
+  d.innerHTML="<div class='in'><div class='nm'>換人／登出？</div>"+(Q.length?"<div class='warn'>還有 "+Q.length+" 筆報到還沒送出，等送出（上方「待送出」變 0）再登出，才不會漏掉。</div>":"<div class='mut'>登出後，下一位小組長輸入自己的姓名與電話就能用這支手機。這支手機不記任何姓名、電話、名單。</div>")+
+  "<div class='row' style='margin-top:14px'><button class='grow' id='cxb'>回上一頁</button>"+(Q.length?"":"<button class='pri grow' id='okb'>確定登出</button>")+"</div></div>";
+  document.body.appendChild(d);$("cxb").onclick=function(){d.remove()};if($("okb"))$("okb").onclick=function(){d.remove();logout()}}
+ function logout(){var s0=LB.s;if(Q.length){toast("還有 "+Q.length+" 筆沒送出，先不要登出","bad");return}stopPoll();LB.s="";V=null;W="";PID="";GK="";ls("ldr_q",null);
+  try{if(String(location.hash||"").indexOf("s=")>=0)history.replaceState(null,"",location.pathname+location.search)}catch(e){}
+  if(s0)run("leaderLogout",{s:s0,dev:dev()},function(){},function(){});drawEntry("已登出。下一位請輸入自己的姓名與報名時填的電話。")}
  function doInP(G,m,pre,note){var sid=stgOf(G),S=sumOf(G,m,sid,pre);if(!S.on.length){toast("請先勾選這次到的人","bad");return}
  push({t:"in",gk:G.gk,key:m.k,st:sid,pids:S.on.map(function(p){return p[0]+"-"+p[3]})});
  toast("✓ "+stShort(sid)+"："+pnm(S.on[0])+(S.on.length>1?"＋"+(S.on.length-1)+" 位":"")+(note||"")+(OFF||(navigator.onLine===false)?"（網路斷了，先記在手機，回來自動補送）":""),"ok")}
@@ -165,7 +180,7 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  var us=d.querySelectorAll("[data-pu]");for(j=0;j<us.length;j++)us[j].onclick=function(){var a=this.getAttribute("data-pu").split("|");d.remove();askUndoP(a[0],a[1])}}
 /* ---------- 畫面 ---------- */
  function draw(){if(!V)return;var G=gOf(GK),h="";
- h+="<div class='row' style='justify-content:space-between'><div><h1>"+esc(V.nm)+"</h1><div class='mut'>"+esc(V.label)+"</div></div><button onclick='dlMenu()'>下載／列印</button></div>";
+ h+="<div class='row' style='justify-content:space-between'><div><h1>"+esc(V.nm)+"</h1><div class='mut'>"+esc(V.label)+"</div></div><div class='row'><button onclick='dlMenu()'>下載／列印</button>"+(LB.s?"<button id='lgo' onclick='askOut()'>換人／登出</button>":"")+"</div></div>";
  if(V.groups.length>1){h+="<div class='seg' role='tablist'>";V.groups.forEach(function(g){h+="<button class='"+(g.gk===GK?"on":"")+"' data-gk='"+esc(g.gk)+"'>"+esc(g.gid)+(g.ck?"":"（"+esc(g.role)+"）")+"</button>"});h+="</div>"}
  if(typeof brpBtn==="function")h+=brpBtn();
  if(G)h+=drawGroup(G);
@@ -205,7 +220,7 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  a=document.querySelectorAll("[data-in]");for(i=0;i<a.length;i++)a[i].onclick=function(){askN(this.getAttribute("data-in"),0)};
  a=document.querySelectorAll("[data-fix]");for(i=0;i<a.length;i++)a[i].onclick=function(){askN(this.getAttribute("data-fix"),1)};
  a=document.querySelectorAll("[data-undo]");for(i=0;i<a.length;i++)a[i].onclick=function(){askUndo(this.getAttribute("data-undo"))};
- a=document.querySelectorAll("#app [data-pin]");for(i=0;i<a.length;i++)a[i].onclick=function(){var G=gOf(GK),m=memOf(G,this.getAttribute("data-pin"));if(m)doInP(G,m,"pl")};
+ a=document.querySelectorAll("#app [data-pin]");for(i=0;i<a.length;i++)a[i].onclick=function(){var G=gOf(GK),m=memOf(G,this.getAttribute("data-pin"));if(!m)return;if(!armed(this,G,m))return;doInP(G,m,"pl")};
  a=document.querySelectorAll("#app [data-pk]");for(i=0;i<a.length;i++)a[i].onchange=function(){sumUpd(this.getAttribute("data-pk"),"pl")};
  a=document.querySelectorAll("#app [data-pu]");for(i=0;i<a.length;i++)a[i].onclick=function(){var x=this.getAttribute("data-pu").split("|");askUndoP(x[0],x[1])}}
  function drawBar(){var b=$("bar");if(!b)return;var t="";if(OFF)t="⚠ 網路斷了：剛才的動作先記在這支手機，網路回來會自動補送（這一頁不要關）。";
@@ -297,7 +312,7 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
 
  var BP=null,BPS="",BPSEND=0,BPTRY=0,BPRT=null,BPPOLL=null,BPF="all",BPBUSY=0,BPAUTO=0;
  var BPMK={u:"已上車",n:"未到",s:"自行前往"};
- function brpBtn(){if(!V||!V.brp)return "";if(LB.rpt&&!BPAUTO){BPAUTO=1;setTimeout(brpOpen,0)}var hq=(V.brp.crew||[]).length>0;return "<button class='pri big1' onclick='brpOpen()'>📋 回報系統（"+(hq?"看板":"上車、入住勾選回報")+"）</button>"}
+ function brpBtn(){if(!V||!V.brp)return "";var only=!(V.groups&&V.groups.length)&&!(V.work&&V.work.length)&&(V.brp.crew||[]).length>0;if((LB.rpt||only)&&!BPAUTO){BPAUTO=1;setTimeout(brpOpen,0)}var hq=(V.brp.crew||[]).length>0;return "<button class='pri big1' onclick='brpOpen()'>📋 回報系統（"+(hq?"看板":"上車、入住勾選回報")+"）</button>"}
  function brpEl(){var d=$("brp");if(!d){d=document.createElement("div");d.id="brp";d.setAttribute("role","dialog");d.setAttribute("aria-label","回報系統");d.innerHTML="<div class='bin' id='bin'></div>";document.body.appendChild(d)}return d}
  function brpOpen(){brpEl().style.display="block";document.body.style.overflow="hidden";if(!BP)$("bin").innerHTML="<div class='card'>讀取中…</div>";if(typeof stopPoll==="function")stopPoll();brpLoad(0);brpPoll()}
  function brpClose(){var d=$("brp");if(d)d.style.display="none";document.body.style.overflow="";if(BPPOLL)clearInterval(BPPOLL);BPPOLL=null;if(V&&typeof startPoll==="function")startPoll()}
