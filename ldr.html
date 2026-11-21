@@ -1,4 +1,4 @@
-<!doctype html><!-- 主控台/產生負責人靜態頁.mjs 產生，不要手改；來源 LDR_APP_HTML_ 指紋 a891316aad64e0e6 --><html lang="zh-Hant"><head><title>動土大典　我負責的</title><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+<!doctype html><!-- 主控台/產生負責人靜態頁.mjs 產生，不要手改；來源 LDR_APP_HTML_ 指紋 b67458f190e58fa8 --><html lang="zh-Hant"><head><title>動土大典　我負責的</title><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
 :root{--bg:#F4F0E6;--card:#FFFDF8;--ink:#26221C;--mut:#5B5448;--line:#DDD5C4;--acc:#1F3A5F;--ok:#2B6A3D;--okbg:#E7F1E8;--warn:#8A4B00;--wbg:#FBF0DC;--bad:#9E2A2A;--bbg:#F8E6E3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"PingFang TC","Noto Sans TC",sans-serif;font-size:17px;line-height:1.5}
 #app{max-width:720px;margin:0 auto;padding:12px 16px 120px}
@@ -181,7 +181,7 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
 /* ---------- 畫面 ---------- */
  function draw(){if(!V)return;var G=gOf(GK),h="";
  h+="<div class='row' style='justify-content:space-between'><div><h1>"+esc(V.nm)+"</h1><div class='mut'>"+esc(V.label)+"</div></div><div class='row'><button onclick='dlMenu()'>下載／列印</button>"+(LB.s?"<button id='lgo' onclick='askOut()'>換人／登出</button>":"")+"</div></div>";
- if(V.groups.length>1){h+="<div class='seg' role='tablist'>";V.groups.forEach(function(g){h+="<button class='"+(g.gk===GK?"on":"")+"' data-gk='"+esc(g.gk)+"'>"+esc(g.gid)+(g.ck?"":"（"+esc(g.role)+"）")+"</button>"});h+="</div>"}
+ if(V.groups.length>1){h+="<div class='seg' role='tablist'>";V.groups.forEach(function(g){h+="<button class='"+(g.gk===GK?"on":"")+"' data-gk='"+esc(g.gk)+"'>"+esc(g.gid)+(g.xl?"・"+esc(g.xl):"")+(g.ck?"":"（"+esc(g.role)+"）")+"</button>"});h+="</div>"}
  if(typeof brpBtn==="function")h+=brpBtn();
  if(G)h+=drawGroup(G);
  if(V.work&&V.work.length){h+="<h2>工作事項（動土工作分派）</h2>";V.work.forEach(function(w){h+="<div class='card'><b>"+esc(w.bu)+"・"+esc(w.zu)+"・"+esc(w.job)+"</b>"+(w.what?"<div>"+esc(w.what)+"</div>":"")+(w.note?"<div class='mut'>備註："+esc(w.note)+"</div>":"")+(w.same?"<div class='warn'>工作分派只寫姓名，報名名單有 "+w.same+" 位同名，請確認是不是您。</div>":"")+"</div>"})}
@@ -193,8 +193,10 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  h+="<div class='seg'>";G.stages.forEach(function(s){h+="<button class='"+(s.id===sid?"on":"")+"' data-st='"+esc(s.id)+"'>"+esc(s.nm)+"</button>"});h+="</div>";
  h+="<div class='stats' aria-live='polite'>本組 "+c.n+" 人，已到 <span class='a'>"+c.a+"</span>、未到 <span class='m'>"+c.k+"</span></div>";
  h+="<div class='mut'>"+c.rg+" 筆報名，已到 "+c.ra+" 筆</div>";
+ if(G.xl)h+="<div class='mut'>兼任：只在「"+esc(G.xl)+"」這一段、只有坐 "+esc(G.veh||"這台車")+" 的組員。</div>";
+ if(G.xn)G.xn.forEach(function(x){if(x.st.indexOf(sid)>=0)h+="<div class='mut'>"+esc(x.t)+"</div>"});
  if(G.ck)h+="<div style='margin-top:6px'><label class='btn pri scan'>掃組員小卡 QR 報到<input type='file' accept='image/*' capture='environment' aria-label='掃組員小卡 QR 報到' onchange='photo(this)'></label></div><div id='smsg' class='mut'></div>";
- else h+="<div class='warn'>"+(G.role==="小組長"?"只輸入姓名進來的只能看名單。要替組員報到，請重新輸入姓名與電話進來（或掃您自己個人小卡上的 QR）。":"這一組由「"+esc(G.ln||"小組長")+"」負責報到，您看得到進度。")+"</div>";
+ else h+="<div class='warn'>"+(G.role==="小組長"||G.xl?"只輸入姓名進來的只能看名單。要替組員報到，請重新輸入姓名與電話進來（或掃您自己個人小卡上的 QR）。":"這一組由「"+esc(G.ln||"小組長")+"」負責報到，您看得到進度。")+"</div>";
  h+="<div class='tabs'><button data-f='all' class='"+(FIL==="all"?"on":"")+"'>全部</button><button data-f='no' class='"+(FIL==="no"?"on":"")+"'>未到</button><button data-f='ok' class='"+(FIL==="ok"?"on":"")+"'>已到</button></div></div>";
  h+="<div class='card'>";var shown=0,isH=sid==="h25",ML=isH?rmSort(G.m):G.m,lastRm=null,rmN={};
  if(isH)ML.forEach(function(m){var r=rmOf(m);rmN[r]=(rmN[r]||0)+(m.x?0:(m.n||0))});
@@ -359,6 +361,7 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
   return h+sumHtml(u,ix)}
  function markHtml(u,ix){var d=draft(u),c=cnt(u,d),h="<div class='card'>";if(u.sub)h+="<div class='mut'>"+esc(u.sub)+"</div>";
   h+="<div class='bcnt' aria-live='polite'>"+cTxt(c)+"</div><div class='mut'>"+lastTxt(u.last)+"</div>"+xTxt(u.xc);
+  if(u.xg){h+="<div style='margin-top:6px'><b>本車兼任小組長</b></div>";u.xg.forEach(function(g){h+=tile(g.gid+"（"+g.ln+"）",g.rep,g.c,0,g.xc)})}
   if(BP.self)h+="<div class='mut'>「本人 ✓」是與會者自己在手機上勾的；您照現場看到的勾，送出後兩邊自動比對。</div>";
   if(!BP.cred)h+="<div class='warn'>只輸入姓名進來的只能看。要送出回報，請掃您個人小卡上的 QR（或用專屬連結）進來。</div>";
   if(c[4]&&BP.cred)h+="<button style='width:100%;margin-top:8px' data-all='"+ix+"'>其餘還沒勾的 "+c[4]+" 位都是「"+BPMK.u+"」</button>";
@@ -369,9 +372,9 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
   if(BP.cred)h+="<button class='pri bsend' data-send='"+ix+"'"+(c[4]||BPSEND?" disabled":"")+">"+(c[4]?"還有 "+c[4]+" 位沒勾":"送出回報（"+c[0]+" 位）")+"</button>";
   return h+"</div>"}
  function sumHtml(u,ix){var h="<div class='card'><div class='bcnt' aria-live='polite'>"+cTxt(u.c,"還沒回報")+"</div><div class='mut'>"+lastTxt(u.last)+"</div>"+xTxt(u.xc);
-  if(u.groups){h+="<div style='margin-top:6px'><b>本車各組</b></div>";u.groups.forEach(function(g){h+=tile(g.gid+(g.ln?"（小組長 "+g.ln+"）":""),g.rep,g.c,0,g.xc)})}
+  if(u.groups){h+="<div style='margin-top:6px'><b>本車各組</b></div>";u.groups.forEach(function(g){h+=tile(g.gid+(g.ln?"（小組長 "+g.ln+"）":(g.nl?"（沒人帶）":"")),g.rep,g.c,0,g.xc)})}
   if(u.hotels)h+=hotHtml(u.hotels);
-  if(u.cars){h+="<div style='margin-top:6px'><b>範圍內的車／車廂</b></div>";u.cars.forEach(function(x){h+=tile(x.car+(x.cap?"（車長 "+x.cap+"）":"（沒有車長：看各組回報 "+x.grep+"/"+x.gn+"）"),x.rep,x.c,!x.hasCap,x.xc)})}
+  if(u.cars){h+="<div style='margin-top:6px'><b>範圍內的車／車廂</b></div>";u.cars.forEach(function(x){h+=tile(x.car+(x.cap?"（車長 "+x.cap+"）":"（沒有車長：看各組回報 "+x.grep+"/"+x.gn+"）")+(x.nl?"・沒人帶 "+x.nl+" 組":""),x.rep,x.c,!x.hasCap,x.xc)})}
   h+=xsHtml(u.xs)+missHtml(u.ps);
   if(BP.cred)h+="<label class='mut' for='bnote"+ix+"' style='display:block;margin-top:10px'>備註（可不填）</label><textarea id='bnote"+ix+"' maxlength='200'></textarea><button class='pri bsend' data-send='"+ix+"'"+(BPSEND?" disabled":"")+">送出"+(u.lv==="領隊"?"領隊":"本車")+"回報</button>";
   else h+="<div class='warn'>只輸入姓名進來的只能看。要送出回報，請掃您個人小卡上的 QR 進來。</div>";
