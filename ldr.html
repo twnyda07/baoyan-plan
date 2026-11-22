@@ -1,4 +1,4 @@
-<!doctype html><!-- 主控台/產生負責人靜態頁.mjs 產生，不要手改；來源 LDR_APP_HTML_ 指紋 b67458f190e58fa8 --><html lang="zh-Hant"><head><title>動土大典　我負責的</title><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+<!doctype html><!-- 主控台/產生負責人靜態頁.mjs 產生，不要手改；來源 LDR_APP_HTML_ 指紋 b8240a8a8b3f614e --><html lang="zh-Hant"><head><title>動土大典　我負責的</title><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
 :root{--bg:#F4F0E6;--card:#FFFDF8;--ink:#26221C;--mut:#5B5448;--line:#DDD5C4;--acc:#1F3A5F;--ok:#2B6A3D;--okbg:#E7F1E8;--warn:#8A4B00;--wbg:#FBF0DC;--bad:#9E2A2A;--bbg:#F8E6E3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"PingFang TC","Noto Sans TC",sans-serif;font-size:17px;line-height:1.5}
 #app{max-width:720px;margin:0 auto;padding:12px 16px 120px}
@@ -21,6 +21,21 @@ input[type=text],input[type=tel],input[type=search]{font-size:18px;min-height:48
 .acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .scan{position:relative;overflow:hidden;width:100%;font-size:19px;min-height:56px}
 .scan input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.ctbtn{width:100%;min-height:52px;margin:8px 0;font-size:18px}.ctbtn.on{background:var(--acc);color:var(--card)}
+.ctg .ctp{font-size:18px;margin:2px 0 6px}.ctm{border:1px solid var(--line);border-radius:12px;padding:10px;margin:8px 0}.ctm.ok{border-left:8px solid var(--ok)}.ctm.no{border-left:8px solid var(--bad)}
+.ctd{font-size:15px;color:var(--mut);margin:4px 0}.ctd summary{min-height:44px;display:flex;align-items:center;cursor:pointer}.ctd div{margin:2px 0}
+.ct3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:6px}.ct3 button{min-height:48px;font-size:17px;padding:4px}
+.ct3 .sok{background:var(--ok);border-color:var(--ok);color:var(--card)}.ct3 .sno{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.ctnote{margin-top:8px}.ctnote input{width:100%;font-size:17px;min-height:48px;padding:6px 10px;border:1px solid #A89F8C;border-radius:10px;margin:4px 0}.ctnote button{width:100%;min-height:48px}
+.ctundo{min-height:44px;margin-top:6px}
+.bodb{background:var(--bbg);color:var(--bad);font-weight:700;border:2px solid var(--bad);border-radius:10px;padding:8px 10px;margin:6px 0}
+.scan2{position:relative;overflow:hidden;width:100%;min-height:48px;margin-top:8px;font-size:17px}.scan2 input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+#cam{position:fixed;inset:0;z-index:60;background:rgba(15,13,10,.92);display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding:12px}
+#cam .camin{background:var(--card);color:var(--ink);border-radius:16px;width:100%;max-width:560px;padding:14px}
+#cam .camhd{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:19px}#cam .camhd button{min-height:48px}
+#cam video{display:block;width:100%;max-height:60vh;background:#000;border-radius:12px;margin:10px 0;object-fit:cover}
+#cam .camalt{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}#cam .camalt label{position:relative;overflow:hidden;min-height:52px;font-size:16px}#cam .camalt input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+#cam .camm{font-size:17px;line-height:1.6;padding:8px 10px;border-radius:10px}
 #toast{position:fixed;left:12px;right:12px;bottom:16px;max-width:696px;margin:0 auto;background:#26221C;color:#fff;border-radius:12px;padding:12px 14px;font-size:17px;display:none;z-index:20}
 #toast.bad{background:var(--bad)}#toast.ok{background:var(--ok)}
 .warn{background:var(--wbg);color:var(--warn);border-radius:10px;padding:8px 12px;margin:8px 0}
@@ -33,7 +48,8 @@ input[type=text],input[type=tel],input[type=search]{font-size:18px;min-height:48
 .pr.ok{background:var(--okbg)}.pr.hi{outline:3px solid var(--acc);outline-offset:-3px;border-radius:8px}
 .pc{display:inline-flex;align-items:center;gap:10px;min-height:48px;flex:1 1 160px;cursor:pointer}.pc input{width:30px;height:30px;accent-color:var(--acc)}
 .px{display:inline-flex;width:38px;justify-content:center;color:var(--ok);font-size:22px;font-weight:700}.pn{font-size:18px;font-weight:600}.pw{margin-left:auto;font-size:14px}
-.sum{font-size:17px;font-weight:600;margin:10px 0 0}button.big1{display:flex;width:100%;min-height:56px;font-size:19px;margin:8px 0 4px}
+.sum{font-size:17px;font-weight:600;margin:10px 0 0}
+.demo{background:var(--wbg);color:var(--warn);border:2px solid var(--warn);border-radius:10px;padding:10px 12px;margin:8px 0;font-size:18px;font-weight:700;text-align:center}button.big1{display:flex;width:100%;min-height:56px;font-size:19px;margin:8px 0 4px}
 @media (prefers-color-scheme: dark){:root{--bg:#1D1B17;--card:#27241F;--ink:#ECE6DA;--mut:#BDB4A4;--line:#4A443A;--acc:#9DB8DB;--ok:#8FD19E;--okbg:#1F3324;--warn:#F0C27A;--wbg:#3A2E18;--bad:#F0A0A0;--bbg:#3D2222}
  input[type=text],input[type=tel],input[type=search]{background:var(--card);color:var(--ink)}button.pri,.btn.pri,.seg button.on,.tabs button.on{color:var(--bg)}#toast{background:#ECE6DA;color:#1D1B17}}
 table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th{border:1px solid #999;padding:3px 5px;text-align:left}
@@ -53,12 +69,56 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
 .bsend{display:flex;width:100%;min-height:56px;font-size:19px;margin-top:12px}
 .bsum{font-size:17px;line-height:1.7}.bsum b{font-size:18px}
 #brp a{color:var(--acc)}
+.btl>summary,.btld>summary{min-height:48px;display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;cursor:pointer}
+.btlhd{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 6px}.bnowt{font-weight:700}
+.bonly{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:17px}.bonly input{width:24px;height:24px}
+.btld{margin:4px 0}.btli{display:flex;flex-direction:column;align-items:flex-start;gap:4px;width:100%;min-height:56px;margin:6px 0;padding:8px 12px;text-align:left;font-size:17px;border:1px solid var(--line);border-radius:10px}
+.btli.on{outline:3px solid var(--acc);outline-offset:1px}.btlt{font-weight:700;line-height:1.4}
+.btli.od,.btile.od,.card.od{background:var(--bbg)!important;border-left:8px solid var(--bad)!important}
+.bodl{color:var(--bad);font-weight:700;display:inline-block;border:2px solid var(--bad);border-radius:8px;padding:0 8px;background:var(--bbg)}
+.bodb{background:var(--bbg);color:var(--bad);font-weight:700;border:2px solid var(--bad);border-radius:10px;padding:8px 10px;margin-bottom:8px}
+.bnow{position:sticky;top:0;z-index:2;background:var(--acc);color:var(--card);font-weight:700;border-radius:8px;padding:4px 10px;margin:6px 0}
+.bseg{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--acc);border-radius:12px;overflow:hidden;margin:6px 0 8px}
+.bseg button{min-height:50px;font-size:17px;font-weight:700;border:0;border-radius:0;margin:0;background:var(--card);color:var(--acc)}
+.bseg button.on{background:var(--acc);color:#fff}
+.bok{background:var(--okbg);color:var(--ok);border:2px solid var(--ok);border-radius:10px;padding:10px 12px;margin:8px 0;font-size:18px;font-weight:700}
+.berr{background:var(--bbg);color:var(--bad);border:2px solid var(--bad);border-radius:10px;padding:10px 12px;margin:8px 0;font-size:17px;font-weight:700}
+.bleg{border:1px dashed var(--line);border-radius:10px;padding:6px 10px;margin:8px 0;font-size:16px}.bleg summary{min-height:44px;display:flex;align-items:center;font-weight:700;cursor:pointer}
+.bleg div{margin:4px 0;line-height:1.6}
 #brp textarea{font-size:17px;width:100%;min-height:64px;padding:8px;border:1px solid #A89F8C;border-radius:10px;background:var(--card);color:var(--ink);font-family:inherit}
 #brp input[type=text]{font-size:17px}
 .bme{margin-top:4px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.bme .chip{font-size:15px;padding:4px 10px}
+.bme .c-cs{background:var(--wbg);color:var(--warn);border:1px solid var(--warn);font-weight:700}
 .bx{margin-top:6px;font-size:16px;line-height:1.6;padding:6px 10px;border:1px dashed var(--line);border-radius:10px}.bx b{color:var(--ok)}.bx .bad{color:var(--bad);font-weight:700}
-@media (prefers-color-scheme: dark){.btri button.su,.btri button.sn,.btri button.ss{color:var(--bg)}.bhd select{background:var(--card);color:var(--ink)}}
-</style></head><body><div id="app"><div class="card">讀取中…</div></div><div id="toast" role="status" aria-live="polite"></div><div id="prt"></div><script>var CKW_EXEC="https://script.google.com/macros/s/AKfycbyxgmpID1zRAxC5YiJyc_zaFWIww5lDov0ph07CT6HqBvTNAPiY1gLklPnX3BSjE8ag/exec",CKW_FB="https://baoyan-dongtu-live-default-rtdb.asia-southeast1.firebasedatabase.app",CKW_PF=null,CKW_BG=0;var LB=ckwLB({"t":"","q":"","s":"","u":"","rpt":0,"title":"小組長報到","stages":[{"id":"b25","nm":"12/25 台東火車站　上車往飯店","day":"12/25"},{"id":"h25","nm":"12/25 晚　飯店入住","day":"12/25"},{"id":"b26am","nm":"12/26 早上　飯店上車（往動土會場）","day":"12/26"},{"id":"b26pm","nm":"12/26 下午 2 點　會場上車（依行程）","day":"12/26"},{"id":"b26ev","nm":"12/26 會場用完晚餐後　上車回飯店","day":"12/26"},{"id":"b27am","nm":"12/27 早上 8:30　飯店集合上車（依行程）","day":"12/27"},{"id":"t25","nm":"12/25 去程火車上車","day":"12/25"},{"id":"t26","nm":"12/26 回程火車上車","day":"12/26"},{"id":"t27","nm":"12/27 回程火車上車","day":"12/27"},{"id":"s26","nm":"12/26 會場報到","day":"12/26"}]});
+@media (prefers-color-scheme: dark){.bseg button.on{color:var(--bg)}.btri button.su,.btri button.sn,.btri button.ss{color:var(--bg)}.bhd select{background:var(--card);color:var(--ink)}}
+:root{--sgi:#24211B}
+.sg-t25{--sgb:#E4EAF2;--sga:#4A6283}.sg-b25{--sgb:#E1EEEA;--sga:#3D7366}.sg-h25{--sgb:#F1E9DA;--sga:#85652F}.sg-b26am{--sgb:#E6EDDC;--sga:#56703A}.sg-s26{--sgb:#F3E2DC;--sga:#985243}.sg-b26pm{--sgb:#ECE3EE;--sga:#77537F}.sg-t26{--sgb:#E9E8DA;--sga:#6B6A3C}.sg-b26ev{--sgb:#E3E4F1;--sga:#525A8E}.sg-h26{--sgb:#F2E2E7;--sga:#8C4D61}.sg-b27am{--sgb:#DFEDEF;--sga:#3B6D77}.sg-t27{--sgb:#EEE4DA;--sga:#7A5A3E}
+.sgtag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:2px 12px;font-weight:700;font-size:16px;line-height:1.5;background:var(--sgb);color:var(--sgi);border:2px solid var(--sga);white-space:normal}
+.sgtag.sgbig{font-size:19px;padding:4px 14px}
+.sgcard{border-left:8px solid var(--sga)!important}
+.cktrial{background:#FBF0DC;color:#7A4300;border:2px solid #B8860B;border-radius:10px;padding:8px 12px;margin:8px 0;font-weight:700;font-size:17px;line-height:1.5}
+.sgsel{border-left:8px solid var(--sga)!important;background:var(--sgb)!important;color:var(--sgi)!important}
+@media (prefers-color-scheme:dark){:root{--sgi:#EFE9DC}.sg-t25{--sgb:#243040;--sga:#9DB2CF}.sg-b25{--sgb:#1F3530;--sga:#8CC3B4}.sg-h25{--sgb:#382E1E;--sga:#D3B47E}.sg-b26am{--sgb:#2A3320;--sga:#A9C38A}.sg-s26{--sgb:#3B2621;--sga:#E0A493}.sg-b26pm{--sgb:#33263A;--sga:#C6A6CF}.sg-t26{--sgb:#302F20;--sga:#BFBD8E}.sg-b26ev{--sgb:#262A40;--sga:#A6ACD9}.sg-h26{--sgb:#3A2329;--sga:#DBA0B3}.sg-b27am{--sgb:#1E3337;--sga:#8CC0CA}.sg-t27{--sgb:#35291F;--sga:#CFAE8F}.cktrial{background:#3A2E17;color:#F0C98A;border-color:#C9963A}}
+</style></head><body><div id="app"><div class="card">讀取中…</div></div><div id="toast" role="status" aria-live="polite"></div><div id="prt"></div><script>var CKW_EXEC="https://script.google.com/macros/s/AKfycbyxgmpID1zRAxC5YiJyc_zaFWIww5lDov0ph07CT6HqBvTNAPiY1gLklPnX3BSjE8ag/exec",CKW_FB="https://baoyan-dongtu-live-default-rtdb.asia-southeast1.firebasedatabase.app",CKW_PF=null,CKW_BG=0;var LB=ckwLB({"t":"","q":"","s":"","u":"","rpt":0,"title":"小組長報到","stages":[{"id":"b25","nm":"12/25 台東火車站　上車往飯店","day":"12/25"},{"id":"h25","nm":"12/25 晚　飯店入住","day":"12/25"},{"id":"b26am","nm":"12/26 早上　飯店上車（往動土會場）","day":"12/26"},{"id":"b26pm","nm":"12/26 下午 2 點　會場上車（依行程）","day":"12/26"},{"id":"b26ev","nm":"12/26 會場用完晚餐後　上車回飯店","day":"12/26"},{"id":"b27am","nm":"12/27 早上 8:30　飯店集合上車（依行程）","day":"12/27"},{"id":"t25","nm":"12/25 去程火車上車","day":"12/25"},{"id":"t26","nm":"12/26 回程火車上車","day":"12/26"},{"id":"t27","nm":"12/27 回程火車上車","day":"12/27"},{"id":"s26","nm":"12/26 會場報到","day":"12/26"}]});var CKSEGM={"t25":{"n":"①","day":"12/25","tod":"","w":"去程火車上車","hm":""},"b25":{"n":"②","day":"12/25","tod":"傍晚","w":"台東站上遊覽車（往飯店）","hm":""},"h25":{"n":"③","day":"12/25","tod":"晚上","w":"飯店入住","hm":""},"b26am":{"n":"④","day":"12/26","tod":"早上","w":"飯店上車（往會場）","hm":""},"s26":{"n":"⑤","day":"12/26","tod":"到會場後","w":"會場報到","hm":""},"b26pm":{"n":"⑥","day":"12/26","tod":"下午","w":"會場上車","hm":"14:00"},"t26":{"n":"⑦","day":"12/26","tod":"下午","w":"回程火車上車","hm":""},"b26ev":{"n":"⑧","day":"12/26","tod":"晚上","w":"晚餐後上車（回飯店）","hm":""},"h26":{"n":"⑨","day":"12/26","tod":"晚上","w":"回飯店（入住確認）","hm":""},"b27am":{"n":"⑩","day":"12/27","tod":"早上","w":"飯店上車","hm":"8:30"},"t27":{"n":"⑪","day":"12/27","tod":"中午","w":"回程火車上車","hm":""}};var CKLIVE=1798167600000;function ckTrialBanner(now){if((now||Date.now())>=CKLIVE)return "";return "<div class='cktrial' role='status'>🧪 試用期間：12/25 上午 11:00 正式啟用，之前的報到／回報資料會全部清空</div>"}function ckSegLb(sid,extra,hm){var m=CKSEGM[sid];if(!m)return "";if(hm==null)hm=m.hm;return m.n+" "+m.day+(m.tod?" "+m.tod:"")+(hm?" "+hm:"")+"・"+m.w+(extra?"（"+extra+"）":"")}function ckSegTag(sid,extra,big,hm){var m=CKSEGM[sid];if(!m)return "";var t=ckSegLb(sid,extra,hm).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]});return "<span class='sgtag sg-"+sid+(big?" sgbig":"")+"'>"+t+"</span>"}
+ var WAITS=[],WAITN=0,WAITT=null;
+ function waitEl(){var e=document.getElementById("waitbar");if(e)return e;
+  var st=document.createElement("style");st.textContent="#waitbar{position:fixed;left:12px;right:12px;bottom:12px;max-width:696px;margin:0 auto;z-index:9995;border-radius:12px;padding:10px 14px;font-size:17px;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,.25);display:none;background:#26221C;color:#fff}#waitbar.ok{background:#2B6A3D}#waitbar.bad{background:#9E2A2A}#waitbar.warn{background:#8A4B00}#waitbar .wb{display:flex;gap:8px;margin-top:8px}#waitbar button{min-height:44px;font-size:17px;font-weight:700;border-radius:10px;border:2px solid #fff;background:#fff;color:#26221C;padding:4px 14px;flex:1}#waitbar button.l{background:transparent;color:#fff}@media (prefers-color-scheme: dark){#waitbar{background:#ECE6DA;color:#1D1B17}#waitbar.ok{background:#8FD19E;color:#10200F}#waitbar.bad{background:#F0A0A0;color:#2A0D0D}#waitbar.warn{background:#F0C27A;color:#2A1A05}#waitbar button{border-color:currentColor;background:transparent;color:inherit}}";
+  document.head.appendChild(st);e=document.createElement("div");e.id="waitbar";e.setAttribute("role","status");e.setAttribute("aria-live","polite");document.body.appendChild(e);return e}
+ function waitTick(){var e=waitEl(),w=WAITS.length?WAITS[WAITS.length-1]:null;if(!w){if(WAITT){clearInterval(WAITT);WAITT=null}return}
+  if(w.st!=="run")return;var s=(Date.now()-w.t0)/1000;e.className="";e.style.display="block";
+  e.textContent="⏳ "+w.lb+"中…已等候 "+s.toFixed(1)+" 秒"+(s>=10?"（網路較慢，仍在處理，請勿重複按）":"（系統運作中，請勿重複按）")}
+ function waitStart(lb,retry){var w={id:++WAITN,lb:lb||"處理",t0:Date.now(),st:"run",retry:retry};WAITS.push(w);waitTick();if(!WAITT)WAITT=setInterval(waitTick,100);
+  w.end=function(r){waitDone(w,r&&r.ok===false&&!r.busy&&!r.same?"warn":"ok",r)};w.fail=function(){waitDone(w,"bad")};return w}
+ function waitDone(w,kind,r){if(w.st!=="run")return;w.st=kind;var s=((Date.now()-w.t0)/1000).toFixed(1),e=waitEl(),top=WAITS[WAITS.length-1]===w;
+  WAITS=WAITS.filter(function(x){return x!==w});
+  if(!top&&kind==="ok")return;
+  if(kind==="ok"){e.className="ok";e.style.display="block";e.textContent="✓ "+w.lb+"完成（共 "+s+" 秒）";var id=w.id;setTimeout(function(){if(!WAITS.length&&e.getAttribute("data-id")===String(id))e.style.display="none"},2000);e.setAttribute("data-id",String(id))}
+  else if(kind==="warn"){e.className="warn";e.style.display="block";e.textContent="⚠ "+w.lb+"沒有成功（共 "+s+" 秒）："+String((r&&r.msg)||"請看畫面上的說明");e.setAttribute("data-id",String(w.id));var id2=w.id;setTimeout(function(){if(!WAITS.length&&e.getAttribute("data-id")===String(id2))e.style.display="none"},6000)}
+  else{e.className="bad";e.style.display="block";e.setAttribute("data-id",String(w.id));e.textContent="";var t=document.createElement("div");t.textContent="✗ "+w.lb+"沒有成功（等了 "+s+" 秒）：連不上網路或系統忙。"+(w.retry?"請按「重試」（不會重複算）。":"請確認網路後再試一次。");e.appendChild(t);
+   var b=document.createElement("div");b.className="wb";if(w.retry){var r1=document.createElement("button");r1.type="button";r1.textContent="重試";r1.onclick=function(){e.style.display="none";w.retry()};b.appendChild(r1)}
+   var c=document.createElement("button");c.type="button";c.className="l";c.textContent="關閉";c.onclick=function(){e.style.display="none"};b.appendChild(c);e.appendChild(b)}
+  if(!WAITS.length&&WAITT){clearInterval(WAITT);WAITT=null}else waitTick()}
+
  var V=null,PID="",NM="",W="",GK="",STG={},FIL="all",Q=[],SEND=0,TRY=0,RT=null,OFF=0,SENT_OFF=0,POLL=null,BUSYLOAD=0;
  var RETRY=[1000,2000,4000,8000,15000,30000],NL=String.fromCharCode(10);
  function $(i){return document.getElementById(i)}
@@ -69,8 +129,11 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  function dev(){var d=ls("ldr_dev");if(!d){d="手機"+String(Math.floor(Math.random()*9000)+1000);ls("ldr_dev",d)}return d}
  function cred(){var o={dev:dev()};if(LB.t)o.t=LB.t;else if(LB.q)o.q=LB.q;else if(LB.s)o.s=LB.s;else o.nm=NM;if(PID)o.pid=PID;return o}
  function toast(t,kind,ms){var e=$("toast");e.className=kind||"";e.textContent=t;e.style.display="block";clearTimeout(e._t);e._t=setTimeout(function(){e.style.display="none"},ms||4000)}
- function run(fn,arg,ok,fail){var g=window.google&&google.script&&google.script.run;if(!g){if(fail)fail({message:"no google.script"});return}
- g.withSuccessHandler(ok).withFailureHandler(function(e){if(fail)fail(e)})[fn](arg)}
+ /* ★ 11-21 23:1x 寺方本人「每個步驟存取時都顯示秒數」：quiet＝背景輪詢（不顯示）；其他一律顯示「已等候 X.X 秒」（模組_等候顯示.gs） */
+ var WAITNM={leaderNP:"確認姓名與電話",leaderLoad:"讀取您負責的名單",leaderSubmit:"送出報到",leaderWho:"查這張小卡是誰",brpLoad:"讀取回報資料",brpSubmit:"送出回報"};
+ function run(fn,arg,ok,fail,quiet){var g=window.google&&google.script&&google.script.run;if(!g){if(fail)fail({message:"no google.script"});return}
+ var w=(!quiet&&typeof waitStart==="function")?waitStart(WAITNM[fn]||"處理",function(){run(fn,arg,ok,fail,quiet)}):null;
+ g.withSuccessHandler(function(r){if(w)w.end(r);ok(r)}).withFailureHandler(function(e){if(w)w.fail();if(fail)fail(e)})[fn](arg)}
  function hm(t){t=String(t||"");var i=t.indexOf(":");return i>=2?t.slice(i-2,i+3):t}
 /* ---------- 進入 ---------- */
  function start(){qLoad();if(LB.t||LB.q||LB.s){load(0)}else drawEntry("")}
@@ -101,8 +164,8 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
   if(r.st&&V){W=r.w||W;var sig0=JSON.stringify(V.groups.map(function(g){return g.m.map(function(m){return [m.s,m.pst]})}));V.at=r.at||V.at;V.groups.forEach(function(g){g.m.forEach(function(m){m.s=(r.s&&r.s[m.k])||{};if(r.pst&&r.pst[m.k])m.pst=r.pst[m.k]})});
    if(JSON.stringify(V.groups.map(function(g){return g.m.map(function(m){return [m.s,m.pst]})}))!==sig0||Q.length)draw();return}   /* 沒變就不重畫（不打斷正在按的手） */
   V=r;W=r.w||"";PID=r.pid;if(!GK||!gOf(GK))GK=r.groups.length?r.groups[0].gk:"";draw();startPoll();
-  if(!bg)toast("讀好了（"+((Date.now()-t0)/1000).toFixed(1)+" 秒）","ok",1500)},
- function(e){BUSYLOAD=0;if(!bg)$("app").innerHTML="<div class='card'><div class='warn'>連不上網路，請確認手機有網路後再按一次。</div><button class='pri' onclick='load(0)'>再試一次</button></div>";else OFF=1;drawBar()})}
+  },
+ function(e){BUSYLOAD=0;if(!bg)$("app").innerHTML="<div class='card'><div class='warn'>連不上網路，請確認手機有網路後再按一次。</div><button class='pri' onclick='load(0)'>再試一次</button></div>";else OFF=1;drawBar()},bg)}
  function drawPick(L){var h="<h1>我負責的</h1><div class='card'><b>這一筆報名裡有好幾位負責人，請點您自己：</b>";
  for(var i=0;i<L.length;i++)h+="<div style='margin-top:8px'><button style='width:100%;justify-content:flex-start' data-pid='"+esc(L[i].pid)+"'>"+esc(L[i].nm)+"："+esc(L[i].label)+"</button></div>";
  $("app").innerHTML=h+"</div>";var bs=document.querySelectorAll("[data-pid]");for(var j=0;j<bs.length;j++)bs[j].onclick=function(){PID=this.getAttribute("data-pid");load(0)}}
@@ -180,14 +243,57 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  var us=d.querySelectorAll("[data-pu]");for(j=0;j<us.length;j++)us[j].onclick=function(){var a=this.getAttribute("data-pu").split("|");d.remove();askUndoP(a[0],a[1])}}
 /* ---------- 畫面 ---------- */
  function draw(){if(!V)return;var G=gOf(GK),h="";
+ if(V.demo)h+="<div class='demo' role='note'>"+esc(V.demoMsg||"")+"</div>";   /* ★ 11-22 示範模式橫幅（模組_小組長示範.gs） */
+ if(typeof ckTrialBanner==="function")h+=ckTrialBanner(typeof bNow==="function"?bNow():0);   /* ★ 11-22 試用橫幅（12/25 11:00 正式啟用） */
+ if(typeof brpBtn==="function")h+=brpBtn();   /* ★ 11-21 mike：「我負責的名單｜回報系統」兩顆並列，兩邊都在最上面同一個位置 */
  h+="<div class='row' style='justify-content:space-between'><div><h1>"+esc(V.nm)+"</h1><div class='mut'>"+esc(V.label)+"</div></div><div class='row'><button onclick='dlMenu()'>下載／列印</button>"+(LB.s?"<button id='lgo' onclick='askOut()'>換人／登出</button>":"")+"</div></div>";
  if(V.groups.length>1){h+="<div class='seg' role='tablist'>";V.groups.forEach(function(g){h+="<button class='"+(g.gk===GK?"on":"")+"' data-gk='"+esc(g.gk)+"'>"+esc(g.gid)+(g.xl?"・"+esc(g.xl):"")+(g.ck?"":"（"+esc(g.role)+"）")+"</button>"});h+="</div>"}
- if(typeof brpBtn==="function")h+=brpBtn();
- if(G)h+=drawGroup(G);
+ if(V.groups.length)h+="<button class='ctbtn"+(CTV?" on":"")+"' onclick='ctToggle()' aria-pressed='"+(CTV?"true":"false")+"'>📞 事先聯絡"+(CT?"（已聯絡 "+ctSum().done+"／"+ctSum().all+"）":"")+(CTV?"　← 回名單":"")+"</button>";
+ if(CTV)h+=ctHtml();else if(G)h+=drawGroup(G);
  if(V.work&&V.work.length){h+="<h2>工作事項（動土工作分派）</h2>";V.work.forEach(function(w){h+="<div class='card'><b>"+esc(w.bu)+"・"+esc(w.zu)+"・"+esc(w.job)+"</b>"+(w.what?"<div>"+esc(w.what)+"</div>":"")+(w.note?"<div class='mut'>備註："+esc(w.note)+"</div>":"")+(w.same?"<div class='warn'>工作分派只寫姓名，報名名單有 "+w.same+" 位同名，請確認是不是您。</div>":"")+"</div>"})}
  if(!V.groups.length&&!(V.work&&V.work.length)&&!V.brp)h+="<div class='card'>目前沒有負責的名單。</div>";
  h+="<div class='mut' style='margin-top:16px'>資料時間 "+esc(V.at)+"・自動更新中。"+"有問題請在 LINE 的「參加12/26動土大典群組」提出。</div>";
- $("app").innerHTML=h;wire();drawBar()}
+ $("app").innerHTML=h;wire();if(CTV)ctWire();drawBar()}
+ /* ★ 11-22 寺方本人「小組長的事先聯絡名單請結合 報到系統，不另創EXCEL」（模組_事先聯絡.gs）：同一份組員名單逐一打電話、按 ✓ 已聯絡／聯絡不到／備註；
+    寫入排隊（lctPut，每分鐘併入），同組另一位小組長看得到；60 秒內可以復原 */
+ var CTV=0,CT=null,CTP={},CTU={},CTE="",CTT=null,CTB=0;
+ function ctToggle(){CTV=CTV?0:1;if(CTV){ctLoad();if(!CTT)CTT=setInterval(function(){if(CTV&&document.visibilityState==="visible")ctLoad(1)},30000)}draw();window.scrollTo(0,0)}
+ function ctLoad(bg){if(CTB)return;CTB=1;run("lctLoad",cred(),function(r){CTB=0;if(r&&r.ok){CT=r;draw()}else if(!bg)toast((r&&r.msg)||"讀不到事先聯絡，請再試一次","bad")},function(){CTB=0;if(!bg)toast("連不上網路，請再試一次","bad")},bg?1:0)}
+ function ctX(g,k){var L=CT&&CT.ct[g.gk];if(!L)return {};var x=JSON.parse(JSON.stringify(L.st[k]||{})),p=CTP[L.base+"|"+k];if(p){if(p.st!=null)x.st=p.st==="x"?"":p.st;if(p.note!=null)x.note=p.note;x.pend=1}return x}
+ function ctCnt(g){var c={done:0,no:0,all:0};g.m.forEach(function(m){if(m.x)return;var n=Math.max(1,m.n||1),x=ctX(g,m.k);c.all+=n;if(x.st==="ok")c.done+=n;else if(x.st==="no")c.no+=n});return c}
+ function ctSum(){var t={done:0,all:0};V.groups.forEach(function(g){var c=ctCnt(g);t.done+=c.done;t.all+=c.all});return t}
+ function ctOrd(){var M=(typeof CKSEGM==="object"&&CKSEGM)?Object.keys(CKSEGM):[];function ix(g){var s=(g.stages||[])[0];var i=s?M.indexOf(s.id):-1;return i<0?99:i}return V.groups.slice().sort(function(a,b){return ix(a)-ix(b)})}
+ function ctRel(k){return (CT&&CT.rel&&CT.rel[k])||""}
+ function ctHtml(){var h="<div class='card'><h2 style='margin:0'>📞 事先聯絡</h2><div class='mut'>名單就是報到系統這一份（不另外做 Excel）。逐一打電話，聯絡到了按「✓ 已聯絡」，打不通按「聯絡不到」。同組另一位小組長看得到您按的。</div>";
+  if(CT)h+="<div class='mut'>期限 "+esc(ctDl())+" 前要聯絡到八成以上（日期尚未定案）。</div>";h+="</div>";
+  if(!CT)return h+"<div class='card'>讀取中…</div>";
+  ctOrd().forEach(function(g){var L=CT.ct[g.gk];if(!L)return;var c=ctCnt(g),s0=(g.stages||[])[0];
+   h+="<section class='card ctg'><h3 style='margin:0 0 4px'>"+(s0&&typeof ckSegTag==="function"?ckSegTag(s0.id,"",0)+" ":"")+esc(g.gid)+(g.xl?"・"+esc(g.xl):"")+"</h3>";
+   h+="<div class='ctp' aria-live='polite'>已聯絡 <b>"+c.done+"／"+c.all+"</b>"+(c.no?"・聯絡不到 "+c.no:"")+"</div>"+(L.flag?"<div class='bodb'>⚠ 到期限還不到八成，請加緊聯絡</div>":"");
+   if(!L.w)h+="<div class='mut'>"+(CT.cred?"這一組由小組長聯絡，您看得到進度。":"只輸入姓名進來的只能看。要按「已聯絡」，請用個人小卡 QR、專屬連結或姓名＋電話進來。")+"</div>";
+   g.m.forEach(function(m){if(m.x)return;var x=ctX(g,m.k),rel=ctRel(m.k),cls=x.st==="ok"?" ok":(x.st==="no"?" no":""),id=esc(g.gk)+"|"+esc(m.k),u=CTU[(L.base)+"|"+m.k];
+    h+="<div class='ctm"+cls+"'><div class='row' style='justify-content:space-between;gap:8px'><div class='nm'>"+esc(m.k)+" "+esc(m.nm)+(m.n>1?"<span class='mut' style='font-size:15px'>（一筆 "+m.n+" 位）</span>":"")+"</div>"+(m.ph?"<a class='btn tel' href='tel:"+esc(m.ph)+"' target='_top' aria-label='撥電話給 "+esc(m.nm)+"'>☎ 撥號</a>":"")+"</div>";
+    h+="<details class='ctd'><summary>"+esc([rel?"同行："+rel:(m.n>1?"同行 "+(m.n-1)+" 位":""),m.rm||"",(g.kind==="火車"?"車廂 ":"車號 ")+(m.veh||"未排")].filter(function(z){return !!z}).join("・"))+"</summary>"+
+     "<div>報名者：<b>"+esc(m.k)+" "+esc(m.nm)+"</b></div>"+((m.ps||[]).length?"<div>同行者："+esc((m.ps||[]).join("、"))+"（帶頭報名者 "+esc(m.k)+" "+esc(m.nm)+"）</div>":"")+(rel?"<div>報名表原文（姓名・稱謂）："+esc(rel)+"</div>":"")+
+     "<div>房號："+esc(m.rm||"還沒排")+"</div><div>"+(g.kind==="火車"?"車廂／座位：":"車號：")+esc(m.veh||"未排")+(g.kind==="火車"?"（目前系統沒有排座位號）":"")+"</div></details>";
+    if(x.st||x.note)h+="<div class='mut' style='font-size:15px'>"+(x.st==="ok"?"✓ 已聯絡":(x.st==="no"?"✗ 聯絡不到":""))+(x.note?"・備註："+esc(x.note):"")+(x.pend?"（送出中…）":(x.by?"（"+esc(x.by)+" "+esc(hm(x.at))+"）":""))+"</div>";
+    if(L.w){h+="<div class='tri ct3'><button class='"+(x.st==="ok"?"sok":"")+"' aria-pressed='"+(x.st==="ok")+"' data-ct='"+id+"|ok'>"+(x.st==="ok"?"✓ ":"")+"已聯絡</button><button class='"+(x.st==="no"?"sno":"")+"' aria-pressed='"+(x.st==="no")+"' data-ct='"+id+"|no'>"+(x.st==="no"?"✓ ":"")+"聯絡不到</button><button data-ctn='"+id+"'>備註</button></div>";
+     if(CTE===L.base+"|"+m.k)h+="<div class='ctnote'><label class='mut' for='ctn_"+esc(m.k)+"'>備註（一句話，例：晚 10 分到、改搭火車）</label><input type='text' id='ctn_"+esc(m.k)+"' maxlength='60' value='"+esc(x.note||"")+"'><button class='pri' data-ctsave='"+id+"'>存備註</button></div>";
+     if(u&&Date.now()-u.t<60000)h+="<button class='ctundo' data-ctundo='"+esc(L.base)+"|"+esc(m.k)+"'>按錯了，復原</button>"}
+    h+="</div>"});
+   h+="</section>"});
+  return h}
+ function ctDl(){var d=new Date((CT&&CT.dl||0)+8*3600000);return (d.getUTCMonth()+1)+"/"+d.getUTCDate()+" "+(d.getUTCHours()<10?"0":"")+d.getUTCHours()+":"+(d.getUTCMinutes()<10?"0":"")+d.getUTCMinutes()}
+ function ctOp(){var a="abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789",s="";for(var i=0;i<10;i++)s+=a.charAt(Math.floor(Math.random()*a.length));return s}
+ function ctSend(gk,k,ch,undo){var g=null;V.groups.forEach(function(x){if(x.gk===gk)g=x});if(!g||!CT||!CT.ct[gk])return;var L=CT.ct[gk],bk=L.base+"|"+k,prev=ctX(g,k);
+  if(!undo)CTU[bk]={t:Date.now(),gk:gk,prev:{st:prev.st||"x",note:prev.note||""}};else delete CTU[bk];
+  var p=CTP[bk]=CTP[bk]||{};if(ch.st!=null)p.st=ch.st;if(ch.note!=null)p.note=ch.note;draw();
+  var a=cred();a.gk=gk;a.k=k;a.id=ctOp();if(ch.st!=null)a.st=ch.st;if(ch.note!=null)a.note=ch.note;
+  (function go(n){run("lctPut",a,function(r){if(r&&r.ok){setTimeout(function(){ctLoad(1)},65000)}else if(r&&r.busy&&n<5)setTimeout(function(){go(n+1)},4000);else{delete CTP[bk];toast((r&&r.msg)||"沒有記下來，請再按一次","bad");draw()}},function(){if(n<5)setTimeout(function(){go(n+1)},5000)},1)})(0)}
+ function ctWire(){var a=document.querySelectorAll("[data-ct]"),i;for(i=0;i<a.length;i++)a[i].onclick=function(){var v=this.getAttribute("data-ct").split("|"),st=v.pop(),k=v.pop(),gk=v.join("|"),g=null;V.groups.forEach(function(x){if(x.gk===gk)g=x});var cur=g?ctX(g,k).st:"";ctSend(gk,k,{st:cur===st?"x":st})};
+  a=document.querySelectorAll("[data-ctn]");for(i=0;i<a.length;i++)a[i].onclick=function(){var v=this.getAttribute("data-ctn").split("|"),k=v.pop(),gk=v.join("|");CTE=(CT.ct[gk]||{}).base+"|"+k;draw();var e=$("ctn_"+k);if(e)e.focus()};
+  a=document.querySelectorAll("[data-ctsave]");for(i=0;i<a.length;i++)a[i].onclick=function(){var v=this.getAttribute("data-ctsave").split("|"),k=v.pop(),gk=v.join("|"),e=$("ctn_"+k);CTE="";ctSend(gk,k,{note:e?e.value:""})};
+  a=document.querySelectorAll("[data-ctundo]");for(i=0;i<a.length;i++)a[i].onclick=function(){var bk=this.getAttribute("data-ctundo"),u=CTU[bk];if(!u)return;var k=bk.split("|").pop();ctSend(u.gk,k,{st:u.prev.st,note:u.prev.note},1)}}
  function drawGroup(G){var sid=stgOf(G),c=counts(G,sid),h="";
  h+="<div class='sticky'><div id='bar' class='mut' role='status'></div><div class='mut'>"+esc(G.kind)+"・"+esc(G.gid)+(G.veh?"・"+esc(G.veh):"")+"・"+esc(G.role)+"</div>";
  h+="<div class='seg'>";G.stages.forEach(function(s){h+="<button class='"+(s.id===sid?"on":"")+"' data-st='"+esc(s.id)+"'>"+esc(s.nm)+"</button>"});h+="</div>";
@@ -195,7 +301,7 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  h+="<div class='mut'>"+c.rg+" 筆報名，已到 "+c.ra+" 筆</div>";
  if(G.xl)h+="<div class='mut'>兼任：只在「"+esc(G.xl)+"」這一段、只有坐 "+esc(G.veh||"這台車")+" 的組員。</div>";
  if(G.xn)G.xn.forEach(function(x){if(x.st.indexOf(sid)>=0)h+="<div class='mut'>"+esc(x.t)+"</div>"});
- if(G.ck)h+="<div style='margin-top:6px'><label class='btn pri scan'>掃組員小卡 QR 報到<input type='file' accept='image/*' capture='environment' aria-label='掃組員小卡 QR 報到' onchange='photo(this)'></label></div><div id='smsg' class='mut'></div>";
+ if(G.ck)h+="<div style='margin-top:6px'><button class='pri scan' onclick='scanOpen()'>📷 開鏡頭掃組員小卡 QR</button><label class='btn scan2'>🖼 從相片選取／拍照<input type='file' accept='image/*' capture='environment' aria-label='從相片選取或拍照掃 QR' onchange='photo(this)'></label></div><div id='smsg' class='mut'></div>";   /* ★ 11-22 寺方本人「點選qr code只能讀取圖片，不能開啟鏡頭掃描」：先開後鏡頭即時掃（scanOpen），相片／拍照留著當第二個選項 */
  else h+="<div class='warn'>"+(G.role==="小組長"||G.xl?"只輸入姓名進來的只能看名單。要替組員報到，請重新輸入姓名與電話進來（或掃您自己個人小卡上的 QR）。":"這一組由「"+esc(G.ln||"小組長")+"」負責報到，您看得到進度。")+"</div>";
  h+="<div class='tabs'><button data-f='all' class='"+(FIL==="all"?"on":"")+"'>全部</button><button data-f='no' class='"+(FIL==="no"?"on":"")+"'>未到</button><button data-f='ok' class='"+(FIL==="ok"?"on":"")+"'>已到</button></div></div>";
  h+="<div class='card'>";var shown=0,isH=sid==="h25",ML=isH?rmSort(G.m):G.m,lastRm=null,rmN={};
@@ -264,13 +370,36 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  var BD;function bd(){if(BD!==undefined)return BD;BD=null;try{if(typeof window.BarcodeDetector==="function")BD=new window.BarcodeDetector({formats:["qr_code"]})}catch(e){BD=null}return BD}
  var JQ=0,JQW=[];function jsqr(cb){if(typeof window.jsQR==="function"){cb(true);return}JQW.push(cb);if(JQ===1)return;JQ=1;
  var done=function(g){if(JQ!==1)return;JQ=g?2:0;var w=JQW.splice(0);w.forEach(function(f){try{f(g)}catch(e){}})};
- var s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js";s.onload=function(){done(typeof window.jsQR==="function")};s.onerror=function(){done(false)};document.head.appendChild(s);
+ /* ★ 11-22 寺方本人同意存一份在自己的系統：先載建寺網站上的 jsQR 1.4.0（site/vendor），載不到才用 jsdelivr */
+ var srcs=["https://building.baoyan.org.tw/vendor/jsQR-1.4.0.js","https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"],ld=function(i){if(i>=srcs.length){done(false);return}var s=document.createElement("script");s.src=srcs[i];s.onload=function(){if(typeof window.jsQR==="function")done(true);else ld(i+1)};s.onerror=function(){ld(i+1)};document.head.appendChild(s)};ld(0);
  setTimeout(function(){done(typeof window.jsQR==="function")},10000)}
  function jq(cv){try{var c=cv.getContext("2d"),im=c.getImageData(0,0,cv.width,cv.height),r=window.jsQR(im.data,cv.width,cv.height,{inversionAttempts:"attemptBoth"});return r?String(r.data||""):""}catch(e){return ""}}
  function decode(cv,cb){var b=bd(),viaJ=function(had){jsqr(function(g){cb(g?jq(cv):(had?"":null))})};if(!b){viaJ(0);return}
  try{b.detect(cv).then(function(r){var t=r&&r[0]?String(r[0].rawValue||""):"";if(t)cb(t);else viaJ(1)},function(){viaJ(0)})}catch(e){viaJ(0)}}
  function frame(img,w,h,max,crop){var cw=w*crop,ch=h*crop,sx=(w-cw)/2,sy=(h-ch)/2,sc=Math.min(1,max/Math.max(cw,ch,1)),cv=document.createElement("canvas");
  cv.width=Math.max(1,Math.round(cw*sc));cv.height=Math.max(1,Math.round(ch*sc));cv.getContext("2d").drawImage(img,sx,sy,cw,ch,0,0,cv.width,cv.height);return cv}
+ /* ★ 11-22 即時鏡頭掃 QR：後鏡頭（facingMode environment）＋BarcodeDetector；沒有（iPhone Safari）就 jsQR。
+    Apps Script 頁面（?p=ldr／?p=rpt）在 Google 的框框裡，瀏覽器不准開鏡頭（實測 featurePolicy camera＝false、NotAllowedError）→ 直接講清楚、給拍照／相片；
+    建寺網站版（ldr.html，頂層頁）就能即時掃。 */
+ var CAM=null;
+ function camOk(){try{if(window.top!==window&&document.featurePolicy&&!document.featurePolicy.allowsFeature("camera"))return 0}catch(e){}return !!(window.isSecureContext&&navigator.mediaDevices&&navigator.mediaDevices.getUserMedia)}
+ function camErrTxt(e){var n=e&&e.name||"",ios=/iPhone|iPad|iPod/.test(navigator.userAgent||"");if(/Line.[0-9]|FBAN|FBAV|Instagram/i.test(navigator.userAgent||""))return "這個 App 內建的瀏覽器不能開相機。請按右上角「⋯」→「用 Safari／Chrome 開啟」，再掃一次；或用下面「拍照」。";
+  if(n==="NotAllowedError"||n==="SecurityError"||n==="PermissionDeniedError")return ios?"這支 iPhone 沒有允許網頁用相機。請到「設定 › Safari › 相機」選「允許」，再按一次「開鏡頭掃」；或先用下面「拍照」。":"這支手機沒有允許網頁用相機。請按網址列左邊的鎖頭 › 權限 › 相機 › 允許，再按一次「開鏡頭掃」；或先用下面「拍照」。";
+  if(n==="NotFoundError"||n==="OverconstrainedError")return "這支手機找不到可以用的鏡頭。請用下面「拍照」或「從相片選取」。";if(n==="NotReadableError")return "鏡頭被別的 App 占用中（例如相機、視訊）。請先關掉那個 App 再試一次。";return "鏡頭打不開。請用下面「拍照」或「從相片選取」。"}
+ function scanOpen(){camClose();var d=document.createElement("div");d.id="cam";d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-label","掃組員小卡 QR");var ok=camOk();
+  d.innerHTML="<div class='camin'><div class='camhd'><b>📷 對準組員小卡上的 QR</b><button id='camx'>關閉</button></div>"+(ok?"<video id='camv' playsinline muted autoplay></video>":"")+
+  "<div id='camm' class='camm "+(ok?"mut":"warn")+"' role='status'>"+(ok?"正在開後鏡頭…第一次會問可不可以用相機，請按「允許」。":"這個網址在 Google 的框框裡，瀏覽器不准開即時鏡頭。請用下面「拍照」（會開相機拍一張）或「從相片選取」。")+"</div>"+
+  "<div class='camalt'><label class='btn'>📸 拍照<input type='file' accept='image/*' capture='environment' aria-label='拍照掃 QR' onchange='camClose();photo(this)'></label><label class='btn'>🖼 從相片選取<input type='file' accept='image/*' aria-label='從相片選取 QR' onchange='camClose();photo(this)'></label></div></div>";
+  document.body.appendChild(d);$("camx").onclick=camClose;if(!ok)return;
+  navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:{ideal:"environment"},width:{ideal:1280},height:{ideal:720}}}).then(function(st){if(!$("cam")){st.getTracks().forEach(function(t){t.stop()});return}
+   CAM={st:st,on:1,t0:Date.now()};var v=$("camv");v.srcObject=st;try{var pp=v.play();if(pp&&pp.catch)pp.catch(function(){})}catch(e){}var m=$("camm");m.className="camm mut";m.textContent="把 QR 放在畫面中間，掃到會自動停下來。";camLoop()},
+  function(e){var m=$("camm");if(m){m.className="camm warn";m.textContent=camErrTxt(e)}var v=$("camv");if(v)v.remove()})}
+ function camDec(cv,cb){var b=bd();if(b){try{b.detect(cv).then(function(r){cb(r&&r[0]?String(r[0].rawValue||""):"")},function(){cb("")})}catch(e){cb("")}return}jsqr(function(g){cb(g?jq(cv):null)})}
+ function camLoop(){if(!CAM||!CAM.on)return;var v=$("camv");if(!v||v.readyState<2||!v.videoWidth){setTimeout(camLoop,200);return}
+  camDec(frame(v,v.videoWidth,v.videoHeight,960,1),function(c){if(!CAM||!CAM.on)return;if(c){camClose();smsg("");gotCode(c);return}
+   if(c===null){var m=$("camm");if(m){m.className="camm warn";m.textContent="這支手機沒辦法解讀 QR（解碼工具載不下來，可能網路不通）。請用「拍照」或直接在名單上按「報到」。"}return}setTimeout(camLoop,250)})}
+ function camClose(){if(CAM){CAM.on=0;try{CAM.st.getTracks().forEach(function(t){t.stop()})}catch(e){}CAM=null}var d=$("cam");if(d)d.remove()}
+ document.addEventListener("visibilitychange",function(){if(document.visibilityState!=="visible"&&CAM)camClose()});
  function smsg(t,bad){var e=$("smsg");if(e){e.textContent=t||"";e.className=bad?"warn":"mut"}}
  function photo(inp){var f=inp&&inp.files&&inp.files[0],u="";if(!f){smsg("沒有拿到照片（可能按了取消）。",1);return}smsg("正在讀照片裡的 QR…");
  var reset=function(){try{inp.value=""}catch(e){}try{if(u)URL.revokeObjectURL(u)}catch(e){}},img=new Image();u=URL.createObjectURL(f);
@@ -301,23 +430,31 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
   G.stages.forEach(function(s){var x=m.s&&m.s[s.id];r.push(csvCell(x?hm(x[0])+" 實到"+x[1]:""))});L.push(r.join(","))});L.push("")});
  if(V.work&&V.work.length){L.push("部,組,職務,工作內容,備註");V.work.forEach(function(w){L.push([w.bu,w.zu,w.job,w.what,w.note].map(function(x){return csvCell(x)}).join(","))})}
  var txt=String.fromCharCode(65279)+L.join(CR+NL),b=new Blob([txt],{type:"text/csv;charset=utf-8"}),u=URL.createObjectURL(b),a=document.createElement("a");
- a.href=u;a.download="我負責的名單_"+V.nm+"_"+nowS().slice(0,10)+".csv";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove()},2000);
+ a.href=u;a.download=(V.demo?"示範資料_":"")+"我負責的名單_"+V.nm+"_"+nowS().slice(0,10)+".csv";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove()},2000);
  logDl("下載","CSV："+V.groups.map(function(g){return g.gid}).join("、"));toast("已下載名單","ok")}
- function dlPrint(){var h="<h2>"+esc(V.nm)+" 負責的名單</h2><div>"+esc(V.label)+"・"+esc(V.at)+"</div>";
+ function dlPrint(){var h=(V.demo?"<div><b>"+esc(V.demoMsg||"")+"</b></div>":"")+"<h2>"+esc(V.nm)+" 負責的名單</h2><div>"+esc(V.label)+"・"+esc(V.at)+"</div>";
  V.groups.forEach(function(G){h+="<h3>"+esc(G.gid)+"（"+esc(G.kind)+(G.veh?"・"+esc(G.veh):"")+"）</h3><table class='p'><tr>"+head(G).map(function(x){return "<th>"+esc(x)+"</th>"}).join("")+"</tr>";
   G.m.forEach(function(m){var r=[G.gid,G.kind,G.role,m.nm,(m.ps||[]).join("、"),m.n,m.rm,m.veh];if(V.ph)r.push(m.ph);G.stages.forEach(function(s){var x=m.s&&m.s[s.id];r.push(x?hm(x[0])+" 實到"+x[1]:"")});
    h+="<tr>"+r.map(function(x){return "<td>"+esc(x)+"</td>"}).join("")+"</tr>"});h+="</table>"});
  if(V.work&&V.work.length){h+="<h3>工作事項</h3><table class='p'><tr><th>部</th><th>組</th><th>職務</th><th>工作內容</th></tr>";V.work.forEach(function(w){h+="<tr><td>"+esc(w.bu)+"</td><td>"+esc(w.zu)+"</td><td>"+esc(w.job)+"</td><td>"+esc(w.what)+"</td></tr>"});h+="</table>"}
  $("prt").innerHTML=h;logDl("列印","列印："+V.groups.map(function(g){return g.gid}).join("、"));setTimeout(function(){window.print()},50)}
- function logDl(act,what){var o=cred();o.act=act;o.what=what;run("leaderLogDl",o,function(){},function(){})}
+ function logDl(act,what){var o=cred();o.act=act;o.what=what;run("leaderLogDl",o,function(){},function(){},1)}
  start();
 
- var BP=null,BPS="",BPSEND=0,BPTRY=0,BPRT=null,BPPOLL=null,BPF="all",BPBUSY=0,BPAUTO=0;
+ var BP=null,BPS="",BPSEND=0,BPTRY=0,BPRT=null,BPPOLL=null,BPF="all",BPBUSY=0,BPAUTO=0,BPOK={},BPERR={};
+ /* ★ 11-21 mike「送出回報後沒有顯示已成功送出」：送出成功在那一組（車）上面留一條「✓ 已成功送出（時間）」，失敗／補送中也講出來 */
+ function bKey(u){return BPS+"|"+u.lv+"|"+u.tg}
+ function bNow(){var d=new Date();return (d.getHours()<10?"0":"")+d.getHours()+":"+(d.getMinutes()<10?"0":"")+d.getMinutes()}
+ function bOk(u){var k=bKey(u),x=BPOK[k],e=BPERR[k],q=bq(),h="";if(q&&q.sid===BPS&&q.lv===u.lv&&q.tg===u.tg)h+="<div class='berr' role='status'>"+(BPSEND?"⏳ 送出中，請稍候…":"⚠ 網路不穩，還沒送到。已記在這支手機，會自動再送（第 "+(BPTRY+1)+" 次），這一頁先不要關。")+"</div>";
+  else if(e)h+="<div class='berr' role='alert'>✗ 沒有送出："+esc(e.msg)+"（"+esc(e.at)+"）。請看一下再按「送出回報」。</div>";
+  else if(x)h+="<div class='bok' role='status'>✓ 已成功送出（"+esc(x.at)+"）<div style='font-size:16px;font-weight:400'>"+esc(x.msg)+"</div></div>";return h}
  var BPMK={u:"已上車",n:"未到",s:"自行前往"};
- function brpBtn(){if(!V||!V.brp)return "";var only=!(V.groups&&V.groups.length)&&!(V.work&&V.work.length)&&(V.brp.crew||[]).length>0;if((LB.rpt||only)&&!BPAUTO){BPAUTO=1;setTimeout(brpOpen,0)}var hq=(V.brp.crew||[]).length>0;return "<button class='pri big1' onclick='brpOpen()'>📋 回報系統（"+(hq?"看板":"上車、入住勾選回報")+"）</button>"}
+ function brpBtn(){if(!V||!V.brp)return "";var only=!(V.groups&&V.groups.length)&&!(V.work&&V.work.length)&&(V.brp.crew||[]).length>0;if((LB.rpt||only)&&!BPAUTO){BPAUTO=1;setTimeout(brpOpen,0)}var hq=(V.brp.crew||[]).length>0;return brpSeg(0,hq)}
+ /* ★ 11-21 mike：「我負責的名單｜回報系統」兩顆並列、兩個畫面都在最上面同一個位置（目前這一頁的那一顆是實心） */
+ function brpSeg(on,hq){if(hq===undefined)hq=V&&V.brp&&(V.brp.crew||[]).length>0;return "<div class='bseg' role='tablist' aria-label='切換畫面'><button role='tab' aria-selected='"+(!on)+"' class='"+(on?"":"on")+"' onclick='brpClose()'>📋 我負責的名單</button><button role='tab' aria-selected='"+(!!on)+"' class='"+(on?"on":"")+"' onclick='brpOpen()'>✅ 回報系統"+(hq?"（看板）":"")+"</button></div>"}
  function brpEl(){var d=$("brp");if(!d){d=document.createElement("div");d.id="brp";d.setAttribute("role","dialog");d.setAttribute("aria-label","回報系統");d.innerHTML="<div class='bin' id='bin'></div>";document.body.appendChild(d)}return d}
  function brpOpen(){brpEl().style.display="block";document.body.style.overflow="hidden";if(!BP)$("bin").innerHTML="<div class='card'>讀取中…</div>";if(typeof stopPoll==="function")stopPoll();brpLoad(0);brpPoll()}
- function brpClose(){var d=$("brp");if(d)d.style.display="none";document.body.style.overflow="";if(BPPOLL)clearInterval(BPPOLL);BPPOLL=null;if(V&&typeof startPoll==="function")startPoll()}
+ function brpClose(){var d=$("brp");if(d)d.style.display="none";if(typeof draw==="function"&&V)draw();document.body.style.overflow="";if(BPPOLL)clearInterval(BPPOLL);BPPOLL=null;if(V&&typeof startPoll==="function")startPoll()}
  /* 自動更新：每 8 秒讀 Firebase 的版本號（公開、不含個資、不吃 Apps Script 同時執行數），有變才向後台抓；
     讀不到 Firebase 才退回每 30 秒向後台抓一次（60 位小組長每 15 秒直接打後台＝每秒 4 趟，會吃掉同時 30 個的上限）。
     面板開著時，負責人頁本身的輪詢先停（不重複打）；版本號變了先隨機等 0～6 秒再抓（60 支手機同一秒一起抓會擠爆同時執行數）。 */
@@ -328,8 +465,8 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
   if(BPFF>=2){if(Date.now()-BPLL>=30000){BPLL=Date.now();brpLoad(1)}BPFF=BPFF>=6?2:BPFF;bPeek();return}bPeek()},8000)}
  function brpLoad(bg){if(BPBUSY)return;BPBUSY=1;var o=cred();o.sid=BPS;if(bg&&BP)o.rv=BP.rv;var t0=Date.now();
   run("brpLoad",o,function(r){BPBUSY=0;if(!r||!r.ok){if(!bg)$("bin").innerHTML="<div class='card'><div class='warn' role='alert'>"+esc((r&&r.msg)||"讀不到，請再試一次")+"</div><button onclick='brpClose()'>← 回我負責的</button></div>";return}
-   if(r.same)return;BP=r;BPS=r.sid;if(r.lb)BPMK=r.lb;brpDraw();if(!bg)toast("讀好了（"+((Date.now()-t0)/1000).toFixed(1)+" 秒）","ok",1500);brpResume()},
-  function(){BPBUSY=0;if(!bg)$("bin").innerHTML="<div class='card'><div class='warn'>連不上網路，請確認手機有網路後再按一次。</div><button class='pri' onclick='brpLoad(0)'>再試一次</button> <button onclick='brpClose()'>← 回我負責的</button></div>"})}
+   if(r.same){if(BP&&BP.tl)brpDraw();return}BP=r;BPS=r.sid;if(r.now)BPSKEW=r.now-Date.now();if(r.lb)BPMK=r.lb;brpDraw();brpResume()},
+  function(){BPBUSY=0;if(!bg)$("bin").innerHTML="<div class='card'><div class='warn'>連不上網路，請確認手機有網路後再按一次。</div><button class='pri' onclick='brpLoad(0)'>再試一次</button> <button onclick='brpClose()'>← 回我負責的</button></div>"},bg)}
  /* 草稿：這支手機記著勾到哪裡（只存鍵值|序與標記），送出成功才清 */
  function dk(u){return "brp_d|"+BPS+"|"+u.lv+"|"+u.tg}
  function draft(u){try{return JSON.parse(ls(dk(u))||"{}")||{}}catch(e){return {}}}
@@ -339,58 +476,101 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  function cTxt(c,unk){return "應到 "+c[0]+"：<span class='u'>"+BPMK.u+" "+c[1]+"</span>、<span class='n'>"+BPMK.n+" "+c[2]+"</span>、<span class='s'>"+BPMK.s+" "+c[3]+"</span>"+(c[4]?"、<span class='k'>"+(unk||"還沒勾")+" "+c[4]+"</span>":"")}
  function lastTxt(x,lv){return x?"上次回報 "+esc(hm(x.at))+"（"+esc(x.by)+"）："+BPMK.u+" "+x.c[1]+"、"+BPMK.n+" "+x.c[2]+"、"+BPMK.s+" "+x.c[3]+(x.c[4]?"、還沒回報 "+x.c[4]:""):"這一趟還沒回報"}
  /* ★ 11-18 二層：本人勾＋比對（ok 一致／lo 只有小組長勾／so 只有本人勾／no 兩邊都沒勾／sf 自行前往） */
- var BPX={ok:"✓ 一致",lo:"只有小組長勾",so:"只有本人勾",no:"兩邊都沒勾",sf:"自行前往"};
- function xCls(x){return x==="ok"?"c-ok":(x==="lo"||x==="so"?"c-no":"c-pend")}
- function meLine(p){if(!BP||!BP.self)return "";var t=p.me?"<span class='chip c-ok'>本人 ✓ 已勾 "+esc(hm(p.me))+"</span>":"<span class='chip c-pend'>本人還沒勾</span>";
+ /* ★ 11-21 mike「備註看不懂」：比對字改白話；只有「本人說到了、小組長沒勾已上車」要處理（紅），本人還沒按＝多半忘了按（黃，不用處理） */
+ var BPX={ok:"✓ 兩邊一致",lo:"本人還沒按（不用處理）",so:"本人說到了、小組長沒勾（請確認）",no:"兩邊都還沒勾",sf:"自行前往"};
+ function xCls(x){return x==="ok"?"c-ok":(x==="so"?"c-no":"c-pend")}
+ function bLeg(open){if(!BP||!BP.self)return "";return "<details class='bleg'"+(open?" open":"")+"><summary>顏色是什麼意思？</summary>"+
+  "<div><span class='chip c-ok'>本人 ✓ 已按 09:12</span>＝參加者自己在手機上按了「"+esc(BPMK.u)+"」</div>"+
+  "<div><span class='chip c-pend'>本人還沒按</span>＝參加者自己還沒按（不影響您送出，照現場看到的勾就好）</div>"+
+  "<div><span class='chip c-ok'>比對："+BPX.ok+"</span>＝您勾的跟參加者自己按的一樣</div>"+
+  "<div><span class='chip c-pend'>比對："+BPX.lo+"</span>＝您勾了「"+esc(BPMK.u)+"」，參加者自己還沒按（多半是忘了按）</div>"+
+  "<div><span class='chip c-no'>比對："+BPX.so+"</span>＝參加者自己按了「"+esc(BPMK.u)+"」，但您標「"+esc(BPMK.n)+"」或還沒勾，請確認這位到底到了沒</div>"+
+  "<div class='mut'>以小組長勾的為準；送出後兩邊自動比對。</div></details>"}
+ /* ★ 11-22 本人按「我會晚到／今天自行前往」：小組長在名單上直接看到（模組_報到時段.gs） */
+ function csChip(p){return p.cs?"<span class='chip c-cs'>"+(p.cs.indexOf("自行")>=0?"🚗 ":"🕒 ")+"本人說："+esc(p.cs)+"</span>":""}
+ function meLine(p){if(!BP||!BP.self)return p.cs?"<div class='bme'>"+csChip(p)+"</div>":"";var t=csChip(p)+(p.me?"<span class='chip c-ok'>本人 ✓ 已按 "+esc(hm(p.me))+"</span>":"<span class='chip c-pend'>本人還沒按</span>");
   if(p.s||p.me)t+="<span class='chip "+xCls(p.x)+"'>比對："+BPX[p.x]+"</span>";if(p.ck)t+="<span class='mut'>"+esc(hm(p.ck))+" 已掃碼報到（只是參考）</span>";return "<div class='bme'>"+t+"</div>"}
- function xTxt(xc){if(!xc||!BP||!BP.self)return "";var bad=xc.lo+xc.so;return "<div class='bx' role='status'>比對（小組長勾 × 本人勾）：<b>一致 "+xc.ok+"</b>・"+(bad?"<span class='bad'>":"<span>")+"只有小組長勾 "+xc.lo+"・只有本人勾 "+xc.so+"</span>・兩邊都沒勾 "+xc.no+(xc.sf?"・自行前往 "+xc.sf:"")+"</div>"}
- function xsHtml(L){if(!L||!L.length||!BP.self)return "";var h="<div style='margin-top:8px'><b>兩邊不一致（"+L.length+"）</b></div>";
-  L.forEach(function(p){h+="<div class='bp'><span class='nm' style='font-size:17px'>"+esc(p.nm)+"</span> <span class='chip c-no'>"+BPX[p.x]+"</span><div class='mut'>"+esc(p.gid)+"・"+esc(p.car)+(p.rm?"・房號 "+esc(p.rm):"")+(p.me?"・本人 "+esc(hm(p.me))+" 勾":"")+(p.ph?"・<a href='tel:"+esc(p.ph)+"' target='_top'>☎ 撥電話</a>":"")+"</div></div>"});return h}
- function brpDraw(){if(!BP)return;var h="<div class='bhd'><div class='row' style='justify-content:space-between'><h1 style='margin:0'>回報系統</h1><button onclick='brpClose()'>"+(LB.rpt?"我負責的名單":"← 回我負責的")+"</button></div>";
-  h+="<label class='mut' for='bstg'>趟次</label><select id='bstg' onchange='BPS=this.value;BP.rv=&quot;&quot;;brpLoad(0)'>";BP.stages.forEach(function(s){h+="<option value='"+esc(s.id)+"'"+(s.id===BP.sid?" selected":"")+">"+esc(s.nm)+"</option>"});h+="</select>";
-  h+="<div id='bbar' class='mut' role='status'></div></div>";
+ function xTxt(xc){if(!xc||!BP||!BP.self)return "";return "<div class='bx' role='status'>比對（小組長勾 × 本人自己按）：<b>兩邊一致 "+xc.ok+"</b>・本人還沒按 "+xc.lo+"・"+(xc.so?"<span class='bad'>":"<span>")+"本人說到了、小組長沒勾 "+xc.so+"</span>・兩邊都還沒勾 "+xc.no+(xc.sf?"・自行前往 "+xc.sf:"")+"</div>"}
+ function xsHtml(L){if(!L||!L.length||!BP.self)return "";var h="<div style='margin-top:8px'><b>兩邊不一樣（"+L.length+"）</b></div>";
+  L.forEach(function(p){h+="<div class='bp'><span class='nm' style='font-size:17px'>"+esc(p.nm)+"</span> <span class='chip "+xCls(p.x)+"'>"+BPX[p.x]+"</span><div class='mut'>"+esc(p.gid)+"・"+esc(p.car)+(p.rm?"・房號 "+esc(p.rm):"")+(p.me?"・本人 "+esc(hm(p.me))+" 勾":"")+(p.ph?"・<a href='tel:"+esc(p.ph)+"' target='_top'>☎ 撥電話</a>":"")+"</div></div>"});return h}
+ /* ★ 11-22 20:2x 寺方本人「以時間軸排序…隨時間推進，未回報的項目反紅，以防呆」：時間軸依日期分組、照時間排；過了應回報時間還沒回報＝紅底紅框＋字樣 */
+ var BPONLY=0,BPSKEW=0,BPSCR=0,BPDAY={};
+ function bNow(){return (typeof window.BRPNOW==="number")?window.BRPNOW:Date.now()+BPSKEW}
+ function bHM(ms){var d=new Date(ms+8*3600000);return (d.getUTCHours()<10?"0":"")+d.getUTCHours()+":"+(d.getUTCMinutes()<10?"0":"")+d.getUTCMinutes()}
+ function bDay(ms){var d=new Date(ms+8*3600000);return (d.getUTCMonth()+1)+"/"+d.getUTCDate()}
+ function bDayN(dy){var a=String(dy).split("/");return Number(a[0])*100+Number(a[1])}
+ function bOd(it){return !!(it&&it.due!=null&&!it.rep&&bNow()>=it.due)}
+ function bTlIt(){var L=(BP&&BP.tl)||[];for(var i=0;i<L.length;i++)if(L[i].id===BP.sid)return L[i];return null}
+ function bLb(it){var t=(typeof ckSegLb==="function")?ckSegLb(it.id,"",it.hm||null):it.id;return t+(it.abc?"（"+it.abc+"）":"")}
+ function bSt(it){if(it.rep)return "<span class='chip c-ok'>✓ 已回報 "+esc(it.rep)+"</span>";if(bOd(it))return "<span class='bodl'>⚠ 逾時未回報（"+esc(bHM(it.due))+" 應回報）</span>";
+  if(it.at==null)return "<span class='chip c-pend'>時間未公告（不判逾時）</span>";return "<span class='chip c-pend'>"+(bNow()<it.at?"集合 "+esc(it.hm):"還沒回報")+"・"+esc(bHM(it.due))+" 前回報</span>"}
+ function bTl(){var L=(BP.tl||[]),now=bNow(),td=bDayN(bDay(now)),od=L.filter(bOd),days=[],by={},h="";
+  L.forEach(function(it){if(!by[it.day]){by[it.day]=[];days.push(it.day)}by[it.day].push(it)});
+  h+="<div class='btlhd'><span class='bnowt' aria-live='polite'>🕒 現在 "+esc(bDay(now))+" "+esc(bHM(now))+"</span>"+(od.length?"<span class='bodl'>⚠ 逾時未回報 "+od.length+" 段</span>":"<span class='chip c-ok'>沒有逾時未回報</span>")+
+   "<label class='bonly'><input type='checkbox' id='bonly'"+(BPONLY?" checked":"")+"> 只看未回報</label></div>";
+  var marked=0;
+  days.forEach(function(dy){var its=by[dy],n=bDayN(dy),past=n<td,odn=its.filter(bOd).length,open=BPDAY.hasOwnProperty(dy)?BPDAY[dy]:(!past||odn>0);
+   h+="<details class='btld' data-day='"+esc(dy)+"'"+(open?" open":"")+"><summary>"+esc(dy)+(n===td?"（今天）":(past?"（已過）":""))+(odn?"　<span class='bodl'>逾時 "+odn+"</span>":"")+"</summary>";
+   its.forEach(function(it){if(BPONLY&&it.rep)return;
+    if(!marked&&n===td&&it.at!=null&&it.at>now){h+="<div class='bnow' id='bnowm'>🕒 現在 "+esc(bHM(now))+"</div>";marked=1}
+    h+="<button class='btli sgsel sg-"+esc(it.id)+(it.id===BP.sid?" on":"")+(bOd(it)?" od":"")+"' data-sid='"+esc(it.id)+"' aria-pressed='"+(it.id===BP.sid)+"'><span class='btlt'>"+esc(bLb(it))+"</span>"+bSt(it)+"</button>"});
+   if(!marked&&n===td){h+="<div class='bnow' id='bnowm'>🕒 現在 "+esc(bHM(now))+"</div>";marked=1}
+   h+="</details>"});
+  return "<details class='btl' open><summary>時間軸（點一段看名單、回報）</summary>"+h+"</details>"}
+ function brpDraw(){if(!BP)return;var h="<div class='bhd'>"+brpSeg(1)+(typeof ckTrialBanner==="function"?ckTrialBanner(bNow()):"");
+  if(BP.demo)h+="<div class='demo' role='note'>"+esc(BP.demoMsg||"")+"</div>";   /* ★ 11-22 示範模式橫幅（模組_小組長示範.gs） */
+  var tlh=(BP.tl&&BP.tl.length)?bTl():"";   /* 時間軸放在頂端固定區外面（固定區只留切換鈕＋這一段＋送出狀態，不擋內容） */
+  if(!tlh){h+="<label class='mut' for='bstg'>趟次</label><select id='bstg' class='sgsel sg-"+esc(BP.sid)+"' onchange='BPS=this.value;BP.rv=&quot;&quot;;brpLoad(0)'>";BP.stages.forEach(function(s){h+="<option value='"+esc(s.id)+"'"+(s.id===BP.sid?" selected":"")+">"+esc(s.nm)+"</option>"});h+="</select>"}
+  if(typeof ckSegTag==="function"){var ci=bTlIt();h+="<div style='margin:6px 0'>"+ckSegTag(BP.sid,ci&&ci.abc?ci.abc:"",1,ci?ci.hm||null:null)+(ci&&bOd(ci)?" <span class='bodl'>⚠ 逾時未回報（"+esc(bHM(ci.due))+" 應回報）</span>":"")+"</div>"}   /* ★ 11-22 每一段自己的顏色＋編號＋文字（模組_報到時段.gs） */
+  h+="<div id='bbar' class='mut' role='status'></div></div>"+tlh;
   if(!BP.units.length)h+="<div class='card'>這一趟您沒有要回報的車或小組。</div>";
   BP.units.forEach(function(u,ix){h+=uHtml(u,ix)});
   h+="<div class='mut' style='margin-top:16px'>資料時間 "+esc(BP.at)+"・有人回報就自動更新。有問題請在 LINE 的「參加12/26動土大典群組」提出。</div>";
-  $("bin").innerHTML=h;bWire();bBar()}
- function bBar(){var b=$("bbar");if(!b)return;var q=bq(),t="";if(q)t=(BPSEND?"送出中…":"⚠ 還沒送到（網路或系統忙），會自動重送，這一頁先不要關。");b.textContent=t;b.className=q&&!BPSEND?"warn":"mut";b.style.display=t?"block":"none"}
+  $("bin").innerHTML=h;bWire();bBar();
+  var bo=$("bonly");if(bo)bo.onchange=function(){BPONLY=bo.checked?1:0;brpDraw()};
+  Array.prototype.forEach.call(document.querySelectorAll("#bin .btli"),function(b){b.onclick=function(){BPS=b.getAttribute("data-sid");BP.rv="";brpLoad(0)}});
+  Array.prototype.forEach.call(document.querySelectorAll("#bin details.btld"),function(d){d.addEventListener("toggle",function(){BPDAY[d.getAttribute("data-day")]=d.open})});
+  if(!BPSCR){BPSCR=1;var m=$("bnowm");if(m&&m.scrollIntoView)try{m.scrollIntoView({block:"center"})}catch(e){}}}
+ function bBar(){var b=$("bbar");if(!b)return;var q=bq(),t="";if(q)t=(BPSEND?"⏳ 送出中，請稍候…":"⚠ 網路不穩，還沒送到。已記在這支手機，會自動再送（第 "+(BPTRY+1)+" 次），這一頁先不要關。");b.textContent=t;b.className=q&&!BPSEND?"warn":"mut";b.style.display=t?"block":"none"}
  function uHtml(u,ix){var h="<h2>"+esc(u.title)+"</h2>";
   if(u.locked)return h+"<div class='card'><div class='warn'>"+esc(u.msg)+"</div></div>";
   if(u.mark)return h+markHtml(u,ix);
   if(u.lv==="指揮中心")return h+hqHtml(u,ix);
   return h+sumHtml(u,ix)}
- function markHtml(u,ix){var d=draft(u),c=cnt(u,d),h="<div class='card'>";if(u.sub)h+="<div class='mut'>"+esc(u.sub)+"</div>";
+ function odBanner(u){var ci=bTlIt();return (ci&&!u.last&&ci.due!=null&&bNow()>=ci.due)?"<div class='bodb' role='alert'>⚠ 逾時未回報（"+esc(bHM(ci.due))+" 應回報）：請盡快勾選送出</div>":""}
+ function markHtml(u,ix){var d=draft(u),c=cnt(u,d),h="<div class='card"+(odBanner(u)?" od":"")+"'>"+odBanner(u);if(u.sub)h+="<div class='mut'>"+esc(u.sub)+"</div>";
   h+="<div class='bcnt' aria-live='polite'>"+cTxt(c)+"</div><div class='mut'>"+lastTxt(u.last)+"</div>"+xTxt(u.xc);
-  if(u.xg){h+="<div style='margin-top:6px'><b>本車兼任小組長</b></div>";u.xg.forEach(function(g){h+=tile(g.gid+"（"+g.ln+"）",g.rep,g.c,0,g.xc)})}
-  if(BP.self)h+="<div class='mut'>「本人 ✓」是與會者自己在手機上勾的；您照現場看到的勾，送出後兩邊自動比對。</div>";
+  if(u.xg){h+="<div style='margin-top:6px'><b>本車兼任小組長</b></div>";u.xg.forEach(function(g){h+=tile(g.gid+"（"+g.ln+"）",g.rep,g.c,0,g.xc,g.ct)})}
+  h+=bOk(u)+bLeg(1);
   if(!BP.cred)h+="<div class='warn'>只輸入姓名進來的只能看。要送出回報，請掃您個人小卡上的 QR（或用專屬連結）進來。</div>";
   if(c[4]&&BP.cred)h+="<button style='width:100%;margin-top:8px' data-all='"+ix+"'>其餘還沒勾的 "+c[4]+" 位都是「"+BPMK.u+"」</button>";
   rmSortP(u.ps).forEach(function(p){var v=mOf(u,d,p),lk=p.src==="ck";h+="<div class='bp"+(lk?" lk":"")+"'><div class='nm'>"+esc(p.nm)+"</div><div class='mut'>"+(p.sub?esc(p.sub)+" 同行・":"")+(u.lv==="車"?esc(p.gid):esc(p.car))+(p.rm?"・房號 "+esc(p.rm):"")+(lk?"・"+esc(hm(p.at))+" 已報到":"")+(p.ph&&v!=="u"?"・<a href='tel:"+esc(p.ph)+"' target='_top'>☎ 撥電話</a>":"")+"</div>"+meLine(p);
    if(lk)h+="<div class='btri'><button class='su' disabled>✓ "+BPMK.u+"</button></div>";
    else{h+="<div class='btri' role='group' aria-label='"+esc(p.nm)+"'>";["u","n","s"].forEach(function(k){h+="<button class='"+(v===k?"s"+k:"")+"' aria-pressed='"+(v===k)+"' data-mk='"+ix+"|"+esc(p.pk)+"|"+k+"'"+(BP.cred?"":" disabled")+">"+(v===k?"✓ ":"")+BPMK[k]+"</button>"});h+="</div>"}
    h+="</div>"});
-  if(BP.cred)h+="<button class='pri bsend' data-send='"+ix+"'"+(c[4]||BPSEND?" disabled":"")+">"+(c[4]?"還有 "+c[4]+" 位沒勾":"送出回報（"+c[0]+" 位）")+"</button>";
+  var okx=BPOK[bKey(u)];if(BP.cred)h+="<button class='pri bsend' data-send='"+ix+"'"+(c[4]||BPSEND?" disabled":"")+">"+(c[4]?"還有 "+c[4]+" 位沒勾":(okx&&!Object.keys(d).length?"再送一次（"+esc(okx.at)+" 已成功送出）":"送出回報（"+c[0]+" 位）"))+"</button>";
   return h+"</div>"}
- function sumHtml(u,ix){var h="<div class='card'><div class='bcnt' aria-live='polite'>"+cTxt(u.c,"還沒回報")+"</div><div class='mut'>"+lastTxt(u.last)+"</div>"+xTxt(u.xc);
-  if(u.groups){h+="<div style='margin-top:6px'><b>本車各組</b></div>";u.groups.forEach(function(g){h+=tile(g.gid+(g.ln?"（小組長 "+g.ln+"）":(g.nl?"（沒人帶）":"")),g.rep,g.c,0,g.xc)})}
+ function sumHtml(u,ix){var h="<div class='card'>"+bOk(u)+"<div class='bcnt' aria-live='polite'>"+cTxt(u.c,"還沒回報")+"</div><div class='mut'>"+lastTxt(u.last)+"</div>"+xTxt(u.xc)+bLeg(0);
+  if(u.groups){h+="<div style='margin-top:6px'><b>本車各組</b></div>";u.groups.forEach(function(g){h+=tile(g.gid+(g.ln?"（小組長 "+g.ln+"）":(g.nl?"（沒人帶）":"")),g.rep,g.c,0,g.xc,g.ct)})}
   if(u.hotels)h+=hotHtml(u.hotels);
-  if(u.cars){h+="<div style='margin-top:6px'><b>範圍內的車／車廂</b></div>";u.cars.forEach(function(x){h+=tile(x.car+(x.cap?"（車長 "+x.cap+"）":"（沒有車長：看各組回報 "+x.grep+"/"+x.gn+"）")+(x.nl?"・沒人帶 "+x.nl+" 組":""),x.rep,x.c,!x.hasCap,x.xc)})}
+  if(u.cars){h+="<div style='margin-top:6px'><b>範圍內的車／車廂</b></div>";u.cars.forEach(function(x){h+=tile(x.car+(x.cap?"（車長 "+x.cap+"）":"（沒有車長：看各組回報 "+x.grep+"/"+x.gn+"）")+(x.nl?"・沒人帶 "+x.nl+" 組":""),x.rep,x.c,!x.hasCap,x.xc,x.ct)})}
   h+=xsHtml(u.xs)+missHtml(u.ps);
   if(BP.cred)h+="<label class='mut' for='bnote"+ix+"' style='display:block;margin-top:10px'>備註（可不填）</label><textarea id='bnote"+ix+"' maxlength='200'></textarea><button class='pri bsend' data-send='"+ix+"'"+(BPSEND?" disabled":"")+">送出"+(u.lv==="領隊"?"領隊":"本車")+"回報</button>";
   else h+="<div class='warn'>只輸入姓名進來的只能看。要送出回報，請掃您個人小卡上的 QR 進來。</div>";
   return h+"</div>"}
- function tile(t,rep,c,auto,xc){var cls=c[2]?"no":(c[4]?"pd":"ok");return "<div class='btile "+cls+"'><div><div class='nm' style='font-size:17px'>"+esc(t)+"</div><div class='mut'>"+(rep?"已回報 "+esc(hm(rep.at))+"・"+esc(rep.by):(auto?"各組回報合計":"還沒回報"))+"</div></div><div style='text-align:right;white-space:nowrap'><b>"+c[1]+"/"+c[0]+"</b><div class='mut'>"+[c[2]?"未到 "+c[2]:"",c[4]?"未回 "+c[4]:"",xc&&BP&&BP.self&&(xc.lo+xc.so)?"不一致 "+(xc.lo+xc.so):""].filter(function(x){return !!x}).join("・")+"</div></div></div>"}
+ function ctLine(ct){if(!ct||!ct.all)return "";return "<div class='mut' style='font-size:15px'>📞 事先聯絡 "+ct.done+"／"+ct.all+(ct.no?"・聯絡不到 "+ct.no:"")+(ct.flag?" <span class='bodl'>⚠ 未達八成</span>":"")+"</div>"}
+ function tile(t,rep,c,auto,xc,ct){var cls=c[2]?"no":(c[4]?"pd":"ok"),ci=bTlIt(),od=!rep&&!auto&&ci&&ci.due!=null&&bNow()>=ci.due;if(od)cls+=" od";return "<div class='btile "+cls+"'><div><div class='nm' style='font-size:17px'>"+esc(t)+"</div><div class='mut'>"+(rep?"已回報 "+esc(hm(rep.at))+"・"+esc(rep.by):(auto?"各組回報合計":(od?"<span class='bodl'>⚠ 逾時未回報（"+esc(bHM(ci.due))+" 應回報）</span>":"還沒回報")))+"</div>"+ctLine(ct)+"</div><div style='text-align:right;white-space:nowrap'><b>"+c[1]+"/"+c[0]+"</b><div class='mut'>"+[c[2]?"未到 "+c[2]:"",c[4]?"未回 "+c[4]:"",xc&&BP&&BP.self&&(xc.lo+xc.so)?"不一致 "+(xc.lo+xc.so):""].filter(function(x){return !!x}).join("・")+"</div></div></div>"}
  function missHtml(L){if(!L||!L.length)return "<div class='mut' style='margin-top:8px'>沒有未到的人。</div>";var h="<div style='margin-top:8px'><b>還沒"+(BPMK.u==="已入住"?"入住":"上車")+"的人（"+L.length+"）</b></div>";
   L.forEach(function(p){h+="<div class='bp'><span class='nm' style='font-size:17px'>"+esc(p.nm)+"</span> <span class='chip "+(p.s==="n"?"c-no":(p.s==="s"?"c-pend":"c-pend"))+"'>"+(p.s?BPMK[p.s]:"還沒回報")+"</span><div class='mut'>"+esc(p.gid)+"・"+esc(p.car)+(p.rm?"・房號 "+esc(p.rm):"")+(p.why?"・"+esc(p.why):"")+(p.ph?"・<a href='tel:"+esc(p.ph)+"' target='_top'>☎ 撥電話</a>":"")+"</div></div>"});return h}
  function hotHtml(L){var h="<div style='margin-top:6px'><b>各飯店</b></div>";L.forEach(function(x){h+=tile(x.h,null,x.c,1,x.xc)});return h}
- function hqHtml(u,ix){var h="<div class='card'><div class='bcnt' aria-live='polite'>"+cTxt(u.c,"還沒回報")+"</div>"+xTxt(u.xc);if(u.hotels)h+=hotHtml(u.hotels);
+ function hqHtml(u,ix){var h="<div class='card'><div class='bcnt' aria-live='polite'>"+cTxt(u.c,"還沒回報")+"</div>"+xTxt(u.xc)+bLeg(0);if(u.hotels)h+=hotHtml(u.hotels);
   var nr=u.cars.filter(function(x){return x.hasCap&&!x.rep}).length,no=u.cars.filter(function(x){return x.c[2]}).length;
   h+="<div class='mut'>"+u.cars.length+" 台車／車廂・有未到 "+no+" 台・車長還沒回報 "+nr+" 台</div>";
   h+="<div class='tabs'><button data-bf='all' class='"+(BPF==="all"?"on":"")+"'>全部</button><button data-bf='no' class='"+(BPF==="no"?"on":"")+"'>有未到</button><button data-bf='nr' class='"+(BPF==="nr"?"on":"")+"'>還沒回報</button></div>";
-  u.cars.forEach(function(x){if(BPF==="no"&&!x.c[2])return;if(BPF==="nr"&&(x.rep||!x.hasCap)&&!(BPF==="nr"&&!x.hasCap&&x.c[4]))return;h+=tile(x.car+(x.cap?"（車長 "+x.cap+"）":""),x.rep,x.c,!x.hasCap,x.xc)});
+  u.cars.forEach(function(x){if(BPF==="no"&&!x.c[2])return;if(BPF==="nr"&&(x.rep||!x.hasCap)&&!(BPF==="nr"&&!x.hasCap&&x.c[4]))return;h+=tile(x.car+(x.cap?"（車長 "+x.cap+"）":""),x.rep,x.c,!x.hasCap,x.xc,x.ct)});
   if(u.leads&&u.leads.length){h+="<div style='margin-top:10px'><b>各領隊</b></div>";u.leads.forEach(function(L){h+="<div class='btile "+(L.rep?"ok":"pd")+"'><div><div class='nm' style='font-size:17px'>"+esc(L.nm)+"（"+esc(L.scope)+"）</div><div class='mut'>"+(L.rep?"已回報 "+esc(hm(L.rep.at))+"：已上車 "+L.rep.c[1]+"/"+L.rep.c[0]+"、未到 "+L.rep.c[2]:"還沒回報")+"</div></div></div>"})}
   h+=xsHtml(u.xs)+missHtml(u.ps);return h+"</div>"}
- function bWire(){var a=document.querySelectorAll("#brp [data-mk]"),i;for(i=0;i<a.length;i++)a[i].onclick=function(){var x=this.getAttribute("data-mk").split("|"),u=BP.units[Number(x[0])],pk=x[1]+"|"+x[2],k=x[3],d=draft(u);if(d[pk]===k)delete d[pk];else d[pk]=k;setDraft(u,d);var b=$("brp").scrollTop;brpDraw();$("brp").scrollTop=b};
+ function bWire(){var a=document.querySelectorAll("#brp [data-mk]"),i;for(i=0;i<a.length;i++)a[i].onclick=function(){var x=this.getAttribute("data-mk").split("|"),u=BP.units[Number(x[0])],pk=x[1]+"|"+x[2],k=x[3],d=draft(u);delete BPOK[bKey(u)];delete BPERR[bKey(u)];if(d[pk]===k)delete d[pk];else d[pk]=k;setDraft(u,d);var b=$("brp").scrollTop;brpDraw();$("brp").scrollTop=b};
   a=document.querySelectorAll("#brp [data-all]");for(i=0;i<a.length;i++)a[i].onclick=function(){var u=BP.units[Number(this.getAttribute("data-all"))],d=draft(u);u.ps.forEach(function(p){if(p.src!=="ck"&&!mOf(u,d,p))d[p.pk]="u"});setDraft(u,d);var b=$("brp").scrollTop;brpDraw();$("brp").scrollTop=b};
   a=document.querySelectorAll("#brp [data-send]");for(i=0;i<a.length;i++)a[i].onclick=function(){bAsk(Number(this.getAttribute("data-send")))};
   a=document.querySelectorAll("#brp [data-bf]");for(i=0;i<a.length;i++)a[i].onclick=function(){BPF=this.getAttribute("data-bf");brpDraw()}}
@@ -416,10 +596,10 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  function bLater(){var R=[1000,2000,4000,8000,15000,30000],ms=R[Math.min(BPTRY,R.length-1)];BPTRY++;if(BPRT)clearTimeout(BPRT);BPRT=setTimeout(function(){BPRT=null;bFlush()},ms);bBar()}
  function bFlush(){var op=bq();if(!op||BPSEND)return;BPSEND=1;bBar();var o=cred(),k;for(k in op)o[k]=op[k];
   run("brpSubmit",o,function(r){BPSEND=0;
-   if(r&&r.ok){bq(null);BPTRY=0;var u=null;BP.units.forEach(function(x){if(x.lv===op.lv&&x.tg===op.tg)u=x});if(u&&u.mark)ls("brp_d|"+op.sid+"|"+op.lv+"|"+op.tg,null);toast((r.again?"已補送：":"")+r.msg+(r.ck&&r.ck.busy?"（報到稍後自動補上）":""),"ok",5000);BP.rv="";brpLoad(0);run("brpKick",{},function(){},function(){});return}
+   if(r&&r.ok){bq(null);BPTRY=0;var ok0=op.sid+"|"+op.lv+"|"+op.tg;BPOK[ok0]={at:bNow(),msg:(r.again?"（剛剛補送的）":"")+r.msg};delete BPERR[ok0];var u=null;BP.units.forEach(function(x){if(x.lv===op.lv&&x.tg===op.tg)u=x});if(u&&u.mark)ls("brp_d|"+op.sid+"|"+op.lv+"|"+op.tg,null);toast((r.again?"已補送：":"")+r.msg+(r.ck&&r.ck.busy?"（報到稍後自動補上）":""),"ok",5000);BP.rv="";brpLoad(0);run("brpKick",{},function(){},function(){},1);return}
    if(r&&(r.busy||r.retry)){bLater();return}
    if(r&&r.partial){bq(null);var ix=-1;BP.units.forEach(function(x,j){if(x.lv===op.lv&&x.tg===op.tg)ix=j});if(ix>=0)bAsk(ix,r.msg);return}
-   bq(null);toast((r&&r.msg)||"沒有送出，請再試一次","bad",7000);BP.rv="";brpLoad(0)},
+   bq(null);BPERR[op.sid+"|"+op.lv+"|"+op.tg]={at:bNow(),msg:(r&&r.msg)||"沒有送出，請再試一次"};toast((r&&r.msg)||"沒有送出，請再試一次","bad",7000);BP.rv="";brpLoad(0)},
   function(){BPSEND=0;bLater()})}
 
 /* ===== 建寺網站靜態版（主控台/產生負責人靜態頁.mjs 產生，不要手改）：只換「身分從 # 讀」與「怎麼叫後台」 ===== */
@@ -459,7 +639,7 @@ function ckwPost(calls,ok,fail){var ac=window.AbortController?new AbortControlle
  fetch(CKW_EXEC+"?p=lrpc",{method:"POST",body:JSON.stringify(calls),signal:ac?ac.signal:undefined})
  .then(function(r){return r.json()}).then(function(R){clearTimeout(to);if(!R||!R.ok||!R.out){fail({message:(R&&R.msg)||"後台沒有回應"});return}ok(R)},
   function(e){clearTimeout(to);fail({message:String(e&&e.message||e)})})}
-function run(fn,arg,ok,fail){arg=arg||{};ok=ok||function(){};var now=Date.now(),bg=fn==="leaderLoad"&&("w" in arg),fbShown=0,fresh=0,k;
+function run(fn,arg,ok,fail,quiet){arg=arg||{};ok=ok||function(){};var now=Date.now(),bg=fn==="leaderLoad"&&("w" in arg),fbShown=0,fresh=0,k;
  if(bg){delete arg.sx;if(arg.w&&now-CKW_BG<15000){setTimeout(function(){ok({ok:true,same:1,w:arg.w})},0);return}CKW_BG=now}
  if(fn==="brpLoad"&&!arg.rv&&CKW_PF&&now-CKW_PF.at<60000&&CKW_PF.c===ckwCred({t:arg.t,q:arg.q,s:arg.s,nm:arg.nm})&&(!arg.pid||arg.pid===CKW_PF.r.pid)&&(!arg.sid||arg.sid===CKW_PF.r.sid)){var pr=CKW_PF.r;CKW_PF=null;setTimeout(function(){ok(pr)},0);return}
  var calls=[[fn,arg]],pf=fn==="leaderLoad"&&!bg&&LB.rpt;
