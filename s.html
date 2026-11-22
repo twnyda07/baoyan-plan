@@ -60,6 +60,11 @@ h1{font-size:1.4rem;color:var(--by-gold-bright);letter-spacing:.08em;font-weight
   <p class="sub">本頁僅供動土大典工作人員使用，未列於官網任何導覽與頁尾，敬請勿轉貼公開。</p>
 
   <!-- 小組長報到：姓名＋電話（對上報名資料才進得去；後台 模組_小組長報到.gs leaderNP，doPost p=ldrnp） -->
+  <div class="ldr" id="ldr_closed_note" style="padding:18px 20px">
+    <h2>小組長報到</h2>
+    <p class="hint">示範版準備中，完成後開放給小組長以「示範資料」練習；真正名單於 12/1 公告後開放。</p>
+  </div>
+  <div hidden>
   <form class="ldr" id="ldrf" novalidate autocomplete="off">
     <h2>小組長報到</h2>
     <p class="hint">小組長、車長請輸入姓名與報名時填的電話，進去就看得到自己負責的組員，可以報到、撥電話。</p>
@@ -70,6 +75,7 @@ h1{font-size:1.4rem;color:var(--by-gold-bright);letter-spacing:.08em;font-weight
     <button type="submit" id="ldr_go">進入小組長報到</button>
     <div class="msg" id="ldr_msg" role="alert" aria-live="assertive"></div>
   </form>
+  </div>
 
   <a class="card" href="https://script.google.com/macros/s/AKfycbyxgmpID1zRAxC5YiJyc_zaFWIww5lDov0ph07CT6HqBvTNAPiY1gLklPnX3BSjE8ag/exec?p=admin" target="_blank" rel="noopener nofollow">
     <b>分派主控台　工作人員後台</b>
