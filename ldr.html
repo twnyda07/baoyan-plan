@@ -1,4 +1,4 @@
-<!doctype html><!-- 主控台/產生負責人靜態頁.mjs 產生，不要手改；來源 LDR_APP_HTML_ 指紋 1bcc8badb51fbe8e --><html lang="zh-Hant"><head><title>動土大典　我負責的</title><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+<!doctype html><!-- 主控台/產生負責人靜態頁.mjs 產生，不要手改；來源 LDR_APP_HTML_ 指紋 8bf95d14fdccce51 --><html lang="zh-Hant"><head><title>動土大典　我負責的</title><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
 :root{--bg:#F4F0E6;--card:#FFFDF8;--ink:#26221C;--mut:#5B5448;--line:#DDD5C4;--acc:#1F3A5F;--ok:#2B6A3D;--okbg:#E7F1E8;--warn:#8A4B00;--wbg:#FBF0DC;--bad:#9E2A2A;--bbg:#F8E6E3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"PingFang TC","Noto Sans TC",sans-serif;font-size:17px;line-height:1.5}
 #app{max-width:720px;margin:0 auto;padding:12px 16px 120px}
@@ -455,7 +455,7 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  var BP=null,BPS="",BPSEND=0,BPTRY=0,BPRT=null,BPPOLL=null,BPF="all",BPBUSY=0,BPAUTO=0,BPOK={},BPERR={};
  /* ★ 11-21 mike「送出回報後沒有顯示已成功送出」：送出成功在那一組（車）上面留一條「✓ 已成功送出（時間）」，失敗／補送中也講出來 */
  function bKey(u){return BPS+"|"+u.lv+"|"+u.tg}
- function bNow(){var d=new Date();return (d.getHours()<10?"0":"")+d.getHours()+":"+(d.getMinutes()<10?"0":"")+d.getMinutes()}
+ /* ★ 11-23：這裡原本有一支回傳「HH:MM」的 bNow，被下面時間軸那一支（回傳毫秒）蓋掉 → 「✓ 已成功送出（1798…）」印出一串數字。改成兩處都用 bHM(bNow()) */
  function bOk(u){var k=bKey(u),x=BPOK[k],e=BPERR[k],q=bq(),h="";if(q&&q.sid===BPS&&q.lv===u.lv&&q.tg===u.tg)h+="<div class='berr' role='status'>"+(BPSEND?"⏳ 送出中，請稍候…":"⚠ 網路不穩，還沒送到。已記在這支手機，會自動再送（第 "+(BPTRY+1)+" 次），這一頁先不要關。")+"</div>";
   else if(e)h+="<div class='berr' role='alert'>✗ 沒有送出："+esc(e.msg)+"（"+esc(e.at)+"）。請看一下再按「送出回報」。</div>";
   else if(x)h+="<div class='bok' role='status'>✓ 已成功送出（"+esc(x.at)+"）<div style='font-size:16px;font-weight:400'>"+esc(x.msg)+"</div></div>";return h}
@@ -646,10 +646,10 @@ table.p{border-collapse:collapse;width:100%;font-size:13px}table.p td,table.p th
  function bLater(){var R=[1000,2000,4000,8000,15000,30000],ms=R[Math.min(BPTRY,R.length-1)];BPTRY++;if(BPRT)clearTimeout(BPRT);BPRT=setTimeout(function(){BPRT=null;bFlush()},ms);bBar()}
  function bFlush(){var op=bq();if(!op||BPSEND)return;BPSEND=1;bBar();var o=cred(),k;for(k in op)o[k]=op[k];
   run("brpSubmit",o,function(r){BPSEND=0;
-   if(r&&r.ok){bq(null);BPTRY=0;var ok0=op.sid+"|"+op.lv+"|"+op.tg;BPOK[ok0]={at:bNow(),msg:(r.again?"（剛剛補送的）":"")+r.msg};delete BPERR[ok0];var u=null;BP.units.forEach(function(x){if(x.lv===op.lv&&x.tg===op.tg)u=x});if(u&&u.mark)ls("brp_d|"+op.sid+"|"+op.lv+"|"+op.tg,null);toast((r.again?"已補送：":"")+r.msg+(r.ck&&r.ck.busy?"（報到稍後自動補上）":""),"ok",5000);BP.rv="";BPFRESH=1;brpLoad(0);run("brpKick",{},function(){},function(){},1);return}
+   if(r&&r.ok){bq(null);BPTRY=0;var ok0=op.sid+"|"+op.lv+"|"+op.tg;BPOK[ok0]={at:bHM(bNow()),msg:(r.again?"（剛剛補送的）":"")+r.msg};delete BPERR[ok0];var u=null;BP.units.forEach(function(x){if(x.lv===op.lv&&x.tg===op.tg)u=x});if(u&&u.mark)ls("brp_d|"+op.sid+"|"+op.lv+"|"+op.tg,null);toast((r.again?"已補送：":"")+r.msg+(r.ck&&r.ck.busy?"（報到稍後自動補上）":""),"ok",5000);BP.rv="";BPFRESH=1;brpLoad(0);run("brpKick",{},function(){},function(){},1);return}
    if(r&&(r.busy||r.retry)){bLater();return}
    if(r&&r.partial){bq(null);var ix=-1;BP.units.forEach(function(x,j){if(x.lv===op.lv&&x.tg===op.tg)ix=j});if(ix>=0)bAsk(ix,r.msg);return}
-   bq(null);BPERR[op.sid+"|"+op.lv+"|"+op.tg]={at:bNow(),msg:(r&&r.msg)||"沒有送出，請再試一次"};toast((r&&r.msg)||"沒有送出，請再試一次","bad",7000);BP.rv="";brpLoad(0)},
+   bq(null);BPERR[op.sid+"|"+op.lv+"|"+op.tg]={at:bHM(bNow()),msg:(r&&r.msg)||"沒有送出，請再試一次"};toast((r&&r.msg)||"沒有送出，請再試一次","bad",7000);BP.rv="";brpLoad(0)},
   function(){BPSEND=0;bLater()})}
 
 /* ===== 建寺網站靜態版（主控台/產生負責人靜態頁.mjs 產生，不要手改）：只換「身分從 # 讀」與「怎麼叫後台」 ===== */
